@@ -21,8 +21,8 @@ export default async function seedMultivac({ container }: ExecArgs) {
 
   // ─── REGION ───────────────────────────────────────────────────────────────
   logger.info("Creating region...")
-  const existingRegions = await regionModule.listRegions({ name: "Europe" })
-  const region = existingRegions[0] ?? (await regionModule.createRegions([
+  const allRegions = await regionModule.listRegions()
+  const region = allRegions[0] ?? (await regionModule.createRegions([
     {
       name: "Europe",
       currency_code: "eur",
