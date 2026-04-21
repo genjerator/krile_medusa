@@ -16,7 +16,23 @@ module.exports = defineConfig({
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
     },
   },
-  modules: redisUrl ? [
+  modules: [
+    {
+      resolve: "@medusajs/medusa/file",
+      options: {
+        providers: [
+          {
+            resolve: "@medusajs/file-local",
+            id: "local",
+            options: {
+              upload_dir: "static",
+              backend_url: `${process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL || "http://localhost:9000"}/static`,
+            },
+          },
+        ],
+      },
+    },
+    ...(redisUrl ? [
     {
       resolve: "@medusajs/medusa/event-bus-redis",
       options: {
@@ -59,5 +75,6 @@ module.exports = defineConfig({
         ],
       },
     },
-  ] : [],
+    ] : []),
+  ],
 })

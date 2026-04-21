@@ -84,10 +84,15 @@ export default async function seedMultivac({ container }: ExecArgs) {
     const { data: found } = await query.graph({
       entity: "product",
       filters: { handle: data.handle! },
-      fields: ["id", "variants.*"],
+      fields: ["id", "variants.*", "images.*"],
     })
     if (found[0]) {
-      logger.info(`Product "${data.handle}" already exists, skipping.`)
+      if (data.images?.length && (!found[0].images || found[0].images.length === 0)) {
+        logger.info(`Product "${data.handle}" exists but has no images — updating.`)
+        await productModule.updateProducts([{ id: found[0].id, images: data.images }])
+      } else {
+        logger.info(`Product "${data.handle}" already exists, skipping.`)
+      }
       return found[0] as any
     }
     const [created] = await productModule.createProducts([data])
