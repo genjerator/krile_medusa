@@ -14,8 +14,9 @@
   ],
   "scripts": {
     "build": "medusa build",
-    "predeploy": "medusa db:migrate && medusa user -e your@email.com -p yourpassword",
+    "predeploy": "medusa db:migrate && medusa exec ./src/scripts/seed-multivac.ts",
     "seed": "medusa exec ./src/scripts/seed.ts",
+    "seed:multivac": "medusa exec ./src/scripts/seed-multivac.ts",
     "start": "medusa start",
     "dev": "medusa develop",
     "test:integration:http": "TEST_TYPE=integration:http NODE_OPTIONS=--experimental-vm-modules jest --silent=false --runInBand --forceExit",
