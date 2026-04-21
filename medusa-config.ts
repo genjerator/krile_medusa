@@ -2,10 +2,12 @@ import { loadEnv, defineConfig, Modules } from '@medusajs/framework/utils'
 
 loadEnv(process.env.NODE_ENV || 'development', process.cwd())
 
+const redisUrl = process.env.REDIS_URL
+
 module.exports = defineConfig({
   projectConfig: {
     databaseUrl: process.env.DATABASE_URL,
-    redisUrl: process.env.REDIS_URL,
+    redisUrl,
     http: {
       storeCors: process.env.STORE_CORS!,
       adminCors: process.env.ADMIN_CORS!,
@@ -14,11 +16,11 @@ module.exports = defineConfig({
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
     },
   },
-  modules: [
+  modules: redisUrl ? [
     {
       resolve: "@medusajs/medusa/event-bus-redis",
       options: {
-        redisUrl: process.env.REDIS_URL,
+        redisUrl,
         jobOptions: {
           removeOnComplete: { age: 3600, count: 1000 },
           removeOnFail: { age: 3600, count: 1000 },
@@ -28,9 +30,7 @@ module.exports = defineConfig({
     {
       resolve: "@medusajs/medusa/workflow-engine-redis",
       options: {
-        redis: {
-          redisUrl: process.env.REDIS_URL,
-        },
+        redis: { redisUrl },
       },
     },
     {
@@ -40,10 +40,8 @@ module.exports = defineConfig({
           {
             resolve: "@medusajs/caching-redis",
             id: "caching-redis",
-            options: {
-              redisUrl: process.env.REDIS_URL,
-            },
             is_default: true,
+            options: { redisUrl },
           },
         ],
       },
@@ -55,13 +53,11 @@ module.exports = defineConfig({
           {
             resolve: "@medusajs/medusa/locking-redis",
             id: "locking-redis",
-            options: {
-              redisUrl: process.env.REDIS_URL,
-            },
             is_default: true,
+            options: { redisUrl },
           },
         ],
       },
     },
-  ],
+  ] : [],
 })
