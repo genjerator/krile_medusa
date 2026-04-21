@@ -14,7 +14,7 @@
   ],
   "scripts": {
     "build": "medusa build",
-    "predeploy": "medusa db:migrate && medusa exec ./src/scripts/create-admin.ts && medusa exec ./src/scripts/seed-multivac.ts",
+    "predeploy": "medusa db:migrate && medusa user -e your@email.com -p yourpasswordxxx",
     "seed": "medusa exec ./src/scripts/seed.ts",
     "seed:multivac": "medusa exec ./src/scripts/seed-multivac.ts",
     "start": "medusa start",
