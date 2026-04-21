@@ -4,6 +4,7 @@ import {
   ISalesChannelModuleService,
   IPricingModuleService,
   IRegionModuleService,
+  CreateProductDTO,
 } from "@medusajs/framework/types"
 import { ContainerRegistrationKeys, Modules } from "@medusajs/framework/utils"
 
@@ -79,7 +80,7 @@ export default async function seedMultivac({ container }: ExecArgs) {
 
   const tagIds = tags.map((t) => ({ id: t.id }))
 
-  const upsertProduct = async (data: Parameters<typeof productModule.createProducts>[0][0]) => {
+  const upsertProduct = async (data: CreateProductDTO) => {
     const { data: found } = await query.graph({
       entity: "product",
       filters: { handle: data.handle! },
