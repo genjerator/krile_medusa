@@ -80,7 +80,7 @@ export default async function seedMultivac({ container }: ExecArgs) {
 
   const tagIds = tags.map((t) => ({ id: t.id }))
 
-  const upsertProduct = async (data: CreateProductDTO) => {
+  const upsertProduct = async (data: CreateProductDTO & Record<string, any>) => {
     const { data: found } = await query.graph({
       entity: "product",
       filters: { handle: data.handle! },
