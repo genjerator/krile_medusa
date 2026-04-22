@@ -14,7 +14,7 @@
   ],
   "scripts": {
     "build": "medusa build",
-    "predeploy": "medusa db:migrate && medusa exec ./src/scripts/create-admin.js && medusa exec ./src/scripts/seed-multivac.js",
+    "predeploy": "medusa db:migrate && medusa exec ./src/scripts/create-admin.js && medusa exec ./src/scripts/seed-multivac.js && medusa exec ./src/scripts/seed-tabletop.js",
     "seed": "medusa exec ./src/scripts/seed.ts",
     "seed:multivac": "medusa exec ./src/scripts/seed-multivac.ts",
     "seed:tabletop": "medusa exec ./src/scripts/seed-tabletop.ts",
