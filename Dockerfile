@@ -12,7 +12,7 @@ FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-RUN NODE_OPTIONS="--max-old-space-size=1536" pnpm build
+RUN NODE_OPTIONS="--max-old-space-size=4096" pnpm build
 
 # --- Runner ---
 FROM base AS runner
