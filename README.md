@@ -42,6 +42,77 @@ Visit the [Quickstart Guide](https://docs.medusajs.com/learn/installation) to se
 
 Visit the [Docs](https://docs.medusajs.com/learn/installation#get-started) to learn more about our system requirements.
 
+## How to Start the Project
+
+### Prerequisites
+
+- Node.js >= 20
+- pnpm >= 10
+- PostgreSQL
+- Redis
+
+### 1. Install dependencies
+
+```bash
+pnpm install
+```
+
+### 2. Configure environment variables
+
+Copy the template and fill in your values:
+
+```bash
+cp .env.template .env
+```
+
+Open `.env` and set at minimum:
+
+```env
+DATABASE_URL=postgres://user:password@localhost:5432/medusa-v2
+REDIS_URL=redis://localhost:6379
+JWT_SECRET=your-secret
+COOKIE_SECRET=your-secret
+STORE_CORS=http://localhost:8000
+ADMIN_CORS=http://localhost:5173,http://localhost:9000
+AUTH_CORS=http://localhost:5173,http://localhost:9000
+```
+
+### 3. Run database migrations
+
+```bash
+pnpm medusa db:migrate
+```
+
+### 4. (Optional) Seed the database
+
+```bash
+# Default seed
+pnpm seed
+
+# Multivac machines seed
+pnpm seed:multivac
+
+# Tabletop machines seed
+pnpm seed:tabletop
+```
+
+### 5. Start the server
+
+**Development mode** (with hot reload):
+
+```bash
+pnpm dev
+```
+
+**Production mode**:
+
+```bash
+pnpm build
+pnpm start
+```
+
+The Medusa backend will be available at `http://localhost:9000` and the admin dashboard at `http://localhost:9000/app`.
+
 ## What is Medusa
 
 Medusa is a set of commerce modules and tools that allow you to build rich, reliable, and performant commerce applications without reinventing core commerce logic. The modules can be customized and used to build advanced ecommerce stores, marketplaces, or any product that needs foundational commerce primitives. All modules are open-source and freely available on npm.

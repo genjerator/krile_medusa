@@ -1,0 +1,17 @@
+services:
+  medusa-prod:
+    build: .
+    ports:
+      - "9009:9000"
+    env_file:
+      - .env.production
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@postgres:5432/medusa-v2?sslmode=disable
+      REDIS_URL: redis://redis:6379
+    networks:
+      - krile_medusa_default
+    restart: unless-stopped
+
+networks:
+  krile_medusa_default:
+    external: true
