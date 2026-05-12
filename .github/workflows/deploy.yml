@@ -1,4 +1,4 @@
-name: Deploy to AWS EC2
+name: Deploy to Railway
 
 on:
   push:
@@ -13,23 +13,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Deploy to EC2
-        uses: appleboy/ssh-action@v1
-        with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ec2-user
-          key: ${{ secrets.EC2_SSH_KEY }}
-          script: |
-            cd /home/ec2-user/app
+      - name: Install Railway CLI
+        run: npm install -g @railway/cli
 
-            # Pull latest code
-            git pull origin main
-
-            # Write env file from secret
-            echo "${{ secrets.ENV_AWS }}" > .env.aws
-
-            # Rebuild and restart
-            docker compose -f docker-compose.aws.yml up -d --build
-
-            # Clean up unused images
-            docker image prune -f
+      - name: Deploy to Railway
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+        run: railway up --service medusa

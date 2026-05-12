@@ -1,6 +1,6 @@
 services:
   medusa:
-    build: .
+    image: 313003894447.dkr.ecr.eu-central-1.amazonaws.com/krile-medusa:latest
     ports:
       - "9000:9000"
     env_file:

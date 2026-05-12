@@ -1,0 +1,61 @@
+name: Deploy to AWS EC2
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  AWS_REGION: eu-central-1
+  ECR_REGISTRY: 313003894447.dkr.ecr.eu-central-1.amazonaws.com
+  ECR_REPOSITORY: krile-medusa
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-central-1
+
+      - name: Login to ECR
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Build and push image to ECR
+        run: |
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:${{ github.sha }} .
+          docker tag $ECR_REGISTRY/$ECR_REPOSITORY:${{ github.sha }} $ECR_REGISTRY/$ECR_REPOSITORY:latest
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:${{ github.sha }}
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
+
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ec2-user
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd /home/ec2-user/app
+
+            # Pull latest code
+            git pull origin main
+
+            # Write env file from secret
+            echo "${{ secrets.ENV_AWS }}" > .env.aws
+
+            # Login to ECR
+            aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 313003894447.dkr.ecr.eu-central-1.amazonaws.com
+
+            # Pull latest image and restart
+            docker-compose -f docker-compose.aws.yml pull
+            docker-compose -f docker-compose.aws.yml up -d
+
+            # Clean up unused images
+            docker image prune -f
