@@ -11,10 +11,4 @@ services:
       timeout: 10s
       retries: 3
       start_period: 60s
-    logging:
-      driver: awslogs
-      options:
-        awslogs-group: /medusa/backend
-        awslogs-region: eu-central-1
-        awslogs-stream-prefix: medusa
     restart: unless-stopped
