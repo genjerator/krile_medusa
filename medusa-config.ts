@@ -8,6 +8,9 @@ module.exports = defineConfig({
   projectConfig: {
     databaseUrl: process.env.DATABASE_URL,
     redisUrl,
+    ...(process.env.COOKIE_SECURE === "false" && {
+      cookieOptions: { secure: false },
+    }),
     http: {
       storeCors: process.env.STORE_CORS!,
       adminCors: process.env.ADMIN_CORS!,
@@ -28,11 +31,15 @@ module.exports = defineConfig({
       options: {
         providers: [
           {
-            resolve: "@medusajs/file-local",
-            id: "local",
+            resolve: "@medusajs/file-s3",
+            id: "s3",
             options: {
-              upload_dir: "static",
-              backend_url: `${process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL || "http://localhost:9000"}/static`,
+              file_url: process.env.S3_FILE_URL,
+              access_key_id: process.env.S3_ACCESS_KEY_ID,
+              secret_access_key: process.env.S3_SECRET_ACCESS_KEY,
+              region: process.env.S3_REGION,
+              bucket: process.env.S3_BUCKET,
+              prefix: "planeta_admin/",
             },
           },
         ],
