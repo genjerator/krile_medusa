@@ -23,7 +23,7 @@ ENV NODE_ENV=production
 COPY --from=builder /app/.medusa/server .
 COPY --from=builder /app/static ./static
 
-RUN NODE_OPTIONS="--max-old-space-size=1536" pnpm install --prod --shamefully-hoist && pnpm approve-builds --all
+RUN NODE_OPTIONS="--max-old-space-size=1536" pnpm install --prod --shamefully-hoist && pnpm approve-builds --all && pnpm store prune
 
 EXPOSE 9000
 
