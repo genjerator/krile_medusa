@@ -28,4 +28,4 @@ RUN NODE_OPTIONS="--max-old-space-size=1536" pnpm install --prod --shamefully-ho
 
 EXPOSE 9000
 
-CMD ["sh", "-c", "pnpm medusa db:migrate && pnpm start"]
+CMD ["sh", "-c", "REDIS_URL= pnpm medusa db:migrate && pnpm start"]
