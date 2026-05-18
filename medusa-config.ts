@@ -50,6 +50,12 @@ module.exports = defineConfig({
       resolve: "@medusajs/medusa/event-bus-redis",
       options: {
         redisUrl,
+        redisOptions: {
+          connectTimeout: 10000,
+          maxRetriesPerRequest: 3,
+          enableOfflineQueue: false,
+          retryStrategy: (times: number) => Math.min(times * 1000, 10000),
+        },
         jobOptions: {
           removeOnComplete: { age: 3600, count: 1000 },
           removeOnFail: { age: 3600, count: 1000 },
@@ -59,7 +65,15 @@ module.exports = defineConfig({
     {
       resolve: "@medusajs/medusa/workflow-engine-redis",
       options: {
-        redis: { redisUrl },
+        redis: {
+          redisUrl,
+          redisOptions: {
+            connectTimeout: 10000,
+            maxRetriesPerRequest: 3,
+            enableOfflineQueue: false,
+            retryStrategy: (times: number) => Math.min(times * 1000, 10000),
+          },
+        },
       },
     },
     {
@@ -70,7 +84,15 @@ module.exports = defineConfig({
             resolve: "@medusajs/caching-redis",
             id: "caching-redis",
             is_default: true,
-            options: { redisUrl },
+            options: {
+              redisUrl,
+              redisOptions: {
+                connectTimeout: 10000,
+                maxRetriesPerRequest: 3,
+                enableOfflineQueue: false,
+                retryStrategy: (times: number) => Math.min(times * 1000, 10000),
+              },
+            },
           },
         ],
       },
@@ -83,7 +105,15 @@ module.exports = defineConfig({
             resolve: "@medusajs/medusa/locking-redis",
             id: "locking-redis",
             is_default: true,
-            options: { redisUrl },
+            options: {
+              redisUrl,
+              redisOptions: {
+                connectTimeout: 10000,
+                maxRetriesPerRequest: 3,
+                enableOfflineQueue: false,
+                retryStrategy: (times: number) => Math.min(times * 1000, 10000),
+              },
+            },
           },
         ],
       },
