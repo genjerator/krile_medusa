@@ -182,31 +182,39 @@ export default async function seedTabletop({ container }: ExecArgs) {
       brand: "MULTIVAC",
       model_family: "C-Series",
       control_unit: "MC 06",
-      chamber_seal_length_mm: 305,
-      chamber_width_mm: 310,
-      chamber_height_mm: 120,
       sealing_bars: "1 × 305 mm",
-      sealing_bar_count: 1,
-      sealing_bar_position: "front",
-      sealing_type: "Doppelnaht-Trennsiegelung",
       vacuum_pump_m3h: 8,
-      external_vacuum_pump: false,
-      machine_dimensions_closed: "400 × 500 × 330 mm",
-      machine_dimensions_open: "400 × 500 × 550 mm",
-      weight_kg: 50,
-      voltage: "1×230V 50Hz / 1×110V 60Hz",
-      map_capable: false,
-      safety_glass_window: true,
-      washdown_capable: true,
-      program_storage: 29,
-      display_languages: 18,
-      auto_stop: true,
-      vacuum_quick_stop: true,
-      soft_ventilation: true,
-      gs_certified: true,
-      dguv_certified: true,
-      shrink_tank_se60: "optional",
-      target_industries: "Metzgereien, Käsereien, Restaurants, Hotels, Direktvermarkter, Supermärkte",
+
+      // ─── Ausstattung ──────────────────────────────────────────────
+      "ausstattung__laenge_siegelschiene_mm": "1 × 305",
+      "ausstattung__kammertiefe_breite_mm": 310,
+      "ausstattung__anzahl_siegelschienen": "1 × vorne",
+      "ausstattung__kammerhoehe_mm": 120,
+      "ausstattung__sichtfenster_sicherheitsglas": true,
+      "ausstattung__vakuumpumpe_m3h": 8,
+      "ausstattung__anschluss_externe_vakuumpumpe": false,
+      "ausstattung__maschinenmasze_geschlossen_mm": "400 × 500 × 330",
+      "ausstattung__maschinenmasze_geoeffnet_mm": "400 × 500 × 550",
+      "ausstattung__gewicht_kg": 50,
+      "ausstattung__absaugdrossel": false,
+      "ausstattung__schutzgaseinrichtung": false,
+
+      // ─── Siegelvarianten ──────────────────────────────────────────
+      "siegelvarianten__doppelnaht_trennsiegelung": true,
+      "siegelvarianten__doppelnaht_siegelung": false,
+      "siegelvarianten__einfachsiegelung": false,
+      "siegelvarianten__einfachsiegelung_oben_unten": false,
+      "siegelvarianten__doppelnaht_siegelung_oben_unten": false,
+      "siegelvarianten__spannung": "1×230V, 50Hz / 1×110V, 60Hz",
+
+      // ─── Zubehör ──────────────────────────────────────────────────
+      "zubehoer__schraeg_einsatz": false,
+      "zubehoer__edelstahl_fahrgestell": "optional",
+      "zubehoer__beutelaufblasgeraet_ba01": "optional",
+      "zubehoer__fleischgabel": "optional",
+      "zubehoer__einfuellhilfe_banknoten": false,
+      "zubehoer__schrumpftank_se60": "optional",
+      "zubehoer__gasmischer": false,
     },
     options: [
       {
@@ -264,8 +272,8 @@ export default async function seedTabletop({ container }: ExecArgs) {
   const c70Variants = c70.variants ?? []
 
   const pricePlaceholders: { variantId: string; amount: number }[] = [
-    { variantId: c70Variants[0]?.id, amount: 499900 }, // 4,999.00 EUR — EU
-    { variantId: c70Variants[1]?.id, amount: 499900 }, // 4,999.00 EUR — US
+    { variantId: c70Variants[0]?.id, amount: 4999 }, // 4,999.00 EUR — EU
+    { variantId: c70Variants[1]?.id, amount: 4999 }, // 4,999.00 EUR — US
   ]
 
   for (const { variantId, amount } of pricePlaceholders) {
