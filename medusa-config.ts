@@ -4,7 +4,18 @@ loadEnv(process.env.NODE_ENV || 'development', process.cwd())
 
 const redisUrl = process.env.REDIS_URL
 
+const paypalPlugin = process.env.PAYPAL_CLIENT_ID ? [{
+  resolve: "@alphabite/medusa-paypal",
+  options: {
+    clientId: process.env.PAYPAL_CLIENT_ID,
+    clientSecret: process.env.PAYPAL_CLIENT_SECRET,
+    isSandbox: process.env.PAYPAL_IS_SANDBOX === "true",
+    webhookId: process.env.PAYPAL_WEBHOOK_ID,
+  },
+}] : []
+
 module.exports = defineConfig({
+  plugins: paypalPlugin as any,
   projectConfig: {
     databaseUrl: process.env.DATABASE_URL,
     redisUrl,
@@ -32,6 +43,24 @@ module.exports = defineConfig({
             id: "manual",
             options: {},
           },
+          ...(process.env.STRIPE_API_KEY ? [{
+            resolve: "@medusajs/payment-stripe",
+            id: "stripe",
+            options: {
+              apiKey: process.env.STRIPE_API_KEY,
+              webhookSecret: process.env.STRIPE_WEBHOOK_SECRET,
+            },
+          }] : []),
+          ...(process.env.PAYPAL_CLIENT_ID ? [{
+            resolve: "@alphabite/medusa-paypal/providers/paypal",
+            id: "paypal",
+            options: {
+              clientId: process.env.PAYPAL_CLIENT_ID,
+              clientSecret: process.env.PAYPAL_CLIENT_SECRET,
+              isSandbox: process.env.PAYPAL_IS_SANDBOX === "true",
+              webhookId: process.env.PAYPAL_WEBHOOK_ID,
+            },
+          }] : []),
         ],
       },
     },
