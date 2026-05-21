@@ -104,11 +104,14 @@ export default async function seedShipping({ container }: ExecArgs) {
     [Modules.FULFILLMENT]: { fulfillment_set_id: fulfillmentSet.id },
   }).catch(() => logger.info("Stock location → fulfillment set link already exists."))
 
-  // ─── Link sales channel → stock location ─────────────────────────────────
-  await remoteLink.create({
-    [Modules.SALES_CHANNEL]: { sales_channel_id: salesChannel.id },
-    [Modules.STOCK_LOCATION]: { stock_location_id: location.id },
-  }).catch(() => logger.info("Sales channel → stock location link already exists."))
+  // ─── Link ALL sales channels → stock location ────────────────────────────
+  const allChannels = await salesChannelModule.listSalesChannels()
+  for (const channel of allChannels) {
+    await remoteLink.create({
+      [Modules.SALES_CHANNEL]: { sales_channel_id: channel.id },
+      [Modules.STOCK_LOCATION]: { stock_location_id: location.id },
+    }).catch(() => logger.info(`Sales channel "${channel.name}" → stock location link already exists.`))
+  }
 
   // ─── Link fulfillment provider → stock location ───────────────────────────
   await remoteLink.create({
