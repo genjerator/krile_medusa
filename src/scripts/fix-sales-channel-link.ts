@@ -7,18 +7,20 @@ export default async function fixSalesChannelLink({ container }: ExecArgs) {
   const query = container.resolve(ContainerRegistrationKeys.QUERY)
 
   const salesChannelModule = container.resolve(Modules.SALES_CHANNEL)
-  const [salesChannel] = await salesChannelModule.listSalesChannels({ name: "Webshop" })
-  logger.info(`Sales channel: ${salesChannel.id}`)
+  const allChannels = await salesChannelModule.listSalesChannels()
+  logger.info(`Found ${allChannels.length} sales channels`)
 
   const { data: locations } = await query.graph({ entity: "stock_location", fields: ["id", "name"] })
   const location = locations[0]
-  logger.info(`Stock location: ${location.id}`)
+  logger.info(`Stock location: ${location.name} (${location.id})`)
 
-  logger.info("Creating sales_channel → stock_location link...")
-  await remoteLink.create({
-    [Modules.SALES_CHANNEL]: { sales_channel_id: salesChannel.id },
-    [Modules.STOCK_LOCATION]: { stock_location_id: location.id },
-  })
+  for (const channel of allChannels) {
+    logger.info(`Linking "${channel.name}" (${channel.id}) → stock location...`)
+    await remoteLink.create({
+      [Modules.SALES_CHANNEL]: { sales_channel_id: channel.id },
+      [Modules.STOCK_LOCATION]: { stock_location_id: location.id },
+    }).catch(() => logger.info(`  Already linked.`))
+  }
 
-  logger.info("✅ Link created! Check sales_channel_stock_location table.")
+  logger.info("✅ All sales channels linked to stock location!")
 }
