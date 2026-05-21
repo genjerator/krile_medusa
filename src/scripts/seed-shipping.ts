@@ -14,12 +14,13 @@ export default async function seedShipping({ container }: ExecArgs) {
 
   // ─── Stock location ───────────────────────────────────────────────────────
   const { data: locations } = await query.graph({ entity: "stock_location", fields: ["id", "name"] })
-  let location = locations[0]
+  let location: any = locations[0]
   if (!location) {
     logger.info("No stock location found — creating 'Hauptlager'...")
     location = await stockLocationModule.createStockLocations({
       name: "Hauptlager",
       address: {
+        address_1: "",
         city: "München",
         country_code: "de",
       },
