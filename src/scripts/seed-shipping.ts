@@ -10,12 +10,24 @@ export default async function seedShipping({ container }: ExecArgs) {
   const salesChannelModule = container.resolve(Modules.SALES_CHANNEL)
   const pricingModule = container.resolve(Modules.PRICING)
   const regionModule = container.resolve(Modules.REGION)
+  const stockLocationModule = container.resolve(Modules.STOCK_LOCATION)
 
   // ─── Stock location ───────────────────────────────────────────────────────
   const { data: locations } = await query.graph({ entity: "stock_location", fields: ["id", "name"] })
-  const location = locations[0]
-  if (!location) throw new Error("No stock location found. Create one in Admin → Settings → Locations first.")
-  logger.info(`Using stock location: ${location.name} (${location.id})`)
+  let location = locations[0]
+  if (!location) {
+    logger.info("No stock location found — creating 'Hauptlager'...")
+    location = await stockLocationModule.createStockLocations({
+      name: "Hauptlager",
+      address: {
+        city: "München",
+        country_code: "de",
+      },
+    })
+    logger.info(`Created stock location: ${location.name} (${location.id})`)
+  } else {
+    logger.info(`Using stock location: ${location.name} (${location.id})`)
+  }
 
   // ─── Sales channel ────────────────────────────────────────────────────────
   const [salesChannel] = await salesChannelModule.listSalesChannels({ name: "Webshop" })
@@ -91,11 +103,17 @@ export default async function seedShipping({ container }: ExecArgs) {
     [Modules.FULFILLMENT]: { fulfillment_set_id: fulfillmentSet.id },
   }).catch(() => logger.info("Stock location → fulfillment set link already exists."))
 
-  // ─── Link sales channel → stock location (not directly to fulfillment set) ─
+  // ─── Link sales channel → stock location ─────────────────────────────────
   await remoteLink.create({
     [Modules.SALES_CHANNEL]: { sales_channel_id: salesChannel.id },
     [Modules.STOCK_LOCATION]: { stock_location_id: location.id },
   }).catch(() => logger.info("Sales channel → stock location link already exists."))
+
+  // ─── Link fulfillment provider → stock location ───────────────────────────
+  await remoteLink.create({
+    [Modules.STOCK_LOCATION]: { stock_location_id: location.id },
+    [Modules.FULFILLMENT]: { fulfillment_provider_id: "manual_manual" },
+  }).catch(() => logger.info("Fulfillment provider → stock location link already exists."))
 
   // ─── Shipping options ─────────────────────────────────────────────────────
   const existingOptions = await fulfillmentModule.listShippingOptions({ service_zone: { id: [serviceZone.id] } } as any)
