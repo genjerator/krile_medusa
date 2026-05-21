@@ -2,6 +2,11 @@ import { ExecArgs } from "@medusajs/framework/types"
 import { Modules } from "@medusajs/framework/utils"
 import ScryptKDF from "scrypt-kdf"
 
+async function hashPassword(password: string): Promise<string> {
+  const hash = await ScryptKDF.kdf(password, { logN: 15, r: 8, p: 1 })
+  return hash.toString("base64")
+}
+
 export default async function createAdmin({ container }: ExecArgs) {
   const userModule = container.resolve(Modules.USER)
   const authModule = container.resolve(Modules.AUTH)
@@ -21,15 +26,13 @@ export default async function createAdmin({ container }: ExecArgs) {
     last_name: "User",
   })
 
-  const passwordHash = await ScryptKDF.kdf(password, { logN: 15, r: 8, p: 1 })
-
   await authModule.createAuthIdentities({
     provider_identities: [
       {
         entity_id: email,
         provider: "emailpass",
         provider_metadata: {
-          password: passwordHash.toString("base64"),
+          password: await hashPassword(password),
         },
       },
     ],

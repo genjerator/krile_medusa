@@ -24,6 +24,50 @@ module.exports = defineConfig({
   },
   modules: [
     {
+      resolve: "@medusajs/medusa/payment",
+      options: {
+        providers: [
+          {
+            resolve: "./src/modules/payment-manual",
+            id: "manual",
+            options: {},
+          },
+        ],
+      },
+    },
+    {
+      resolve: "@medusajs/medusa/fulfillment",
+      options: {
+        providers: [
+          {
+            resolve: "@medusajs/fulfillment-manual",
+            id: "manual",
+            options: {},
+          },
+        ],
+      },
+    },
+    {
+      resolve: "@medusajs/medusa/notification",
+      options: {
+        providers: [
+          {
+            resolve: "./src/modules/smtp-notification",
+            id: "smtp",
+            options: {
+              channels: ["email"],
+              host: process.env.SMTP_HOST,
+              port: parseInt(process.env.SMTP_PORT ?? "587"),
+              secure: process.env.SMTP_SECURE === "true",
+              user: process.env.SMTP_USER,
+              pass: process.env.SMTP_PASS,
+              from: process.env.SMTP_FROM,
+            },
+          },
+        ],
+      },
+    },
+    {
       resolve: "@medusajs/medusa/translation",
     },
     {
@@ -48,11 +92,12 @@ module.exports = defineConfig({
     ...(redisUrl ? [
     {
       resolve: "@medusajs/medusa/event-bus-redis",
+      key: Modules.EVENT_BUS,
       options: {
         redisUrl,
         redisOptions: {
           connectTimeout: 10000,
-          maxRetriesPerRequest: 3,
+          maxRetriesPerRequest: null,
           enableOfflineQueue: false,
           retryStrategy: (times: number) => Math.min(times * 1000, 10000),
         },
@@ -69,7 +114,7 @@ module.exports = defineConfig({
           redisUrl,
           redisOptions: {
             connectTimeout: 10000,
-            maxRetriesPerRequest: 3,
+            maxRetriesPerRequest: null,
             enableOfflineQueue: false,
             retryStrategy: (times: number) => Math.min(times * 1000, 10000),
           },
@@ -88,7 +133,7 @@ module.exports = defineConfig({
               redisUrl,
               redisOptions: {
                 connectTimeout: 10000,
-                maxRetriesPerRequest: 3,
+                maxRetriesPerRequest: null,
                 enableOfflineQueue: false,
                 retryStrategy: (times: number) => Math.min(times * 1000, 10000),
               },
@@ -109,7 +154,7 @@ module.exports = defineConfig({
               redisUrl,
               redisOptions: {
                 connectTimeout: 10000,
-                maxRetriesPerRequest: 3,
+                maxRetriesPerRequest: null,
                 enableOfflineQueue: false,
                 retryStrategy: (times: number) => Math.min(times * 1000, 10000),
               },
