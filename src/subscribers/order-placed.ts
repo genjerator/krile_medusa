@@ -28,6 +28,8 @@ export default async function orderPlacedHandler({
       "items.variant.*",
       "items.product.*",
       "shipping_methods.*",
+      "payment_collections.*",
+      "payment_collections.payment_sessions.*",
     ],
   })
 
@@ -40,11 +42,15 @@ export default async function orderPlacedHandler({
   const storeEmail = process.env.SMTP_FROM_EMAIL || process.env.SMTP_USER || ""
   const customerEmail = order.email
 
+  const paymentSession = (order as any).payment_collections?.[0]?.payment_sessions?.[0]
+  const isPayPal = paymentSession?.provider_id === "pp_paypal_paypal"
+  const paymentMethodLabel = isPayPal ? "PayPal" : "Auf Rechnung"
+
   const formatCurrency = (amount: number) =>
     new Intl.NumberFormat("de-DE", {
       style: "currency",
       currency: (order.currency_code || "EUR").toUpperCase(),
-    }).format(amount / 100)
+    }).format(amount)
 
   const itemsHtml = (order.items || []).map((item: any) => `
     <tr>
@@ -99,6 +105,8 @@ export default async function orderPlacedHandler({
             <h3 style="border-bottom:2px solid #1e3a5f;padding-bottom:8px;margin-top:24px;">Lieferadresse</h3>
             <p>${addressHtml}</p>
             <p><strong>Versandart:</strong> ${shippingMethod}</p>
+            <p><strong>Zahlungsmethode:</strong> ${paymentMethodLabel}</p>
+            ${isPayPal ? `<p style="background:#fff8e1;border:1px solid #ffe082;padding:10px;border-radius:6px;font-size:13px;">✅ Ihre Zahlung wurde über PayPal erfolgreich verarbeitet.</p>` : ""}
 
             <hr style="border:none;border-top:1px solid #e5e7eb;margin:24px 0;" />
             <p style="color:#6b7280;font-size:13px;">
@@ -141,6 +149,7 @@ export default async function orderPlacedHandler({
             <h3 style="margin-top:16px;">Lieferadresse</h3>
             <p>${addressHtml}</p>
             <p><strong>Versandart:</strong> ${shippingMethod}</p>
+            <p><strong>Zahlungsmethode:</strong> ${paymentMethodLabel}${isPayPal ? " ✅ (PayPal bestätigt)" : ""}</p>
 
             <p style="margin-top:24px;">
               <a href="${process.env.ADMIN_URL || "http://localhost:9000/app"}/orders/${orderId}"
