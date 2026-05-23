@@ -24,6 +24,7 @@ export default async function orderPlacedHandler({
       "total", "subtotal", "shipping_total", "tax_total",
       "email",
       "shipping_address.*",
+      "billing_address.*",
       "items.*",
       "items.variant.*",
       "items.product.*",
@@ -65,6 +66,20 @@ export default async function orderPlacedHandler({
     ? `${addr.first_name} ${addr.last_name}<br>${addr.address_1}${addr.address_2 ? ", " + addr.address_2 : ""}<br>${addr.postal_code} ${addr.city}<br>${(addr.country_code || "").toUpperCase()}`
     : "—"
 
+  const billAddr = (order as any).billing_address
+  const isSameAddress =
+    !billAddr ||
+    (billAddr.address_1 === addr?.address_1 &&
+      billAddr.postal_code === addr?.postal_code &&
+      billAddr.city === addr?.city &&
+      billAddr.country_code === addr?.country_code &&
+      billAddr.first_name === addr?.first_name &&
+      billAddr.last_name === addr?.last_name)
+
+  const billingAddressHtml = !isSameAddress && billAddr
+    ? `${billAddr.first_name} ${billAddr.last_name}<br>${billAddr.address_1}${billAddr.address_2 ? ", " + billAddr.address_2 : ""}<br>${billAddr.postal_code} ${billAddr.city}<br>${(billAddr.country_code || "").toUpperCase()}`
+    : null
+
   const shippingMethod = (order.shipping_methods || [])[0]?.name || "—"
 
   // ── Email to customer ──────────────────────────────────────────────────────
@@ -104,6 +119,7 @@ export default async function orderPlacedHandler({
 
             <h3 style="border-bottom:2px solid #1e3a5f;padding-bottom:8px;margin-top:24px;">Lieferadresse</h3>
             <p>${addressHtml}</p>
+            ${billingAddressHtml ? `<h3 style="border-bottom:2px solid #1e3a5f;padding-bottom:8px;margin-top:24px;">Rechnungsadresse</h3><p>${billingAddressHtml}</p>` : ""}
             <p><strong>Versandart:</strong> ${shippingMethod}</p>
             <p><strong>Zahlungsmethode:</strong> ${paymentMethodLabel}</p>
             ${isPayPal ? `<p style="background:#fff8e1;border:1px solid #ffe082;padding:10px;border-radius:6px;font-size:13px;">✅ Ihre Zahlung wurde über PayPal erfolgreich verarbeitet.</p>` : ""}
@@ -148,6 +164,7 @@ export default async function orderPlacedHandler({
 
             <h3 style="margin-top:16px;">Lieferadresse</h3>
             <p>${addressHtml}</p>
+            ${billingAddressHtml ? `<h3 style="margin-top:16px;">Rechnungsadresse</h3><p>${billingAddressHtml}</p>` : ""}
             <p><strong>Versandart:</strong> ${shippingMethod}</p>
             <p><strong>Zahlungsmethode:</strong> ${paymentMethodLabel}${isPayPal ? " ✅ (PayPal bestätigt)" : ""}</p>
 
