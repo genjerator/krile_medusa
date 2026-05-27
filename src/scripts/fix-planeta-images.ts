@@ -66,7 +66,7 @@ export default async function fixPlanetaImages({ container }: ExecArgs) {
   while (true) {
     const page = await productModule.listProducts(
       {},
-      { select: ["id", "handle"], relations: ["images"], skip: offset, take: PAGE }
+      { select: ["id", "handle", "thumbnail"], relations: ["images"], skip: offset, take: PAGE }
     )
     allProducts.push(...page.filter((p: any) => p.handle?.startsWith("planeta-")))
     if (page.length < PAGE) break
@@ -74,37 +74,48 @@ export default async function fixPlanetaImages({ container }: ExecArgs) {
   }
   logger.info(`  Found ${allProducts.length} planeta products`)
 
+  // Returns the correct S3 URL, or null if no match found in S3 (image should be removed)
+  const fixUrl = (url: string, label: string): string | null => {
+    if (!url) return null
+    if (ULID_SUFFIX.test(url)) return url
+    const decoded    = decodeURIComponent(url)
+    const basename   = decoded.split("/").pop()!
+    const correctKey = keyMap.get(basename)
+    if (correctKey) {
+      const correctUrl = `${S3_FILE_URL}/${encodeURIComponent(correctKey)}`
+      logger.info(`  ✓ ${label}: ${basename} → ${correctKey}`)
+      return correctUrl
+    }
+    logger.warn(`  ✗ ${label}: no S3 match for ${basename} — removing`)
+    return null
+  }
+
   let fixed   = 0
   let skipped = 0
 
   for (const product of allProducts) {
     const images: any[] = product.images ?? []
+    const thumbnail: string = product.thumbnail ?? ""
 
-    // A URL is "wrong" if it doesn't have the ULID suffix
-    const hasWrong = images.some((img: any) => !ULID_SUFFIX.test(img.url))
-    if (!hasWrong) { skipped++; continue }
+    const thumbnailWrong = thumbnail && !ULID_SUFFIX.test(thumbnail)
+    const imagesWrong    = images.some((img: any) => !ULID_SUFFIX.test(img.url))
 
-    const newImages = images.map((img: any) => {
-      if (ULID_SUFFIX.test(img.url)) return { url: img.url }
+    if (!thumbnailWrong && !imagesWrong) { skipped++; continue }
 
-      // Extract basename from wrong URL
-      // Wrong URL can be like: https://.../planeta_admin/Planeta-PX4500-06.jpg
-      const decoded  = decodeURIComponent(img.url)
-      const parts    = decoded.split("/")
-      const basename = parts[parts.length - 1]
+    const update: any = {}
 
-      const correctKey = keyMap.get(basename)
-      if (correctKey) {
-        const correctUrl = `${S3_FILE_URL}/${encodeURIComponent(correctKey)}`
-        logger.info(`  ✓ ${product.handle}: ${basename} → ${correctKey}`)
-        return { url: correctUrl }
-      }
+    if (imagesWrong) {
+      update.images = images
+        .map((img: any) => fixUrl(img.url, product.handle))
+        .filter((url): url is string => url !== null)
+        .map(url => ({ url }))
+    }
 
-      logger.warn(`  ✗ ${product.handle}: no S3 match for ${basename}`)
-      return { url: img.url }
-    })
+    if (thumbnailWrong) {
+      update.thumbnail = fixUrl(thumbnail, `${product.handle} [thumbnail]`) ?? ""
+    }
 
-    await productModule.updateProducts({ id: product.id }, { images: newImages })
+    await productModule.updateProducts({ id: product.id }, update)
     fixed++
   }
 
