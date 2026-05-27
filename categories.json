@@ -1,0 +1,137 @@
+[
+  {
+    "handle": "bugelbrettbezuge",
+    "name": "Bügelbrettbezüge",
+    "is_active": true,
+    "is_internal": false,
+    "parent_handle": null,
+    "woo_term_id": 27,
+    "woo_parent_id": 0
+  },
+  {
+    "handle": "dampfdruckbugelsysteme",
+    "name": "Dampfdruckbügelsysteme",
+    "is_active": true,
+    "is_internal": false,
+    "parent_handle": null,
+    "woo_term_id": 26,
+    "woo_parent_id": 0
+  },
+  {
+    "handle": "reinigungs-maschinen",
+    "name": "Reinigungs Maschinen",
+    "is_active": true,
+    "is_internal": false,
+    "parent_handle": null,
+    "woo_term_id": 282,
+    "woo_parent_id": 0
+  },
+  {
+    "handle": "vakuumspeicherung",
+    "name": "Vakuumspeicherung",
+    "is_active": true,
+    "is_internal": false,
+    "parent_handle": null,
+    "woo_term_id": 284,
+    "woo_parent_id": 0
+  },
+  {
+    "handle": "bugel-zubehorteile",
+    "name": "Bügel Zubehörteile",
+    "is_active": true,
+    "is_internal": false,
+    "parent_handle": "dampfdruckbugelsysteme",
+    "woo_term_id": 173,
+    "woo_parent_id": 26
+  },
+  {
+    "handle": "bugelsysteme",
+    "name": "Bugelsysteme",
+    "is_active": true,
+    "is_internal": false,
+    "parent_handle": "dampfdruckbugelsysteme",
+    "woo_term_id": 199,
+    "woo_parent_id": 26
+  },
+  {
+    "handle": "ersatzteile",
+    "name": "Ersatzteile",
+    "is_active": true,
+    "is_internal": false,
+    "parent_handle": "dampfdruckbugelsysteme",
+    "woo_term_id": 30,
+    "woo_parent_id": 26
+  },
+  {
+    "handle": "planeta-stationen",
+    "name": "Planeta Stationen",
+    "is_active": true,
+    "is_internal": false,
+    "parent_handle": "bugelbrettbezuge",
+    "woo_term_id": 243,
+    "woo_parent_id": 27
+  },
+  {
+    "handle": "rapid-premium",
+    "name": "Rapid Premium",
+    "is_active": true,
+    "is_internal": false,
+    "parent_handle": "bugelbrettbezuge",
+    "woo_term_id": 242,
+    "woo_parent_id": 27
+  },
+  {
+    "handle": "rapid-z",
+    "name": "Rapid Z",
+    "is_active": true,
+    "is_internal": false,
+    "parent_handle": "bugelbrettbezuge",
+    "woo_term_id": 225,
+    "woo_parent_id": 27
+  },
+  {
+    "handle": "sapphir-2",
+    "name": "Sapphir 2",
+    "is_active": true,
+    "is_internal": false,
+    "parent_handle": "bugelbrettbezuge",
+    "woo_term_id": 241,
+    "woo_parent_id": 27
+  },
+  {
+    "handle": "behalter",
+    "name": "Behälter",
+    "is_active": true,
+    "is_internal": false,
+    "parent_handle": "vakuumspeicherung",
+    "woo_term_id": 29,
+    "woo_parent_id": 284
+  },
+  {
+    "handle": "gastro-vakuumbehalter",
+    "name": "Gastro Vakuumbehälter",
+    "is_active": true,
+    "is_internal": false,
+    "parent_handle": "vakuumspeicherung",
+    "woo_term_id": 251,
+    "woo_parent_id": 284
+  },
+  {
+    "handle": "vakuumiergerat",
+    "name": "Vakuumiergerät",
+    "is_active": true,
+    "is_internal": false,
+    "parent_handle": "vakuumspeicherung",
+    "woo_term_id": 28,
+    "woo_parent_id": 284
+  },
+  {
+    "handle": "vakuumiertuten-rollen",
+    "name": "Vakuumiertüten \u0026 Rollen",
+    "is_active": true,
+    "is_internal": false,
+    "parent_handle": "vakuumspeicherung",
+    "woo_term_id": 147,
+    "woo_parent_id": 284
+  }
+]

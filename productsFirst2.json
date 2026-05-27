@@ -1,0 +1,74 @@
+[
+  {
+    "external_id": 44,
+    "title": "Planeta Vakuumierer PV 4000",
+    "slug": "vakuumierer-pv-3000",
+    "description": "<p class=\"mb-3 leading-relaxed\">Der PV 4000 ist seit 2024 auf dem Markt.</p><p class=\"mb-3 leading-relaxed\">Folienfach zum zurechtschneiden, verschweißen und vakuumieren der Folien,</p><p class=\"mb-3 leading-relaxed\">dazu ein intigrieter Flüssigkeitsauffangbehälter.</p><p class=\"mb-3 leading-relaxed\">Ebenso der passende Vakuumierschlauch für unsre Vakuumbehälter</p><p class=\"mb-3 leading-relaxed\">Ebenso ist ein Fach für die Vakuumwalzen integriert und ein Messer zum Abschneiden der Folie.</p><p class=\"mb-3 leading-relaxed\">Technische Daten</p><p class=\"mb-3 leading-relaxed\">*Doppelte Pumpen</p><p class=\"mb-3 leading-relaxed\">*22l / Min. Volumen</p><p class=\"mb-3 leading-relaxed\">*800mbar</p><p class=\"mb-3 leading-relaxed\">*28 cm Beutelbreite</p><p class=\"mb-3 leading-relaxed\">*Halb -und automatisches Vakuumieren</p><p class=\"mb-3 leading-relaxed\">*2900 Undrehungen / Min.</p><p class=\"mb-3 leading-relaxed\">*Steuerung elektronisch</p><p class=\"mb-3 leading-relaxed\">*bei Überhitzung / Abschaltung</p><p class=\"mb-3 leading-relaxed\">*Maße 41,6 x 265 x 118 cm</p><p class=\"mb-3 leading-relaxed\">+Gewicht 5,13 kg</p><em class=\"italic\">Das Paket beinhaltet:</em><p class=\"mb-3 leading-relaxed\">PV 4000 - Vakuumversiegelung\nVakuumschlauch für die Behälter\n1 Packung Vakuumfolien / -rollen\n1 Packung Vakuumfolien / -beutel\nBedienungsanleitung\nErsatzklinge</p>",
+    "status": "published",
+    "price": 599,
+    "regular_price": 599,
+    "stock_status": "instock",
+    "manage_stock": false,
+    "categories": [
+      {
+        "name": "Vakuumiergerät",
+        "slug": "vakuumiergerat"
+      }
+    ],
+    "tags": null,
+    "thumbnail": {
+      "attachment_id": 4082,
+      "original_url": "http://planeta-gmbh.de/wp-content/uploads/2019/03/PV-4000.png",
+      "local_path": "images/PV-4000.png",
+      "filename": "PV-4000.png"
+    },
+    "images": [
+      {
+        "attachment_id": 4082,
+        "original_url": "http://planeta-gmbh.de/wp-content/uploads/2019/03/PV-4000.png",
+        "filename": "PV-4000.png"
+      }
+    ],
+    "created_at": "2019-03-10T21:00:41Z",
+    "updated_at": "2025-03-04T12:38:46Z"
+  },
+  {
+    "external_id": 1558,
+    "title": "Vakuumbehälter 4,5l",
+    "slug": "vakuumbehalter-45l",
+    "description": "<p class=\"mb-3 leading-relaxed\">Eckig - grün</p><p class=\"mb-3 leading-relaxed\">Behälter rechteckig, ca. 4,5l z. B. als Singlebox</p><p class=\"mb-3 leading-relaxed\">Nahrung im Vakuum bleibt nahrhaft. Das Essen bleibt bis zu viermal länger frisch und gesund. Vakuumbehälter sind daher ideal für die Lagerung von Lebensmitteln.</p><p class=\"mb-3 leading-relaxed\">Verwenden Sie diesen Vakuumbehälter für die tägliche Lagerung von:</p><ul class=\"list-disc pl-5 mb-3 space-y-1\"><li class=\"ml-1\">Früchte, Gemüse,</li><li class=\"ml-1\">Brot, Salami, Käse,</li><li class=\"ml-1\">süße Leckereien</li><li class=\"ml-1\">Reste, Saucen, Suppen</li><li class=\"ml-1\">und viele mehr.</li></ul><p class=\"mb-3 leading-relaxed\"><strong class=\"font-semibold\">BESCHREIBUNG</strong>\nFleisch, Geflügel und Fisch werden in wenigen Minuten mariniert, da die Vakuumspeicherung die Marinade schneller in die Lebensmittel dringt.</p><p class=\"mb-3 leading-relaxed\">Hochwertige Materialien, hermetisch versiegelte Lebensmittel und keine unangenehmen Gerüche in der Küche.</p><p class=\"mb-3 leading-relaxed\">Spart Platz Dieser Behälter kann in Stapeln gelagert werden, auf Behältern mit einem Volumen von 3,0l.</p><p class=\"mb-3 leading-relaxed\"><strong class=\"font-semibold\">VERWENDUNGSZWECK</strong>\nEntfernen Sie die Luft aus dem Behälter, indem Sie die Pumpe mehrmals betätigen.\nUm den Behälter zu öffnen, drücken Sie das Ventil in der Mitte des Deckels.\nMit dem Kalender auf dem Deckel können Sie die Haltbarkeit der Lebensmittel oder das Datum der Lagerung der Lebensmittel markieren. Verfallsdatum der Lebensmittel markieren.\nDer Vakuumbehälter ist auch ideal für einen kurzen Einsatz als Vorratsbehälter.</p><p class=\"mb-3 leading-relaxed\"><strong class=\"font-semibold\">WARTUNG UND MATERIALIEN</strong><em class=\"italic\">Reinigung</em>\nDer Vakuumbehälter und der Deckel sollten vor der ersten Verwendung gereinigt werden. Es kann mit normalem Spülmittel oder in der Spülmaschine gereinigt werden.\n<em class=\"italic\">Materialien</em>\nDie Behälter bestehen aus BPA FREE Material.</p>",
+    "status": "published",
+    "price": 65,
+    "regular_price": 65,
+    "stock_status": "instock",
+    "manage_stock": false,
+    "categories": [
+      {
+        "name": "Behälter",
+        "slug": "behalter"
+      }
+    ],
+    "tags": null,
+    "thumbnail": {
+      "attachment_id": 2232,
+      "original_url": "http://planeta-gmbh.de/wp-content/uploads/2019/05/Vakuumbehälter-45l.jpg",
+      "filename": "Vakuumbehälter-45l.jpg"
+    },
+    "images": [
+      {
+        "attachment_id": 2230,
+        "original_url": "http://planeta-gmbh.de/wp-content/uploads/2019/05/DSC6123.jpg",
+        "local_path": "images/DSC6123.jpg",
+        "filename": "DSC6123.jpg"
+      },
+      {
+        "attachment_id": 2231,
+        "original_url": "http://planeta-gmbh.de/wp-content/uploads/2019/05/DSC5893-1.jpg",
+        "local_path": "images/DSC5893-1.jpg",
+        "filename": "DSC5893-1.jpg"
+      }
+    ],
+    "created_at": "2019-03-07T19:07:45Z",
+    "updated_at": "2019-07-31T13:29:58Z"
+  }
+]
