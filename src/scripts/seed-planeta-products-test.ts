@@ -27,8 +27,10 @@ interface ProductEntry {
   images: ImageEntry[]
 }
 
-const IMAGES_DIR = path.resolve(process.cwd(), "../mysql/woo-exporter/images")
-const PRODUCTS_JSON = path.resolve(process.cwd(), "../mysql/woo-exporter/products.json")
+const IMAGES_DIR    = path.resolve(process.cwd(), "../mysql/woo-exporter/images")
+const PRODUCTS_JSON = path.resolve(process.cwd(), "products.json")
+const IMAGES_BASE_URL = process.env.IMAGES_BASE_URL
+  ?? (process.env.S3_FILE_URL ? `${process.env.S3_FILE_URL}/planeta_admin` : "")
 
 const MIME: Record<string, string> = {
   jpg: "image/jpeg",
@@ -94,16 +96,18 @@ export default async function seedPlanetaProductsTest({ container }: ExecArgs) {
     if (uploadedCache.has(img.filename)) {
       return uploadedCache.get(img.filename)!
     }
-
+    if (IMAGES_BASE_URL) {
+      const url = `${IMAGES_BASE_URL}/${img.filename}`
+      uploadedCache.set(img.filename, url)
+      return url
+    }
     const localPath = path.join(IMAGES_DIR, img.filename)
     if (!fs.existsSync(localPath)) {
       logger.info(`    skip image (not on disk): ${img.filename}`)
       return null
     }
-
     const content = fs.readFileSync(localPath).toString("base64")
     const mimeType = mimeFromFilename(img.filename)
-
     try {
       const [uploaded] = await fileModule.createFiles([{
         filename: img.filename,

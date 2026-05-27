@@ -35,8 +35,11 @@ interface ProductEntry {
   images: ImageEntry[]
 }
 
-const IMAGES_DIR  = path.resolve(process.cwd(), "../mysql/woo-exporter/images")
+const IMAGES_DIR    = path.resolve(process.cwd(), "../mysql/woo-exporter/images")
 const PRODUCTS_JSON = path.resolve(process.cwd(), "../mysql/woo-exporter/products.json")
+// When images are already in S3, derive the base URL from existing env vars and skip upload.
+const IMAGES_BASE_URL = process.env.IMAGES_BASE_URL
+  ?? (process.env.S3_FILE_URL ? `${process.env.S3_FILE_URL}/planeta_admin` : "")
 
 const MIME: Record<string, string> = {
   jpg: "image/jpeg",
@@ -88,6 +91,11 @@ export default async function seedPlanetaProducts({ container }: ExecArgs) {
   const uploadImage = async (img: ImageEntry): Promise<string | null> => {
     if (uploadedCache.has(img.filename)) {
       return uploadedCache.get(img.filename)!
+    }
+    if (IMAGES_BASE_URL) {
+      const url = `${IMAGES_BASE_URL}/${img.filename}`
+      uploadedCache.set(img.filename, url)
+      return url
     }
     const localPath = path.join(IMAGES_DIR, img.filename)
     if (!fs.existsSync(localPath)) {

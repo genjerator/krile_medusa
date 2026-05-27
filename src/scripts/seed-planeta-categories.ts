@@ -20,7 +20,7 @@ export default async function seedPlanetaCategories({ container }: ExecArgs) {
   logger.info("🚀 Starting Planeta category seed...")
 
   // ─── LOAD DATA ────────────────────────────────────────────────────────────
-  const jsonPath = path.resolve(process.cwd(), "../mysql/woo-exporter/categories.json")
+  const jsonPath = path.resolve(process.cwd(), "categories.json")
   if (!fs.existsSync(jsonPath)) {
     throw new Error(`categories.json not found at: ${jsonPath}`)
   }
