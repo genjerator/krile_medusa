@@ -28,7 +28,7 @@ interface ProductEntry {
 }
 
 const IMAGES_DIR    = path.resolve(process.cwd(), "../mysql/woo-exporter/images")
-const PRODUCTS_JSON = path.resolve(process.cwd(), "products.json")
+const PRODUCTS_JSON = path.resolve(__dirname, "products.json")
 const IMAGES_BASE_URL = process.env.IMAGES_BASE_URL
   ?? (process.env.S3_FILE_URL ? `${process.env.S3_FILE_URL}/planeta_admin` : "")
 

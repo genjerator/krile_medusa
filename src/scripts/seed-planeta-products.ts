@@ -36,7 +36,7 @@ interface ProductEntry {
 }
 
 const IMAGES_DIR    = path.resolve(process.cwd(), "../mysql/woo-exporter/images")
-const PRODUCTS_JSON = path.resolve(process.cwd(), "../mysql/woo-exporter/products.json")
+const PRODUCTS_JSON = path.resolve(__dirname, "products.json")
 // When images are already in S3, derive the base URL from existing env vars and skip upload.
 const IMAGES_BASE_URL = process.env.IMAGES_BASE_URL
   ?? (process.env.S3_FILE_URL ? `${process.env.S3_FILE_URL}/planeta_admin` : "")
