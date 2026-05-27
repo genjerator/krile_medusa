@@ -24,6 +24,7 @@
     "seed:planeta-categories": "medusa exec ./src/scripts/seed-planeta-categories.ts",
     "seed:planeta-products-test": "medusa exec ./src/scripts/seed-planeta-products-test.ts",
     "seed:planeta-products": "medusa exec ./src/scripts/seed-planeta-products.ts",
+    "fix:planeta-images": "medusa exec ./src/scripts/fix-planeta-images.ts",
     "start": "medusa start",
     "dev": "medusa develop",
     "test:integration:http": "TEST_TYPE=integration:http NODE_OPTIONS=--experimental-vm-modules jest --silent=false --runInBand --forceExit",
