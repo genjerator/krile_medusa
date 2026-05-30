@@ -1,0 +1,77 @@
+name: Deploy to AWS EC2 (consolidated)
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  AWS_REGION: eu-central-1
+  ECR_REGISTRY: 313003894447.dkr.ecr.eu-central-1.amazonaws.com
+  ECR_REPOSITORY: krile-medusa
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.2.2
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4.1.0
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Login to ECR
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build and push Medusa image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          platforms: linux/arm64
+          push: true
+          tags: |
+            ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:${{ github.sha }}
+            ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:latest
+          cache-from: type=registry,ref=${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:cache
+          cache-to: type=registry,ref=${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:cache,mode=max
+
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ec2-user
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd /home/ec2-user/app
+
+            # Pull latest code
+            git pull origin main
+
+            # Write env file
+            echo "${{ secrets.ENV_AWSEC2 }}" > .env.awsec2
+
+            # Login to ECR
+            aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 313003894447.dkr.ecr.eu-central-1.amazonaws.com
+
+            # Pull all images (medusa + both storefronts)
+            docker compose -f docker-compose.awsec2.yml pull
+
+            # Restart only medusa (storefronts untouched unless their image changed)
+            docker compose -f docker-compose.awsec2.yml up -d --no-deps medusa
+
+            # Reload nginx in case config changed
+            docker compose -f docker-compose.awsec2.yml exec -T nginx nginx -s reload
+
+            # Clean up unused images
+            docker image prune -f

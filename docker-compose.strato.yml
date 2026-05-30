@@ -1,0 +1,71 @@
+services:
+
+  # ─── MEDUSA BACKEND + ADMIN (:8000) ───────────────────────────────────────
+  medusa:
+    image: 313003894447.dkr.ecr.eu-central-1.amazonaws.com/krile-medusa:latest
+    ports:
+      - "8000:9000"
+    env_file:
+      - .env.strato
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:9000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 120s
+    restart: unless-stopped
+
+  # ─── STOREFRONT: KRILE PLANETA INDUSTRIES (:9000) ─────────────────────────
+  storefront-planeta-industries:
+    image: 313003894447.dkr.ecr.eu-central-1.amazonaws.com/krile-storefront:latest
+    ports:
+      - "9000:3000"
+    env_file:
+      - .env.strato
+    restart: unless-stopped
+
+  # ─── STOREFRONT: PLANETA GMBH (:9002) ─────────────────────────────────────
+  storefront-planeta:
+    image: 313003894447.dkr.ecr.eu-central-1.amazonaws.com/planeta-gmbh-storefront:latest
+    ports:
+      - "9002:3000"
+    env_file:
+      - .env.strato
+    restart: unless-stopped
+
+  # ─── POSTGRES ─────────────────────────────────────────────────────────────
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-medusa}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB:-medusa}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-medusa}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  # ─── REDIS ────────────────────────────────────────────────────────────────
+  redis:
+    image: redis:7-alpine
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  redis_data:

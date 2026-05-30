@@ -1,5 +1,8 @@
+import path from "path"
+import fs from "fs"
 import {
   ExecArgs,
+  IFileModuleService,
   IProductModuleService,
   ISalesChannelModuleService,
   IPricingModuleService,
@@ -8,12 +11,27 @@ import {
 } from "@medusajs/framework/types"
 import { ContainerRegistrationKeys, Modules } from "@medusajs/framework/utils"
 
+const STATIC_DIR = path.resolve(process.cwd(), "static")
+
+const MIME: Record<string, string> = {
+  jpg: "image/jpeg",
+  jpeg: "image/jpeg",
+  png: "image/png",
+  webp: "image/webp",
+}
+
+function mimeFromFilename(filename: string): string {
+  const ext = filename.split(".").pop()?.toLowerCase() ?? ""
+  return MIME[ext] ?? "application/octet-stream"
+}
+
 export default async function seedC300Twin({ container }: ExecArgs) {
   const logger = container.resolve(ContainerRegistrationKeys.LOGGER)
   const productModule: IProductModuleService = container.resolve(Modules.PRODUCT)
   const salesChannelModule: ISalesChannelModuleService = container.resolve(Modules.SALES_CHANNEL)
   const pricingModule: IPricingModuleService = container.resolve(Modules.PRICING)
   const regionModule: IRegionModuleService = container.resolve(Modules.REGION)
+  const fileModule: IFileModuleService = container.resolve(Modules.FILE)
   const translationModule = container.resolve(Modules.TRANSLATION)
   const remoteLink = container.resolve(ContainerRegistrationKeys.REMOTE_LINK)
   const query = container.resolve(ContainerRegistrationKeys.QUERY)
@@ -88,6 +106,29 @@ export default async function seedC300Twin({ container }: ExecArgs) {
   const tagIds = [...existingTags, ...newTags].map((t) => ({ id: t.id }))
 
   // ─── HELPERS ──────────────────────────────────────────────────────────────
+  const uploadCache = new Map<string, string>()
+
+  const uploadImage = async (relativePath: string): Promise<string | null> => {
+    if (uploadCache.has(relativePath)) return uploadCache.get(relativePath)!
+    const localPath = path.join(STATIC_DIR, relativePath)
+    if (!fs.existsSync(localPath)) {
+      logger.warn(`  Image not found locally, skipping: ${localPath}`)
+      return null
+    }
+    const filename = path.basename(relativePath)
+    const content  = fs.readFileSync(localPath).toString("base64")
+    const mimeType = mimeFromFilename(filename)
+    try {
+      const [uploaded] = await fileModule.createFiles([{ filename, mimeType, content, access: "public" }])
+      logger.info(`  Uploaded ${filename} → ${uploaded.url}`)
+      uploadCache.set(relativePath, uploaded.url)
+      return uploaded.url
+    } catch (err: any) {
+      logger.warn(`  Upload failed for ${filename}: ${err.message}`)
+      return null
+    }
+  }
+
   const upsertProduct = async (data: CreateProductDTO & Record<string, unknown>): Promise<any> => {
     const { data: found } = await query.graph({
       entity: "product",
@@ -103,6 +144,7 @@ export default async function seedC300Twin({ container }: ExecArgs) {
           subtitle: (data as any).subtitle,
           description: (data as any).description,
           status: (data as any).status,
+          images: (data as any).images,
           metadata: (data as any).metadata,
           weight: (data as any).weight,
           height: (data as any).height,
@@ -145,18 +187,20 @@ export default async function seedC300Twin({ container }: ExecArgs) {
     }
   }
 
-  const BASE = process.env.NEXT_PUBLIC_BASE_URL ?? "http://localhost:9000/static"
-
   // ─── PRODUCT: C 300 Twin ──────────────────────────────────────────────────
   logger.info("Seeding MULTIVAC C 300 Twin...")
+
+  logger.info("Uploading C 300 Twin images...")
+  const imageUrls = (await Promise.all([
+    uploadImage("products/double-chamber/c300twin-overview.jpg"),
+    uploadImage("products/double-chamber/c300twin-spec.jpg"),
+  ])).filter((u): u is string => u !== null)
+
   const c300twin = await upsertProduct({
     title: "MULTIVAC C 300 Twin Double Chamber Machine",
     handle: "multivac-c300twin-double-chamber-machine",
     subtitle: "Double chamber machine with separate lids and safety glass",
-    images: [
-      { url: `${BASE}/products/double-chamber/c300twin-overview.jpg` },
-      { url: `${BASE}/products/double-chamber/c300twin-spec.jpg` },
-    ],
+    images: imageUrls.map(url => ({ url })),
     description:
       "The MULTIVAC C 300 Twin is a double chamber machine with separate lids, fully constructed " +
       "from stainless steel with safety glass windows. Designed for continuous production, the two " +

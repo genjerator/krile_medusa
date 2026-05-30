@@ -1,0 +1,83 @@
+services:
+
+  # ─── NGINX ────────────────────────────────────────────────────────────────
+  nginx:
+    image: nginx:1.27-alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/conf.d.awsec2:/etc/nginx/conf.d:ro
+    depends_on:
+      - medusa
+      - storefront-krile
+      - storefront-planeta
+    restart: unless-stopped
+
+  # ─── MEDUSA BACKEND + ADMIN ───────────────────────────────────────────────
+  medusa:
+    image: 313003894447.dkr.ecr.eu-central-1.amazonaws.com/krile-medusa:latest
+    expose:
+      - "9000"
+    env_file:
+      - .env.awsec2
+    depends_on:
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:9000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 120s
+    restart: unless-stopped
+
+  # ─── STOREFRONT: KRILE (shop.planetaindustries.de) ────────────────────────
+  storefront-krile:
+    image: 313003894447.dkr.ecr.eu-central-1.amazonaws.com/krile-storefront:latest
+    expose:
+      - "3000"
+    env_file:
+      - .env.awsec2
+    restart: unless-stopped
+
+  # ─── STOREFRONT: PLANETA (STOREFRONT_PLANETA_DOMAIN) ─────────────────────
+  storefront-planeta:
+    image: 313003894447.dkr.ecr.eu-central-1.amazonaws.com/planeta-gmbh-storefront:latest
+    expose:
+      - "3000"
+    env_file:
+      - .env.awsec2
+    restart: unless-stopped
+
+  # ─── REDIS (replaces ElastiCache — saves ~$13/month) ──────────────────────
+  redis:
+    image: redis:7-alpine
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  # ─── POSTGRES (optional — uncomment to replace RDS, saves ~$19/month) ─────
+  # postgres:
+  #   image: postgres:17-alpine
+  #   environment:
+  #     POSTGRES_USER: ${POSTGRES_USER:-medusa}
+  #     POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+  #     POSTGRES_DB: ${POSTGRES_DB:-medusa}
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   healthcheck:
+  #     test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-medusa}"]
+  #     interval: 5s
+  #     timeout: 5s
+  #     retries: 5
+  #   restart: unless-stopped
+
+volumes:
+  redis_data:
+  # postgres_data:
