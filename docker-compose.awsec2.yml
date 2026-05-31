@@ -33,6 +33,7 @@ services:
   # ─── REDIS (replaces ElastiCache — saves ~$13/month) ──────────────────────
   redis:
     image: redis:7-alpine
+    command: redis-server --maxmemory 128mb --maxmemory-policy allkeys-lru
     volumes:
       - redis_data:/data
     healthcheck:
