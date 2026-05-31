@@ -64,6 +64,9 @@ jobs:
             # Login to ECR
             aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 313003894447.dkr.ecr.eu-central-1.amazonaws.com
 
+            # Stop awsec2 stack if running
+            docker-compose -f docker-compose.awsec2.yml down --remove-orphans 2>/dev/null || true
+
             # Pull latest image and restart
             docker-compose -f docker-compose.aws.yml pull
             docker-compose -f docker-compose.aws.yml up -d
