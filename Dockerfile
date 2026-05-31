@@ -30,7 +30,7 @@ ARG NODE_ENV=production
 RUN if [ "$NODE_ENV" = "development" ]; then \
       echo "Development mode — using full node_modules from deps"; \
     else \
-      NODE_OPTIONS="--max-old-space-size=1536" pnpm prune --prod && pnpm store prune; \
+      pnpm prune --prod && pnpm store prune; \
     fi
 
 EXPOSE 9000
