@@ -20,7 +20,7 @@ module.exports = defineConfig({
     databaseUrl: process.env.DATABASE_URL,
     redisUrl,
     ...(process.env.COOKIE_SECURE === "false" && {
-      cookieOptions: { secure: false },
+      cookieOptions: { secure: false, sameSite: "lax" },
     }),
     http: {
       storeCors: process.env.STORE_CORS!,
