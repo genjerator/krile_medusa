@@ -53,6 +53,7 @@ const CloneProductWidget = ({ data: product }: DetailWidgetProps<HttpTypes.Admin
           ...(v.length && { length: v.length }),
           ...(v.width && { width: v.width }),
           ...(v.height && { height: v.height }),
+          prices: [],
           options: Object.fromEntries(
             (v.options ?? []).map((o: any) => [o.option?.title ?? o.title, o.value])
           ),
