@@ -1,6 +1,9 @@
 services:
   medusa:
-    build: .
+    build:
+      context: .
+      args:
+        NODE_ENV: development
     ports:
       - "9000:9000"
     env_file:
@@ -8,7 +11,7 @@ services:
     environment:
       DATABASE_URL: postgres://postgres:postgres@postgres:5432/medusa-v2?sslmode=disable
       REDIS_URL: redis://redis:6379
-      NODE_ENV: DEVELOPMENT
+      NODE_ENV: development
     depends_on:
       postgres:
         condition: service_healthy
@@ -43,6 +46,12 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+
+  mailpit:
+    image: axllent/mailpit
+    ports:
+      - "8025:8025"
+      - "1025:1025"
 
 volumes:
   postgres_data:
