@@ -5,6 +5,14 @@ import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { useNavigate } from "react-router-dom"
 import { sdk } from "../lib/client"
 
+const toNumber = (value: unknown): number | undefined => {
+  if (value === null || value === undefined || value === "") {
+    return undefined
+  }
+  const parsed = typeof value === "number" ? value : Number(value)
+  return Number.isNaN(parsed) ? undefined : parsed
+}
+
 const CloneProductWidget = ({ data: product }: DetailWidgetProps<HttpTypes.AdminProduct>) => {
   const navigate = useNavigate()
   const queryClient = useQueryClient()
@@ -26,10 +34,10 @@ const CloneProductWidget = ({ data: product }: DetailWidgetProps<HttpTypes.Admin
         ...(full.subtitle && { subtitle: full.subtitle }),
         ...(full.description && { description: full.description }),
         status: "draft",
-        ...(full.weight && { weight: full.weight }),
-        ...(full.length && { length: full.length }),
-        ...(full.width && { width: full.width }),
-        ...(full.height && { height: full.height }),
+        ...(toNumber(full.weight) !== undefined && { weight: toNumber(full.weight) }),
+        ...(toNumber(full.length) !== undefined && { length: toNumber(full.length) }),
+        ...(toNumber(full.width) !== undefined && { width: toNumber(full.width) }),
+        ...(toNumber(full.height) !== undefined && { height: toNumber(full.height) }),
         ...(full.origin_country && { origin_country: full.origin_country }),
         ...(full.material && { material: full.material }),
         ...(full.hs_code && { hs_code: full.hs_code }),
@@ -38,7 +46,7 @@ const CloneProductWidget = ({ data: product }: DetailWidgetProps<HttpTypes.Admin
         ...(full.collection_id && { collection_id: full.collection_id }),
         ...(full.images?.length && { images: full.images.map((img: any) => ({ url: img.url })) }),
         ...(full.thumbnail && { thumbnail: full.thumbnail }),
-        ...(full.categories?.length && { category_ids: full.categories.map((c: any) => c.id) }),
+        ...(full.categories?.length && { categories: full.categories.map((c: any) => ({ id: c.id })) }),
         ...(full.tags?.length && { tags: full.tags.map((t: any) => ({ id: t.id })) }),
         options: (full.options ?? []).map((opt: any) => ({
           title: opt.title,
@@ -49,10 +57,10 @@ const CloneProductWidget = ({ data: product }: DetailWidgetProps<HttpTypes.Admin
           sku: v.sku ? `${v.sku}-COPY-${timestamp}` : undefined,
           manage_inventory: v.manage_inventory,
           allow_backorder: v.allow_backorder,
-          ...(v.weight && { weight: v.weight }),
-          ...(v.length && { length: v.length }),
-          ...(v.width && { width: v.width }),
-          ...(v.height && { height: v.height }),
+          ...(toNumber(v.weight) !== undefined && { weight: toNumber(v.weight) }),
+          ...(toNumber(v.length) !== undefined && { length: toNumber(v.length) }),
+          ...(toNumber(v.width) !== undefined && { width: toNumber(v.width) }),
+          ...(toNumber(v.height) !== undefined && { height: toNumber(v.height) }),
           prices: [],
           options: Object.fromEntries(
             (v.options ?? []).map((o: any) => [o.option?.title ?? o.title, o.value])
