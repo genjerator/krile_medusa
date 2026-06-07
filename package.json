@@ -43,8 +43,10 @@
     "@tiptap/pm": "^3.24.0",
     "@tiptap/react": "^3.24.0",
     "@tiptap/starter-kit": "^3.24.0",
+    "express-rate-limit": "^8.5.2",
     "nodemailer": "^8.0.7",
-    "react-router-dom": "6.30.3"
+    "react-router-dom": "6.30.3",
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "@medusajs/test-utils": "2.13.6",

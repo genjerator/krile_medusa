@@ -35,6 +35,12 @@ module.exports = defineConfig({
   },
   modules: [
     {
+      resolve: "./src/modules/newsletter",
+    },
+    {
+      resolve: "./src/modules/productInquiry",
+    },
+    {
       resolve: "@medusajs/medusa/payment",
       options: {
         providers: [
