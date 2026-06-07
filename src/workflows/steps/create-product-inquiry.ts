@@ -7,6 +7,7 @@ type Input = {
   name: string
   message: string
   phone?: string
+  sales_channel_id?: string
 }
 
 export const createProductInquiryStep = createStep(

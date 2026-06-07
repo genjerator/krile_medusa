@@ -1,12 +1,15 @@
-import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
+import { MedusaResponse, MedusaStoreRequest } from "@medusajs/framework/http"
 import createProductInquiryWorkflow from "../../../workflows/create-product-inquiry"
 import { CreateInquirySchema } from "../../middlewares"
 
 export async function POST(
-  req: MedusaRequest<CreateInquirySchema>,
+  req: MedusaStoreRequest<CreateInquirySchema>,
   res: MedusaResponse
 ) {
-  const input = req.validatedBody
+  const input = {
+    ...req.validatedBody,
+    sales_channel_ids: req.publishable_key_context?.sales_channel_ids,
+  }
   const { result } = await createProductInquiryWorkflow(req.scope).run({
     input,
   })

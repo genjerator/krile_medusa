@@ -1,8 +1,10 @@
 import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
+import { Modules } from "@medusajs/framework/utils"
 import { PRODUCT_INQUIRY_MODULE } from "../../../modules/productInquiry"
 
 export async function GET(req: MedusaRequest, res: MedusaResponse) {
   const inquiryService = req.scope.resolve(PRODUCT_INQUIRY_MODULE)
+  const salesChannelService = req.scope.resolve(Modules.SALES_CHANNEL)
 
   const limit = Number(req.query.limit) || 20
   const offset = Number(req.query.offset) || 0
@@ -12,5 +14,19 @@ export async function GET(req: MedusaRequest, res: MedusaResponse) {
     { take: limit, skip: offset, order: { created_at: "DESC" } }
   )
 
-  return res.json({ inquiries, count, limit, offset })
+  const salesChannelIds = [
+    ...new Set(inquiries.map((i) => i.sales_channel_id).filter((id): id is string => !!id)),
+  ]
+
+  const salesChannels = salesChannelIds.length
+    ? await salesChannelService.listSalesChannels({ id: salesChannelIds }, { select: ["id", "name"] })
+    : []
+  const salesChannelNames = Object.fromEntries(salesChannels.map((sc) => [sc.id, sc.name]))
+
+  const inquiriesWithChannel = inquiries.map((inquiry) => ({
+    ...inquiry,
+    sales_channel_name: inquiry.sales_channel_id ? salesChannelNames[inquiry.sales_channel_id] ?? null : null,
+  }))
+
+  return res.json({ inquiries: inquiriesWithChannel, count, limit, offset })
 }

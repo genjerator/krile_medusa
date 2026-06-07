@@ -12,6 +12,8 @@ type Inquiry = {
   email: string
   message: string
   created_at: string
+  sales_channel_id: string | null
+  sales_channel_name: string | null
 }
 
 const PAGE_SIZE = 20
@@ -76,7 +78,7 @@ const InquiriesPage = () => {
           <table className="w-full">
             <thead>
               <tr className="border-b border-ui-border-base">
-                {["Name", "E-Mail", "Product ID", "Message", "Date"].map((h) => (
+                {["Name", "E-Mail", "Product ID", "Channel", "Message", "Date"].map((h) => (
                   <th
                     key={h}
                     className="px-6 py-3 text-left text-xs font-medium text-ui-fg-subtle uppercase tracking-wide"
@@ -105,6 +107,11 @@ const InquiriesPage = () => {
                   <td className="px-6 py-4">
                     <Text size="small" leading="compact" className="text-ui-fg-muted font-mono text-xs">
                       {inquiry.product_id}
+                    </Text>
+                  </td>
+                  <td className="px-6 py-4">
+                    <Text size="small" leading="compact" className="text-ui-fg-subtle">
+                      {inquiry.sales_channel_name ?? "—"}
                     </Text>
                   </td>
                   <td className="px-6 py-4 max-w-xs">
