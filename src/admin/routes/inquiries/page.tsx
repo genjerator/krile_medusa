@@ -8,6 +8,7 @@ import { sdk } from "../../lib/client"
 type Inquiry = {
   id: string
   product_id: string
+  product_handle: string | null
   name: string
   email: string
   message: string
@@ -15,6 +16,16 @@ type Inquiry = {
   sales_channel_id: string | null
   sales_channel_name: string | null
 }
+
+const DEFAULT_STOREFRONT_URL = "https://shop.planetaindustries.de"
+
+const STOREFRONT_URL_BY_CHANNEL: Record<string, string> = {
+  "Planeta GmbH": "https://shop.planeta-gmbh.de",
+  "PlanetaWebshop": "https://shop.planetaindustries.de",
+}
+
+const getStorefrontUrl = (channelName: string | null) =>
+  (channelName && STOREFRONT_URL_BY_CHANNEL[channelName]) || DEFAULT_STOREFRONT_URL
 
 const PAGE_SIZE = 20
 
@@ -78,7 +89,7 @@ const InquiriesPage = () => {
           <table className="w-full">
             <thead>
               <tr className="border-b border-ui-border-base">
-                {["Name", "E-Mail", "Product ID", "Channel", "Message", "Date"].map((h) => (
+                {["Name", "E-Mail", "Product", "Channel", "Message", "Date"].map((h) => (
                   <th
                     key={h}
                     className="px-6 py-3 text-left text-xs font-medium text-ui-fg-subtle uppercase tracking-wide"
@@ -105,8 +116,26 @@ const InquiriesPage = () => {
                     </Text>
                   </td>
                   <td className="px-6 py-4">
-                    <Text size="small" leading="compact" className="text-ui-fg-muted font-mono text-xs">
-                      {inquiry.product_id}
+                    <Text size="small" leading="compact" className="text-ui-fg-subtle text-xs">
+                      <a
+                        href={`/app/products/${inquiry.product_id}`}
+                        className="text-ui-fg-interactive hover:underline"
+                      >
+                        admin
+                      </a>
+                      {" : "}
+                      {inquiry.product_handle ? (
+                        <a
+                          href={`${getStorefrontUrl(inquiry.sales_channel_name)}/de/products/${inquiry.product_handle}`}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-ui-fg-interactive hover:underline"
+                        >
+                          site
+                        </a>
+                      ) : (
+                        <span className="text-ui-fg-muted">site</span>
+                      )}
                     </Text>
                   </td>
                   <td className="px-6 py-4">
