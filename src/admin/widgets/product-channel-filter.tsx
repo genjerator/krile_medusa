@@ -8,7 +8,7 @@ const ProductChannelFilterWidget = () => {
   const navigate = useNavigate()
   const location = useLocation()
   const searchParams = new URLSearchParams(location.search)
-  const activeChannelId = searchParams.get("sales_channel_id[]") ?? searchParams.get("sales_channel_id") ?? null
+  const activeChannelId = searchParams.get("sales_channel_id") ?? null
 
   const { data } = useQuery({
     queryKey: ["sales-channels-filter"],
@@ -21,10 +21,9 @@ const ProductChannelFilterWidget = () => {
 
   const setFilter = (channelId: string | null) => {
     const params = new URLSearchParams(location.search)
-    params.delete("sales_channel_id[]")
     params.delete("sales_channel_id")
     params.delete("offset")
-    if (channelId) params.set("sales_channel_id[]", channelId)
+    if (channelId) params.set("sales_channel_id", channelId)
     navigate(`/products?${params.toString()}`)
   }
 
