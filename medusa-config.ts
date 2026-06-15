@@ -30,6 +30,10 @@ module.exports = defineConfig({
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
     },
   },
+  admin: {
+    // Raise the admin media upload limit from the 1MB default to 5MB
+    maxUploadFileSize: 5 * 1024 * 1024,
+  },
   featureFlags: {
     translation: true,
   },
