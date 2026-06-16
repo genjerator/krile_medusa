@@ -33,6 +33,9 @@ interface ProductEntry {
   categories: { name: string; slug: string }[]
   thumbnail?: ImageEntry
   images: ImageEntry[]
+  // Technical specs extracted from WooCommerce attributes (see extract-technical-data.mjs).
+  // Stored on the product as `technische_daten__<field>` metadata for the storefront tab.
+  technical_data?: Record<string, string>
 }
 
 const IMAGES_DIR    = path.resolve(process.cwd(), "../mysql/woo-exporter/images")
@@ -146,6 +149,18 @@ export default async function seedPlanetaProducts({ container }: ExecArgs) {
       if (url) imageUrls.push(url)
     }
 
+    // Build product metadata: Woo bookkeeping + technical data for the
+    // storefront "Technische Daten" tab (grouped by the `section__field` convention).
+    const productMetadata: Record<string, unknown> = {
+      woo_external_id: woo.external_id,
+      woo_stock_status: woo.stock_status,
+    }
+    for (const [field, value] of Object.entries(woo.technical_data ?? {})) {
+      if (value != null && value !== "") {
+        productMetadata[`technische_daten__${field}`] = value
+      }
+    }
+
     // Check existing by handle first, then fall back to SKU
     const sku = woo.sku || `PLANETA-WOO-${woo.external_id}`
     const { data: found } = await query.graph({
@@ -178,6 +193,7 @@ export default async function seedPlanetaProducts({ container }: ExecArgs) {
           status: woo.status as any,
           images: imageUrls.map(url => ({ url })),
           category_ids: categoryIds,
+          metadata: productMetadata,
         }
       )
       product = found[0]
@@ -202,10 +218,7 @@ export default async function seedPlanetaProducts({ container }: ExecArgs) {
             woo_stock_status: woo.stock_status,
           },
         }],
-        metadata: {
-          woo_external_id: woo.external_id,
-          woo_stock_status: woo.stock_status,
-        },
+        metadata: productMetadata,
       }])
       product = created
       logger.info(`    ✓ created`)
