@@ -1,11 +1,17 @@
 FROM node:20-alpine AS base
 RUN npm install -g pnpm@10.33.0
 
-# --- Dependencies ---
+# --- All dependencies (dev + prod, needed for build) ---
 FROM base AS deps
 WORKDIR /app
 COPY package.json pnpm-lock.yaml ./
 RUN pnpm install --frozen-lockfile --shamefully-hoist && pnpm approve-builds --all
+
+# --- Production-only dependencies ---
+FROM base AS prod-deps
+WORKDIR /app
+COPY package.json pnpm-lock.yaml ./
+RUN pnpm install --frozen-lockfile --shamefully-hoist --prod && pnpm approve-builds --all
 
 # --- Builder ---
 FROM base AS builder
@@ -22,16 +28,8 @@ ENV NODE_ENV=production
 
 COPY --from=builder /app/.medusa/server .
 COPY --from=builder /app/static ./static
-COPY --from=builder /app/src/scripts ./src/scripts
 COPY --from=builder /app/tsconfig.json ./tsconfig.json
-COPY --from=deps /app/node_modules ./node_modules
-
-ARG NODE_ENV=production
-RUN if [ "$NODE_ENV" = "development" ]; then \
-      echo "Development mode — using full node_modules from deps"; \
-    else \
-      pnpm prune --prod && pnpm store prune; \
-    fi
+COPY --from=prod-deps /app/node_modules ./node_modules
 
 EXPOSE 9000
 
