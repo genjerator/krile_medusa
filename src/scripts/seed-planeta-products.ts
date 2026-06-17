@@ -191,7 +191,6 @@ export default async function seedPlanetaProducts({ container }: ExecArgs) {
           title: woo.title,
           description: woo.description || undefined,
           status: woo.status as any,
-          images: imageUrls.map(url => ({ url })),
           category_ids: categoryIds,
           metadata: productMetadata,
         }
