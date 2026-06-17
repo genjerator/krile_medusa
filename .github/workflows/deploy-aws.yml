@@ -60,6 +60,7 @@ jobs:
 
             # Write env file from secret
             echo "${{ secrets.ENV_AWS }}" > .env.aws
+            echo "PAYPAL_IS_SANDBOX=${{ secrets.PAYPAL_IS_SANDBOX }}" >> .env.aws
 
             # Login to ECR
             aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 313003894447.dkr.ecr.eu-central-1.amazonaws.com

@@ -4,13 +4,18 @@ loadEnv(process.env.NODE_ENV || 'development', process.cwd())
 
 const redisUrl = process.env.REDIS_URL
 
-const paypalPlugin = process.env.PAYPAL_CLIENT_ID ? [{
+const isSandbox = process.env.PAYPAL_IS_SANDBOX !== "false"
+const paypalClientId = isSandbox ? process.env.PAYPAL_CLIENT_ID_SANDBOX : process.env.PAYPAL_CLIENT_ID_LIVE
+const paypalClientSecret = isSandbox ? process.env.PAYPAL_CLIENT_SECRET_SANDBOX : process.env.PAYPAL_CLIENT_SECRET_LIVE
+const paypalWebhookId = isSandbox ? process.env.PAYPAL_WEBHOOK_ID_SANDBOX : process.env.PAYPAL_WEBHOOK_ID_LIVE
+
+const paypalPlugin = paypalClientId ? [{
   resolve: "@alphabite/medusa-paypal",
   options: {
-    clientId: process.env.PAYPAL_CLIENT_ID,
-    clientSecret: process.env.PAYPAL_CLIENT_SECRET,
-    isSandbox: process.env.PAYPAL_IS_SANDBOX === "true",
-    webhookId: process.env.PAYPAL_WEBHOOK_ID,
+    clientId: paypalClientId,
+    clientSecret: paypalClientSecret,
+    isSandbox,
+    webhookId: paypalWebhookId,
   },
 }] : []
 
@@ -61,14 +66,14 @@ module.exports = defineConfig({
               webhookSecret: process.env.STRIPE_WEBHOOK_SECRET,
             },
           }] : []),
-          ...(process.env.PAYPAL_CLIENT_ID ? [{
+          ...(paypalClientId ? [{
             resolve: "@alphabite/medusa-paypal/providers/paypal",
             id: "paypal",
             options: {
-              clientId: process.env.PAYPAL_CLIENT_ID,
-              clientSecret: process.env.PAYPAL_CLIENT_SECRET,
-              isSandbox: process.env.PAYPAL_IS_SANDBOX === "true",
-              webhookId: process.env.PAYPAL_WEBHOOK_ID,
+              clientId: paypalClientId,
+              clientSecret: paypalClientSecret,
+              isSandbox,
+              webhookId: paypalWebhookId,
             },
           }] : []),
         ],
