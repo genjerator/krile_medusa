@@ -17,11 +17,11 @@ type Inquiry = {
   sales_channel_name: string | null
 }
 
-const DEFAULT_STOREFRONT_URL = "https://shop.planetaindustries.de"
+const DEFAULT_STOREFRONT_URL = "https://www.planetaindustries.de"
 
 const STOREFRONT_URL_BY_CHANNEL: Record<string, string> = {
-  "Planeta GmbH": "https://shop.planeta-gmbh.de",
-  "PlanetaWebshop": "https://shop.planetaindustries.de",
+  "IndustriesWebshop": "https://wwww.pplanetaindustries.de",
+  "PlanetaWebshop": "https://wwww.planeta.de",
 }
 
 const getStorefrontUrl = (channelName: string | null) =>

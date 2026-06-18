@@ -16,7 +16,7 @@ const ProductChannelFilterWidget = () => {
   })
 
   const channels = data?.sales_channels ?? []
-  const webshop = channels.find((c) => c.name === "Webshop")
+  const industriesWebshop = channels.find((c) => c.name === "IndustriesWebshop")
   const planetaWebshop = channels.find((c) => c.name === "PlanetaWebshop")
 
   const setFilter = (channelId: string | null) => {
@@ -36,11 +36,11 @@ const ProductChannelFilterWidget = () => {
         <div className="flex gap-2">
           <Button
             size="small"
-            variant={activeChannelId === (webshop?.id ?? null) && activeChannelId !== null ? "primary" : "secondary"}
-            onClick={() => webshop && setFilter(webshop.id)}
-            disabled={!webshop}
+            variant={activeChannelId === (industriesWebshop?.id ?? null) && activeChannelId !== null ? "primary" : "secondary"}
+            onClick={() => industriesWebshop && setFilter(industriesWebshop.id)}
+            disabled={!industriesWebshop}
           >
-            Webshop
+            industriesWebshop
           </Button>
           <Button
             size="small"

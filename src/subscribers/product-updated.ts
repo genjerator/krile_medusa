@@ -28,5 +28,8 @@ export const config: SubscriberConfig = {
     "product-media.created",
     "product-media.updated",
     "product-media.deleted",
+    "sales-channel.created",
+    "sales-channel.updated",
+    "sales-channel.deleted",
   ],
 }
