@@ -9,6 +9,7 @@ type SmtpOptions = {
   user: string
   pass: string
   from: string
+  bcc?: string
 }
 
 type InjectedDeps = {
@@ -20,12 +21,14 @@ class SmtpNotificationProviderService extends AbstractNotificationProviderServic
 
   private transporter: Transporter
   private from: string
+  private bcc: string | undefined
   private logger: Logger
 
   constructor({ logger }: InjectedDeps, options: SmtpOptions) {
     super()
     this.logger = logger
     this.from = options.from
+    this.bcc = options.bcc
 
     this.transporter = nodemailer.createTransport({
       host: options.host,
@@ -49,6 +52,7 @@ class SmtpNotificationProviderService extends AbstractNotificationProviderServic
     const info = await this.transporter.sendMail({
       from: this.from,
       to,
+      bcc: this.bcc,
       subject: subject ?? "(no subject)",
       html,
       text,
