@@ -44,9 +44,9 @@ export default async function seedTabletop({ container }: ExecArgs) {
 
   // ─── SALES CHANNEL ────────────────────────────────────────────────────────
   logger.info("Resolving sales channel...")
-  const existingChannels = await salesChannelModule.listSalesChannels({ name: "Webshop" })
+  const existingChannels = await salesChannelModule.listSalesChannels({ name: "IndustriesWebshop" })
   const salesChannel = existingChannels[0] ?? (await salesChannelModule.createSalesChannels([{
-    name: "Webshop",
+    name: "IndustriesWebshop",
     description: "MULTIVAC machinery webshop",
   }]))[0]
 

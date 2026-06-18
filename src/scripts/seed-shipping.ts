@@ -31,7 +31,7 @@ export default async function seedShipping({ container }: ExecArgs) {
   }
 
   // ─── Sales channel ────────────────────────────────────────────────────────
-  const [salesChannel] = await salesChannelModule.listSalesChannels({ name: "Webshop" })
+  const [salesChannel] = await salesChannelModule.listSalesChannels({ name: "IndustriesWebshop" })
   if (!salesChannel) throw new Error("No 'Webshop' sales channel found.")
   logger.info(`Using sales channel: ${salesChannel.name} (${salesChannel.id})`)
 

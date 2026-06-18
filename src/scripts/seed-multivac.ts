@@ -51,9 +51,9 @@ export default async function seedMultivac({ container }: ExecArgs) {
 
   // ─── SALES CHANNEL ────────────────────────────────────────────────────────
   logger.info("Creating sales channel...")
-  const existingChannels = await salesChannelModule.listSalesChannels({ name: "Webshop" })
+  const existingChannels = await salesChannelModule.listSalesChannels({ name: "IndustriesWebshop" })
   const salesChannel = existingChannels[0] ?? (await salesChannelModule.createSalesChannels([{
-    name: "Webshop",
+    name: "IndustriesWebshop",
     description: "MULTIVAC machinery webshop",
   }]))[0]
 

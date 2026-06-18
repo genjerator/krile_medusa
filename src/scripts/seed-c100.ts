@@ -41,10 +41,10 @@ export default async function seedC100({ container }: ExecArgs) {
   }
 
   // ─── SALES CHANNEL ────────────────────────────────────────────────────────
-  const existingChannels = await salesChannelModule.listSalesChannels({ name: "Webshop" })
+  const existingChannels = await salesChannelModule.listSalesChannels({ name: "IndustriesWebshop" })
   const salesChannel = existingChannels[0] ?? (await salesChannelModule.createSalesChannels([{
-    name: "Webshop",
-    description: "MULTIVAC machinery webshop",
+    name: "IndustriesWebshop",
+    description: "MULTIVAC machinery industriesWebshop",
   }]))[0]
 
   // ─── CATEGORY ─────────────────────────────────────────────────────────────

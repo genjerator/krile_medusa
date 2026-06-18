@@ -31,9 +31,9 @@ export default async function seedP360({ container }: ExecArgs) {
     if (!existingLocaleCodes.includes(locale.code)) await translationModule.createLocales([locale])
   }
 
-  const existingChannels = await salesChannelModule.listSalesChannels({ name: "Webshop" })
+  const existingChannels = await salesChannelModule.listSalesChannels({ name: "IndustriesWebshop" })
   const salesChannel = existingChannels[0] ?? (await salesChannelModule.createSalesChannels([{
-    name: "Webshop", description: "MULTIVAC machinery webshop",
+    name: "IndustriesWebshop", description: "MULTIVAC machinery webshop",
   }]))[0]
 
   const existingParent = await productModule.listProductCategories({ handle: ["chamber-machines"] })

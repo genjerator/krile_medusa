@@ -351,7 +351,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
       input: {
         api_keys: [
           {
-            title: "Webshop",
+            title: "IndustriesWebshop",
             type: "publishable",
             created_by: "",
           },
