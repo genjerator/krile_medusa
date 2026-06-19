@@ -4,23 +4,17 @@ loadEnv(process.env.NODE_ENV || 'development', process.cwd())
 
 const redisUrl = process.env.REDIS_URL
 
-const isSandbox = process.env.PAYPAL_IS_SANDBOX !== "false"
-const paypalClientId = isSandbox ? process.env.PAYPAL_CLIENT_ID_SANDBOX : process.env.PAYPAL_CLIENT_ID_LIVE
-const paypalClientSecret = isSandbox ? process.env.PAYPAL_CLIENT_SECRET_SANDBOX : process.env.PAYPAL_CLIENT_SECRET_LIVE
-const paypalWebhookId = isSandbox ? process.env.PAYPAL_WEBHOOK_ID_SANDBOX : process.env.PAYPAL_WEBHOOK_ID_LIVE
-
-const paypalPlugin = paypalClientId ? [{
-  resolve: "@alphabite/medusa-paypal",
-  options: {
-    clientId: paypalClientId,
-    clientSecret: paypalClientSecret,
-    isSandbox,
-    webhookId: paypalWebhookId,
-  },
-}] : []
-
+// @easypayment/medusa-payment-paypal manages credentials and the
+// sandbox/live toggle through Medusa Admin → Settings → PayPal, so no
+// client id/secret is passed here. PAYPAL_ENCRYPTION_KEY (optional) enables
+// AES-256-GCM encryption of the stored secret/access token.
 module.exports = defineConfig({
-  plugins: paypalPlugin as any,
+  plugins: [
+    {
+      resolve: "@easypayment/medusa-payment-paypal",
+      options: {},
+    },
+  ],
   projectConfig: {
     databaseUrl: process.env.DATABASE_URL,
     redisUrl,
@@ -66,16 +60,12 @@ module.exports = defineConfig({
               webhookSecret: process.env.STRIPE_WEBHOOK_SECRET,
             },
           }] : []),
-          ...(paypalClientId ? [{
-            resolve: "@alphabite/medusa-paypal/providers/paypal",
+          {
+            resolve: "@easypayment/medusa-payment-paypal/providers/paypal",
             id: "paypal",
-            options: {
-              clientId: paypalClientId,
-              clientSecret: paypalClientSecret,
-              isSandbox,
-              webhookId: paypalWebhookId,
-            },
-          }] : []),
+            options: {},
+            dependencies: ["paypal_onboarding"],
+          },
         ],
       },
     },
