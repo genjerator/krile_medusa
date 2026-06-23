@@ -20,7 +20,7 @@ const getStorefrontUrl = (channels: Array<{ name: string }> | undefined | null) 
 const ProductStorefrontLinkWidget = ({ data: product }: DetailWidgetProps<HttpTypes.AdminProduct>) => {
   const channels = (product as any).sales_channels as Array<{ name: string }> | undefined
   const storefrontUrl = getStorefrontUrl(channels)
-  const productUrl = `${storefrontUrl}/de/products/${product.handle}`
+  const productUrl = `${storefrontUrl}/de/product/${product.handle}`
 
   return (
     <Container className="divide-y p-0">
