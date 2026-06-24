@@ -21,7 +21,7 @@ const CloneProductWidget = ({ data: product }: DetailWidgetProps<HttpTypes.Admin
     mutationFn: async () => {
       // Fetch full product with all relations needed for cloning
       const { product: full } = await sdk.admin.product.retrieve(product.id, {
-        fields: "title,subtitle,description,handle,status,weight,length,width,height,origin_country,material,hs_code,mid_code,metadata,thumbnail,images.*,options.*,options.values.*,variants.*,variants.options.*,categories.*,tags.*,collection_id",
+        fields: "title,subtitle,description,handle,status,weight,length,width,height,origin_country,material,hs_code,mid_code,metadata,thumbnail,images.*,options.*,options.values.*,variants.*,variants.options.*,categories.*,tags.*,collection_id,sales_channels.id",
       })
 
       const baseHandle = `${full.handle}-copy`
@@ -48,6 +48,7 @@ const CloneProductWidget = ({ data: product }: DetailWidgetProps<HttpTypes.Admin
         ...(full.thumbnail && { thumbnail: full.thumbnail }),
         ...(full.categories?.length && { categories: full.categories.map((c: any) => ({ id: c.id })) }),
         ...(full.tags?.length && { tags: full.tags.map((t: any) => ({ id: t.id })) }),
+        ...(full.sales_channels?.length && { sales_channels: full.sales_channels.map((sc: any) => ({ id: sc.id })) }),
         options: (full.options ?? []).map((opt: any) => ({
           title: opt.title,
           values: (opt.values ?? []).map((v: any) => v.value),

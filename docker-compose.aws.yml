@@ -5,6 +5,13 @@ services:
       - "9000:9000"
     env_file:
       - .env.aws
+    environment:
+      # Point the backend at the bundled Redis. Set here (not in .env.aws) because
+      # the deploy overwrites .env.aws from the ENV_AWS secret.
+      REDIS_URL: redis://redis:6379
+    depends_on:
+      redis:
+        condition: service_healthy
     healthcheck:
       test: ["CMD", "wget", "-qO-", "http://localhost:9000/health"]
       interval: 30s
@@ -12,3 +19,21 @@ services:
       retries: 3
       start_period: 120s
     restart: unless-stopped
+
+  redis:
+    image: redis:7
+    # Cap memory at 128 MB. allkeys-lru evicts least-recently-used keys when full
+    # so writes never start failing (Redis here backs cache + event bus + workflow
+    # + locking). appendonly persists data across restarts.
+    command: ["redis-server", "--maxmemory", "128mb", "--maxmemory-policy", "allkeys-lru", "--appendonly", "yes"]
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+volumes:
+  redis_data:
