@@ -90,13 +90,47 @@ module.exports = defineConfig({
             id: "smtp",
             options: {
               channels: ["email"],
-              host: process.env.SMTP_HOST,
-              port: parseInt(process.env.SMTP_PORT ?? "587"),
-              secure: process.env.SMTP_SECURE === "true",
-              user: process.env.SMTP_USER,
-              pass: process.env.SMTP_PASS,
-              from: process.env.SMTP_FROM,
-              bcc: process.env.SMTP_BCC,
+              // One account per storefront brand. Account 0 is the default
+              // (used when no `account` is passed / unknown sales channel).
+              accounts: [
+                {
+                  key: "industries",
+                  host: process.env.SMTP_INDUSTRIES_HOST,
+                  port: parseInt(process.env.SMTP_INDUSTRIES_PORT ?? "587"),
+                  secure: process.env.SMTP_INDUSTRIES_SECURE === "true",
+                  user: process.env.SMTP_INDUSTRIES_USER,
+                  pass: process.env.SMTP_INDUSTRIES_PASS,
+                  from: process.env.SMTP_INDUSTRIES_FROM,
+                  bcc: process.env.SMTP_INDUSTRIES_BCC,
+                },
+                // Planeta GmbH / planeta-shop.de — only registered when its
+                // mailbox credentials are configured. Until then, code falls
+                // back to the "industries" account.
+                ...(process.env.SMTP_SHOP_USER
+                  ? [
+                      {
+                        key: "planeta",
+                        host:
+                          process.env.SMTP_SHOP_HOST ||
+                          process.env.SMTP_INDUSTRIES_HOST,
+                        port: parseInt(
+                          process.env.SMTP_SHOP_PORT ??
+                            process.env.SMTP_INDUSTRIES_PORT ??
+                            "587"
+                        ),
+                        secure:
+                          (process.env.SMTP_SHOP_SECURE ??
+                            process.env.SMTP_INDUSTRIES_SECURE) === "true",
+                        user: process.env.SMTP_SHOP_USER,
+                        pass: process.env.SMTP_SHOP_PASS,
+                        from: process.env.SMTP_SHOP_FROM,
+                        bcc:
+                          process.env.SMTP_SHOP_BCC ||
+                          process.env.SMTP_INDUSTRIES_BCC,
+                      },
+                    ]
+                  : []),
+              ],
             },
           },
         ],

@@ -24,6 +24,8 @@ export const CreateInquirySchema = z.object({
     .regex(/^[+a-zA-Z0-9\s()-]*$/, "Phone number may only contain letters, numbers, spaces, ( ) - and a + sign")
     .optional()
     .or(z.literal("")),
+  // Storefront UI locale (de/en/it/fr/ru); used to pick the confirmation-email language.
+  locale: z.string().trim().optional(),
 })
 
 export type CreateInquirySchema = z.infer<typeof CreateInquirySchema>

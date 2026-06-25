@@ -1,5 +1,6 @@
 import type { SubscriberArgs, SubscriberConfig } from "@medusajs/framework"
 import { Modules } from "@medusajs/framework/utils"
+import { getStoreEmailIdentity } from "../lib/store-email-identity"
 
 export default async function orderPlacedHandler({
   event: { data },
@@ -23,6 +24,7 @@ export default async function orderPlacedHandler({
       "id", "display_id", "status", "currency_code",
       "total", "subtotal", "shipping_total", "tax_total",
       "email",
+      "sales_channel.name",
       "shipping_address.*",
       "billing_address.*",
       "items.*",
@@ -40,7 +42,9 @@ export default async function orderPlacedHandler({
     return
   }
 
-  const storeEmail = process.env.SMTP_FROM_EMAIL || process.env.SMTP_USER || ""
+  // Pick the sending mailbox + store recipient based on the storefront
+  // (sales channel) the order came from.
+  const { account, storeEmail } = getStoreEmailIdentity((order as any).sales_channel?.name)
   const customerEmail = order.email
 
   const paymentSession = (order as any).payment_collections?.[0]?.payment_sessions?.[0]
@@ -89,6 +93,7 @@ export default async function orderPlacedHandler({
       channel: "email",
       template: "order-confirmation",
       data: {
+        account,
         subject: `Bestellbestätigung #${order.display_id} – Planeta Industries`,
         html: `
           <div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:24px;color:#111;">
@@ -143,6 +148,7 @@ export default async function orderPlacedHandler({
       channel: "email",
       template: "order-notification",
       data: {
+        account,
         subject: `🛒 Neue Bestellung #${order.display_id} von ${customerEmail}`,
         html: `
           <div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:24px;color:#111;">

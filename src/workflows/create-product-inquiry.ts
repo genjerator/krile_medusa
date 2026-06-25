@@ -1,6 +1,7 @@
 import { createWorkflow, WorkflowResponse, transform } from "@medusajs/framework/workflows-sdk"
 import { createProductInquiryStep } from "./steps/create-product-inquiry"
 import { linkInquiryToCustomerStep } from "./steps/link-inquiry-customer"
+import { sendInquiryConfirmationStep } from "./steps/send-inquiry-confirmation"
 
 type Input = {
   product_id: string
@@ -9,6 +10,7 @@ type Input = {
   message: string
   phone?: string
   sales_channel_ids?: string[]
+  locale?: string
 }
 
 const createProductInquiryWorkflow = createWorkflow(
@@ -34,6 +36,15 @@ const createProductInquiryWorkflow = createWorkflow(
     }))
 
     linkInquiryToCustomerStep(customerInput)
+
+    // Send the customer a confirmation email (best-effort; never rolls back the inquiry).
+    const confirmationInput = transform({ input }, ({ input }) => ({
+      email: input.email,
+      name: input.name,
+      locale: input.locale,
+      sales_channel_id: input.sales_channel_ids?.[0],
+    }))
+    sendInquiryConfirmationStep(confirmationInput)
 
     return new WorkflowResponse(inquiry)
   }
