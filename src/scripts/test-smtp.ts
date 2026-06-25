@@ -5,7 +5,8 @@ export default async function testSmtp({ container }: ExecArgs) {
   const logger = container.resolve("logger")
   const notificationModule = container.resolve(Modules.NOTIFICATION)
 
-  const to = process.env.SMTP_TEST_TO || process.env.SMTP_USER || "test@example.com"
+  const to =
+    process.env.SMTP_TEST_TO || process.env.SMTP_INDUSTRIES_USER || "test@example.com"
 
   logger.info(`Sending test email to ${to}...`)
 
@@ -21,9 +22,9 @@ export default async function testSmtp({ container }: ExecArgs) {
           <p>Diese E-Mail wurde vom lokalen Medusa-Backend gesendet.</p>
           <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 24px 0;" />
           <p style="color: #6b7280; font-size: 14px;">
-            Host: ${process.env.SMTP_HOST}<br/>
-            Port: ${process.env.SMTP_PORT}<br/>
-            Von: ${process.env.SMTP_FROM}
+            Host: ${process.env.SMTP_INDUSTRIES_HOST}<br/>
+            Port: ${process.env.SMTP_INDUSTRIES_PORT}<br/>
+            Von: ${process.env.SMTP_INDUSTRIES_FROM}
           </p>
         </div>
       `,
