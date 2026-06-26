@@ -11,6 +11,7 @@ type Input = {
   phone?: string
   sales_channel_ids?: string[]
   locale?: string
+  source_url?: string
 }
 
 const createProductInquiryWorkflow = createWorkflow(
@@ -45,7 +46,8 @@ const createProductInquiryWorkflow = createWorkflow(
       phone: input.phone,
       locale: input.locale,
       product_id: input.product_id,
-      sales_channel_id: input.sales_channel_ids?.[0],
+      source_url: input.source_url,
+      sales_channel_ids: input.sales_channel_ids,
     }))
     sendInquiryConfirmationStep(confirmationInput)
 

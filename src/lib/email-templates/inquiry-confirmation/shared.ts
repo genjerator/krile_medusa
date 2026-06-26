@@ -14,6 +14,7 @@ export type DetailLabels = {
   email: string
   phone: string
   product: string
+  page: string
   date: string
   message: string
 }
@@ -35,12 +36,17 @@ export function renderInquiryDetails(data: InquiryEmailData, labels: DetailLabel
     ? `<a href="${data.productUrl}">${escapeHtml(data.productLabel ?? data.productUrl)}</a>`
     : escapeHtml(data.productLabel ?? "")
 
+  const pageHtml = data.sourceUrl
+    ? `<a href="${escapeHtml(data.sourceUrl)}">${escapeHtml(data.sourceUrl)}</a>`
+    : ""
+
   return `
     <table style="width:100%;border-collapse:collapse;font-size:14px;margin:8px 0;">
       ${row(labels.name, escapeHtml(data.name))}
       ${row(labels.email, `<a href="mailto:${escapeHtml(data.email)}">${escapeHtml(data.email)}</a>`)}
       ${row(labels.phone, escapeHtml(data.phone))}
       ${row(labels.product, productHtml)}
+      ${row(labels.page, pageHtml)}
       ${row(labels.date, escapeHtml(data.dateStr))}
       ${row(
         labels.message,

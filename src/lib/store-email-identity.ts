@@ -24,9 +24,17 @@ export type StoreEmailIdentity = {
 export const SHOP_CHANNEL_NAME = "PlanetaWebshop"
 
 export function getStoreEmailIdentity(
-  salesChannelName?: string | null
+  // Accepts a single channel name (orders belong to one channel) or several
+  // (a storefront's publishable key can be linked to multiple channels).
+  salesChannelName?: string | string[] | null
 ): StoreEmailIdentity {
-  if (salesChannelName === SHOP_CHANNEL_NAME && process.env.SMTP_SHOP_USER) {
+  const names = Array.isArray(salesChannelName)
+    ? salesChannelName
+    : salesChannelName
+      ? [salesChannelName]
+      : []
+
+  if (names.includes(SHOP_CHANNEL_NAME) && process.env.SMTP_SHOP_USER) {
     return {
       account: "planeta",
       storeEmail:

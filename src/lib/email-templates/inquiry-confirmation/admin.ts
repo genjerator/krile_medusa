@@ -18,6 +18,7 @@ export function inquiryAdminDe(data: InquiryEmailData): EmailContent {
           email: "E-Mail",
           phone: "Telefon",
           product: "Produkt",
+          page: "Seite",
           date: "Datum",
           message: "Nachricht",
         })}

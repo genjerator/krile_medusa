@@ -14,7 +14,8 @@ type Input = {
   phone?: string
   locale?: string
   product_id?: string
-  sales_channel_id?: string
+  source_url?: string
+  sales_channel_ids?: string[]
 }
 
 /** Storefront base URL per sales channel (for the customer product link). */
@@ -47,19 +48,21 @@ export const sendInquiryConfirmationStep = createStep(
 
     const query = container.resolve("query")
 
-    // Resolve the sales channel name (we only have its id here) to pick the
-    // sending mailbox + contact address for the storefront the inquiry came from.
-    let salesChannelName: string | undefined
-    if (input.sales_channel_id) {
+    // Resolve the sales channel name(s) (we only have ids here) to pick the
+    // sending mailbox + contact address. A storefront's publishable key can be
+    // linked to several channels, so resolve them all and let the identity
+    // helper match on the shop channel regardless of order.
+    let salesChannelNames: string[] = []
+    if (input.sales_channel_ids?.length) {
       const { data } = await query.graph({
         entity: "sales_channel",
-        filters: { id: input.sales_channel_id },
+        filters: { id: input.sales_channel_ids },
         fields: ["name"],
       })
-      salesChannelName = data?.[0]?.name
+      salesChannelNames = (data ?? []).map((s: any) => s.name).filter(Boolean)
     }
 
-    const { account, storeEmail } = getStoreEmailIdentity(salesChannelName)
+    const { account, storeEmail } = getStoreEmailIdentity(salesChannelNames)
 
     // Product info — only when the inquiry is about a real product (the contact
     // form uses a sentinel product_id like "contact-form").
@@ -75,8 +78,8 @@ export const sendInquiryConfirmationStep = createStep(
       const product = data?.[0]
       if (product) {
         productLabel = product.title
-        const base =
-          STOREFRONT_BASE_BY_CHANNEL[salesChannelName ?? ""] ?? DEFAULT_STOREFRONT
+        const channelForUrl = salesChannelNames.find((n) => STOREFRONT_BASE_BY_CHANNEL[n])
+        const base = STOREFRONT_BASE_BY_CHANNEL[channelForUrl ?? ""] ?? DEFAULT_STOREFRONT
         productUrl = product.handle ? `${base}/de/products/${product.handle}` : null
         const adminBase = (process.env.ADMIN_URL || "").replace(/\/+$/, "")
         adminProductUrl = adminBase ? `${adminBase}/products/${input.product_id}` : null
@@ -100,6 +103,7 @@ export const sendInquiryConfirmationStep = createStep(
       productLabel,
       productUrl,
       adminProductUrl,
+      sourceUrl: input.source_url || null,
       dateStr,
       storeEmail,
     }

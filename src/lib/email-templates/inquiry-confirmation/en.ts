@@ -25,6 +25,7 @@ export function inquiryCustomerEn(data: InquiryEmailData): EmailContent {
           email: "Email",
           phone: "Phone",
           product: "Product",
+          page: "Page",
           date: "Date",
           message: "Message",
         })}

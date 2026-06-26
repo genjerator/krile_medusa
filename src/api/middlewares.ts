@@ -26,6 +26,8 @@ export const CreateInquirySchema = z.object({
     .or(z.literal("")),
   // Storefront UI locale (de/en/it/fr/ru); used to pick the confirmation-email language.
   locale: z.string().trim().optional(),
+  // The storefront page URL the inquiry was submitted from (shown in the emails).
+  source_url: z.string().trim().max(500).optional(),
 })
 
 export type CreateInquirySchema = z.infer<typeof CreateInquirySchema>

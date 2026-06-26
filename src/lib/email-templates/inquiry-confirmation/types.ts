@@ -13,6 +13,8 @@ export type InquiryEmailData = {
   productUrl?: string | null
   /** Admin link to the product (admin email). */
   adminProductUrl?: string | null
+  /** The storefront page URL the inquiry was submitted from. */
+  sourceUrl?: string | null
   /** Pre-formatted submission date/time. */
   dateStr: string
   /** Store contact email used in the customer footer (may be empty). */
