@@ -16,7 +16,6 @@ export function inquiryCustomerEn(data: InquiryEmailData): EmailContent {
         <p>We have received your request and hereby confirm it.</p>
         <p>One of our team members will get in touch with you
            <strong>as soon as possible</strong>.</p>
-
         <h3 style="color:#1e3a5f;border-bottom:1px solid #e5e7eb;padding-bottom:6px;margin-top:24px;">
           Your details
         </h3>
