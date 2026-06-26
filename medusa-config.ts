@@ -101,7 +101,8 @@ module.exports = defineConfig({
                   user: process.env.SMTP_INDUSTRIES_USER,
                   pass: process.env.SMTP_INDUSTRIES_PASS,
                   from: process.env.SMTP_INDUSTRIES_FROM,
-                  bcc: process.env.SMTP_INDUSTRIES_BCC,
+                  // BCC disabled (not needed). Re-enable to send a hidden copy.
+                  // bcc: process.env.SMTP_INDUSTRIES_BCC,
                 },
                 // Planeta GmbH / planeta-shop.de — only registered when its
                 // mailbox credentials are configured. Until then, code falls
@@ -124,9 +125,10 @@ module.exports = defineConfig({
                         user: process.env.SMTP_SHOP_USER,
                         pass: process.env.SMTP_SHOP_PASS,
                         from: process.env.SMTP_SHOP_FROM,
-                        bcc:
-                          process.env.SMTP_SHOP_BCC ||
-                          process.env.SMTP_INDUSTRIES_BCC,
+                        // BCC disabled (not needed). Re-enable to send a hidden copy.
+                        // bcc:
+                        //   process.env.SMTP_SHOP_BCC ||
+                        //   process.env.SMTP_INDUSTRIES_BCC,
                       },
                     ]
                   : []),
