@@ -41,7 +41,10 @@ const createProductInquiryWorkflow = createWorkflow(
     const confirmationInput = transform({ input }, ({ input }) => ({
       email: input.email,
       name: input.name,
+      message: input.message,
+      phone: input.phone,
       locale: input.locale,
+      product_id: input.product_id,
       sales_channel_id: input.sales_channel_ids?.[0],
     }))
     sendInquiryConfirmationStep(confirmationInput)

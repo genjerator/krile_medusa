@@ -1,6 +1,6 @@
 import { defineRouteConfig } from "@medusajs/admin-sdk"
 import { ChatBubble } from "@medusajs/icons"
-import { Container, Heading, Text } from "@medusajs/ui"
+import { Button, Container, Drawer, Heading, Text } from "@medusajs/ui"
 import { useQuery } from "@tanstack/react-query"
 import { useState } from "react"
 import { sdk } from "../../lib/client"
@@ -29,9 +29,21 @@ const getStorefrontUrl = (channelName: string | null) =>
 
 const PAGE_SIZE = 20
 
+const DetailRow = ({ label, children }: { label: string; children: React.ReactNode }) => (
+  <div className="flex flex-col gap-y-1">
+    <Text size="small" leading="compact" weight="plus" className="text-ui-fg-subtle">
+      {label}
+    </Text>
+    <Text size="small" leading="compact" className="text-ui-fg-base">
+      {children}
+    </Text>
+  </div>
+)
+
 const InquiriesPage = () => {
   const [page, setPage] = useState(0)
   const [search, setSearch] = useState("")
+  const [selected, setSelected] = useState<Inquiry | null>(null)
 
   const { data, isLoading } = useQuery({
     queryKey: ["admin-inquiries", page],
@@ -103,7 +115,8 @@ const InquiriesPage = () => {
               {inquiries.map((inquiry) => (
                 <tr
                   key={inquiry.id}
-                  className="border-b border-ui-border-base hover:bg-ui-bg-subtle transition-colors"
+                  onClick={() => setSelected(inquiry)}
+                  className="border-b border-ui-border-base hover:bg-ui-bg-subtle transition-colors cursor-pointer"
                 >
                   <td className="px-6 py-4">
                     <Text size="small" leading="compact" weight="plus">
@@ -119,6 +132,7 @@ const InquiriesPage = () => {
                     <Text size="small" leading="compact" className="text-ui-fg-subtle text-xs">
                       <a
                         href={`/app/products/${inquiry.product_id}`}
+                        onClick={(e) => e.stopPropagation()}
                         className="text-ui-fg-interactive hover:underline"
                       >
                         admin
@@ -129,6 +143,7 @@ const InquiriesPage = () => {
                           href={`${getStorefrontUrl(inquiry.sales_channel_name)}/de/products/${inquiry.product_handle}`}
                           target="_blank"
                           rel="noreferrer"
+                          onClick={(e) => e.stopPropagation()}
                           className="text-ui-fg-interactive hover:underline"
                         >
                           site
@@ -189,6 +204,78 @@ const InquiriesPage = () => {
           </div>
         )}
       </Container>
+
+      <Drawer open={!!selected} onOpenChange={(open) => { if (!open) setSelected(null) }}>
+        <Drawer.Content>
+          <Drawer.Header>
+            <Drawer.Title>Inquiry{selected ? ` — ${selected.name}` : ""}</Drawer.Title>
+          </Drawer.Header>
+
+          <Drawer.Body className="flex-1 overflow-auto p-4">
+            {selected && (
+              <div className="flex flex-col gap-y-4">
+                <DetailRow label="Name">{selected.name}</DetailRow>
+                <DetailRow label="E-Mail">
+                  <a
+                    href={`mailto:${selected.email}`}
+                    className="text-ui-fg-interactive hover:underline"
+                  >
+                    {selected.email}
+                  </a>
+                </DetailRow>
+                <DetailRow label="Channel">{selected.sales_channel_name ?? "—"}</DetailRow>
+                <DetailRow label="Product">
+                  <a
+                    href={`/app/products/${selected.product_id}`}
+                    className="text-ui-fg-interactive hover:underline"
+                  >
+                    admin
+                  </a>
+                  {selected.product_handle ? (
+                    <>
+                      {" : "}
+                      <a
+                        href={`${getStorefrontUrl(selected.sales_channel_name)}/de/products/${selected.product_handle}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-ui-fg-interactive hover:underline"
+                      >
+                        site
+                      </a>
+                    </>
+                  ) : null}
+                </DetailRow>
+                <DetailRow label="Date">
+                  {new Date(selected.created_at).toLocaleString("de-DE", {
+                    day: "2-digit",
+                    month: "2-digit",
+                    year: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  })}
+                </DetailRow>
+
+                <div className="flex flex-col gap-y-1">
+                  <Text size="small" leading="compact" weight="plus" className="text-ui-fg-subtle">
+                    Message
+                  </Text>
+                  <div className="rounded-lg border border-ui-border-base bg-ui-bg-subtle p-3">
+                    <Text size="small" className="whitespace-pre-wrap break-words">
+                      {selected.message}
+                    </Text>
+                  </div>
+                </div>
+              </div>
+            )}
+          </Drawer.Body>
+
+          <Drawer.Footer>
+            <Drawer.Close asChild>
+              <Button size="small" variant="secondary">Close</Button>
+            </Drawer.Close>
+          </Drawer.Footer>
+        </Drawer.Content>
+      </Drawer>
     </div>
   )
 }

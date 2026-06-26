@@ -1,17 +1,26 @@
-import { inquiryConfirmationDe } from "./de"
-import { inquiryConfirmationEn } from "./en"
-import type { InquiryConfirmationData, EmailContent } from "./types"
+import { inquiryCustomerDe } from "./de"
+import { inquiryCustomerEn } from "./en"
+import { inquiryAdminDe } from "./admin"
+import type { InquiryEmailData, EmailContent } from "./types"
 
-export type { InquiryConfirmationData, EmailContent }
+export type { InquiryEmailData, EmailContent }
 
 /**
- * Selects the inquiry-confirmation email template by storefront locale.
- * `en` → English, everything else (de/it/fr/ru/unset) → German.
+ * Customer-facing inquiry email (confirmation + a copy of their submission),
+ * selected by storefront locale: `en` → English, everything else → German.
  */
-export function getInquiryConfirmationEmail(
+export function getInquiryCustomerEmail(
   locale: string | undefined,
-  data: InquiryConfirmationData
+  data: InquiryEmailData
 ): EmailContent {
   const isEnglish = (locale || "").toLowerCase().startsWith("en")
-  return isEnglish ? inquiryConfirmationEn(data) : inquiryConfirmationDe(data)
+  return isEnglish ? inquiryCustomerEn(data) : inquiryCustomerDe(data)
+}
+
+/**
+ * Admin/staff notification email. Always German (internal), lists everything
+ * the customer submitted.
+ */
+export function getInquiryAdminEmail(data: InquiryEmailData): EmailContent {
+  return inquiryAdminDe(data)
 }

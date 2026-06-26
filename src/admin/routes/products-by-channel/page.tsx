@@ -1,3 +1,4 @@
+import { defineRouteConfig } from "@medusajs/admin-sdk"
 import {
   createDataTableColumnHelper,
   DataTable,
@@ -8,7 +9,7 @@ import {
   Heading,
   Text,
 } from "@medusajs/ui"
-import { ArrowUpRightOnBox } from "@medusajs/icons"
+import { ArrowUpRightOnBox, Channels } from "@medusajs/icons"
 import { useQuery } from "@tanstack/react-query"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
@@ -163,7 +164,7 @@ const columns = [
   }),
 ]
 
-const ProductsPage = () => {
+const ProductsByChannelPage = () => {
   const navigate = useNavigate()
   const [search, setSearch] = useState("")
   const [pageIndex, setPageIndex] = useState(0)
@@ -212,13 +213,18 @@ const ProductsPage = () => {
       },
       debounce: 400,
     },
-    onRowClick: (_, row) => navigate(`/products/${row.id}`),
+    // NOTE: Medusa types `row` as the data, but at runtime it passes the
+    // TanStack Row object (row.id is the index, row.original is the product).
+    onRowClick: (_, row) => {
+      const r = row as any
+      navigate(`/products/${r.original?.id ?? r.id}`)
+    },
   })
 
   return (
     <div className="flex flex-col gap-y-2 p-6">
       <div className="flex items-center justify-between mb-2">
-        <Heading level="h1">Products</Heading>
+        <Heading level="h1">Products by Channel</Heading>
         <Button size="small" onClick={() => navigate("/products/create")}>
           Create
         </Button>
@@ -268,4 +274,9 @@ const ProductsPage = () => {
   )
 }
 
-export default ProductsPage
+export const config = defineRouteConfig({
+  label: "Products by Channel",
+  icon: Channels,
+})
+
+export default ProductsByChannelPage
