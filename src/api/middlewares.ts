@@ -2,6 +2,10 @@ import { defineMiddlewares, validateAndTransformBody } from "@medusajs/framework
 import { z } from "zod"
 import rateLimit from "express-rate-limit"
 import { PostNewsletterSchema } from "./store/newsletter/route"
+import {
+  CreateWeeklyActionSchema,
+  GenerateYearSchema,
+} from "./admin/weekly-actions/validators"
 
 const stripTags = (value: string) => value.replace(/<[^>]*>/g, "").trim()
 
@@ -35,7 +39,9 @@ export type CreateInquirySchema = z.infer<typeof CreateInquirySchema>
 const inquiryRateLimit = rateLimit({
   windowMs: 60 * 1000,
   limit: 3,
-  keyGenerator: (req) => req.ip ?? "unknown",
+  // Use the library's default keyGenerator — it's IPv6-safe (normalizes via
+  // ipKeyGenerator). A custom `req.ip` generator throws ERR_ERL_KEY_GEN_IPV6 in
+  // express-rate-limit v8 and aborts server startup.
   message: { message: "Zu viele Anfragen. Bitte versuchen Sie es in einer Minute erneut." },
   standardHeaders: true,
   legacyHeaders: false,
@@ -53,5 +59,18 @@ export default defineMiddlewares({
       method: "POST",
       middlewares: [validateAndTransformBody(PostNewsletterSchema)],
     },
+    {
+      matcher: "/admin/weekly-actions",
+      method: "POST",
+      middlewares: [validateAndTransformBody(CreateWeeklyActionSchema)],
+    },
+    {
+      matcher: "/admin/weekly-actions/generate-year",
+      method: "POST",
+      middlewares: [validateAndTransformBody(GenerateYearSchema)],
+    },
+    // Note: the update route ("/admin/weekly-actions/:id") validates its body
+    // inside the handler — a ":id" matcher would also shadow "generate-year"
+    // and strip its body.
   ],
 })
