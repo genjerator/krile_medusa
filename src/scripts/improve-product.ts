@@ -1,7 +1,6 @@
 import { ExecArgs, IProductModuleService } from "@medusajs/framework/types"
 import { ContainerRegistrationKeys, Modules } from "@medusajs/framework/utils"
-import { PAYLOADS as BASE_PAYLOADS, ImproveProductPayload } from "./improve-product.data"
-import { BUGELSYSTEME_PAYLOADS } from "./improve-product.bugelsysteme.data"
+import { ImproveProductPayload } from "./improve-product.data"
 import { VAKUUMIERMASCHINEN_PAYLOADS } from "./improve-product.vakuumiermaschinen.data"
 
 /**
@@ -21,11 +20,7 @@ import { VAKUUMIERMASCHINEN_PAYLOADS } from "./improve-product.vakuumiermaschine
  *   docker exec app-medusa-1 sh -c 'pnpm medusa exec ./src/scripts/improve-product.js'
  */
 
-const PAYLOADS: ImproveProductPayload[] = [
-  ...BASE_PAYLOADS,
-  ...BUGELSYSTEME_PAYLOADS,
-  ...VAKUUMIERMASCHINEN_PAYLOADS,
-]
+const PAYLOADS: ImproveProductPayload[] = [...VAKUUMIERMASCHINEN_PAYLOADS]
 
 export default async function improveProduct({ container }: ExecArgs) {
   const logger = container.resolve(ContainerRegistrationKeys.LOGGER)
