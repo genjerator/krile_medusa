@@ -2,6 +2,7 @@ import { ExecArgs, IProductModuleService } from "@medusajs/framework/types"
 import { ContainerRegistrationKeys, Modules } from "@medusajs/framework/utils"
 import { PAYLOADS as BASE_PAYLOADS, ImproveProductPayload } from "./improve-product.data"
 import { BUGELSYSTEME_PAYLOADS } from "./improve-product.bugelsysteme.data"
+import { VAKUUMIERMASCHINEN_PAYLOADS } from "./improve-product.vakuumiermaschinen.data"
 
 /**
  * Apply the copy improvements produced by the `/improve-product` command.
@@ -20,7 +21,11 @@ import { BUGELSYSTEME_PAYLOADS } from "./improve-product.bugelsysteme.data"
  *   docker exec app-medusa-1 sh -c 'pnpm medusa exec ./src/scripts/improve-product.js'
  */
 
-const PAYLOADS: ImproveProductPayload[] = [...BASE_PAYLOADS, ...BUGELSYSTEME_PAYLOADS]
+const PAYLOADS: ImproveProductPayload[] = [
+  ...BASE_PAYLOADS,
+  ...BUGELSYSTEME_PAYLOADS,
+  ...VAKUUMIERMASCHINEN_PAYLOADS,
+]
 
 export default async function improveProduct({ container }: ExecArgs) {
   const logger = container.resolve(ContainerRegistrationKeys.LOGGER)
