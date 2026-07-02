@@ -19,7 +19,6 @@ jobs:
     permissions:
       contents: read
       packages: write   # lets GITHUB_TOKEN push to GHCR
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4.2.2
