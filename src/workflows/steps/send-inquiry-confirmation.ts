@@ -23,7 +23,7 @@ const STOREFRONT_BASE_BY_CHANNEL: Record<string, string> = {
   IndustriesWebshop: "https://www.planetaindustries.de",
   PlanetaWebshop: "https://www.planeta.de",
 }
-const DEFAULT_STOREFRONT = "https://www.planetaindustries.de"
+const DEFAULT_STOREFRONT = "https://www.planeta.de"
 
 /**
  * On a submitted inquiry / contact-form, sends TWO emails (both best-effort):

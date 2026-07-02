@@ -26,27 +26,16 @@ export const SHOP_CHANNEL_NAME = "PlanetaWebshop"
 export function getStoreEmailIdentity(
   // Accepts a single channel name (orders belong to one channel) or several
   // (a storefront's publishable key can be linked to multiple channels).
-  salesChannelName?: string | string[] | null
+  _salesChannelName?: string | string[] | null
 ): StoreEmailIdentity {
-  const names = Array.isArray(salesChannelName)
-    ? salesChannelName
-    : salesChannelName
-      ? [salesChannelName]
-      : []
-
-  if (names.includes(SHOP_CHANNEL_NAME) && process.env.SMTP_SHOP_USER) {
-    return {
-      account: "planeta",
-      storeEmail:
-        process.env.SMTP_SHOP_FROM_EMAIL || process.env.SMTP_SHOP_USER || "",
-    }
-  }
-
+  // TEMPORARY OVERRIDE: always send via the planeta / planeta-shop.de mailbox,
+  // regardless of sales channel — industries is disabled for now. Revert to the
+  // channel-based logic (matching SHOP_CHANNEL_NAME) to re-enable per-storefront
+  // routing. The `planeta` account must be registered in medusa-config.ts
+  // (requires SMTP_SHOP_USER); otherwise the provider falls back to its default.
   return {
-    account: "industries",
+    account: "planeta",
     storeEmail:
-      process.env.SMTP_INDUSTRIES_FROM_EMAIL ||
-      process.env.SMTP_INDUSTRIES_USER ||
-      "",
+      process.env.SMTP_SHOP_FROM_EMAIL || process.env.SMTP_SHOP_USER || "",
   }
 }
