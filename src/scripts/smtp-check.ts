@@ -24,7 +24,7 @@ export default async function testSmtp({ container }: ExecArgs) {
       `from="${process.env.SMTP_SHOP_FROM}", ` +
       `user="${process.env.SMTP_SHOP_USER}", ` +
       `host="${process.env.SMTP_SHOP_HOST}", ` +
-      `pass="${process.env.SMTP_SHOP_PASS}". Sending to ${to}...`
+      `pass="${process.env.SMTP_SHOP_PASS}". Sendingg to ${to}...`
   )
 
   await notificationModule.createNotifications({
