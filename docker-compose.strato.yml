@@ -21,26 +21,22 @@ services:
     restart: unless-stopped
 
   # ─── STOREFRONT: KRILE PLANETA INDUSTRIES (:9000) ─────────────────────────
-  # DISABLED — GHCR image not built yet. Re-enable once the storefront repo
-  # pushes ghcr.io/genjerator/krile-storefront.
-  # storefront-planeta-industries:
-  #   image: ghcr.io/genjerator/krile-storefront:latest
-  #   ports:
-  #     - "9000:3000"
-  #   env_file:
-  #     - .env.strato
-  #   restart: unless-stopped
+  storefront-planeta-industries:
+    image: ghcr.io/genjerator/krile-storefront:latest
+    ports:
+      - "9000:3000"
+    env_file:
+      - .env.strato
+    restart: unless-stopped
 
   # ─── STOREFRONT: PLANETA GMBH (:9002) ─────────────────────────────────────
-  # DISABLED — GHCR image not built yet. Re-enable once the storefront repo
-  # pushes ghcr.io/genjerator/planeta-gmbh-storefront.
-  # storefront-planeta:
-  #   image: ghcr.io/genjerator/planeta-gmbh-storefront:latest
-  #   ports:
-  #     - "9002:3000"
-  #   env_file:
-  #     - .env.strato
-  #   restart: unless-stopped
+  storefront-planeta:
+    image: ghcr.io/genjerator/planeta-gmbh-storefront:latest
+    ports:
+      - "9002:3000"
+    env_file:
+      - .env.strato
+    restart: unless-stopped
 
   # ─── POSTGRES ─────────────────────────────────────────────────────────────
   postgres:
@@ -88,8 +84,8 @@ services:
       - caddy_config:/config
     depends_on:
       - medusa
-      # - storefront-planeta-industries   # re-enable with the storefront services
-      # - storefront-planeta
+      - storefront-planeta-industries
+      - storefront-planeta
     restart: unless-stopped
 
 volumes:

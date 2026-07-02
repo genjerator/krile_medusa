@@ -12,12 +12,12 @@ admin.alcoccodrillo.de {
 	reverse_proxy medusa:9000
 }
 
-# ─── Krile storefront (krile_medusa-storefront) — DISABLED until GHCR image exists
-# industries.alcoccodrillo.de {
-# 	reverse_proxy storefront-planeta-industries:3000
-# }
+# ─── Krile storefront (krile_medusa-storefront) ──────────────────────────────
+industries.alcoccodrillo.de {
+	reverse_proxy storefront-planeta-industries:8000
+}
 
-# ─── Planeta storefront (planetagmbh_medusa-storefront) — DISABLED until GHCR image exists
-# planeta.alcoccodrillo.de {
-# 	reverse_proxy storefront-planeta:3000
-# }
+# ─── Planeta storefront (planetagmbh_medusa-storefront) ──────────────────────
+planeta.alcoccodrillo.de {
+	reverse_proxy storefront-planeta:8000
+}
