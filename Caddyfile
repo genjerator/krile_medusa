@@ -4,7 +4,7 @@
 # Upstreams are the docker-compose service names on the internal network.
 {
 	# Email used for the Let's Encrypt account / expiry notices.
-	email YOUR_EMAIL # TODO: replace with your email
+	email e.medjesi@gmail.com
 }
 
 # ─── Admin + Medusa backend ──────────────────────────────────────────────────

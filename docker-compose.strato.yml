@@ -2,7 +2,7 @@ services:
 
   # ─── MEDUSA BACKEND + ADMIN (:8000) ───────────────────────────────────────
   medusa:
-    image: 313003894447.dkr.ecr.eu-central-1.amazonaws.com/krile-medusa:latest
+    image: ghcr.io/genjerator/krile-medusa:latest
     ports:
       - "8000:9000"
     env_file:
@@ -22,7 +22,7 @@ services:
 
   # ─── STOREFRONT: KRILE PLANETA INDUSTRIES (:9000) ─────────────────────────
   storefront-planeta-industries:
-    image: 313003894447.dkr.ecr.eu-central-1.amazonaws.com/krile-storefront:latest
+    image: ghcr.io/genjerator/krile-storefront:latest
     ports:
       - "9000:3000"
     env_file:
@@ -31,7 +31,7 @@ services:
 
   # ─── STOREFRONT: PLANETA GMBH (:9002) ─────────────────────────────────────
   storefront-planeta:
-    image: 313003894447.dkr.ecr.eu-central-1.amazonaws.com/planeta-gmbh-storefront:latest
+    image: ghcr.io/genjerator/planeta-gmbh-storefront:latest
     ports:
       - "9002:3000"
     env_file:
@@ -41,10 +41,11 @@ services:
   # ─── POSTGRES ─────────────────────────────────────────────────────────────
   postgres:
     image: postgres:17-alpine
-    environment:
-      POSTGRES_USER: ${POSTGRES_USER:-medusa}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_DB:-medusa}
+    # Reads POSTGRES_USER/PASSWORD/DB from .env.strato (same file as the app),
+    # so the container password always matches DATABASE_URL. (Using ${...} here
+    # would pull from a root .env/shell instead and silently init blank.)
+    env_file:
+      - .env.strato
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
@@ -66,6 +67,29 @@ services:
       retries: 5
     restart: unless-stopped
 
+  # ─── CADDY REVERSE PROXY (:80/:443) — automatic HTTPS ─────────────────────
+  # Routes by hostname to the backend + both storefronts over the internal
+  # docker network (upstreams = service names: medusa:9000, storefront-*:3000).
+  # Caddy obtains AND auto-renews Let's Encrypt certs — no certbot, no cron.
+  # Config: ./Caddyfile. Certs/keys persist in the caddy_data volume.
+  caddy:
+    image: caddy:2-alpine
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"   # HTTP/3 (QUIC)
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - medusa
+      - storefront-planeta-industries
+      - storefront-planeta
+    restart: unless-stopped
+
 volumes:
   postgres_data:
   redis_data:
+  caddy_data:
+  caddy_config:
