@@ -23,7 +23,8 @@ export default async function testSmtp({ container }: ExecArgs) {
     `[smtp-check] account="${account}" (prefix ${prefix}) → ` +
       `from="${process.env.SMTP_SHOP_FROM}", ` +
       `user="${process.env.SMTP_SHOP_USER}", ` +
-      `host="${process.env.SMTP_SHOP_HOST}". Sending to ${to}...`
+      `host="${process.env.SMTP_SHOP_HOST}", ` +
+      `pass="${process.env.SMTP_SHOP_PASS}". Sending to ${to}...`
   )
 
   await notificationModule.createNotifications({
