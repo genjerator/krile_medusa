@@ -58,10 +58,16 @@ jobs:
             # Pull latest code
             git pull origin main
 
-            # Write env file from secret. PAYPAL_IS_SANDBOX now lives INSIDE the
-            # ENV_AWS secret (added once) — do not append it here, or it piles up
-            # on every deploy.
-            echo "${{ secrets.ENV_AWS }}" > .env.aws
+            # Write env file from the ENV_AWS secret using a QUOTED heredoc.
+            # Do NOT use `echo "$ENV_AWS" > .env.aws` — the secret contains
+            # double-quotes and angle brackets (e.g. SMTP_*_FROM=Name <email>),
+            # which break shell parsing and abort the write (bash: "info@...: No
+            # such file or directory"). A quoted heredoc writes the body verbatim
+            # with no shell interpretation. PAYPAL_IS_SANDBOX lives inside the
+            # secret now (do not append it here, or it piles up).
+            cat > .env.aws <<'ENV_AWS_EOF'
+            ${{ secrets.ENV_AWS }}
+            ENV_AWS_EOF
 
             # Login to ECR
             aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 313003894447.dkr.ecr.eu-central-1.amazonaws.com
