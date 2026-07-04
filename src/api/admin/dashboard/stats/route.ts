@@ -91,24 +91,82 @@ export async function GET(req: MedusaRequest, res: MedusaResponse) {
     return metadata?.count ?? 0
   }
 
+  const prevMonthStart = new Date(now.getFullYear(), now.getMonth() - 1, 1)
   const monthFilter = { created_at: { $gte: monthStart.toISOString() } }
-  const [totalAll, totalExcluded, newAll, newExcluded] = await Promise.all([
+  const prevMonthFilter = {
+    created_at: { $gte: prevMonthStart.toISOString(), $lt: monthStart.toISOString() },
+  }
+
+  const [
+    totalAll,
+    totalExcluded,
+    newAll,
+    newExcluded,
+    prevNewAll,
+    prevNewExcluded,
+    activeProductsRes,
+    activeWaRes,
+  ] = await Promise.all([
     customerCount(),
     customerCount({ email: EXCLUDED_EMAILS }),
     customerCount(monthFilter),
     customerCount({ ...monthFilter, email: EXCLUDED_EMAILS }),
+    customerCount(prevMonthFilter),
+    customerCount({ ...prevMonthFilter, email: EXCLUDED_EMAILS }),
+    // Active (published) products.
+    query.graph({
+      entity: "product",
+      fields: ["id"],
+      filters: { status: "published" } as any,
+      pagination: { take: 1, skip: 0 },
+    }),
+    // The single active weekly action, if any.
+    query.graph({
+      entity: "weekly_action",
+      fields: ["id", "title", "iso_week", "ends_at"],
+      filters: { is_active: true } as any,
+      pagination: { take: 1, skip: 0 },
+    }),
   ])
+
+  const activeWa = (activeWaRes.data as any[])[0] || null
+
+  const curOrders = monthOrders
+  const curRevenue = round2(monthRevenue)
+  const curNew = Math.max(0, newAll - newExcluded)
+
+  // Previous month's orders/revenue come from the trend bucket (second-to-last).
+  const prevBucket = buckets[buckets.length - 2] || { orders: 0, revenue: 0 }
+  const prevNew = Math.max(0, prevNewAll - prevNewExcluded)
+
+  // Month-over-month change. pct is null when there's no prior baseline (prev=0).
+  const delta = (current: number, previous: number) => {
+    if (previous === 0) {
+      return { pct: null as number | null, dir: current > 0 ? "up" : "flat" }
+    }
+    const pct = Math.round(((current - previous) / previous) * 100)
+    return { pct, dir: pct > 0 ? "up" : pct < 0 ? "down" : "flat" }
+  }
 
   return res.json({
     currency_code: (realOrders[0]?.currency_code as string) || "eur",
     month: {
-      orders: monthOrders,
-      revenue: round2(monthRevenue),
-      new_customers: Math.max(0, newAll - newExcluded),
+      orders: curOrders,
+      revenue: curRevenue,
+      new_customers: curNew,
+    },
+    deltas: {
+      orders: delta(curOrders, prevBucket.orders),
+      revenue: delta(curRevenue, prevBucket.revenue),
+      new_customers: delta(curNew, prevNew),
     },
     totals: {
       customers: Math.max(0, totalAll - totalExcluded),
     },
+    active_products: activeProductsRes.metadata?.count ?? 0,
+    weekly_action: activeWa
+      ? { title: activeWa.title as string, iso_week: activeWa.iso_week as number }
+      : null,
     series: buckets,
   })
 }

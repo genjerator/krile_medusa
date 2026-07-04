@@ -15,10 +15,15 @@ import {
 } from "recharts"
 import { sdk } from "../../lib/client"
 
+type Delta = { pct: number | null; dir: "up" | "down" | "flat" }
+
 type DashboardStats = {
   currency_code: string
   month: { orders: number; revenue: number; new_customers: number }
+  deltas: { orders: Delta; revenue: Delta; new_customers: Delta }
   totals: { customers: number }
+  active_products: number
+  weekly_action: { title: string; iso_week: number } | null
   series: { key: string; label: string; orders: number; revenue: number }[]
 }
 
@@ -31,29 +36,49 @@ const eur = (amount: number, currency: string) =>
 
 const int = (n: number) => new Intl.NumberFormat("de-DE").format(Number(n || 0))
 
-// ── KPI card ──────────────────────────────────────────────────────────────────
-const Kpi = ({
+// ── KPI stat (one cell of the single-row strip) ────────────────────────────────
+const Stat = ({
   label,
   value,
   hint,
+  delta,
 }: {
   label: string
   value: string
   hint?: string
+  delta?: Delta
 }) => (
-  <Container className="flex flex-col gap-y-2 p-6">
-    <Text size="small" leading="compact" className="text-ui-fg-subtle">
+  <div className="flex flex-col gap-y-1 p-5 bg-ui-bg-base">
+    <Text
+      size="xsmall"
+      leading="compact"
+      className="text-ui-fg-subtle uppercase tracking-wide truncate"
+    >
       {label}
     </Text>
-    <Heading level="h2" className="text-3xl">
+    <Heading level="h2" className="text-2xl truncate" title={value}>
       {value}
     </Heading>
-    {hint && (
-      <Text size="small" leading="compact" className="text-ui-fg-muted">
-        {hint}
+    {delta ? (
+      <div className="flex items-center gap-x-1">
+        <Badge
+          size="2xsmall"
+          color={delta.dir === "up" ? "green" : delta.dir === "down" ? "red" : "grey"}
+        >
+          {(delta.dir === "up" ? "▲" : delta.dir === "down" ? "▼" : "■") +
+            " " +
+            (delta.pct != null ? `${delta.pct > 0 ? "+" : ""}${delta.pct}%` : "neu")}
+        </Badge>
+        <Text size="xsmall" leading="compact" className="text-ui-fg-muted">
+          vs. Vormonat
+        </Text>
+      </div>
+    ) : (
+      <Text size="xsmall" leading="compact" className="text-ui-fg-muted truncate">
+        {hint || " "}
       </Text>
     )}
-  </Container>
+  </div>
 )
 
 const DashboardPage = () => {
@@ -85,19 +110,37 @@ const DashboardPage = () => {
         </Container>
       ) : (
         <>
-          {/* KPI cards */}
-          <div className="grid grid-cols-1 small:grid-cols-2 large:grid-cols-4 gap-4">
-            <Kpi label="Bestellungen (dieser Monat)" value={int(data.month.orders)} />
-            <Kpi
-              label="Umsatz (dieser Monat)"
-              value={eur(data.month.revenue, currency)}
-            />
-            <Kpi label="Kunden gesamt" value={int(data.totals.customers)} />
-            <Kpi
-              label="Neue Kunden (dieser Monat)"
-              value={int(data.month.new_customers)}
-            />
-          </div>
+          {/* KPI strip — one stylish row (wraps on small screens) */}
+          <Container className="p-0 overflow-hidden">
+            <div className="grid grid-cols-2 small:grid-cols-3 large:grid-cols-6 gap-px bg-ui-border-base">
+              <Stat
+                label="Bestellungen"
+                value={int(data.month.orders)}
+                delta={data.deltas.orders}
+              />
+              <Stat
+                label="Umsatz"
+                value={eur(data.month.revenue, currency)}
+                delta={data.deltas.revenue}
+              />
+              <Stat label="Kunden gesamt" value={int(data.totals.customers)} />
+              <Stat
+                label="Neue Kunden"
+                value={int(data.month.new_customers)}
+                delta={data.deltas.new_customers}
+              />
+              <Stat label="Aktive Produkte" value={int(data.active_products)} />
+              <Stat
+                label="Aktive Wochenaktion"
+                value={data.weekly_action ? data.weekly_action.title : "Keine"}
+                hint={
+                  data.weekly_action
+                    ? `KW ${String(data.weekly_action.iso_week).padStart(2, "0")}`
+                    : undefined
+                }
+              />
+            </div>
+          </Container>
 
           {/* Trend chart */}
           <Container className="p-6">
