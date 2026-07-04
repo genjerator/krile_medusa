@@ -2,6 +2,7 @@ import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
 import { ContainerRegistrationKeys } from "@medusajs/framework/utils"
 import { createWeeklyActionWorkflow } from "../../../workflows/weekly-action"
 import { CreateWeeklyActionSchema } from "./validators"
+import { emailExists } from "../../../lib/email-templates/weekly-action/storage"
 
 const FIELDS = [
   "id",
@@ -30,9 +31,11 @@ export async function GET(req: MedusaRequest, res: MedusaResponse) {
     pagination: { take: 200, skip: 0 },
   })
 
-  const weekly_actions = [...data].sort(
-    (a, b) => a.year - b.year || a.iso_week - b.iso_week
-  )
+  const weekly_actions = [...data]
+    .sort((a, b) => a.year - b.year || a.iso_week - b.iso_week)
+    // Flag which actions already have a generated email file on disk, so the
+    // list can show a "Preview" button only for those.
+    .map((a) => ({ ...a, email_generated: emailExists(a.id) }))
 
   return res.json({ weekly_actions, count: metadata?.count ?? data.length })
 }

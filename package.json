@@ -13,7 +13,7 @@
     "medusa"
   ],
   "scripts": {
-    "build": "medusa build",
+    "build": "medusa build && node scripts/copy-email-templates.mjs",
     "predeploy": "medusa db:migrate",
     "seed": "medusa exec ./src/scripts/seed.ts",
     "seed:multivac": "medusa exec ./src/scripts/seed-multivac.ts",

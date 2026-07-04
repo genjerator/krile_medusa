@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="{{lang}}" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+  <meta name="color-scheme" content="light only" />
+  <meta name="supported-color-schemes" content="light only" />
+  <title>{{title}} – Nur diese Woche</title>
+  <!--[if mso]>
+  <style type="text/css">
+    table, td, div, h1, h2, h3, p, a { font-family: Arial, sans-serif !important; }
+  </style>
+  <![endif]-->
+  <style type="text/css">
+    body { margin:0; padding:0; width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; background-color:#f2f4f7; }
+    table { border-collapse:collapse; }
+    img { border:0; outline:none; text-decoration:none; -ms-interpolation-mode:bicubic; display:block; }
+    a { text-decoration:none; }
+    @media only screen and (max-width:620px) {
+      .container { width:100% !important; }
+      .product-cell { display:block !important; width:100% !important; box-sizing:border-box; }
+      .px { padding-left:16px !important; padding-right:16px !important; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background-color:#f2f4f7;">
+  <div style="display:none;max-height:0;overflow:hidden;opacity:0;mso-hide:all;font-size:1px;line-height:1px;color:#f2f4f7;">
+    {{preheader}}
+  </div>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f2f4f7;">
+    <tr>
+      <td align="center" style="padding:24px 12px;">
+        <table role="presentation" class="container" width="600" cellpadding="0" cellspacing="0" style="width:600px;max-width:600px;background-color:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(16,24,40,0.08);">
+
+          <!-- Logo header -->
+          <tr>
+            <td align="center" style="padding:28px 24px 20px 24px;background-color:#ffffff;">
+              <a href="{{storefrontUrl}}/{{locale}}/weekly-actions" target="_blank">
+                <img src="{{logoUrl}}" width="180" alt="Planeta GmbH" style="width:180px;max-width:60%;height:auto;margin:0 auto;" />
+              </a>
+            </td>
+          </tr>
+
+          <!-- Hero -->
+          <tr>
+            <td align="center" class="px" style="padding:16px 24px 4px 24px;">
+              <span style="display:inline-block;background-color:#e11d48;color:#ffffff;font-family:Arial,sans-serif;font-size:12px;font-weight:bold;letter-spacing:1px;text-transform:uppercase;padding:6px 14px;border-radius:999px;">
+                Nur diese Woche
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" class="px" style="padding:12px 24px 2px 24px;">
+              <h1 style="margin:0;font-family:Arial,sans-serif;font-size:26px;line-height:1.25;color:#1e3a5f;font-weight:bold;">
+                {{heading}}
+              </h1>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" class="px" style="padding:8px 24px 4px 24px;">
+              <p style="margin:0;font-family:Arial,sans-serif;font-size:15px;line-height:1.6;color:#475467;">
+                {{savingsLine}}
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" class="px" style="padding:2px 24px 8px 24px;">
+              <p style="margin:0;font-family:Arial,sans-serif;font-size:13px;line-height:1.5;color:#98a2b3;">
+                {{validity}}
+              </p>
+            </td>
+          </tr>
+
+          <!-- Divider -->
+          <tr>
+            <td class="px" style="padding:8px 24px;">
+              <div style="height:1px;line-height:1px;font-size:1px;background-color:#eaecf0;">&nbsp;</div>
+            </td>
+          </tr>
+
+          <!-- Products -->
+{{rows}}
+
+          <!-- Main CTA -->
+          <tr>
+            <td align="center" class="px" style="padding:12px 24px 28px 24px;">
+              <table role="presentation" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td align="center" style="border-radius:10px;background-color:#e11d48;">
+                    <a href="{{storefrontUrl}}/{{locale}}/weekly-actions" target="_blank" style="display:inline-block;font-family:Arial,sans-serif;font-size:15px;font-weight:bold;color:#ffffff;padding:14px 32px;border-radius:10px;">
+                      Alle Wochenaktionen ansehen
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="background-color:#1e3a5f;padding:24px;">
+              <p style="margin:0 0 6px 0;font-family:Arial,sans-serif;font-size:13px;line-height:1.6;color:#ffffff;text-align:center;font-weight:bold;">
+                Planeta GmbH
+              </p>
+              <p style="margin:0;font-family:Arial,sans-serif;font-size:12px;line-height:1.6;color:#c7d2e0;text-align:center;">
+                Alle Preise inkl. gesetzl. MwSt. Angebote gültig {{footerValidity}}, solange der Vorrat reicht.
+              </p>
+              <p style="margin:12px 0 0 0;font-family:Arial,sans-serif;font-size:12px;line-height:1.6;color:#c7d2e0;text-align:center;">
+                <a href="{{storefrontUrl}}" target="_blank" style="color:#ffffff;text-decoration:underline;">planeta.de</a>
+                &nbsp;·&nbsp;
+                <a href="{{unsubscribe_url}}" target="_blank" style="color:#c7d2e0;text-decoration:underline;">Abmelden</a>
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

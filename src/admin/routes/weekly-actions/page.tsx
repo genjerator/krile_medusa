@@ -39,6 +39,8 @@ type WeeklyAction = {
   default_discount_value: number | null
   price_list_id: string | null
   items: WeeklyActionItem[]
+  // true once an email HTML file has been generated & saved for this action
+  email_generated?: boolean
 }
 
 // ── helpers ──────────────────────────────────────────────────────────────────
@@ -151,6 +153,50 @@ const EditDrawer = ({
   const [defaultType, setDefaultType] = useState<DiscountType>("percentage")
   const [defaultValue, setDefaultValue] = useState<string>("")
   const [items, setItems] = useState<(WeeklyActionItem & { title?: string })[]>([])
+  // Whether a generated email file exists for this action (drives Preview/Copy).
+  const [emailReady, setEmailReady] = useState(false)
+  const [emailBusy, setEmailBusy] = useState<null | "preview" | "copy">(null)
+
+  // Fetch the stored email HTML for this action (throws if not generated yet).
+  const fetchStoredHtml = async () => {
+    const res = await sdk.client.fetch<{ exists: boolean; html?: string }>(
+      `/admin/weekly-actions/${action!.id}/email`,
+      { method: "GET" }
+    )
+    if (!res?.exists || !res?.html) throw new Error("Generate the email HTML first.")
+    return res.html
+  }
+
+  const previewEmail = async () => {
+    const win = window.open("", "_blank") // open synchronously so it isn't blocked
+    setEmailBusy("preview")
+    try {
+      const html = await fetchStoredHtml()
+      if (win) {
+        win.document.open()
+        win.document.write(html)
+        win.document.close()
+      }
+    } catch (e: any) {
+      win?.close()
+      toast.error(e?.message ?? "Could not open preview")
+    } finally {
+      setEmailBusy(null)
+    }
+  }
+
+  const copyEmail = async () => {
+    setEmailBusy("copy")
+    try {
+      const html = await fetchStoredHtml()
+      await navigator.clipboard.writeText(html)
+      toast.success("HTML copied to clipboard")
+    } catch (e: any) {
+      toast.error(e?.message ?? "Could not copy HTML")
+    } finally {
+      setEmailBusy(null)
+    }
+  }
 
   // Resolve product titles for the existing items so the list is readable.
   const itemIds = action?.items?.map((i) => i.product_id) ?? []
@@ -163,6 +209,7 @@ const EditDrawer = ({
 
   useEffect(() => {
     if (!action) return
+    setEmailReady(!!action.email_generated)
     setTitle(action.title)
     setStartsAt(toLocalInput(action.starts_at))
     setEndsAt(toLocalInput(action.ends_at))
@@ -206,6 +253,24 @@ const EditDrawer = ({
       toast.success("Prices resynced")
     },
     onError: (e: any) => toast.error(e?.message ?? "Could not resync prices"),
+  })
+
+  // Generate the ready-to-send email HTML for this action and SAVE it on the
+  // backend (weeklyaction{id}.html). The was/now prices come from the stored
+  // per-item discount rules, so the file matches what the shop shows. Once
+  // saved, the list shows a "Preview" button for this action.
+  const emailHtml = useMutation({
+    mutationFn: () =>
+      sdk.client.fetch<{ ok: boolean; filename: string }>(
+        `/admin/weekly-actions/${action!.id}/email`,
+        { method: "POST" }
+      ),
+    onSuccess: (res: any) => {
+      setEmailReady(true)
+      queryClient.invalidateQueries({ queryKey: ["admin-weekly-actions"] })
+      toast.success(`Email HTML saved (${res?.filename ?? "wochenaktion.html"})`)
+    },
+    onError: (e: any) => toast.error(e?.message ?? "Could not generate email HTML"),
   })
 
   const addProduct = (p: PickerProduct) => {
@@ -387,6 +452,37 @@ const EditDrawer = ({
           >
             Resync prices
           </Button>
+          <Button
+            size="small"
+            variant="secondary"
+            onClick={() => emailHtml.mutate()}
+            isLoading={emailHtml.isPending}
+            disabled={save.isPending}
+          >
+            {emailReady ? "Regenerate email HTML" : "Generate email HTML"}
+          </Button>
+          {emailReady && (
+            <>
+              <Button
+                size="small"
+                variant="secondary"
+                onClick={previewEmail}
+                isLoading={emailBusy === "preview"}
+                disabled={save.isPending}
+              >
+                Preview
+              </Button>
+              <Button
+                size="small"
+                variant="secondary"
+                onClick={copyEmail}
+                isLoading={emailBusy === "copy"}
+                disabled={save.isPending}
+              >
+                Copy HTML
+              </Button>
+            </>
+          )}
           <Drawer.Close asChild>
             <Button size="small" variant="secondary" disabled={save.isPending}>
               Cancel
@@ -413,6 +509,58 @@ const WeeklyActionsPage = () => {
   const currentYear = new Date().getFullYear()
   const [year, setYear] = useState(currentYear)
   const [selected, setSelected] = useState<WeeklyAction | null>(null)
+  const [previewingId, setPreviewingId] = useState<string | null>(null)
+
+  // Open the previously generated email HTML for an action in a new tab. The
+  // window is opened synchronously (within the click) so it isn't popup-blocked,
+  // then filled once the authenticated fetch returns the stored HTML.
+  const handlePreview = async (a: WeeklyAction) => {
+    const win = window.open("", "_blank")
+    setPreviewingId(a.id)
+    try {
+      const res = await sdk.client.fetch<{ exists: boolean; html?: string }>(
+        `/admin/weekly-actions/${a.id}/email`,
+        { method: "GET" }
+      )
+      if (!res?.exists || !res?.html) {
+        win?.close()
+        toast.error("No email generated yet — open the action and click “Generate email HTML”.")
+        return
+      }
+      if (win) {
+        win.document.open()
+        win.document.write(res.html)
+        win.document.close()
+      }
+    } catch (e: any) {
+      win?.close()
+      toast.error(e?.message ?? "Could not load preview")
+    } finally {
+      setPreviewingId(null)
+    }
+  }
+
+  // Copy the generated email HTML to the clipboard.
+  const [copyingId, setCopyingId] = useState<string | null>(null)
+  const handleCopyHtml = async (a: WeeklyAction) => {
+    setCopyingId(a.id)
+    try {
+      const res = await sdk.client.fetch<{ exists: boolean; html?: string }>(
+        `/admin/weekly-actions/${a.id}/email`,
+        { method: "GET" }
+      )
+      if (!res?.exists || !res?.html) {
+        toast.error("No email generated yet — open the action and click “Generate email HTML”.")
+        return
+      }
+      await navigator.clipboard.writeText(res.html)
+      toast.success("HTML copied to clipboard")
+    } catch (e: any) {
+      toast.error(e?.message ?? "Could not copy HTML")
+    } finally {
+      setCopyingId(null)
+    }
+  }
 
   const { data, isLoading } = useQuery({
     queryKey: ["admin-weekly-actions"],
@@ -597,9 +745,37 @@ const WeeklyActionsPage = () => {
                     </Text>
                   </td>
                   <td className="px-6 py-4 text-right">
-                    <Text size="small" leading="compact" className="text-ui-fg-interactive">
-                      Edit
-                    </Text>
+                    <div className="flex items-center justify-end gap-2">
+                      {a.email_generated && (
+                        <>
+                          <Button
+                            size="small"
+                            variant="secondary"
+                            isLoading={previewingId === a.id}
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              handlePreview(a)
+                            }}
+                          >
+                            Preview
+                          </Button>
+                          <Button
+                            size="small"
+                            variant="secondary"
+                            isLoading={copyingId === a.id}
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              handleCopyHtml(a)
+                            }}
+                          >
+                            Copy HTML
+                          </Button>
+                        </>
+                      )}
+                      <Text size="small" leading="compact" className="text-ui-fg-interactive">
+                        Edit
+                      </Text>
+                    </div>
                   </td>
                 </tr>
               ))}

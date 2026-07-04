@@ -2,6 +2,8 @@
 .env
 .env.production
 .env.aws
+.env.strato
+.env.strato.template
 .DS_Store
 /uploads
 /node_modules
@@ -26,5 +28,5 @@ build
 !.yarn/versions
 
 .medusa
-.env.strato
-.env.awsec2
+# Generated weekly-action email previews (per-instance cache)
+static/weekly-action-emails/
