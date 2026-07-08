@@ -34,12 +34,15 @@ export async function GET(req: MedusaRequest, res: MedusaResponse) {
   const monthStart = new Date(now.getFullYear(), now.getMonth(), 1)
   // First day of the month 5 months ago → a 6-bucket window incl. the current month.
   const windowStart = new Date(now.getFullYear(), now.getMonth() - 5, 1)
+  const yearStart = new Date(now.getFullYear(), 0, 1)
+  // Fetch far enough back to cover both the 6-month chart and year-to-date.
+  const fetchStart = windowStart < yearStart ? windowStart : yearStart
 
-  // Orders in the last 6 months (40s of rows here; take a generous page).
+  // Orders since fetchStart (40s of rows here; take a generous page).
   const { data: orders } = await query.graph({
     entity: "order",
     fields: ["id", "total", "currency_code", "status", "created_at", "email"],
-    filters: { created_at: { $gte: windowStart.toISOString() } } as any,
+    filters: { created_at: { $gte: fetchStart.toISOString() } } as any,
     pagination: { take: 10000, skip: 0 },
   })
 
@@ -63,9 +66,15 @@ export async function GET(req: MedusaRequest, res: MedusaResponse) {
 
   let monthOrders = 0
   let monthRevenue = 0
+  let ytdOrders = 0
+  let ytdRevenue = 0
   for (const o of realOrders) {
     const created = new Date(o.created_at)
     const total = Number(o.total || 0)
+    if (created >= yearStart) {
+      ytdOrders += 1
+      ytdRevenue += total
+    }
     const bi = indexByKey.get(monthKey(created))
     if (bi !== undefined) {
       buckets[bi].orders += 1
@@ -162,6 +171,10 @@ export async function GET(req: MedusaRequest, res: MedusaResponse) {
     },
     totals: {
       customers: Math.max(0, totalAll - totalExcluded),
+    },
+    year: {
+      orders: ytdOrders,
+      revenue: round2(ytdRevenue),
     },
     active_products: activeProductsRes.metadata?.count ?? 0,
     weekly_action: activeWa

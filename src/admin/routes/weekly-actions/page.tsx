@@ -291,6 +291,21 @@ const EditDrawer = ({
   const removeItem = (idx: number) =>
     setItems((prev) => prev.filter((_, i) => i !== idx))
 
+  // Drag-to-reorder. The array order IS the saved order (persisted as each
+  // item's `rank`), so reordering here changes the shop + email order on save.
+  const [dragIndex, setDragIndex] = useState<number | null>(null)
+  const [overIndex, setOverIndex] = useState<number | null>(null)
+
+  const moveItem = (from: number, to: number) => {
+    if (from === to) return
+    setItems((prev) => {
+      const next = [...prev]
+      const [moved] = next.splice(from, 1)
+      next.splice(to, 0, moved)
+      return next
+    })
+  }
+
   const handleSave = () => {
     const invalid = items.find(
       (i) =>
@@ -393,8 +408,38 @@ const EditDrawer = ({
                     items.map((it, idx) => (
                       <div
                         key={it.product_id}
-                        className="flex items-center gap-2 rounded-lg border border-ui-border-base px-3 py-2"
+                        onDragOver={(e) => {
+                          e.preventDefault()
+                          if (overIndex !== idx) setOverIndex(idx)
+                        }}
+                        onDrop={(e) => {
+                          e.preventDefault()
+                          if (dragIndex !== null) moveItem(dragIndex, idx)
+                          setDragIndex(null)
+                          setOverIndex(null)
+                        }}
+                        className={`flex items-center gap-2 rounded-lg border px-3 py-2 transition-colors ${
+                          dragIndex === idx
+                            ? "opacity-50 border-ui-border-strong"
+                            : overIndex === idx
+                            ? "border-ui-border-interactive bg-ui-bg-subtle"
+                            : "border-ui-border-base"
+                        }`}
                       >
+                        <button
+                          type="button"
+                          draggable
+                          onDragStart={() => setDragIndex(idx)}
+                          onDragEnd={() => {
+                            setDragIndex(null)
+                            setOverIndex(null)
+                          }}
+                          aria-label="Drag to reorder"
+                          title="Drag to reorder"
+                          className="cursor-grab active:cursor-grabbing text-ui-fg-muted hover:text-ui-fg-base px-0.5 leading-none select-none"
+                        >
+                          ⠿
+                        </button>
                         <Text size="small" leading="compact" className="flex-1 truncate">
                           {it.title ?? titleById[it.product_id] ?? it.product_id}
                         </Text>

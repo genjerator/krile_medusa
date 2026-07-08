@@ -26,7 +26,9 @@ async function buildHtml(req: MedusaRequest, id: string): Promise<string> {
   const waService: any = req.scope.resolve(WEEKLY_ACTION_MODULE)
 
   const action: any = await waService.retrieveWeeklyAction(id, { relations: ["items"] })
-  const items: any[] = action?.items ?? []
+  const items: any[] = [...(action?.items ?? [])].sort(
+    (a, b) => (a.rank ?? 0) - (b.rank ?? 0)
+  )
   if (!items.length) throw new Error("This weekly action has no products yet.")
 
   const productIds = items.map((i) => i.product_id)
@@ -92,12 +94,9 @@ async function buildHtml(req: MedusaRequest, id: string): Promise<string> {
 
   if (!emailProducts.length) throw new Error("No priced products to render for this action.")
 
-  const storefrontUrl = (
-    process.env.WEEKLY_STOREFRONT_URL ||
-    process.env.STOREFRONT_URL ||
-    process.env.STORE_URL ||
-    "https://www.planeta.de"
-  ).replace(/\/$/, "")
+  // Hardcoded on purpose: weekly-action emails always link to the www.planeta.de
+  // storefront (not planetaindustries.de), regardless of any STORE_URL env.
+  const storefrontUrl = "https://www.planeta.de"
 
   return renderWeeklyActionEmail({
     weeklyAction: { title: action.title, ends_at: action.ends_at },

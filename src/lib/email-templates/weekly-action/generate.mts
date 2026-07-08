@@ -34,7 +34,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 
 // ── Config ──────────────────────────────────────────────────────────────────
 const BACKEND_URL = (process.env.WEEKLY_BACKEND_URL || "http://localhost:9000").replace(/\/$/, "")
-const STOREFRONT_URL = (process.env.WEEKLY_STOREFRONT_URL || "https://www.planeta.de").replace(/\/$/, "")
+// Hardcoded on purpose: product links always point at www.planeta.de.
+const STOREFRONT_URL = "https://www.planeta.de"
 const COUNTRY = (process.env.WEEKLY_COUNTRY || "de").toLowerCase()
 const LOCALE = COUNTRY
 const OUT = process.env.WEEKLY_OUT || resolve(__dirname, "wochenaktion.html")

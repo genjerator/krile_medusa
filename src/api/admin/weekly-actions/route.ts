@@ -20,6 +20,7 @@ const FIELDS = [
   "items.product_id",
   "items.discount_type",
   "items.discount_value",
+  "items.rank",
 ]
 
 export async function GET(req: MedusaRequest, res: MedusaResponse) {
@@ -33,9 +34,15 @@ export async function GET(req: MedusaRequest, res: MedusaResponse) {
 
   const weekly_actions = [...data]
     .sort((a, b) => a.year - b.year || a.iso_week - b.iso_week)
-    // Flag which actions already have a generated email file on disk, so the
-    // list can show a "Preview" button only for those.
-    .map((a) => ({ ...a, email_generated: emailExists(a.id) }))
+    // Return items in the merchant-defined order, and flag which actions already
+    // have a generated email file on disk (drives the list's "Preview" button).
+    .map((a) => ({
+      ...a,
+      items: [...(a.items ?? [])].sort(
+        (x: any, y: any) => (x.rank ?? 0) - (y.rank ?? 0)
+      ),
+      email_generated: emailExists(a.id),
+    }))
 
   return res.json({ weekly_actions, count: metadata?.count ?? data.length })
 }

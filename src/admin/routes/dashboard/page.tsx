@@ -22,6 +22,7 @@ type DashboardStats = {
   month: { orders: number; revenue: number; new_customers: number }
   deltas: { orders: Delta; revenue: Delta; new_customers: Delta }
   totals: { customers: number }
+  year: { orders: number; revenue: number }
   active_products: number
   weekly_action: { title: string; iso_week: number } | null
   series: { key: string; label: string; orders: number; revenue: number }[]
@@ -112,7 +113,7 @@ const DashboardPage = () => {
         <>
           {/* KPI strip — one stylish row (wraps on small screens) */}
           <Container className="p-0 overflow-hidden">
-            <div className="grid grid-cols-2 small:grid-cols-3 large:grid-cols-6 gap-px bg-ui-border-base">
+            <div className="grid grid-cols-2 small:grid-cols-4 large:grid-cols-7 gap-px bg-ui-border-base">
               <Stat
                 label="Bestellungen"
                 value={int(data.month.orders)}
@@ -122,6 +123,11 @@ const DashboardPage = () => {
                 label="Umsatz"
                 value={eur(data.month.revenue, currency)}
                 delta={data.deltas.revenue}
+              />
+              <Stat
+                label="Umsatz (Jahr)"
+                value={eur(data.year.revenue, currency)}
+                hint={`seit 01.01.${new Date().getFullYear()}`}
               />
               <Stat label="Kunden gesamt" value={int(data.totals.customers)} />
               <Stat

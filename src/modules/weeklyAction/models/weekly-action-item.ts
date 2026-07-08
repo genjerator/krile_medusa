@@ -13,6 +13,10 @@ const WeeklyActionItem = model.define("weekly_action_item", {
   discount_type: model.enum(["percentage", "fixed"]),
   // percentage → e.g. 20 (= 20% off); fixed → the new absolute price.
   discount_value: model.float(),
+  // Display order within the action (0-based). Drives the admin list, the
+  // storefront product order, and the generated email — set from the merchant's
+  // drag-to-reorder in the admin drawer.
+  rank: model.number().default(0),
   weekly_action: model.belongsTo(() => WeeklyAction, { mappedBy: "items" }),
 })
 

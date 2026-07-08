@@ -23,6 +23,7 @@ export async function GET(req: MedusaRequest, res: MedusaResponse) {
       "ends_at",
       "status",
       "items.product_id",
+      "items.rank",
     ],
     // `as any`: `is_active` is a new model field; the generated query filter
     // types pick it up on the next backend start (`--types`).
@@ -37,7 +38,9 @@ export async function GET(req: MedusaRequest, res: MedusaResponse) {
   }
 
   const action: any = actions[0]
-  const product_ids = (action.items ?? []).map((i: any) => i.product_id)
+  const product_ids = [...(action.items ?? [])]
+    .sort((a: any, b: any) => (a.rank ?? 0) - (b.rank ?? 0))
+    .map((i: any) => i.product_id)
 
   return res.json({
     weekly_action: {

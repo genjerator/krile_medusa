@@ -64,10 +64,12 @@ export const createWeeklyActionStep = createStep(
 
     if (input.items?.length) {
       await waService.createWeeklyActionItems(
-        input.items.map((it) => ({
+        input.items.map((it, index) => ({
           product_id: it.product_id,
           discount_type: it.discount_type,
           discount_value: it.discount_value,
+          // Persist the order the merchant arranged them in.
+          rank: index,
           weekly_action_id: action.id,
         })) as any[]
       )
@@ -106,10 +108,12 @@ export const updateWeeklyActionStep = createStep(
       await waService.deleteWeeklyActionItems({ weekly_action_id: input.id })
       if (input.items.length) {
         await waService.createWeeklyActionItems(
-          input.items.map((it) => ({
+          input.items.map((it, index) => ({
             product_id: it.product_id,
             discount_type: it.discount_type,
             discount_value: it.discount_value,
+            // Persist the order the merchant arranged them in.
+            rank: index,
             weekly_action_id: input.id,
           })) as any[]
         )
