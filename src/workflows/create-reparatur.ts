@@ -1,5 +1,6 @@
 import { createWorkflow, WorkflowResponse, transform } from "@medusajs/framework/workflows-sdk"
 import { createReparaturStep } from "./steps/create-reparatur"
+import { linkReparaturToCustomerStep } from "./steps/link-reparatur-customer"
 import { sendReparaturConfirmationStep } from "./steps/send-reparatur-confirmation"
 
 type Input = {
@@ -54,6 +55,16 @@ const createReparaturWorkflow = createWorkflow(
     }))
 
     const reparatur = createReparaturStep(reparaturInput)
+
+    // Create the customer if they don't exist yet, and link to the storefront's channel.
+    const customerInput = transform({ input }, ({ input }) => ({
+      email: input.email,
+      vorname: input.vorname,
+      name: input.name,
+      phone: input.tel,
+      sales_channel_ids: input.sales_channel_ids,
+    }))
+    linkReparaturToCustomerStep(customerInput)
 
     // Best-effort emails (customer confirmation + staff notice); never rolls back.
     const emailInput = transform({ input }, ({ input }) => ({
