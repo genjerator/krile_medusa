@@ -1,5 +1,6 @@
 import { createWorkflow, WorkflowResponse, transform } from "@medusajs/framework/workflows-sdk"
 import { createReparaturStep } from "./steps/create-reparatur"
+import { generateReparaturPdfStep } from "./steps/generate-reparatur-pdf"
 import { linkReparaturToCustomerStep } from "./steps/link-reparatur-customer"
 import { sendReparaturConfirmationStep } from "./steps/send-reparatur-confirmation"
 
@@ -55,6 +56,31 @@ const createReparaturWorkflow = createWorkflow(
     }))
 
     const reparatur = createReparaturStep(reparaturInput)
+
+    // Generate the printable PDF, upload it, and store its URL on the row (best-effort).
+    const pdfInput = transform({ input, reparatur }, ({ input, reparatur }) => ({
+      id: reparatur.id,
+      kd_nr: input.kd_nr,
+      name: input.name,
+      vorname: input.vorname,
+      kontakt: input.kontakt,
+      strasse_nr: input.strasse_nr,
+      plz: input.plz,
+      ort: input.ort,
+      land: input.land,
+      tel: input.tel,
+      email: input.email,
+      kunden_nummer: input.kunden_nummer,
+      geraete_nummer: input.geraete_nummer,
+      anderer_empfaenger: input.anderer_empfaenger,
+      datum: input.datum,
+      beschreibung: input.beschreibung,
+      unterschrift_ort: input.unterschrift_ort,
+      unterschrift_datum: input.unterschrift_datum,
+      unterschrift: input.unterschrift,
+      created_at: reparatur.created_at,
+    }))
+    generateReparaturPdfStep(pdfInput)
 
     // Create the customer if they don't exist yet, and link to the storefront's channel.
     const customerInput = transform({ input }, ({ input }) => ({

@@ -25,6 +25,7 @@ type Reparatur = {
   unterschrift_ort: string | null
   unterschrift_datum: string | null
   unterschrift: string | null
+  pdf_url: string | null
   source_url: string | null
   created_at: string
   sales_channel_id: string | null
@@ -117,7 +118,7 @@ const ReparaturPage = () => {
           <table className="w-full">
             <thead>
               <tr className="border-b border-ui-border-base">
-                {["Name", "Vorname", "Ort", "Geräte-Nr.", "E-Mail", "Datum"].map((h) => (
+                {["Name", "Vorname", "Ort", "Geräte-Nr.", "E-Mail", "PDF", "Datum"].map((h) => (
                   <th
                     key={h}
                     className="px-6 py-3 text-left text-xs font-medium text-ui-fg-subtle uppercase tracking-wide"
@@ -158,6 +159,21 @@ const ReparaturPage = () => {
                     <Text size="small" leading="compact" className="text-ui-fg-subtle">
                       {r.email}
                     </Text>
+                  </td>
+                  <td className="px-6 py-4">
+                    {r.pdf_url ? (
+                      <a
+                        href={r.pdf_url}
+                        target="_blank"
+                        rel="noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="text-ui-fg-interactive hover:underline text-sm"
+                      >
+                        PDF
+                      </a>
+                    ) : (
+                      <span className="text-ui-fg-muted text-sm">—</span>
+                    )}
                   </td>
                   <td className="px-6 py-4">
                     <Text size="small" leading="compact" className="text-ui-fg-subtle">
@@ -256,6 +272,21 @@ const ReparaturPage = () => {
                   <DetailRow label="Unterschrift">{selected.unterschrift}</DetailRow>
                   <DetailRow label="Eingegangen">{fmtDate(selected.created_at)}</DetailRow>
                 </div>
+
+                <DetailRow label="PDF">
+                  {selected.pdf_url ? (
+                    <a
+                      href={selected.pdf_url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-ui-fg-interactive hover:underline"
+                    >
+                      Reparaturformular öffnen
+                    </a>
+                  ) : (
+                    "—"
+                  )}
+                </DetailRow>
 
                 {selected.source_url && (
                   <DetailRow label="Seite">

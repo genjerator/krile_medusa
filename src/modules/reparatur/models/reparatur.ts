@@ -34,6 +34,9 @@ const Reparatur = model.define("reparatur", {
   unterschrift_datum: model.text().nullable(),
   unterschrift: model.text().nullable(),
 
+  // Generated printable PDF of this submission (public URL in file storage).
+  pdf_url: model.text().nullable(),
+
   // Meta (not on the PDF)
   sales_channel_id: model.text().nullable(),
   source_url: model.text().nullable(),
