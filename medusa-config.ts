@@ -44,6 +44,9 @@ module.exports = defineConfig({
       resolve: "./src/modules/productInquiry",
     },
     {
+      resolve: "./src/modules/reparatur",
+    },
+    {
       resolve: "./src/modules/weeklyAction",
     },
     {

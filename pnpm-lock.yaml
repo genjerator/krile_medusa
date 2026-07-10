@@ -16,8 +16,8 @@ importers:
   .:
     dependencies:
       '@easypayment/medusa-payment-paypal':
-        specifier: ^0.9.22
-        version: 0.9.22(@medusajs/admin-sdk@2.13.6)(@medusajs/framework@2.13.6(@medusajs/cli@2.13.6(@types/node@20.19.39))(@types/node@20.19.39)(ioredis@5.10.1)(vite@5.4.21(@types/node@20.19.39))(zod@3.25.76))(@medusajs/icons@2.13.6(react@18.3.1))(@medusajs/medusa@2.13.6)(@medusajs/ui@4.1.6(@types/react-dom@18.3.7(@types/react@18.3.28))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3))
+        specifier: ^1.0.0
+        version: 1.0.0(@medusajs/admin-sdk@2.13.6)(@medusajs/framework@2.13.6(@medusajs/cli@2.13.6(@types/node@20.19.39))(@types/node@20.19.39)(ioredis@5.10.1)(vite@5.4.21(@types/node@20.19.39))(zod@3.25.76))(@medusajs/icons@2.13.6(react@18.3.1))(@medusajs/medusa@2.13.6)(@medusajs/ui@4.1.6(@types/react-dom@18.3.7(@types/react@18.3.28))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3))
       '@medusajs/admin-sdk':
         specifier: 2.13.6
         version: 2.13.6
@@ -608,8 +608,8 @@ packages:
     peerDependencies:
       react: '>=16.8.0'
 
-  '@easypayment/medusa-payment-paypal@0.9.22':
-    resolution: {integrity: sha512-3tZSilPffWBb7svtRCZL3LjFBQZvlsByEet6w0jAa6v55yOyFhIsyY4Vs+lYHCLb9o7Lb8WfoRL+1BX0Ug5JbA==}
+  '@easypayment/medusa-payment-paypal@1.0.0':
+    resolution: {integrity: sha512-7MkI/Gy+lGM62tw+p5na5EOGRR/Fl1R7rf1AhgkZ+7TUHS2jDglY0AHCABz7RTN4GTHiUpLZZsgGnPCthuyMVQ==}
     engines: {node: '>=20'}
     peerDependencies:
       '@medusajs/admin-sdk': ^2.12.0
@@ -7562,7 +7562,7 @@ snapshots:
       react: 18.3.1
       tslib: 2.8.1
 
-  '@easypayment/medusa-payment-paypal@0.9.22(@medusajs/admin-sdk@2.13.6)(@medusajs/framework@2.13.6(@medusajs/cli@2.13.6(@types/node@20.19.39))(@types/node@20.19.39)(ioredis@5.10.1)(vite@5.4.21(@types/node@20.19.39))(zod@3.25.76))(@medusajs/icons@2.13.6(react@18.3.1))(@medusajs/medusa@2.13.6)(@medusajs/ui@4.1.6(@types/react-dom@18.3.7(@types/react@18.3.28))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3))':
+  '@easypayment/medusa-payment-paypal@1.0.0(@medusajs/admin-sdk@2.13.6)(@medusajs/framework@2.13.6(@medusajs/cli@2.13.6(@types/node@20.19.39))(@types/node@20.19.39)(ioredis@5.10.1)(vite@5.4.21(@types/node@20.19.39))(zod@3.25.76))(@medusajs/icons@2.13.6(react@18.3.1))(@medusajs/medusa@2.13.6)(@medusajs/ui@4.1.6(@types/react-dom@18.3.7(@types/react@18.3.28))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3))':
     dependencies:
       '@medusajs/framework': 2.13.6(@medusajs/cli@2.13.6(@types/node@20.19.39))(@types/node@20.19.39)(ioredis@5.10.1)(vite@5.4.21(@types/node@20.19.39))(zod@3.25.76)
       '@medusajs/medusa': 2.13.6(@medusajs/admin-sdk@2.13.6)(@medusajs/cli@2.13.6(@types/node@20.19.39))(@medusajs/framework@2.13.6(@medusajs/cli@2.13.6(@types/node@20.19.39))(@types/node@20.19.39)(ioredis@5.10.1)(vite@5.4.21(@types/node@20.19.39))(zod@3.25.76))(@medusajs/icons@2.13.6(react@18.3.1))(@medusajs/test-utils@2.13.6)(@medusajs/ui@4.1.6(@types/react-dom@18.3.7(@types/react@18.3.28))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3))(@swc/core@1.15.26(@swc/helpers@0.5.21))(@types/node@20.19.39)(@types/react-dom@18.3.7(@types/react@18.3.28))(@types/react@18.3.28)(awilix@8.0.1)(picomatch@4.0.4)(posthog-node@5.29.2(rxjs@7.8.2))(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.30.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(yalc@1.0.0-pre.53)

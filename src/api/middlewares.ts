@@ -6,6 +6,7 @@ import {
   CreateWeeklyActionSchema,
   GenerateYearSchema,
 } from "./admin/weekly-actions/validators"
+import { CreateReparaturSchema } from "./store/reparatur/validators"
 
 const stripTags = (value: string) => value.replace(/<[^>]*>/g, "").trim()
 
@@ -47,12 +48,25 @@ const inquiryRateLimit = rateLimit({
   legacyHeaders: false,
 })
 
+const reparaturRateLimit = rateLimit({
+  windowMs: 60 * 1000,
+  limit: 3,
+  message: { message: "Zu viele Anfragen. Bitte versuchen Sie es in einer Minute erneut." },
+  standardHeaders: true,
+  legacyHeaders: false,
+})
+
 export default defineMiddlewares({
   routes: [
     {
       matcher: "/store/inquiries",
       method: "POST",
       middlewares: [inquiryRateLimit as any, validateAndTransformBody(CreateInquirySchema)],
+    },
+    {
+      matcher: "/store/reparatur",
+      method: "POST",
+      middlewares: [reparaturRateLimit as any, validateAndTransformBody(CreateReparaturSchema)],
     },
     {
       matcher: "/store/newsletter",
