@@ -21,3 +21,8 @@ industries.alcoccodrillo.de {
 planeta.alcoccodrillo.de {
 	reverse_proxy storefront-planeta:8000
 }
+
+# ─── Uptime Kuma (uptime monitoring + status page) ───────────────────────────
+status.alcoccodrillo.de {
+	reverse_proxy uptime-kuma:3001
+}
