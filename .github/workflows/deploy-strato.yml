@@ -52,10 +52,19 @@ jobs:
           username: ${{ secrets.STRATO_USER }}
           key: ${{ secrets.STRATO_SSH_KEY }}
           script: |
+            # Fail the step (and the workflow) on ANY error — without this a failed
+            # git pull / docker login / pull is silently ignored and the deploy
+            # falsely reports success while nothing is updated.
+            set -euo pipefail
+
             cd ~/app
 
-            # Pull latest code (compose file, nginx confs)
-            git pull origin main
+            # Sync code to EXACTLY match main. `reset --hard` avoids the "local
+            # changes would be overwritten by merge" failure that `git pull` hits
+            # when a tracked file (compose/Caddyfile) was edited directly on the VPS.
+            # (.env.strato is gitignored, so it is never touched by this.)
+            git fetch origin main
+            git reset --hard origin/main
 
             # Write env file from secret
             echo "${{ secrets.ENV_STRATO }}" > .env.strato
@@ -63,9 +72,15 @@ jobs:
             # Log in to GHCR to pull private images (PAT needs read:packages)
             echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
 
-            # Pull + restart only the backend (storefronts deploy from their own repos)
+            # Pull the freshly built image and force the backend to run it.
+            # --force-recreate guarantees the new image is used even if compose
+            # thinks the (unchanged :latest tag) config is up to date.
             docker compose -f docker-compose.strato.yml pull medusa
-            docker compose -f docker-compose.strato.yml up -d --no-deps medusa
+            docker compose -f docker-compose.strato.yml up -d --no-deps --force-recreate medusa
+
+            # Show what is now running so the deploy log proves the new image ran.
+            docker compose -f docker-compose.strato.yml ps medusa
+            docker compose -f docker-compose.strato.yml images medusa
 
             # Clean up unused images
             docker image prune -f
