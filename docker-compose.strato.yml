@@ -4,7 +4,9 @@ services:
   medusa:
     image: ghcr.io/genjerator/krile-medusa:latest
     ports:
-      - "8000:9000"
+      # Bound to loopback only — reachable by Caddy (via the internal network as
+      # `medusa:9000`) and for on-VPS/SSH-tunnel debugging, NOT the public internet.
+      - "127.0.0.1:8000:9000"
     env_file:
       - .env.strato
     depends_on:
@@ -24,7 +26,8 @@ services:
   storefront-planeta-industries:
     image: ghcr.io/genjerator/krile-storefront:latest
     ports:
-      - "9000:8000"   # container listens on 8000 (Next standalone, ENV PORT=8000)
+      # Loopback only (Caddy reaches it internally as `storefront-planeta-industries:8000`).
+      - "127.0.0.1:9000:8000"   # container listens on 8000 (Next standalone, ENV PORT=8000)
     env_file:
       - .env.strato
     restart: unless-stopped
@@ -33,7 +36,8 @@ services:
   storefront-planeta:
     image: ghcr.io/genjerator/planeta-gmbh-storefront:latest
     ports:
-      - "9002:8000"   # container listens on 8000 (Next standalone, ENV PORT=8000)
+      # Loopback only (Caddy reaches it internally as `storefront-planeta:8000`).
+      - "127.0.0.1:9002:8000"   # container listens on 8000 (Next standalone, ENV PORT=8000)
     env_file:
       - .env.strato
     restart: unless-stopped
