@@ -30,3 +30,4 @@ build
 .medusa
 # Generated weekly-action email previews (per-instance cache)
 static/weekly-action-emails/
+.env.awsec2
