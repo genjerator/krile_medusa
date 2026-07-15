@@ -49,7 +49,23 @@ export default async function orderPlacedHandler({
 
   const paymentSession = (order as any).payment_collections?.[0]?.payment_sessions?.[0]
   const isPayPal = paymentSession?.provider_id === "pp_paypal_paypal"
-  const paymentMethodLabel = isPayPal ? "PayPal" : "Auf Rechnung"
+  const isVorkasse =
+    paymentSession?.provider_id?.startsWith("pp_manual_") ||
+    paymentSession?.provider_id === "pp_system_default"
+  const paymentMethodLabel = isPayPal
+    ? "PayPal"
+    : isVorkasse
+      ? "Vorkasse"
+      : "Auf Rechnung"
+
+  const bankDetailsHtml = `
+    <table style="margin-top:8px;font-size:14px;border-collapse:collapse;">
+      <tr><td style="color:#6b7280;padding:2px 24px 2px 0;">Inhaber</td><td>Planeta GmbH &amp; Co.KG</td></tr>
+      <tr><td style="color:#6b7280;padding:2px 24px 2px 0;">Institut</td><td>Sparkasse Schwaben Bodensee</td></tr>
+      <tr><td style="color:#6b7280;padding:2px 24px 2px 0;">BIC / SWIFT</td><td>BYLADEM1MLM</td></tr>
+      <tr><td style="color:#6b7280;padding:2px 24px 2px 0;">IBAN</td><td>DE10 7315 0000 1002 0935 14</td></tr>
+    </table>
+  `
 
   const formatCurrency = (amount: number) =>
     new Intl.NumberFormat("de-DE", {
@@ -127,6 +143,7 @@ export default async function orderPlacedHandler({
             ${billingAddressHtml ? `<h3 style="border-bottom:2px solid #1e3a5f;padding-bottom:8px;margin-top:24px;">Rechnungsadresse</h3><p>${billingAddressHtml}</p>` : ""}
             <p><strong>Versandart:</strong> ${shippingMethod}</p>
             <p><strong>Zahlungsmethode:</strong> ${paymentMethodLabel}</p>
+            ${isVorkasse ? bankDetailsHtml : ""}
             ${isPayPal ? `<p style="background:#fff8e1;border:1px solid #ffe082;padding:10px;border-radius:6px;font-size:13px;">✅ Ihre Zahlung wurde über PayPal erfolgreich verarbeitet.</p>` : ""}
 
             <hr style="border:none;border-top:1px solid #e5e7eb;margin:24px 0;" />
