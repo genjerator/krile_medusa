@@ -14,14 +14,11 @@ export type ReparaturLabels = {
   kdNr: string
   name: string
   vorname: string
-  kontakt: string
   address: string
   tel: string
   email: string
   kundenNummer: string
   geraeteNummer: string
-  andererEmpfaenger: string
-  yes: string
   page: string
   date: string
   description: string
@@ -58,13 +55,11 @@ export function renderReparaturDetails(data: ReparaturEmailData, labels: Reparat
       ${row(labels.kdNr, escapeHtml(data.kd_nr))}
       ${row(labels.name, escapeHtml(data.name))}
       ${row(labels.vorname, escapeHtml(data.vorname))}
-      ${row(labels.kontakt, escapeHtml(data.kontakt))}
       ${row(labels.address, address)}
       ${row(labels.tel, escapeHtml(data.tel))}
       ${row(labels.email, `<a href="mailto:${escapeHtml(data.email)}">${escapeHtml(data.email)}</a>`)}
       ${row(labels.kundenNummer, escapeHtml(data.kunden_nummer))}
       ${row(labels.geraeteNummer, escapeHtml(data.geraete_nummer))}
-      ${row(labels.andererEmpfaenger, data.anderer_empfaenger ? labels.yes : "")}
       ${row(labels.page, pageHtml)}
       ${row(labels.date, escapeHtml(data.dateStr))}
       ${row(

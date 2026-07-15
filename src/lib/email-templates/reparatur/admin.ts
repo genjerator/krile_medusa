@@ -19,18 +19,22 @@ export function reparaturAdminDe(data: ReparaturEmailData): EmailContent {
           kdNr: "Kd. Nr.",
           name: "Name",
           vorname: "Vorname",
-          kontakt: "Kontakt",
           address: "Adresse",
           tel: "Telefon",
           email: "E-Mail",
           kundenNummer: "Kunden-Nr.",
           geraeteNummer: "Geräte-Nr.",
-          andererEmpfaenger: "Anderer Empfänger",
-          yes: "Ja",
           page: "Seite",
           date: "Datum",
           description: "Beschreibung",
         })}
+
+        <p style="margin:24px 0 0;">
+          <a href="https://admin.planetaindustries.de/app/reparatur"
+             style="display:inline-block;background:#1e3a5f;color:#ffffff;text-decoration:none;padding:10px 22px;border-radius:6px;font-size:14px;font-weight:600;">
+            Anfrage im Admin öffnen
+          </a>
+        </p>
 
         <hr style="border:none;border-top:1px solid #e5e7eb;margin:24px 0;" />
         <p style="color:#6b7280;font-size:13px;">

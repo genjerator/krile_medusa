@@ -227,7 +227,6 @@ const ReparaturPage = () => {
                   <DetailRow label="Kunden-Nr.">{selected.kunden_nummer}</DetailRow>
                   <DetailRow label="Name">{selected.name}</DetailRow>
                   <DetailRow label="Vorname">{selected.vorname}</DetailRow>
-                  <DetailRow label="Kontakt">{selected.kontakt}</DetailRow>
                   <DetailRow label="Geräte-Nr.">{selected.geraete_nummer}</DetailRow>
                 </div>
 
@@ -248,9 +247,6 @@ const ReparaturPage = () => {
                     >
                       {selected.email}
                     </a>
-                  </DetailRow>
-                  <DetailRow label="Anderer Empfänger">
-                    {selected.anderer_empfaenger ? "Ja" : "Nein"}
                   </DetailRow>
                   <DetailRow label="Channel">{selected.sales_channel_name}</DetailRow>
                 </div>

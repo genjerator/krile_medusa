@@ -125,13 +125,11 @@ export async function buildReparaturPdf(data: ReparaturPdfData): Promise<Uint8Ar
   row("Kd. Nr.", data.kd_nr)
   row("Name", data.name)
   row("Vorname", data.vorname)
-  row("Kontakt", data.kontakt)
   row("Strasse / Nr.", data.strasse_nr)
   row("PLZ / Ort", [data.plz, data.ort].filter(Boolean).join(" "))
   row("Land", data.land)
   row("Tel.", data.tel)
   row("E-Mail", data.email)
-  row("Anderer Empfänger", data.anderer_empfaenger ? "Ja" : "Nein")
   if (data.datum) row("Datum", data.datum)
 
   y -= 6
