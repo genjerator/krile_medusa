@@ -41,6 +41,20 @@ type SortKey = "email" | "campaigns" | "opened" | "clicks" | "bounces" | "create
 const formatDate = (iso: string | null | undefined) =>
   iso ? new Date(iso).toLocaleDateString("de-DE") : "—"
 
+// The Medusa JS SDK throws on non-2xx, but the error shape varies: the parsed
+// JSON body may sit on the error itself or under `.response.data`. Dig out our
+// `{ message, detail }` from wherever it landed so the real reason is shown.
+const extractError = (err: unknown): { message: string; detail?: string } => {
+  const e = err as Record<string, any> | undefined
+  const body = e?.response?.data ?? e?.data ?? e ?? {}
+  const message =
+    body.message ||
+    e?.message ||
+    "Unbekannter Fehler. Bitte später erneut versuchen."
+  const detail = typeof body.detail === "string" ? body.detail : undefined
+  return { message, detail }
+}
+
 const BrevoOverviewWidget = () => {
   const [search, setSearch] = useState("")
   const [page, setPage] = useState(0)
@@ -61,9 +75,11 @@ const BrevoOverviewWidget = () => {
         queryClient.invalidateQueries({ queryKey: ["brevo-overview"] })
       }, 60000)
     },
-    onError: (err: Error) => {
+    onError: (err: unknown) => {
+      const { message, detail } = extractError(err)
       toast.error("Brevo-Sync fehlgeschlagen", {
-        description: err.message || "Bitte später erneut versuchen.",
+        description: detail ? `${message}\n\n${detail}` : message,
+        duration: 15000,
       })
     },
   })

@@ -10,7 +10,8 @@ const THROTTLE_MS = 150
  * customer.metadata.brevo. Requires BREVO_API_KEY in the environment.
  *
  * Stored shape (metadata.brevo):
- *   campaigns_sent, campaigns_opened, total_opens, campaigns_clicked,
+ *   campaigns_sent, sent_campaign_ids (Brevo campaign IDs the contact was sent),
+ *   campaigns_opened, total_opens, campaigns_clicked,
  *   hard_bounces, soft_bounces, open_rate, click_rate, bounce_rate (in %),
  *   unsubscribed, blacklisted, last_email_at, synced_at
  */
@@ -51,15 +52,19 @@ type BrevoContact = {
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms))
 
+const uniqueCampaignIds = (events?: { campaignId: number }[]) =>
+  Array.from(new Set((events ?? []).map((e) => e.campaignId))).sort((a, b) => a - b)
+
 const uniqueCampaigns = (events?: { campaignId: number }[]) =>
-  new Set((events ?? []).map((e) => e.campaignId)).size
+  uniqueCampaignIds(events).length
 
 const pct = (part: number, total: number) =>
   total > 0 ? Math.round((part / total) * 1000) / 10 : 0
 
 export const buildBrevoStats = (contact: BrevoContact) => {
   const s = contact.statistics ?? {}
-  const sent = uniqueCampaigns(s.messagesSent)
+  const sentCampaignIds = uniqueCampaignIds(s.messagesSent)
+  const sent = sentCampaignIds.length
   const openedCampaigns = uniqueCampaigns(s.opened)
   const clickedCampaigns = uniqueCampaigns(s.clicked)
   const hardBounces = (s.hardBounces ?? []).length
@@ -76,6 +81,9 @@ export const buildBrevoStats = (contact: BrevoContact) => {
 
   return {
     campaigns_sent: sent,
+    // The actual Brevo campaign IDs this contact was sent (i.e. which campaigns
+    // the customer is part of), not just the count.
+    sent_campaign_ids: sentCampaignIds,
     campaigns_opened: openedCampaigns,
     total_opens: (s.opened ?? []).reduce((sum, e) => sum + (e.count ?? 1), 0),
     campaigns_clicked: clickedCampaigns,

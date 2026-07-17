@@ -10,7 +10,13 @@ import { ContainerRegistrationKeys } from "@medusajs/framework/utils"
  * UTF-8 CSV with a BOM so Excel renders umlauts correctly.
  */
 
-const COLUMNS: { key: string; label: string }[] = [
+/**
+ * A column either reads a top-level customer field by `key`, or derives its
+ * value from the full row via `value` (used for nested metadata like Brevo stats).
+ */
+type Column = { label: string; key?: string; value?: (row: any) => unknown }
+
+const COLUMNS: Column[] = [
   { key: "id", label: "ID" },
   { key: "email", label: "Email" },
   { key: "first_name", label: "First name" },
@@ -19,7 +25,20 @@ const COLUMNS: { key: string; label: string }[] = [
   { key: "phone", label: "Phone" },
   { key: "has_account", label: "Has account" },
   { key: "created_at", label: "Created at" },
+  {
+    label: "Campaigns sent",
+    value: (row) => row.metadata?.brevo?.campaigns_sent ?? 0,
+  },
 ]
+
+// Fields to request from the graph: every column's `key`, plus `metadata` for
+// the derived Brevo columns.
+const GRAPH_FIELDS = Array.from(
+  new Set([...COLUMNS.map((c) => c.key).filter(Boolean), "metadata"])
+) as string[]
+
+const cellValue = (col: Column, row: any): unknown =>
+  col.value ? col.value(row) : col.key ? row[col.key] : ""
 
 /** RFC-4180 field: quote when it contains a comma, quote, CR or LF; double inner quotes. */
 const escapeCsv = (value: unknown): string => {
@@ -38,7 +57,7 @@ export async function GET(req: MedusaRequest, res: MedusaResponse) {
   for (;;) {
     const { data, metadata } = await query.graph({
       entity: "customer",
-      fields: COLUMNS.map((c) => c.key),
+      fields: GRAPH_FIELDS,
       pagination: { take, skip, order: { created_at: "DESC" } } as any,
     })
     const page = data as any[]
@@ -51,7 +70,7 @@ export async function GET(req: MedusaRequest, res: MedusaResponse) {
   }
 
   const header = COLUMNS.map((c) => escapeCsv(c.label)).join(",")
-  const body = rows.map((r) => COLUMNS.map((c) => escapeCsv(r[c.key])).join(",")).join("\r\n")
+  const body = rows.map((r) => COLUMNS.map((c) => escapeCsv(cellValue(c, r))).join(",")).join("\r\n")
   // Leading BOM (﻿) => Excel opens it as UTF-8 (correct umlauts).
   const csv = `﻿${header}\r\n${body}\r\n`
 
