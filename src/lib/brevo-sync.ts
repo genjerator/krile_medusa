@@ -163,6 +163,16 @@ export async function runBrevoSync(
         stats.notInBrevo++
       } else {
         const brevo = buildBrevoStats(contact)
+        // Customers who already clicked keep their previous synced_at — the
+        // "Brevo aktualisiert" column then marks when the data last mattered,
+        // not every nightly touch.
+        const prev = (customer.metadata?.brevo ?? null) as {
+          campaigns_clicked?: number
+          synced_at?: string
+        } | null
+        if (prev && (prev.campaigns_clicked ?? 0) > 0 && prev.synced_at) {
+          brevo.synced_at = prev.synced_at
+        }
         if (dryRun) {
           logger.info(`[brevo-sync] DRY ${customer.email}: ${JSON.stringify(brevo)}`)
         } else {
