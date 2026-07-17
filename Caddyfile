@@ -9,6 +9,10 @@
 
 # ─── Admin + Medusa backend ──────────────────────────────────────────────────
 admin.alcoccodrillo.de {
+	# Browsers without an "lng" cookie get a permanent German one, so the
+	# admin language survives cleared site data / closed browsers.
+	@noLng not header Cookie *lng=*
+	header @noLng Set-Cookie "lng=de; Path=/; Max-Age=31536000; SameSite=Lax"
 	reverse_proxy medusa:9000
 }
 
