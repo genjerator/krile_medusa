@@ -46,6 +46,7 @@
     "@tiptap/starter-kit": "^3.24.0",
     "express-rate-limit": "^8.5.2",
     "marked": "^18.0.5",
+    "multer": "^2.2.0",
     "nodemailer": "^8.0.7",
     "pdf-lib": "^1.17.1",
     "react-router-dom": "6.30.3",
@@ -57,6 +58,7 @@
     "@swc/core": "^1.7.28",
     "@swc/jest": "^0.2.36",
     "@types/jest": "^29.5.13",
+    "@types/multer": "^2.2.0",
     "@types/node": "^20.12.11",
     "@types/nodemailer": "^8.0.0",
     "@types/react": "^18.3.2",
@@ -68,6 +70,7 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.6.2",
     "vite": "^5.4.14",
+    "xlsx": "^0.18.5",
     "yalc": "^1.0.0-pre.53"
   },
   "engines": {

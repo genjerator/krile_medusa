@@ -1,6 +1,7 @@
 import { defineMiddlewares, validateAndTransformBody } from "@medusajs/framework/http"
 import { z } from "zod"
 import rateLimit from "express-rate-limit"
+import multer from "multer"
 import { PostNewsletterSchema } from "./store/newsletter/route"
 import {
   CreateWeeklyActionSchema,
@@ -56,8 +57,19 @@ const reparaturRateLimit = rateLimit({
   legacyHeaders: false,
 })
 
+// In-memory upload for the admin CRM customer import (Excel/CSV, max 20 MB).
+const crmImportUpload = multer({
+  storage: multer.memoryStorage(),
+  limits: { fileSize: 20 * 1024 * 1024 },
+})
+
 export default defineMiddlewares({
   routes: [
+    {
+      matcher: "/admin/crm-import",
+      method: "POST",
+      middlewares: [crmImportUpload.single("file") as any],
+    },
     {
       matcher: "/store/inquiries",
       method: "POST",
