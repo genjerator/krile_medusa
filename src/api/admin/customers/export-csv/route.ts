@@ -2,8 +2,9 @@ import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
 import { ContainerRegistrationKeys } from "@medusajs/framework/utils"
 
 /**
- * Exports every customer as a CSV file, downloaded by the "Export CSV" button on
- * the admin Customers list (`src/admin/widgets/customers-export-csv.tsx`).
+ * Exports customers that have an email address as a CSV file, downloaded by the
+ * "Export CSV" button on the admin Customers list
+ * (`src/admin/widgets/customers-export-csv.tsx`).
  *
  * Pages through the full customer list (no admin-side row cap) and streams a
  * UTF-8 CSV with a BOM so Excel renders umlauts correctly.
@@ -31,6 +32,7 @@ export async function GET(req: MedusaRequest, res: MedusaResponse) {
 
   const take = 1000
   let skip = 0
+  let fetched = 0
   const rows: any[] = []
   // Page through all customers until we've collected the reported total.
   for (;;) {
@@ -40,10 +42,12 @@ export async function GET(req: MedusaRequest, res: MedusaResponse) {
       pagination: { take, skip, order: { created_at: "DESC" } } as any,
     })
     const page = data as any[]
-    rows.push(...page)
-    const total = metadata?.count ?? rows.length
+    fetched += page.length
+    // Only export customers that actually have an email address.
+    rows.push(...page.filter((r) => typeof r.email === "string" && r.email.trim() !== ""))
+    const total = metadata?.count ?? fetched
     skip += take
-    if (page.length === 0 || rows.length >= total) break
+    if (page.length === 0 || fetched >= total) break
   }
 
   const header = COLUMNS.map((c) => escapeCsv(c.label)).join(",")

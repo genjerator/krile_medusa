@@ -44,7 +44,7 @@ const CustomersExportCsvWidget = () => {
           Export customers
         </Text>
         <Text size="small" leading="compact" className="text-ui-fg-subtle">
-          Download all customers as a CSV file.
+          Download all customers with an email address as a CSV file.
         </Text>
       </div>
       <Button size="small" variant="secondary" onClick={handleExport} isLoading={loading}>
