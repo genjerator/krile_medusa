@@ -53,6 +53,7 @@ const isTerminalBrevoState = (brevo: unknown): boolean => {
 type BrevoContact = {
   email: string
   emailBlacklisted?: boolean
+  attributes?: Record<string, unknown>
   statistics?: {
     messagesSent?: { campaignId: number; eventTime?: string }[]
     opened?: { campaignId: number; count?: number; eventTime?: string }[]
@@ -354,6 +355,122 @@ export async function runBrevoDirtySync(
 
   logger.info(
     `[brevo-dirty] ✅ Done. ${stats.synced} synced, ${stats.notInBrevo} not in Brevo, ${stats.failed} failed (of ${stats.processed}).`
+  )
+  return stats
+}
+
+// ─── Create Medusa customers from deliverable Brevo contacts ────────────────
+//
+// Goal: an email we sent to that did NOT bounce (Brevo reports `delivered`, and
+// for a bad address it reports `hard_bounce` instead — never delivered) proves
+// the address exists. If that email isn't already a Medusa customer, create it.
+//
+// Driven off the webhook audit log (brevo_webhook_log): candidates are emails
+// with a delivered/opened/click event that did NOT match a customer at receive
+// time. For each we re-check existence (cheap), then confirm against Brevo
+// (contact exists and is not blacklisted/bounced) before creating — so the
+// heavy work is throttled and deferred, never on the webhook hot path.
+
+// Marketing events that prove the address exists and did not bounce.
+const BREVO_EXISTENCE_EVENTS = ["delivered", "opened", "click"]
+
+export type BrevoCustomerCreationStats = {
+  candidates: number
+  created: number
+  alreadyExists: number
+  notInBrevo: number
+  blacklisted: number
+  failed: number
+  issues: string[]
+}
+
+export async function createMissingCustomersFromBrevo(
+  container: MedusaContainer,
+  options: { limit?: number; sinceHours?: number } = {}
+): Promise<BrevoCustomerCreationStats> {
+  const logger = container.resolve(ContainerRegistrationKeys.LOGGER)
+  const apiKey = process.env.BREVO_API_KEY
+  if (!apiKey) throw new Error("BREVO_API_KEY is not set in the environment.")
+
+  const pg = container.resolve(ContainerRegistrationKeys.PG_CONNECTION)
+  const customerModule: ICustomerModuleService = container.resolve(Modules.CUSTOMER)
+  const cap = options.limit ?? 500
+  const sinceHours = Math.max(1, Math.floor(options.sinceHours ?? 2))
+
+  const rows = (await pg("brevo_webhook_log")
+    .whereRaw("matched = false")
+    .whereIn("event", BREVO_EXISTENCE_EVENTS)
+    .whereNotNull("email")
+    .where("created_at", ">", pg.raw(`now() - interval '${sinceHours} hours'`))
+    .distinct("email")
+    .limit(cap)) as { email: string }[]
+
+  const emails = Array.from(
+    new Set(rows.map((r) => String(r.email).trim()).filter(Boolean))
+  )
+
+  const stats: BrevoCustomerCreationStats = {
+    candidates: emails.length,
+    created: 0,
+    alreadyExists: 0,
+    notInBrevo: 0,
+    blacklisted: 0,
+    failed: 0,
+    issues: [],
+  }
+  if (emails.length === 0) return stats
+  logger.info(`[brevo-create] Evaluating ${emails.length} candidate email(s)...`)
+
+  for (const email of emails) {
+    try {
+      // Already a customer? (case-insensitive) — cheap check, no Brevo call.
+      const existing = await pg("customer")
+        .whereNull("deleted_at")
+        .whereRaw("lower(email) = ?", [email.toLowerCase()])
+        .select("id")
+        .first()
+      if (existing) {
+        stats.alreadyExists++
+        continue
+      }
+
+      const contact = await fetchBrevoContact(apiKey, email)
+      if (!contact) {
+        stats.notInBrevo++
+        await sleep(THROTTLE_MS)
+        continue
+      }
+      // Blacklisted covers hard bounces / unsubscribes — don't create those.
+      if (contact.emailBlacklisted) {
+        stats.blacklisted++
+        await sleep(THROTTLE_MS)
+        continue
+      }
+
+      const attrs = (contact.attributes ?? {}) as Record<string, unknown>
+      const firstName = (attrs.FIRSTNAME ?? attrs.FIRST_NAME) as string | undefined
+      const lastName = (attrs.LASTNAME ?? attrs.LAST_NAME) as string | undefined
+
+      await customerModule.createCustomers({
+        email,
+        first_name: firstName || undefined,
+        last_name: lastName || undefined,
+        metadata: { brevo: buildBrevoStats(contact), created_from_brevo: true },
+      })
+      stats.created++
+      logger.info(`[brevo-create] Created customer for ${email}`)
+      await sleep(THROTTLE_MS)
+    } catch (err) {
+      stats.failed++
+      const message = `[brevo-create] ${email}: ${(err as Error).message}`
+      logger.error(message)
+      if (stats.issues.length < 50) stats.issues.push(message)
+      await sleep(THROTTLE_MS)
+    }
+  }
+
+  logger.info(
+    `[brevo-create] ✅ Done. ${stats.created} created, ${stats.alreadyExists} already existed, ${stats.notInBrevo} not in Brevo, ${stats.blacklisted} blacklisted, ${stats.failed} failed (of ${stats.candidates}).`
   )
   return stats
 }
