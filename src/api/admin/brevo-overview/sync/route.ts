@@ -62,7 +62,7 @@ export const POST = async (req: AuthenticatedMedusaRequest, res: MedusaResponse)
   runBrevoSync(req.scope)
     .then((stats) => {
       logger.info(
-        `[brevo-sync] Manual sync done: ${stats.synced} synced, ${stats.notInBrevo} not in Brevo, ${stats.failed} failed (of ${stats.processed}).`
+        `[brevo-sync] Manual sync done: ${stats.synced} synced, ${stats.skipped} skipped (terminal), ${stats.notInBrevo} not in Brevo, ${stats.failed} failed (of ${stats.processed}).`
       )
       if (stats.failed > 0) {
         logger.error(`[brevo-sync] ${stats.failed} contacts failed. Issues:\n${stats.issues.join("\n")}`)

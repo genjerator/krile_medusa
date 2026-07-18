@@ -29,9 +29,25 @@ export type BrevoSyncStats = {
   processed: number
   synced: number
   notInBrevo: number
+  /** Terminal-state contacts (unsubscribed/blacklisted/hard-bounced) not re-fetched. */
+  skipped: number
   failed: number
   dryRun: boolean
   issues: string[]
+}
+
+/**
+ * A contact is "terminal" once Brevo suppresses it — unsubscribed, blacklisted,
+ * or hard-bounced. It won't receive or engage with anything further, so the
+ * nightly poll skips re-fetching it (a hard bounce/unsubscribe is permanent).
+ * NOT terminal: merely "clicked" — those contacts stay active for future campaigns.
+ */
+const isTerminalBrevoState = (brevo: unknown): boolean => {
+  const b = brevo as
+    | { unsubscribed?: boolean; blacklisted?: boolean; hard_bounces?: number }
+    | null
+    | undefined
+  return Boolean(b && (b.unsubscribed || b.blacklisted || (b.hard_bounces ?? 0) > 0))
 }
 
 type BrevoContact = {
@@ -153,6 +169,7 @@ export async function runBrevoSync(
     processed: 0,
     synced: 0,
     notInBrevo: 0,
+    skipped: 0,
     failed: 0,
     dryRun,
     issues: [],
@@ -165,6 +182,15 @@ export async function runBrevoSync(
 
   for (const customer of toProcess) {
     stats.processed++
+
+    // Skip contacts Brevo has permanently suppressed — no point spending an
+    // API call + throttle on someone who can't engage further. Bypassed when a
+    // single `email` was explicitly requested (targeted re-sync wants fresh data).
+    if (!email && isTerminalBrevoState(customer.metadata?.brevo)) {
+      stats.skipped++
+      continue
+    }
+
     try {
       const contact = await fetchBrevoContact(apiKey, customer.email)
       if (!contact) {
@@ -203,7 +229,131 @@ export async function runBrevoSync(
   }
 
   logger.info(
-    `[brevo-sync] ✅ Done. ${stats.synced} synced, ${stats.notInBrevo} not in Brevo, ${stats.failed} failed (of ${stats.processed} processed).`
+    `[brevo-sync] ✅ Done. ${stats.synced} synced, ${stats.skipped} skipped (terminal), ${stats.notInBrevo} not in Brevo, ${stats.failed} failed (of ${stats.processed} processed).`
+  )
+  return stats
+}
+
+// ─── Webhook-driven "dirty" sync (Option C: hybrid) ─────────────────────────
+//
+// A Brevo Marketing webhook can't safely trigger a per-event API call back
+// (a 3500-contact blast would mean thousands of throttled calls). Instead the
+// webhook just flags the contact dirty (metadata.brevo.dirty_at), and the
+// scheduled `sync-brevo-dirty` job re-fetches dirty contacts in a throttled,
+// deduped batch — accurate full-fetch stats, near-real-time, blast-safe.
+//
+// The flag lives inside customer.metadata (no extra DB table) on purpose: a new
+// module + generated migration would drop core tables on this shared database.
+
+/**
+ * Mark every customer with this email dirty so the next dirty-sync pass
+ * re-fetches their Brevo stats. Merges into metadata.brevo without touching
+ * other keys. Case-insensitive on email. Returns rows affected.
+ */
+export async function markContactDirty(
+  container: MedusaContainer,
+  email: string
+): Promise<number> {
+  const pg = container.resolve(ContainerRegistrationKeys.PG_CONNECTION)
+  const now = new Date().toISOString()
+  const affected = await pg("customer")
+    .whereNull("deleted_at")
+    .whereRaw("lower(email) = ?", [email.toLowerCase()])
+    .update({
+      metadata: pg.raw(
+        "coalesce(metadata, '{}'::jsonb) || jsonb_build_object('brevo', coalesce(metadata -> 'brevo', '{}'::jsonb) || jsonb_build_object('dirty_at', ?::text))",
+        [now]
+      ),
+    })
+  return typeof affected === "number" ? affected : 0
+}
+
+export type BrevoDirtySyncStats = {
+  dirtyFound: number
+  processed: number
+  synced: number
+  notInBrevo: number
+  failed: number
+  issues: string[]
+}
+
+/**
+ * Re-sync customers flagged dirty by the webhook. Capped per run so it never
+ * overlaps its own 5-minute schedule (500 × 150ms ≈ 75s); leftover dirty
+ * contacts are picked up on the next pass. On success the fresh stats overwrite
+ * metadata.brevo (dropping dirty_at); on a Brevo error the flag is LEFT so the
+ * contact retries next cycle. Terminal-state contacts are NOT skipped here — a
+ * webhook event means something changed, so we always refresh.
+ */
+export async function runBrevoDirtySync(
+  container: MedusaContainer,
+  options: { limit?: number } = {}
+): Promise<BrevoDirtySyncStats> {
+  const logger = container.resolve(ContainerRegistrationKeys.LOGGER)
+  const apiKey = process.env.BREVO_API_KEY
+  if (!apiKey) throw new Error("BREVO_API_KEY is not set in the environment.")
+
+  const pg = container.resolve(ContainerRegistrationKeys.PG_CONNECTION)
+  const customerModule: ICustomerModuleService = container.resolve(Modules.CUSTOMER)
+  const cap = options.limit ?? 500
+
+  const dirty = (await pg("customer")
+    .whereNull("deleted_at")
+    .whereRaw("metadata -> 'brevo' ->> 'dirty_at' is not null")
+    .select("id", "email", "metadata")
+    .orderByRaw("metadata -> 'brevo' ->> 'dirty_at' asc")
+    .limit(cap)) as { id: string; email: string; metadata: Record<string, unknown> | null }[]
+
+  const stats: BrevoDirtySyncStats = {
+    dirtyFound: dirty.length,
+    processed: 0,
+    synced: 0,
+    notInBrevo: 0,
+    failed: 0,
+    issues: [],
+  }
+
+  if (dirty.length === 0) return stats
+  logger.info(`[brevo-dirty] Re-syncing ${dirty.length} dirty contact(s) (cap ${cap})...`)
+
+  for (const customer of dirty) {
+    stats.processed++
+    const baseMeta = customer.metadata ?? {}
+    const prevBrevo = (baseMeta.brevo ?? {}) as Record<string, unknown>
+    try {
+      const contact = await fetchBrevoContact(apiKey, customer.email)
+      if (!contact) {
+        // Not a Brevo contact — clear the flag so it isn't reprocessed forever.
+        const { dirty_at, ...rest } = prevBrevo
+        const nextMeta = { ...baseMeta } as Record<string, unknown>
+        if (Object.keys(rest).length > 0) nextMeta.brevo = rest
+        else delete nextMeta.brevo
+        await customerModule.updateCustomers(customer.id, { metadata: nextMeta })
+        stats.notInBrevo++
+      } else {
+        const brevo = buildBrevoStats(contact)
+        // Preserve the "last mattered" synced_at for contacts who already clicked.
+        if ((prevBrevo.campaigns_clicked as number ?? 0) > 0 && prevBrevo.synced_at) {
+          brevo.synced_at = prevBrevo.synced_at as string
+        }
+        // Fresh stats have no dirty_at, so writing the whole object clears it.
+        await customerModule.updateCustomers(customer.id, {
+          metadata: { ...baseMeta, brevo },
+        })
+        stats.synced++
+      }
+    } catch (err) {
+      // Leave dirty_at in place so this contact retries next cycle.
+      stats.failed++
+      const message = `[brevo-dirty] ${customer.email}: ${(err as Error).message}`
+      logger.error(message)
+      if (stats.issues.length < 50) stats.issues.push(message)
+    }
+    await sleep(THROTTLE_MS)
+  }
+
+  logger.info(
+    `[brevo-dirty] ✅ Done. ${stats.synced} synced, ${stats.notInBrevo} not in Brevo, ${stats.failed} failed (of ${stats.processed}).`
   )
   return stats
 }

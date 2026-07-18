@@ -1,4 +1,10 @@
-import { defineMiddlewares, validateAndTransformBody } from "@medusajs/framework/http"
+import {
+  defineMiddlewares,
+  MedusaNextFunction,
+  MedusaRequest,
+  MedusaResponse,
+  validateAndTransformBody,
+} from "@medusajs/framework/http"
 import { z } from "zod"
 import rateLimit from "express-rate-limit"
 import multer from "multer"
@@ -63,12 +69,38 @@ const crmImportUpload = multer({
   limits: { fileSize: 20 * 1024 * 1024 },
 })
 
+/**
+ * Guards the public Brevo webhook. Brevo does not HMAC-sign payloads, so the
+ * shared secret in the URL (?token=…) is the gate. Deliberately not rate-limited
+ * — a legitimate campaign blast is thousands of events and must not be dropped.
+ */
+const brevoWebhookAuth = (
+  req: MedusaRequest,
+  res: MedusaResponse,
+  next: MedusaNextFunction
+) => {
+  const expected = process.env.BREVO_WEBHOOK_TOKEN
+  if (!expected) {
+    return res.status(503).json({ message: "Webhook not configured." })
+  }
+  const provided = typeof req.query.token === "string" ? req.query.token : ""
+  if (provided !== expected) {
+    return res.status(401).json({ message: "Unauthorized." })
+  }
+  return next()
+}
+
 export default defineMiddlewares({
   routes: [
     {
       matcher: "/admin/crm-import",
       method: "POST",
       middlewares: [crmImportUpload.single("file") as any],
+    },
+    {
+      matcher: "/webhooks/brevo",
+      method: "POST",
+      middlewares: [brevoWebhookAuth as any],
     },
     {
       matcher: "/store/inquiries",
