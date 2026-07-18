@@ -50,6 +50,9 @@ module.exports = defineConfig({
       resolve: "./src/modules/weeklyAction",
     },
     {
+      resolve: "./src/modules/brevoWebhookLog",
+    },
+    {
       resolve: "@medusajs/medusa/payment",
       options: {
         providers: [
