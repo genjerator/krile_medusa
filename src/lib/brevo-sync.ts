@@ -1,5 +1,6 @@
 import { ICustomerModuleService, MedusaContainer } from "@medusajs/framework/types"
 import { ContainerRegistrationKeys, Modules } from "@medusajs/framework/utils"
+import { syncCustomerCampaignsFromContact } from "./customer-campaigns"
 
 const BREVO_API = "https://api.brevo.com/v3"
 // Brevo allows ~10 req/s; stay under it.
@@ -214,6 +215,11 @@ export async function runBrevoSync(
           await customerModule.updateCustomers(customer.id, {
             metadata: { ...(customer.metadata ?? {}), brevo },
           })
+          try {
+            await syncCustomerCampaignsFromContact(container, customer.id, contact.statistics)
+          } catch (e) {
+            logger.error(`[brevo-sync] campaign upsert failed for ${customer.email}: ${(e as Error).message}`)
+          }
         }
         stats.synced++
       }
@@ -341,6 +347,11 @@ export async function runBrevoDirtySync(
         await customerModule.updateCustomers(customer.id, {
           metadata: { ...baseMeta, brevo },
         })
+        try {
+          await syncCustomerCampaignsFromContact(container, customer.id, contact.statistics)
+        } catch (e) {
+          logger.error(`[brevo-dirty] campaign upsert failed for ${customer.email}: ${(e as Error).message}`)
+        }
         stats.synced++
       }
     } catch (err) {
@@ -371,8 +382,26 @@ export async function runBrevoDirtySync(
 // (contact exists and is not blacklisted/bounced) before creating — so the
 // heavy work is throttled and deferred, never on the webhook hot path.
 
-// Marketing events that prove the address exists and did not bounce.
-const BREVO_EXISTENCE_EVENTS = ["delivered", "opened", "click"]
+// Events that mean the address bounced or opted out — never create from these.
+// Everything else (delivered/opened/click and Brevo's naming variants) counts as
+// "exists"; the emailBlacklisted check below is the final gate. Listing the
+// negatives (rather than the positives) makes this robust to Brevo's exact
+// event label for opens/clicks, which varies.
+const BREVO_NEGATIVE_EVENTS = [
+  "hard_bounce",
+  "hardBounce",
+  "soft_bounce",
+  "softBounce",
+  "blocked",
+  "invalid_email",
+  "invalid",
+  "spam",
+  "complaint",
+  "unsubscribe",
+  "unsubscribed",
+  "error",
+  "deferred",
+]
 
 export type BrevoCustomerCreationStats = {
   candidates: number
@@ -399,7 +428,7 @@ export async function createMissingCustomersFromBrevo(
 
   const rows = (await pg("brevo_webhook_log")
     .whereRaw("matched = false")
-    .whereIn("event", BREVO_EXISTENCE_EVENTS)
+    .whereNotIn("event", BREVO_NEGATIVE_EVENTS)
     .whereNotNull("email")
     .where("created_at", ">", pg.raw(`now() - interval '${sinceHours} hours'`))
     .distinct("email")

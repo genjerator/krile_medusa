@@ -53,6 +53,9 @@ module.exports = defineConfig({
       resolve: "./src/modules/brevoWebhookLog",
     },
     {
+      resolve: "./src/modules/marketing",
+    },
+    {
       resolve: "@medusajs/medusa/payment",
       options: {
         providers: [
