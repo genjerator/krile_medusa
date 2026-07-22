@@ -51,7 +51,12 @@ const CustomerBrevoWidget = ({ data }: { data: { id: string } }) => {
           Brevo E-Mail-Statistik
         </Text>
         <div className="flex gap-2">
-          {brevo?.unsubscribed && <Badge size="2xsmall" color="orange">Abgemeldet</Badge>}
+          {brevo &&
+            (brevo.unsubscribed ? (
+              <Badge size="2xsmall" color="orange">Abgemeldet</Badge>
+            ) : (
+              <Badge size="2xsmall" color="green">Angemeldet</Badge>
+            ))}
           {brevo?.blacklisted && <Badge size="2xsmall" color="red">Blockiert</Badge>}
           {brevo && brevo.hard_bounces > 0 && (
             <Badge size="2xsmall" color="red">Hard Bounce</Badge>
@@ -87,6 +92,9 @@ const CustomerBrevoWidget = ({ data }: { data: { id: string } }) => {
               </Text>
               <Text size="small" leading="compact" className="text-ui-fg-subtle">
                 Bounces: {brevo.hard_bounces} hart / {brevo.soft_bounces} weich
+              </Text>
+              <Text size="small" leading="compact" className="text-ui-fg-subtle">
+                Abgemeldet: {brevo.unsubscribed ? "Ja" : "Nein"}
               </Text>
               <Text size="small" leading="compact" className="text-ui-fg-subtle">
                 Letzte Kampagne: {formatDate(brevo.last_email_at)}

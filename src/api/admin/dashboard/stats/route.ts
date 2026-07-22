@@ -29,6 +29,7 @@ const monthKey = (d: Date) => `${d.getFullYear()}-${String(d.getMonth() + 1).pad
 
 export async function GET(req: MedusaRequest, res: MedusaResponse) {
   const query = req.scope.resolve(ContainerRegistrationKeys.QUERY)
+  const pg = req.scope.resolve(ContainerRegistrationKeys.PG_CONNECTION)
 
   const now = new Date()
   const monthStart = new Date(now.getFullYear(), now.getMonth(), 1)
@@ -140,6 +141,29 @@ export async function GET(req: MedusaRequest, res: MedusaResponse) {
 
   const activeWa = (activeWaRes.data as any[])[0] || null
 
+  // E-mail marketing engagement — count of customers who opened / clicked at
+  // least one campaign, and who are unsubscribed. Read from metadata.brevo (the
+  // populated source; the customer_campaign/marketing_profile tables mirror this
+  // as they fill in). Internal accounts are excluded like the other stats.
+  const excludedEmails = Array.from(EXCLUDED_EMAIL_SET)
+  const emailPlaceholders = excludedEmails.map(() => "?").join(", ")
+  const marketingRes: any = await pg.raw(
+    `select
+       count(*) filter (where coalesce((metadata -> 'brevo' ->> 'campaigns_opened')::int, 0) > 0) as opened,
+       count(*) filter (where coalesce((metadata -> 'brevo' ->> 'campaigns_clicked')::int, 0) > 0) as clicked,
+       count(*) filter (where coalesce((metadata -> 'brevo' ->> 'unsubscribed')::boolean, false)
+                          or coalesce((metadata -> 'brevo' ->> 'blacklisted')::boolean, false)) as unsubscribed
+     from "customer"
+     where deleted_at is null and lower(coalesce(email, '')) not in (${emailPlaceholders})`,
+    excludedEmails
+  )
+  const mkt = marketingRes.rows?.[0] ?? { opened: "0", clicked: "0", unsubscribed: "0" }
+  const marketing = {
+    opened: Number(mkt.opened || 0),
+    clicked: Number(mkt.clicked || 0),
+    unsubscribed: Number(mkt.unsubscribed || 0),
+  }
+
   const curOrders = monthOrders
   const curRevenue = round2(monthRevenue)
   const curNew = Math.max(0, newAll - newExcluded)
@@ -180,6 +204,7 @@ export async function GET(req: MedusaRequest, res: MedusaResponse) {
     weekly_action: activeWa
       ? { title: activeWa.title as string, iso_week: activeWa.iso_week as number }
       : null,
+    marketing,
     series: buckets,
   })
 }

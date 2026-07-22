@@ -25,6 +25,7 @@ type DashboardStats = {
   year: { orders: number; revenue: number }
   active_products: number
   weekly_action: { title: string; iso_week: number } | null
+  marketing: { opened: number; clicked: number; unsubscribed: number }
   series: { key: string; label: string; orders: number; revenue: number }[]
 }
 
@@ -145,6 +146,23 @@ const DashboardPage = () => {
                     : undefined
                 }
               />
+            </div>
+          </Container>
+
+          {/* E-mail marketing engagement */}
+          <Container className="p-0 overflow-hidden">
+            <div className="px-5 pt-4">
+              <Text size="small" leading="compact" weight="plus">
+                E-Mail-Marketing
+              </Text>
+              <Text size="small" leading="compact" className="text-ui-fg-subtle">
+                Kunden nach Engagement (Brevo)
+              </Text>
+            </div>
+            <div className="grid grid-cols-3 gap-px bg-ui-border-base mt-3">
+              <Stat label="Geöffnet" value={int(data.marketing.opened)} hint="Kunden, die geöffnet haben" />
+              <Stat label="Geklickt" value={int(data.marketing.clicked)} hint="Kunden, die geklickt haben" />
+              <Stat label="Abgemeldet" value={int(data.marketing.unsubscribed)} hint="Kunden, die sich abgemeldet haben" />
             </div>
           </Container>
 
