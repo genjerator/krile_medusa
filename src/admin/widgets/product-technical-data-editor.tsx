@@ -5,6 +5,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { useState } from "react"
 import { sdk } from "../lib/client"
 import { MarkdownRichEditor } from "../components/markdown-rich-editor"
+import { toEditorHtml } from "../lib/markdown"
 import {
   DEFAULT_LOCALE,
   PRODUCT_LOCALES,
@@ -20,7 +21,11 @@ const ProductTechnicalDataWidget = ({
   const [locale, setLocale] = useState(DEFAULT_LOCALE)
 
   const metadataKey = metadataKeyForLocale(BASE_KEY, locale)
-  const currentHtml = ((product.metadata?.[metadataKey] as string) || "")
+  // HTML displays as-is; Markdown (or mixed content) is rendered to HTML so the
+  // editor never shows literal ** or tags.
+  const currentHtml = toEditorHtml(
+    (product.metadata?.[metadataKey] as string) || ""
+  )
 
   const updateMutation = useMutation({
     mutationFn: (html: string) =>

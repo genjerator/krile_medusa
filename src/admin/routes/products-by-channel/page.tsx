@@ -8,8 +8,9 @@ import {
   Container,
   Heading,
   Text,
+  toast,
 } from "@medusajs/ui"
-import { ArrowUpRightOnBox, Channels } from "@medusajs/icons"
+import { ArrowDownTray, ArrowUpRightOnBox, Channels } from "@medusajs/icons"
 import { useQuery } from "@tanstack/react-query"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
@@ -169,6 +170,31 @@ const ProductsByChannelPage = () => {
   const [search, setSearch] = useState("")
   const [pageIndex, setPageIndex] = useState(0)
   const [channelId, setChannelId] = useState<string | null>(null)
+  const [exporting, setExporting] = useState(false)
+
+  const handleExport = async () => {
+    setExporting(true)
+    try {
+      const qs = channelId ? `?sales_channel_id=${encodeURIComponent(channelId)}` : ""
+      const res = await sdk.client.fetch<Response>(`/admin/products/export-csv${qs}`, {
+        headers: { accept: "text/csv" },
+      })
+      const blob = await res.blob()
+      const url = URL.createObjectURL(blob)
+      const link = document.createElement("a")
+      link.href = url
+      link.download = `products-${new Date().toISOString().slice(0, 10)}.csv`
+      document.body.appendChild(link)
+      link.click()
+      link.remove()
+      URL.revokeObjectURL(url)
+      toast.success("Products exported")
+    } catch (err: any) {
+      toast.error("Export failed", { description: err?.message ?? "Unknown error" })
+    } finally {
+      setExporting(false)
+    }
+  }
 
   const { data: channelsData } = useQuery({
     queryKey: ["sales-channels-filter"],
@@ -225,9 +251,15 @@ const ProductsByChannelPage = () => {
     <div className="flex flex-col gap-y-2 p-6">
       <div className="flex items-center justify-between mb-2">
         <Heading level="h1">Products by Channel</Heading>
-        <Button size="small" onClick={() => navigate("/products/create")}>
-          Create
-        </Button>
+        <div className="flex items-center gap-2">
+          <Button size="small" variant="secondary" onClick={handleExport} isLoading={exporting}>
+            <ArrowDownTray />
+            Export CSV
+          </Button>
+          <Button size="small" onClick={() => navigate("/products/create")}>
+            Create
+          </Button>
+        </div>
       </div>
 
       <Container className="p-0 overflow-hidden">
