@@ -33,7 +33,7 @@ export default async function seedC400C800({ container }: ExecArgs) {
 
   const existingLocales = await translationModule.listLocales()
   const existingLocaleCodes = existingLocales.map((l: any) => l.code)
-  for (const locale of [{ code: "de-DE", name: "Deutsch" }, { code: "en-US", name: "English" }]) {
+  for (const locale of [{ code: "de-DE", name: "Deutsch" }, { code: "en-US", name: "English" }, { code: "it-IT", name: "Italiano" }]) {
     if (!existingLocaleCodes.includes(locale.code)) await translationModule.createLocales([locale])
   }
 
@@ -107,14 +107,10 @@ export default async function seedC400C800({ container }: ExecArgs) {
   })
 
   // ── C 400 ──────────────────────────────────────────────────────────────────
-  const c400 = await upsertProduct({
+  // English copy — used for the base product AND the explicit en-US translation.
+  const c400En = {
     title: "MULTIVAC C 400",
-    handle: "multivac-c400",
     subtitle: "Pack larger batches faster — a flexible floor chamber machine that grows with your production",
-    images: [
-      { url: `${BASE}/products/floor/c400-overview.jpg` },
-      { url: `${BASE}/products/floor/c400-spec.jpg` },
-    ],
     description:
       "The MULTIVAC C 400 is a floor-standing vacuum chamber machine (Standkammermaschine) for " +
       "small to medium batches and larger products. A wide range of equipment options makes it " +
@@ -127,6 +123,17 @@ export default async function seedC400C800({ container }: ExecArgs) {
       "Specifications: Usable sealing length front 700 / right 450 mm | Chamber depth/width 475 mm | " +
       "Chamber height 170 mm (opt. 250/330/380) | Machine dimensions (closed) 880 × 785 × 1035 mm | " +
       "(open) 880 × 785 × 1480 mm | Weight 250 kg | Vacuum pump 100 / 150 m³/h | 3×400V 50Hz / 3×220V 60Hz",
+  }
+
+  const c400 = await upsertProduct({
+    title: c400En.title,
+    handle: "multivac-c400",
+    subtitle: c400En.subtitle,
+    images: [
+      { url: `${BASE}/products/floor/c400-overview.jpg` },
+      { url: `${BASE}/products/floor/c400-spec.jpg` },
+    ],
+    description: c400En.description,
     status: "published",
     weight: 250000,
     length: 785,
@@ -210,15 +217,32 @@ export default async function seedC400C800({ container }: ExecArgs) {
       "(geöffnet) 880 × 785 × 1480 mm | Gewicht 250 kg | Vakuumpumpe 100 / 150 m³/h | 3×400V 50Hz / 3×220V 60Hz",
   })
 
+  await upsertTranslation(c400.id, "en-US", c400En)
+
+  await upsertTranslation(c400.id, "it-IT", {
+    title: "MULTIVAC C 400",
+    subtitle: "Confezionare lotti più grandi più velocemente – la flessibile macchina a campana da pavimento che cresce con la vostra produzione",
+    description:
+      "La MULTIVAC C 400 è una macchina sottovuoto a campana da pavimento (Standkammermaschine) per " +
+      "lotti piccoli e medi e prodotti di grandi dimensioni. Un'ampia gamma di opzioni di equipaggiamento " +
+      "la rende configurabile individualmente: 4 altezze del coperchio della camera, 4 disposizioni delle " +
+      "barre saldanti, 5 sistemi di saldatura, movimento automatico del coperchio, dispositivo per gas " +
+      "protettivo per confezioni MAP e pompe per vuoto fino a 150 m³/h.\n\n" +
+      "Lunghezza utile di saldatura anteriore 700 mm / destra 450 mm, profondità/larghezza camera 475 mm, " +
+      "altezza camera 170 mm (opzionale 250 / 330 / 380 mm). Saldatura di separazione a doppia cucitura e " +
+      "controllo digitale MC 06 con auto-stop, 18 lingue e 29 programmi memorizzabili. Certificata GS " +
+      "(DGUV), MULTIVAC Hygienic Design e completamente lavabile (washdown).\n\n" +
+      "Dati tecnici: Lunghezza utile di saldatura anteriore 700 / destra 450 mm | Profondità/larghezza " +
+      "camera 475 mm | Altezza camera 170 mm (opz. 250/330/380) | Dimensioni macchina (chiusa) " +
+      "880 × 785 × 1035 mm | (aperta) 880 × 785 × 1480 mm | Peso 250 kg | Pompa per vuoto 100 / 150 m³/h | " +
+      "3×400V 50Hz / 3×220V 60Hz",
+  })
+
   // ── C 800 ──────────────────────────────────────────────────────────────────
-  const c800 = await upsertProduct({
+  // English copy — used for the base product AND the explicit en-US translation.
+  const c800En = {
     title: "MULTIVAC C 800",
-    handle: "multivac-c800",
     subtitle: "Vacuum-pack long products with ease — for slicer logs, salami sticks and whole fish",
-    images: [
-      { url: `${BASE}/products/floor/c800-overview.jpg` },
-      { url: `${BASE}/products/floor/c800-spec.jpg` },
-    ],
     description:
       "The MULTIVAC C 800 is a floor-standing vacuum chamber machine developed for packaging " +
       "especially long products such as slicer log/caliber ware, salami sticks or whole fish. " +
@@ -231,6 +255,17 @@ export default async function seedC400C800({ container }: ExecArgs) {
       "Specifications: Usable sealing length 2 × 780 mm | Chamber depth/width 780 mm | Chamber height " +
       "170 mm | Machine dimensions (closed) 1650 × 1050 × 1070 mm | (open) 1650 × 1050 × 1670 mm | " +
       "Weight 350 kg | Vacuum pump 250 / 300 m³/h | 3×400V 50Hz / 3×220V 60Hz",
+  }
+
+  const c800 = await upsertProduct({
+    title: c800En.title,
+    handle: "multivac-c800",
+    subtitle: c800En.subtitle,
+    images: [
+      { url: `${BASE}/products/floor/c800-overview.jpg` },
+      { url: `${BASE}/products/floor/c800-spec.jpg` },
+    ],
+    description: c800En.description,
     status: "published",
     weight: 350000,
     length: 1050,
@@ -315,6 +350,26 @@ export default async function seedC400C800({ container }: ExecArgs) {
       "Technische Daten: Nutzbare Siegellänge 2 × 780 mm | Kammertiefe/-breite 780 mm | Kammerhöhe 170 mm | " +
       "Maschinenmaße (geschlossen) 1650 × 1050 × 1070 mm | (geöffnet) 1650 × 1050 × 1670 mm | Gewicht 350 kg | " +
       "Vakuumpumpe 250 / 300 m³/h | 3×400V 50Hz / 3×220V 60Hz",
+  })
+
+  await upsertTranslation(c800.id, "en-US", c800En)
+
+  await upsertTranslation(c800.id, "it-IT", {
+    title: "MULTIVAC C 800",
+    subtitle: "Confezionare sottovuoto prodotti lunghi senza sforzo – per prodotti calibrati per affettatrici, salami e pesci interi",
+    description:
+      "La MULTIVAC C 800 è una macchina sottovuoto a campana da pavimento sviluppata per il " +
+      "confezionamento di prodotti particolarmente lunghi, come prodotti calibrati per affettatrici, " +
+      "salami o pesci interi. Può essere equipaggiata con movimento automatico del coperchio, rulliere " +
+      "per una movimentazione ergonomica del prodotto, dispositivo per gas protettivo per confezioni MAP " +
+      "e pompe per vuoto fino a 300 m³/h.\n\n" +
+      "Due barre saldanti utili da 780 mm (sinistra e destra), profondità/larghezza camera 780 mm, " +
+      "altezza camera 170 mm. Saldatura di separazione a doppia cucitura e controllo digitale MC 06 con " +
+      "auto-stop, 18 lingue e 29 programmi memorizzabili. Certificata GS (DGUV), MULTIVAC Hygienic " +
+      "Design e completamente lavabile (washdown).\n\n" +
+      "Dati tecnici: Lunghezza utile di saldatura 2 × 780 mm | Profondità/larghezza camera 780 mm | " +
+      "Altezza camera 170 mm | Dimensioni macchina (chiusa) 1650 × 1050 × 1070 mm | (aperta) " +
+      "1650 × 1050 × 1670 mm | Peso 350 kg | Pompa per vuoto 250 / 300 m³/h | 3×400V 50Hz / 3×220V 60Hz",
   })
 
   // ── Sales channel links + placeholder prices ────────────────────────────────

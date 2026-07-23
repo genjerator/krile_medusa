@@ -34,7 +34,7 @@ export default async function seedC300C350C370({ container }: ExecArgs) {
 
   const existingLocales = await translationModule.listLocales()
   const existingLocaleCodes = existingLocales.map((l: any) => l.code)
-  for (const locale of [{ code: "de-DE", name: "Deutsch" }, { code: "en-US", name: "English" }]) {
+  for (const locale of [{ code: "de-DE", name: "Deutsch" }, { code: "en-US", name: "English" }, { code: "it-IT", name: "Italiano" }]) {
     if (!existingLocaleCodes.includes(locale.code)) await translationModule.createLocales([locale])
   }
 
@@ -108,14 +108,10 @@ export default async function seedC300C350C370({ container }: ExecArgs) {
   })
 
   // ── C 300 ──────────────────────────────────────────────────────────────────
-  const c300 = await upsertProduct({
+  // English copy — used for the base product AND the explicit en-US translation.
+  const c300En = {
     title: "MULTIVAC C 300",
-    handle: "multivac-c300",
     subtitle: "MULTIVAC's most compact floor chamber machine — high cycle rates on a minimal footprint",
-    images: [
-      { url: `${BASE}/products/floor/c300-overview.jpg` },
-      { url: `${BASE}/products/floor/c300-spec.jpg` },
-    ],
     description:
       "The MULTIVAC C 300 is the most compact floor-standing vacuum chamber machine " +
       "(Standkammermaschine) from MULTIVAC. It delivers high cycle rates on a minimal footprint, " +
@@ -130,6 +126,17 @@ export default async function seedC300C350C370({ container }: ExecArgs) {
       "Specifications: Usable sealing length 1 × 440 mm | Chamber depth/width 470 mm | Chamber " +
       "height 160 mm (opt. 230) | Machine dimensions (closed) 550 × 660 × 900 mm | (open) " +
       "550 × 660 × 1390 mm | Weight 160 kg | Vacuum pump 40 / 63 m³/h | 3×400V 50Hz / 3×220V 60Hz",
+  }
+
+  const c300 = await upsertProduct({
+    title: c300En.title,
+    handle: "multivac-c300",
+    subtitle: c300En.subtitle,
+    images: [
+      { url: `${BASE}/products/floor/c300-overview.jpg` },
+      { url: `${BASE}/products/floor/c300-spec.jpg` },
+    ],
+    description: c300En.description,
     status: "published",
     weight: 160000,
     length: 660,
@@ -221,15 +228,32 @@ export default async function seedC300C350C370({ container }: ExecArgs) {
       "550 × 660 × 1390 mm | Gewicht 160 kg | Vakuumpumpe 40 / 63 m³/h | 3×400V 50Hz / 3×220V 60Hz",
   })
 
+  await upsertTranslation(c300.id, "en-US", c300En)
+
+  await upsertTranslation(c300.id, "it-IT", {
+    title: "MULTIVAC C 300",
+    subtitle: "La macchina a campana da pavimento più compatta di MULTIVAC – alta produttività su una superficie minima",
+    description:
+      "La MULTIVAC C 300 è la macchina sottovuoto a campana da pavimento più compatta di MULTIVAC. " +
+      "Offre un'alta produttività su una superficie minima ed è quindi la soluzione di confezionamento " +
+      "ideale per macellerie, caseifici, ristoranti, hotel, vendita diretta e supermercati. Può essere " +
+      "equipaggiata con pompe per vuoto fino a 63 m³/h, un attacco per una pompa per vuoto esterna e un " +
+      "dispositivo per gas protettivo per confezioni MAP.\n\n" +
+      "Una barra saldante utile da 440 mm sul lato anteriore, profondità/larghezza camera 470 mm, " +
+      "altezza camera 160 mm (opzionale 230 mm). Saldatura di separazione a doppia cucitura di serie, " +
+      "coperchio della camera in acciaio inox con finestra in vetro di sicurezza e controllo digitale " +
+      "MC 06 con auto-stop, 18 lingue e 29 programmi memorizzabili. Certificata GS (DGUV), MULTIVAC " +
+      "Hygienic Design e completamente lavabile (washdown).\n\n" +
+      "Dati tecnici: Lunghezza utile di saldatura 1 × 440 mm | Profondità/larghezza camera 470 mm | " +
+      "Altezza camera 160 mm (opz. 230) | Dimensioni macchina (chiusa) 550 × 660 × 900 mm | (aperta) " +
+      "550 × 660 × 1390 mm | Peso 160 kg | Pompa per vuoto 40 / 63 m³/h | 3×400V 50Hz / 3×220V 60Hz",
+  })
+
   // ── C 350 ──────────────────────────────────────────────────────────────────
-  const c350 = await upsertProduct({
+  // English copy — used for the base product AND the explicit en-US translation.
+  const c350En = {
     title: "MULTIVAC C 350",
-    handle: "multivac-c350",
     subtitle: "Two sealing bars for more flexibility — pack several smaller products in one cycle",
-    images: [
-      { url: `${BASE}/products/floor/c350-overview.jpg` },
-      { url: `${BASE}/products/floor/c350-spec.jpg` },
-    ],
     description:
       "The MULTIVAC C 350 is a compact floor-standing vacuum chamber machine (Standkammermaschine) " +
       "with two sealing bars — left and right — offering extra flexibility, especially for packing " +
@@ -244,6 +268,17 @@ export default async function seedC300C350C370({ container }: ExecArgs) {
       "Specifications: Usable sealing length 2 × 440 mm | Chamber depth/width 430 mm | Chamber " +
       "height 160 mm | Machine dimensions (closed) 690 × 590 × 1020 mm | (open) 690 × 590 × 1390 mm | " +
       "Weight 160 kg | Vacuum pump 40 / 63 m³/h | 3×400V 50Hz / 3×220V 60Hz",
+  }
+
+  const c350 = await upsertProduct({
+    title: c350En.title,
+    handle: "multivac-c350",
+    subtitle: c350En.subtitle,
+    images: [
+      { url: `${BASE}/products/floor/c350-overview.jpg` },
+      { url: `${BASE}/products/floor/c350-spec.jpg` },
+    ],
+    description: c350En.description,
     status: "published",
     weight: 160000,
     length: 590,
@@ -334,15 +369,32 @@ export default async function seedC300C350C370({ container }: ExecArgs) {
       "Gewicht 160 kg | Vakuumpumpe 40 / 63 m³/h | 3×400V 50Hz / 3×220V 60Hz",
   })
 
+  await upsertTranslation(c350.id, "en-US", c350En)
+
+  await upsertTranslation(c350.id, "it-IT", {
+    title: "MULTIVAC C 350",
+    subtitle: "Due barre saldanti per maggiore flessibilità – confezionare più prodotti piccoli in un unico ciclo",
+    description:
+      "La MULTIVAC C 350 è una macchina sottovuoto a campana da pavimento compatta con due barre " +
+      "saldanti – a sinistra e a destra. Ciò offre maggiore flessibilità, in particolare per il " +
+      "confezionamento di più prodotti piccoli in un unico ciclo. Può essere equipaggiata con pompe " +
+      "per vuoto fino a 63 m³/h, un attacco per una pompa per vuoto esterna e un dispositivo per gas " +
+      "protettivo per confezioni MAP.\n\n" +
+      "Due barre saldanti utili da 440 mm (sinistra e destra), profondità/larghezza camera 430 mm, " +
+      "altezza camera 160 mm. Saldatura di separazione a doppia cucitura di serie, coperchio della " +
+      "camera in acciaio inox con finestra in vetro di sicurezza e controllo digitale MC 06 con " +
+      "auto-stop, 18 lingue e 29 programmi memorizzabili. Certificata GS (DGUV), MULTIVAC Hygienic " +
+      "Design e completamente lavabile (washdown).\n\n" +
+      "Dati tecnici: Lunghezza utile di saldatura 2 × 440 mm | Profondità/larghezza camera 430 mm | " +
+      "Altezza camera 160 mm | Dimensioni macchina (chiusa) 690 × 590 × 1020 mm | (aperta) " +
+      "690 × 590 × 1390 mm | Peso 160 kg | Pompa per vuoto 40 / 63 m³/h | 3×400V 50Hz / 3×220V 60Hz",
+  })
+
   // ── C 370 ──────────────────────────────────────────────────────────────────
-  const c370 = await upsertProduct({
+  // English copy — used for the base product AND the explicit en-US translation.
+  const c370En = {
     title: "MULTIVAC C 370",
-    handle: "multivac-c370",
     subtitle: "Extra-wide sealing bar spacing for long products — whole fish, salami sticks and more",
-    images: [
-      { url: `${BASE}/products/floor/c370-overview.jpg` },
-      { url: `${BASE}/products/floor/c370-spec.jpg` },
-    ],
     description:
       "The MULTIVAC C 370 is a compact floor-standing vacuum chamber machine (Standkammermaschine) " +
       "with an especially wide distance between its two sealing bars — designed for long products " +
@@ -356,6 +408,17 @@ export default async function seedC300C350C370({ container }: ExecArgs) {
       "Specifications: Usable sealing length 2 × 440 mm | Chamber depth/width 900 mm | Chamber " +
       "height 160 mm | Machine dimensions (closed) 1100 × 585 × 900 mm | (open) 1100 × 585 × 1340 mm | " +
       "Weight 200 kg | Vacuum pump 63 / 100 / 150 m³/h | 3×400V 50Hz / 3×220V 60Hz",
+  }
+
+  const c370 = await upsertProduct({
+    title: c370En.title,
+    handle: "multivac-c370",
+    subtitle: c370En.subtitle,
+    images: [
+      { url: `${BASE}/products/floor/c370-overview.jpg` },
+      { url: `${BASE}/products/floor/c370-spec.jpg` },
+    ],
+    description: c370En.description,
     status: "published",
     weight: 200000,
     length: 585,
@@ -444,6 +507,26 @@ export default async function seedC300C350C370({ container }: ExecArgs) {
       "Technische Daten: Nutzbare Siegellänge 2 × 440 mm | Kammertiefe/-breite 900 mm | Kammerhöhe " +
       "160 mm | Maschinenmaße (geschlossen) 1100 × 585 × 900 mm | (geöffnet) 1100 × 585 × 1340 mm | " +
       "Gewicht 200 kg | Vakuumpumpe 63 / 100 / 150 m³/h | 3×400V 50Hz / 3×220V 60Hz",
+  })
+
+  await upsertTranslation(c370.id, "en-US", c370En)
+
+  await upsertTranslation(c370.id, "it-IT", {
+    title: "MULTIVAC C 370",
+    subtitle: "Distanza particolarmente ampia tra le barre saldanti per prodotti lunghi – pesci interi, salami e altro",
+    description:
+      "La MULTIVAC C 370 è una macchina sottovuoto a campana da pavimento compatta con una distanza " +
+      "particolarmente ampia tra le due barre saldanti – ideale per prodotti lunghi come pesci interi " +
+      "o salami. Può essere equipaggiata con pompe per vuoto fino a 150 m³/h, un attacco per una pompa " +
+      "per vuoto esterna e un dispositivo per gas protettivo per confezioni MAP.\n\n" +
+      "Due barre saldanti utili da 440 mm (sinistra e destra), profondità/larghezza camera 900 mm, " +
+      "altezza camera 160 mm. Saldatura di separazione a doppia cucitura di serie, coperchio della " +
+      "camera in acciaio inox con finestra in vetro di sicurezza e controllo digitale MC 06 con " +
+      "auto-stop, 18 lingue e 29 programmi memorizzabili. Certificata GS (DGUV), MULTIVAC Hygienic " +
+      "Design e completamente lavabile (washdown).\n\n" +
+      "Dati tecnici: Lunghezza utile di saldatura 2 × 440 mm | Profondità/larghezza camera 900 mm | " +
+      "Altezza camera 160 mm | Dimensioni macchina (chiusa) 1100 × 585 × 900 mm | (aperta) " +
+      "1100 × 585 × 1340 mm | Peso 200 kg | Pompa per vuoto 63 / 100 / 150 m³/h | 3×400V 50Hz / 3×220V 60Hz",
   })
 
   // ── Sales channel links + placeholder prices ────────────────────────────────
