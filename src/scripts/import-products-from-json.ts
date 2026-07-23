@@ -29,13 +29,9 @@ import * as path from "path"
  * Run (default file):  pnpm medusa exec ./src/scripts/import-products-from-json.js
  * Run (custom file):   pnpm medusa exec ./src/scripts/import-products-from-json.js /abs/path/products.json
  */
-const DEFAULT_JSON = path.join(
-  process.cwd(),
-  "src",
-  "scripts",
-  "data",
-  "vakuumbeutel-products.json"
-)
+// Co-located data file, resolved via __dirname like the seeders — so it is found
+// both locally and inside the deployed container (process.cwd() is unreliable there).
+const DEFAULT_JSON = path.join(__dirname, "data", "vakuumbeutel-products.json")
 
 export default async function run({ container, args }: ExecArgs) {
   const logger = container.resolve(ContainerRegistrationKeys.LOGGER)
