@@ -1,0 +1,169 @@
+{
+  "defaults": {
+    "status": "published",
+    "currency_code": "eur",
+    "category_names": [
+      "Vakuumiertüten & Rollen"
+    ],
+    "sales_channel_names": [
+      "IndustriesWebshop"
+    ],
+    "option_title": "Menge",
+    "pack": 1000
+  },
+  "products": [
+    {
+      "title": "Vakuumbeutel 120 x 550 mm",
+      "handle": "vakuumbeutel-120x550",
+      "price": 69.0,
+      "images": [
+        "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/planeta_admin%2Fvakuumbeutel-120x550-01KY72QATGW3PMJHET45YXHJBS.png"
+      ],
+      "pack": 1000
+    },
+    {
+      "title": "Vakuumbeutel 150 x 300 mm",
+      "handle": "vakuumbeutel-150x300",
+      "price": 47.0,
+      "images": [
+        "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/planeta_admin%2Fvakuumbeutel-150x300-01KY72QCJ7KT4ZTQXZZYEP4CZT.png"
+      ],
+      "pack": 1000
+    },
+    {
+      "title": "Vakuumbeutel 180 x 250 mm",
+      "handle": "vakuumbeutel-180x250",
+      "price": 49.0,
+      "images": [
+        "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/planeta_admin%2Fvakuumbeutel-180x250-01KY72QE5VK8Q6J7J8JSQTCMZH.png"
+      ],
+      "pack": 1000
+    },
+    {
+      "title": "Vakuumbeutel 100 x 300 mm",
+      "handle": "vakuumbeutel-100x300",
+      "price": 66.6,
+      "images": [
+        "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/planeta_admin%2Fvakuumbeutel-100x300-01KY72QF6QF7N02KA5WA3FB6GH.png"
+      ],
+      "pack": 1000
+    },
+    {
+      "title": "Vakuumbeutel 400 x 600 mm",
+      "handle": "vakuumbeutel-400x600",
+      "price": 66.6,
+      "images": [
+        "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/planeta_admin%2Fvakuumbeutel-400x600-01KY72QK1MK5W5GJ47SN1GSN8M.png"
+      ],
+      "pack": 500
+    },
+    {
+      "title": "Vakuumbeutel 400 x 600 mm",
+      "handle": "vakuumbeutel-400x600-2",
+      "price": 66.6,
+      "images": [
+        "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/planeta_admin%2Fvakuumbeutel-400x600-2-01KY72QM56MKXR8Q46EPJNCDFQ.png"
+      ],
+      "pack": 500
+    },
+    {
+      "title": "Vakuumbeutel 400 x 500 mm",
+      "handle": "vakuumbeutel-400x500",
+      "price": 66.6,
+      "images": [
+        "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/planeta_admin%2Fvakuumbeutel-400x500-01KY72QNBS06VJH9KZF4KHS3C9.png"
+      ],
+      "pack": 500
+    },
+    {
+      "title": "Vakuumbeutel 300 x 300 mm",
+      "handle": "vakuumbeutel-300x300",
+      "price": 85.0,
+      "images": [
+        "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/planeta_admin%2Fvakuumbeutel-300x300-01KY72QPNF78B0AM3BHN5EGD7N.png"
+      ],
+      "pack": 1000
+    },
+    {
+      "title": "Vakuumbeutel 300 x 390 mm",
+      "handle": "vakuumbeutel-300x390",
+      "price": 66.6,
+      "images": [
+        "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/planeta_admin%2Fvakuumbeutel-300x390-01KY72QQW5N15FDMYMH58NDBTA.png"
+      ],
+      "pack": 1000
+    },
+    {
+      "title": "Vakuumbeutel 200 x 250 mm",
+      "handle": "vakuumbeutel-200x250",
+      "price": 58.0,
+      "images": [
+        "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/planeta_admin%2Fvakuumbeutel-200x250-01KY72QS2KEGX3G6TC8P5KDH60.png"
+      ],
+      "pack": 1000
+    },
+    {
+      "title": "Vakuumbeutel 300 x 400 mm",
+      "handle": "vakuumbeutel-300x400",
+      "price": 105.0,
+      "images": [
+        "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/planeta_admin%2Fvakuumbeutel-300x400-01KY72QTGEQB65N5XX96YSBX9B.png"
+      ],
+      "pack": 1000
+    },
+    {
+      "title": "Vakuumbeutel 150 x 300 mm",
+      "handle": "vakuumbeutel-150x300-2",
+      "price": 47.0,
+      "images": [
+        "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/planeta_admin%2Fvakuumbeutel-150x300-2-01KY72QW6SD78XHA39BHGWZ9MK.png"
+      ],
+      "pack": 1000
+    },
+    {
+      "title": "Vakuumbeutel 100 x 300 mm",
+      "handle": "vakuumbeutel-100x300-2",
+      "price": 66.6,
+      "images": [
+        "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/planeta_admin%2Fvakuumbeutel-100x300-2-01KY72QX2QM6CXETJXFNXNH2SA.png"
+      ],
+      "pack": 1000
+    },
+    {
+      "title": "Vakuumbeutel 450 x 650 mm",
+      "handle": "vakuumbeutel-450x650",
+      "price": 66.6,
+      "images": [
+        "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/planeta_admin%2Fvakuumbeutel-450x650-01KY72QXRRS8MCJ84SVCYEX508.png"
+      ],
+      "pack": 500
+    },
+    {
+      "title": "Vakuumbeutel 150 x 200 mm",
+      "handle": "vakuumbeutel-150x200",
+      "price": 36.0,
+      "images": [
+        "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/planeta_admin%2Fvakuumbeutel-150x200-01KY742GJG99ZAE3JVT35FTZ0N.png"
+      ],
+      "pack": 1000
+    },
+    {
+      "title": "Vakuumbeutel 160 x 250 mm",
+      "handle": "vakuumbeutel-160x250",
+      "price": 45.0,
+      "images": [
+        "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/planeta_admin%2Fvakuumbeutel-160x250-01KY742GZFBFXECHW9RH6M4YD5.png"
+      ],
+      "pack": 1000
+    },
+    {
+      "title": "Vakuumbeutel 200 x 300 mm",
+      "handle": "vakuumbeutel-200x300",
+      "price": 62.0,
+      "images": [
+        "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/planeta_admin%2Fvakuumbeutel-200x300-01KY742H23Z8QDJ7Z8HF3SPR7H.png"
+      ],
+      "pack": 1000
+    }
+  ]
+}

@@ -48,6 +48,16 @@ const escapeCsv = (value: unknown): string => {
 
 export async function GET(req: MedusaRequest, res: MedusaResponse) {
   const query = req.scope.resolve(ContainerRegistrationKeys.QUERY)
+  const pg = req.scope.resolve(ContainerRegistrationKeys.PG_CONNECTION)
+
+  // Never export unsubscribed customers. Soft-deleting them (nightly job)
+  // already removes them from query.graph, but this also covers the window
+  // between an unsubscribe and that cleanup.
+  const unsubRows = (await pg("marketing_profile")
+    .whereNull("deleted_at")
+    .where("priority", "unsubscribed")
+    .select("customer_id")) as { customer_id: string }[]
+  const unsubscribed = new Set(unsubRows.map((r) => r.customer_id))
 
   const take = 1000
   let skip = 0
@@ -62,8 +72,15 @@ export async function GET(req: MedusaRequest, res: MedusaResponse) {
     })
     const page = data as any[]
     fetched += page.length
-    // Only export customers that actually have an email address.
-    rows.push(...page.filter((r) => typeof r.email === "string" && r.email.trim() !== ""))
+    // Only export customers with an email address who are not unsubscribed.
+    rows.push(
+      ...page.filter(
+        (r) =>
+          typeof r.email === "string" &&
+          r.email.trim() !== "" &&
+          !unsubscribed.has(r.id)
+      )
+    )
     const total = metadata?.count ?? fetched
     skip += take
     if (page.length === 0 || fetched >= total) break
