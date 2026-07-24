@@ -59,6 +59,9 @@ module.exports = defineConfig({
       resolve: "./src/modules/storefrontBranding",
     },
     {
+      resolve: "./src/modules/contentBlock",
+    },
+    {
       resolve: "@medusajs/medusa/payment",
       options: {
         providers: [

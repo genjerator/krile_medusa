@@ -60,8 +60,9 @@ export const MarkdownRichEditor = ({
   onLocaleChange,
   isValueLoading = false,
 }: Props) => {
-  const [showImport, setShowImport] = useState(false)
-  const [markdown, setMarkdown] = useState("")
+  // Import panel: paste Markdown OR raw HTML and load it into the editor.
+  const [importMode, setImportMode] = useState<"markdown" | "html" | null>(null)
+  const [importText, setImportText] = useState("")
 
   const editor = useEditor({
     extensions: [StarterKit, TableKit.configure({ table: { resizable: false } })],
@@ -82,17 +83,27 @@ export const MarkdownRichEditor = ({
     onSave(editor.getHTML())
   }
 
+  const openImport = (mode: "markdown" | "html") => {
+    // Toggle the panel off if the same mode is clicked again.
+    setImportMode((m) => (m === mode ? null : mode))
+    setImportText("")
+  }
+
   const handleImport = () => {
-    if (!editor) return
-    const html = markdownToHtml(markdown).trim()
+    if (!editor || !importMode) return
+    // Markdown is converted to HTML first; raw HTML is loaded as-is (TipTap
+    // parses the HTML string into editor nodes).
+    const html = (importMode === "markdown" ? markdownToHtml(importText) : importText).trim()
     if (!html) {
       toast.error("Nothing to import")
       return
     }
     editor.commands.setContent(html)
-    setMarkdown("")
-    setShowImport(false)
-    toast.success("Markdown loaded — review, then Save to keep it")
+    setImportText("")
+    setImportMode(null)
+    toast.success(
+      `${importMode === "markdown" ? "Markdown" : "HTML"} loaded — review, then Save to keep it`
+    )
   }
 
   return (
@@ -121,9 +132,16 @@ export const MarkdownRichEditor = ({
           <Button
             size="small"
             variant="secondary"
-            onClick={() => setShowImport((s) => !s)}
+            onClick={() => openImport("markdown")}
           >
-            {showImport ? "Cancel import" : "Import from Markdown"}
+            {importMode === "markdown" ? "Cancel import" : "Import from Markdown"}
+          </Button>
+          <Button
+            size="small"
+            variant="secondary"
+            onClick={() => openImport("html")}
+          >
+            {importMode === "html" ? "Cancel import" : "Import from HTML"}
           </Button>
           <Button
             size="small"
@@ -136,16 +154,21 @@ export const MarkdownRichEditor = ({
         </div>
       </div>
 
-      {showImport && (
+      {importMode && (
         <div className="flex flex-col gap-2 rounded-md border border-ui-border-base bg-ui-bg-subtle p-3">
           <Text size="small" leading="compact" className="text-ui-fg-subtle">
-            Paste Markdown (from the .md copy) and load it into the editor. This
-            replaces the current content — nothing is saved until you press Save.
+            {importMode === "markdown"
+              ? "Paste Markdown (from the .md copy) and load it into the editor. This replaces the current content — nothing is saved until you press Save."
+              : "Paste raw HTML and load it into the editor. This replaces the current content — nothing is saved until you press Save. Unsupported tags/attributes are dropped by the editor."}
           </Text>
           <Textarea
-            value={markdown}
-            onChange={(e) => setMarkdown(e.target.value)}
-            placeholder={"# Heading\n\n**Bold**, *italic*, and\n\n- bullet\n- points"}
+            value={importText}
+            onChange={(e) => setImportText(e.target.value)}
+            placeholder={
+              importMode === "markdown"
+                ? "# Heading\n\n**Bold**, *italic*, and\n\n- bullet\n- points"
+                : "<h2>Heading</h2>\n<p><strong>Bold</strong>, <em>italic</em></p>\n<ul><li>bullet</li></ul>"
+            }
             rows={8}
             className="font-mono text-xs"
           />
@@ -153,9 +176,12 @@ export const MarkdownRichEditor = ({
             <Button
               size="small"
               onClick={handleImport}
-              disabled={!markdown.trim() || !looksLikeMarkdown(markdown)}
+              disabled={
+                !importText.trim() ||
+                (importMode === "markdown" && !looksLikeMarkdown(importText))
+              }
             >
-              Convert &amp; load
+              {importMode === "markdown" ? "Convert & load" : "Load HTML"}
             </Button>
           </div>
         </div>
