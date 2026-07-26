@@ -1,0 +1,96 @@
+{
+  "defaults": {
+    "status": "published",
+    "currency_code": "eur",
+    "subtitle": "Gewürzmischung",
+    "category_names": ["Gewürzmischungen"],
+    "sales_channel_names": ["IndustriesWebshop"],
+    "option_title": "Gebinde"
+  },
+  "products": [
+    {
+      "title": "7 Kräuter-Mix",
+      "handle": "7-kraeuter-mix",
+      "description": "Würzung mit Schnittlauch, Petersilie und Liebstöckel für Fleisch, Suppen und Saucen.\n\n**Dosierung:** 8–10 g/kg Gesamtmasse.\n\n**Zutaten:** Kräuter 67 %; Gewürze.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/7-kraeuter-mix.png"],
+      "variants": [
+        { "title": "1 kg Beutel", "sku": "16041", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "7 Herbs Mix",
+          "subtitle": "Spice blend",
+          "description": "Seasoning with chives, parsley and lovage for meat, soups and sauces.\n\n**Dosage:** 8–10 g/kg total mass.\n\n**Ingredients:** Herbs 67 %; spices."
+        },
+        "it": {
+          "title": "Mix 7 erbe",
+          "subtitle": "Miscela di spezie",
+          "description": "Condimento con erba cipollina, prezzemolo e levistico per carne, zuppe e salse.\n\n**Dosaggio:** 8–10 g/kg di massa totale.\n\n**Ingredienti:** Erbe 67 %; spezie."
+        }
+      }
+    },
+    {
+      "title": "Dekor Jäger Mix",
+      "handle": "dekor-jaeger-mix",
+      "description": "Dekorwürzung mit groben Gewürzbestandteilen von Zwiebeln, Paprika und Kümmel.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Gewürze (Paprika, Zwiebeln, Koriander, Pfeffer, Kümmel).",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/dekor-jaeger-mix.png"],
+      "variants": [
+        { "title": "1 kg Beutel", "sku": "G3701", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Decor Hunter Mix",
+          "subtitle": "Spice blend",
+          "description": "Decorative seasoning with coarse spice pieces of onion, paprika and caraway.\n\n**Dosage:** as required.\n\n**Ingredients:** Spices (paprika, onions, coriander, pepper, caraway)."
+        },
+        "it": {
+          "title": "Mix Decor Cacciatore",
+          "subtitle": "Miscela di spezie",
+          "description": "Condimento decorativo con pezzi grossolani di spezie di cipolla, paprika e carvi.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** Spezie (paprika, cipolle, coriandolo, pepe, carvi)."
+        }
+      }
+    },
+    {
+      "title": "Dekor Mexican Mix",
+      "handle": "dekor-mexican-mix",
+      "description": "Rassige Dekorwürzung mit groben Gewürzbestandteilen von Paprika, Chili und Zwiebeln.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Gewürze (Paprika, Chili, Zwiebeln, Knoblauch).",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/dekor-mexican-mix.png"],
+      "variants": [
+        { "title": "1 kg Beutel", "sku": "36231", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Decor Mexican Mix",
+          "subtitle": "Spice blend",
+          "description": "Spicy decorative seasoning with coarse spice pieces of paprika, chilli and onions.\n\n**Dosage:** as required.\n\n**Ingredients:** Spices (paprika, chilli, onions, garlic)."
+        },
+        "it": {
+          "title": "Mix Decor Messicano",
+          "subtitle": "Miscela di spezie",
+          "description": "Condimento decorativo piccante con pezzi grossolani di spezie di paprika, peperoncino e cipolle.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** Spezie (paprika, peperoncino, cipolle, aglio)."
+        }
+      }
+    },
+    {
+      "title": "Dekor Grün Mix",
+      "handle": "dekor-gruen-mix",
+      "description": "Dekorwürzung mit groben Gewürzbestandteilen von Petersilie, Zwiebeln und Paprika.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Gewürze (Zwiebeln, Paprika, Petersilie).",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/dekor-gruen-mix.png"],
+      "variants": [
+        { "title": "0.75 kg Beutel", "sku": "6421075", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Decor Green Mix",
+          "subtitle": "Spice blend",
+          "description": "Decorative seasoning with coarse spice pieces of parsley, onions and paprika.\n\n**Dosage:** as required.\n\n**Ingredients:** Spices (onions, paprika, parsley)."
+        },
+        "it": {
+          "title": "Mix Decor Verde",
+          "subtitle": "Miscela di spezie",
+          "description": "Condimento decorativo con pezzi grossolani di spezie di prezzemolo, cipolle e paprika.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** Spezie (cipolle, paprika, prezzemolo)."
+        }
+      }
+    }
+  ]
+}

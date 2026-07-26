@@ -1,0 +1,99 @@
+{
+  "defaults": {
+    "status": "published",
+    "currency_code": "eur",
+    "subtitle": "Paniermehl",
+    "category_names": ["Paniermehle und -systeme"],
+    "sales_channel_names": ["IndustriesWebshop"],
+    "option_title": "Gebinde"
+  },
+  "products": [
+    {
+      "title": "Paniermehl hell",
+      "handle": "paniermehl-hell",
+      "description": "Helles Paniermehl, zum Panieren von Geflügel, Fleisch, Fisch, Käse und Gemüse.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** WEIZENMEHL; Speisesalz; Hefe; Gewürze.\n\n**Allergene:** Gluten",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/paniermehl-hell.png"],
+      "variants": [
+        { "title": "5 kg Beutel", "sku": "21545", "price": null },
+        { "title": "25 kg Sack", "sku": "215425", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Breadcrumbs, light",
+          "subtitle": "Breadcrumbs",
+          "description": "Light breadcrumbs for coating poultry, meat, fish, cheese and vegetables.\n\n**Dosage:** as required.\n\n**Ingredients:** WHEAT FLOUR; table salt; yeast; spices.\n\n**Allergens:** Gluten"
+        },
+        "it": {
+          "title": "Pangrattato chiaro",
+          "subtitle": "Pangrattato",
+          "description": "Pangrattato chiaro per impanare pollame, carne, pesce, formaggio e verdure.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** FARINA DI FRUMENTO; sale da cucina; lievito; spezie.\n\n**Allergeni:** Glutine"
+        }
+      }
+    },
+    {
+      "title": "Paniermehl hell SG, IPS",
+      "handle": "paniermehl-hell-sg-ips",
+      "subtitle": "Bonvita",
+      "description": "Helles Paniermehl in IP-Suisse und Suisse Garantie – Qualität, zum Panieren von Geflügel, Fleisch, Fisch, Käse und Gemüse.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** WEIZENMEHL (IPS); Speisesalz; Hefe.\n\n**Allergene:** Gluten",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/paniermehl-hell-sg-ips.png"],
+      "variants": [
+        { "title": "5 kg Beutel", "sku": "175115", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Breadcrumbs, light SG, IPS",
+          "subtitle": "Bonvita",
+          "description": "Light breadcrumbs in IP-Suisse and Suisse Garantie quality, for coating poultry, meat, fish, cheese and vegetables.\n\n**Dosage:** as required.\n\n**Ingredients:** WHEAT FLOUR (IPS); table salt; yeast.\n\n**Allergens:** Gluten"
+        },
+        "it": {
+          "title": "Pangrattato chiaro SG, IPS",
+          "subtitle": "Bonvita",
+          "description": "Pangrattato chiaro in qualità IP-Suisse e Suisse Garantie, per impanare pollame, carne, pesce, formaggio e verdure.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** FARINA DI FRUMENTO (IPS); sale da cucina; lievito.\n\n**Allergeni:** Glutine"
+        }
+      }
+    },
+    {
+      "title": "Paniermehl gewürzt SG, IPS",
+      "handle": "paniermehl-gewuerzt-sg-ips",
+      "subtitle": "Bonvita",
+      "description": "Helles, leicht gewürztes Paniermehl in IP-Suisse / Suisse Garantie – Qualität, geeignet zum Panieren von Geflügel, Fleisch, Fisch, Käse und Gemüse.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** WEIZENMEHL (IPS); Speisesalz; Backtriebmittel: E 450, E 500, E 341; Gewürze; Kräuter.\n\n**Allergene:** Gluten, E 341, E 450, E 500",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/paniermehl-gewuerzt-sg-ips.png"],
+      "variants": [
+        { "title": "5 kg Beutel", "sku": "175135", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Breadcrumbs, seasoned SG, IPS",
+          "subtitle": "Bonvita",
+          "description": "Light, lightly seasoned breadcrumbs in IP-Suisse / Suisse Garantie quality, suitable for coating poultry, meat, fish, cheese and vegetables.\n\n**Dosage:** as required.\n\n**Ingredients:** WHEAT FLOUR (IPS); table salt; raising agents: E 450, E 500, E 341; spices; herbs.\n\n**Allergens:** Gluten, E 341, E 450, E 500"
+        },
+        "it": {
+          "title": "Pangrattato speziato SG, IPS",
+          "subtitle": "Bonvita",
+          "description": "Pangrattato chiaro, leggermente speziato in qualità IP-Suisse / Suisse Garantie, adatto a impanare pollame, carne, pesce, formaggio e verdure.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** FARINA DI FRUMENTO (IPS); sale da cucina; agenti lievitanti: E 450, E 500, E 341; spezie; erbe.\n\n**Allergeni:** Glutine, E 341, E 450, E 500"
+        }
+      }
+    },
+    {
+      "title": "Paniermehl gelb SG, IPS",
+      "handle": "paniermehl-gelb-sg-ips",
+      "description": "Gelbliches Paniermehl in IP-Suisse und Suisse Garantie – Qualität, zum Panieren von Geflügel, Fleisch, Fisch, Käse und Gemüse.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** HALBWEISSMEHL (IPS); Wasser; Speisesalz; Trockenhefe; Gewürzextrakte.\n\n**Allergene:** Gluten",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/paniermehl-gelb-sg-ips.png"],
+      "variants": [
+        { "title": "5 kg Beutel", "sku": "137815", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Breadcrumbs, yellow SG, IPS",
+          "subtitle": "Breadcrumbs",
+          "description": "Yellowish breadcrumbs in IP-Suisse and Suisse Garantie quality, for coating poultry, meat, fish, cheese and vegetables.\n\n**Dosage:** as required.\n\n**Ingredients:** SEMI-WHITE FLOUR (IPS); water; table salt; dried yeast; spice extracts.\n\n**Allergens:** Gluten"
+        },
+        "it": {
+          "title": "Pangrattato giallo SG, IPS",
+          "subtitle": "Pangrattato",
+          "description": "Pangrattato giallastro in qualità IP-Suisse e Suisse Garantie, per impanare pollame, carne, pesce, formaggio e verdure.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** FARINA SEMIBIANCA (IPS); acqua; sale da cucina; lievito secco; estratti di spezie.\n\n**Allergeni:** Glutine"
+        }
+      }
+    }
+  ]
+}

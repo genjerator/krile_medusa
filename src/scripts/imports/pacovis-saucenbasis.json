@@ -1,0 +1,92 @@
+{
+  "defaults": {
+    "status": "published",
+    "currency_code": "eur",
+    "subtitle": "Saucencompound",
+    "category_names": ["Küchen- und Traiteurartikel"],
+    "sales_channel_names": ["IndustriesWebshop"],
+    "option_title": "Gebinde"
+  },
+  "products": [
+    {
+      "title": "Grundsauce braun",
+      "handle": "grundsauce-braun",
+      "description": "Sauce mit intensivem Fleischgeschmack, dunkel in der Farbe, verfeinert mit Zwiebeln und Lauch. Ideal als klassische Sauce zu Fleisch- und Schmorgerichten oder als Basissauce für eigene Ableitungen.\n\n**Dosierung:** 110 g/l Wasser kalt.\n\n**Zutaten:** Wachsmaisstärke mod.; Gewürze; Saccharose; Karamellzucker; Speisesalz jodiert; Hefeextrakt; Würze; nat. Aroma.\n\n**Allergene:** E 1442",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/grundsauce-braun.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "265171", "price": null } ],
+      "translations": {
+        "en": { "title": "Base sauce, brown", "subtitle": "Sauce compound", "description": "Sauce with an intense meaty flavour, dark in colour, refined with onions and leek. Ideal as a classic sauce for meat and braised dishes or as a base sauce for your own variations.\n\n**Dosage:** 110 g/l cold water.\n\n**Ingredients:** modified waxy maize starch; spices; sucrose; caramel sugar; iodised table salt; yeast extract; seasoning; natural flavouring.\n\n**Allergens:** E 1442" },
+        "it": { "title": "Salsa base marrone", "subtitle": "Composto per salsa", "description": "Salsa dal gusto intenso di carne, di colore scuro, arricchita con cipolle e porro. Ideale come salsa classica per carni e piatti brasati o come salsa base per le proprie variazioni.\n\n**Dosaggio:** 110 g/l acqua fredda.\n\n**Ingredienti:** amido di mais ceroso mod.; spezie; saccarosio; zucchero caramellato; sale da cucina iodato; estratto di lievito; condimento; aroma naturale.\n\n**Allergeni:** E 1442" }
+      }
+    },
+    {
+      "title": "Grundsauce dunkel",
+      "handle": "grundsauce-dunkel",
+      "description": "Saucenpulver zur Zubereitung von dunklen Saucen wie Wildpfeffersaucen, mit Geschmack nach Lauch, Zwiebeln und Kräutern.\n\n**Dosierung:** 100 g/l Wasser kalt.\n\n**Zutaten:** Wachsmaisstärke mod.; Farbstoff: E 150c; Gewürze; Speisesalz jodiert; nat. Aroma; Saccharose; Hefeextrakt; Würze; Kakaopulver.\n\n**Allergene:** E 1442, E 150c",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/grundsauce-dunkel.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "265181", "price": null } ],
+      "translations": {
+        "en": { "title": "Base sauce, dark", "subtitle": "Sauce compound", "description": "Sauce powder for preparing dark sauces such as game pepper sauces, with a flavour of leek, onions and herbs.\n\n**Dosage:** 100 g/l cold water.\n\n**Ingredients:** modified waxy maize starch; colour: E 150c; spices; iodised table salt; natural flavouring; sucrose; yeast extract; seasoning; cocoa powder.\n\n**Allergens:** E 1442, E 150c" },
+        "it": { "title": "Salsa base scura", "subtitle": "Composto per salsa", "description": "Preparato in polvere per la preparazione di salse scure come salse di selvaggina al pepe, con gusto di porro, cipolle ed erbe.\n\n**Dosaggio:** 100 g/l acqua fredda.\n\n**Ingredienti:** amido di mais ceroso mod.; colorante: E 150c; spezie; sale da cucina iodato; aroma naturale; saccarosio; estratto di lievito; condimento; cacao in polvere.\n\n**Allergeni:** E 1442, E 150c" }
+      }
+    },
+    {
+      "title": "Grundsauce hell",
+      "handle": "grundsauce-hell",
+      "description": "Sauce mit intensivem Geschmack, hell in der Farbe, mit Rahmnote. Ideal als klassische Sauce zu Fleisch- und Schmorgerichten oder als Basissauce für eigene Ableitungen.\n\n**Dosierung:** 110 g/l Wasser kalt.\n\n**Zutaten:** Wachsmaisstärke mod.; RAHMPULVER 25 %; Speisesalz jodiert; Gewürze; Hefeextrakt; Steinpilze; nat. Aromen; Saccharose; Würze.\n\n**Allergene:** Milch, E 1442",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/grundsauce-hell.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "265161", "price": null } ],
+      "translations": {
+        "en": { "title": "Base sauce, light", "subtitle": "Sauce compound", "description": "Sauce with an intense flavour, light in colour, with a cream note. Ideal as a classic sauce for meat and braised dishes or as a base sauce for your own variations.\n\n**Dosage:** 110 g/l cold water.\n\n**Ingredients:** modified waxy maize starch; CREAM POWDER 25 %; iodised table salt; spices; yeast extract; porcini; natural flavourings; sucrose; seasoning.\n\n**Allergens:** Milk, E 1442" },
+        "it": { "title": "Salsa base chiara", "subtitle": "Composto per salsa", "description": "Salsa dal gusto intenso, di colore chiaro, con nota di panna. Ideale come salsa classica per carni e piatti brasati o come salsa base per le proprie variazioni.\n\n**Dosaggio:** 110 g/l acqua fredda.\n\n**Ingredienti:** amido di mais ceroso mod.; PANNA IN POLVERE 25 %; sale da cucina iodato; spezie; estratto di lievito; porcini; aromi naturali; saccarosio; condimento.\n\n**Allergeni:** Latte, E 1442" }
+      }
+    },
+    {
+      "title": "Grundsauce tomate",
+      "handle": "grundsauce-tomate",
+      "description": "Leicht gebundene Sauce ohne Glutamat, mit Tomate, Knoblauch und Zwiebeln. Ideal als Basis für hausgemachte Bolognesesaucen.\n\n**Dosierung:** 130 g/l Wasser kalt.\n\n**Zutaten:** Tomate 54 %; Wachsmaisstärke mod.; Speisesalz jodiert; Saccharose; Würze; Gewürze.\n\n**Allergene:** E 1442",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/grundsauce-tomate.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "265191", "price": null } ],
+      "translations": {
+        "en": { "title": "Base sauce, tomato", "subtitle": "Sauce compound", "description": "Lightly bound sauce without glutamate, with tomato, garlic and onions. Ideal as a base for homemade bolognese sauces.\n\n**Dosage:** 130 g/l cold water.\n\n**Ingredients:** tomato 54 %; modified waxy maize starch; iodised table salt; sucrose; seasoning; spices.\n\n**Allergens:** E 1442" },
+        "it": { "title": "Salsa base al pomodoro", "subtitle": "Composto per salsa", "description": "Salsa leggermente legata senza glutammato, con pomodoro, aglio e cipolle. Ideale come base per salse bolognesi fatte in casa.\n\n**Dosaggio:** 130 g/l acqua fredda.\n\n**Ingredienti:** pomodoro 54 %; amido di mais ceroso mod.; sale da cucina iodato; saccarosio; condimento; spezie.\n\n**Allergeni:** E 1442" }
+      }
+    },
+    {
+      "title": "Sauce braun Konserve",
+      "handle": "sauce-braun-konserve",
+      "subtitle": "Saucencompound für Konserven",
+      "description": "Braune Grundsauce speziell für den Einsatz in hochwertigen Fleischkonserven.\n\n**Dosierung:** 170 g für 830 g Wasser kalt (40 % Sauce und 60 % Fleisch).\n\n**Zutaten:** Maisstärke mod.; Tapiokastärke mod.; Speisesalz jodiert; Gewürze; Karamellzucker; Hefeextrakt; Saccharose; Würze; Steinpilzpulver (Boletus Edulis); nat. Aroma.\n\n**Allergene:** E 1442",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/sauce-braun-konserve.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "244921", "price": null } ],
+      "translations": {
+        "en": { "title": "Brown sauce for preserves", "subtitle": "Sauce compound for preserves", "description": "Brown base sauce specially for use in premium meat preserves.\n\n**Dosage:** 170 g per 830 g cold water (40 % sauce and 60 % meat).\n\n**Ingredients:** modified maize starch; modified tapioca starch; iodised table salt; spices; caramel sugar; yeast extract; sucrose; seasoning; porcini powder (Boletus Edulis); natural flavouring.\n\n**Allergens:** E 1442" },
+        "it": { "title": "Salsa marrone per conserve", "subtitle": "Composto per salsa per conserve", "description": "Salsa base marrone appositamente per l'uso in conserve di carne di alta qualità.\n\n**Dosaggio:** 170 g per 830 g di acqua fredda (40 % salsa e 60 % carne).\n\n**Ingredienti:** amido di mais mod.; amido di tapioca mod.; sale da cucina iodato; spezie; zucchero caramellato; estratto di lievito; saccarosio; condimento; porcini in polvere (Boletus Edulis); aroma naturale.\n\n**Allergeni:** E 1442" }
+      }
+    },
+    {
+      "title": "Sauce hell Konserve",
+      "handle": "sauce-hell-konserve",
+      "subtitle": "Saucencompound für Konserven",
+      "description": "Helle Grundsauce speziell für den Einsatz in hochwertigen Fleischkonserven.\n\n**Dosierung:** 160 g / 840 g Wasser kalt (40 % Sauce und 60 % Fleisch).\n\n**Zutaten:** Wachsmaisstärke mod.; RAHMPULVER 19 %; Tapiokastärke mod.; Speisesalz jod.; Gewürze; Hefeextrakt; Würze; Steinpilzpulver; Saccharose; nat. Aroma; Zitronenöl.\n\n**Allergene:** Milch, E 1442",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/sauce-hell-konserve.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "244931", "price": null } ],
+      "translations": {
+        "en": { "title": "Light sauce for preserves", "subtitle": "Sauce compound for preserves", "description": "Light base sauce specially for use in premium meat preserves.\n\n**Dosage:** 160 g / 840 g cold water (40 % sauce and 60 % meat).\n\n**Ingredients:** modified waxy maize starch; CREAM POWDER 19 %; modified tapioca starch; iodised table salt; spices; yeast extract; seasoning; porcini powder; sucrose; natural flavouring; lemon oil.\n\n**Allergens:** Milk, E 1442" },
+        "it": { "title": "Salsa chiara per conserve", "subtitle": "Composto per salsa per conserve", "description": "Salsa base chiara appositamente per l'uso in conserve di carne di alta qualità.\n\n**Dosaggio:** 160 g / 840 g di acqua fredda (40 % salsa e 60 % carne).\n\n**Ingredienti:** amido di mais ceroso mod.; PANNA IN POLVERE 19 %; amido di tapioca mod.; sale da cucina iodato; spezie; estratto di lievito; condimento; porcini in polvere; saccarosio; aroma naturale; olio di limone.\n\n**Allergeni:** Latte, E 1442" }
+      }
+    },
+    {
+      "title": "Paco Dipcombi BBQ",
+      "handle": "paco-dipcombi-bbq",
+      "subtitle": "Saucencompound für BBQ-Dip",
+      "description": "Saucenpulver zur Zubereitung von einer süsslich-milden Dipsauce mit Tomaten- und Rauchnote.\n\n**Dosierung:** 1 kg/l Wasser (heiss).\n\n**Zutaten:** Saccharose; Gewürze; Speisesalz; Säureregulator: E 262; Maisstärke mod.; Karamellzucker; Dextrose; Hefeextrakt; Verdickungsmittel: E 412; Raucharoma; Aroma.\n\n**Allergene:** E 1442, E 262, E 412",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/paco-dipcombi-bbq.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "125511", "price": null } ],
+      "translations": {
+        "en": { "title": "Paco Dipcombi BBQ", "subtitle": "Sauce compound for BBQ dip", "description": "Sauce powder for preparing a sweet, mild dip sauce with tomato and smoke notes.\n\n**Dosage:** 1 kg/l hot water.\n\n**Ingredients:** sucrose; spices; table salt; acidity regulator: E 262; modified maize starch; caramel sugar; dextrose; yeast extract; thickener: E 412; smoke flavouring; flavouring.\n\n**Allergens:** E 1442, E 262, E 412" },
+        "it": { "title": "Paco Dipcombi BBQ", "subtitle": "Composto per salsa per dip BBQ", "description": "Preparato in polvere per la preparazione di una salsa dip dolce e delicata con note di pomodoro e affumicatura.\n\n**Dosaggio:** 1 kg/l acqua calda.\n\n**Ingredienti:** saccarosio; spezie; sale da cucina; correttore di acidità: E 262; amido di mais mod.; zucchero caramellato; destrosio; estratto di lievito; addensante: E 412; aroma di affumicatura; aroma.\n\n**Allergeni:** E 1442, E 262, E 412" }
+      }
+    }
+  ]
+}

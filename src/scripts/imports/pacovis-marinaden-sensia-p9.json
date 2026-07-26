@@ -1,0 +1,159 @@
+{
+  "defaults": {
+    "status": "published",
+    "currency_code": "eur",
+    "subtitle": "Würzmarinade auf Basis CH-Rapsöl",
+    "category_names": ["Marinaden"],
+    "sales_channel_names": ["IndustriesWebshop"],
+    "option_title": "Gebinde"
+  },
+  "products": [
+    {
+      "title": "Curry Marinade Sensia®",
+      "handle": "curry-marinade-sensia",
+      "description": "Fruchtig-würzige Marinade mit Mango-, Koriander- und Currynote. Harmoniert am besten mit Fisch und Geflügel.\n\n**Dosierung:** 80–100 g/kg Fleisch oder Fisch.\n\n**Zutaten:** Pflanzenöle (Raps [CH], Raps vollgehärtet [CH]); Speisesalz jodiert; Curry 14 %; Mangozubereitung (Mango, Saccharose, Wasser, Aroma); Würze; Gewürzextrakt.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/curry-marinade-sensia.png"],
+      "variants": [
+        { "title": "2.5 kg Kessel", "sku": "1709425", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Curry Marinade Sensia®",
+          "subtitle": "Seasoning marinade based on Swiss rapeseed oil",
+          "description": "Fruity, spicy marinade with mango, coriander and curry notes. Pairs best with fish and poultry.\n\n**Dosage:** 80–100 g/kg meat or fish.\n\n**Ingredients:** Vegetable oils (rapeseed [CH], fully hydrogenated rapeseed [CH]); iodised table salt; curry 14 %; mango preparation (mango, sucrose, water, flavouring); seasoning; spice extract."
+        },
+        "it": {
+          "title": "Marinata al curry Sensia®",
+          "subtitle": "Marinata speziata a base di olio di colza svizzero",
+          "description": "Marinata fruttata e speziata con note di mango, coriandolo e curry. Si abbina al meglio con pesce e pollame.\n\n**Dosaggio:** 80–100 g/kg di carne o pesce.\n\n**Ingredienti:** Oli vegetali (colza [CH], colza completamente idrogenata [CH]); sale da cucina iodato; curry 14 %; preparato di mango (mango, saccarosio, acqua, aroma); condimento; estratto di spezie."
+        }
+      }
+    },
+    {
+      "title": "Curry Sesam Marinade Sensia®",
+      "handle": "curry-sesam-marinade-sensia",
+      "description": "Asiatische Marinade mit Koriander-, Curry- und Sesamnote. Harmoniert am besten mit Fisch und Geflügel.\n\n**Dosierung:** 80–100 g/kg Fleisch oder Fisch.\n\n**Zutaten:** Pflanzenöle (Raps [CH], Raps vollgehärtet [CH]); Speisesalz jodiert; Curry 15 %; SESAMSAMEN 6 %; Dextrose; Gewürzextrakte.\n\n**Allergene:** Sesam",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/curry-sesam-marinade-sensia.png"],
+      "variants": [
+        { "title": "2.5 kg Kessel", "sku": "1556725", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Curry Sesame Marinade Sensia®",
+          "subtitle": "Seasoning marinade based on Swiss rapeseed oil",
+          "description": "Asian marinade with coriander, curry and sesame notes. Pairs best with fish and poultry.\n\n**Dosage:** 80–100 g/kg meat or fish.\n\n**Ingredients:** Vegetable oils (rapeseed [CH], fully hydrogenated rapeseed [CH]); iodised table salt; curry 15 %; SESAME SEEDS 6 %; dextrose; spice extracts.\n\n**Allergens:** Sesame"
+        },
+        "it": {
+          "title": "Marinata al curry e sesamo Sensia®",
+          "subtitle": "Marinata speziata a base di olio di colza svizzero",
+          "description": "Marinata asiatica con note di coriandolo, curry e sesamo. Si abbina al meglio con pesce e pollame.\n\n**Dosaggio:** 80–100 g/kg di carne o pesce.\n\n**Ingredienti:** Oli vegetali (colza [CH], colza completamente idrogenata [CH]); sale da cucina iodato; curry 15 %; SEMI DI SESAMO 6 %; destrosio; estratti di spezie.\n\n**Allergeni:** Sesamo"
+        }
+      }
+    },
+    {
+      "title": "Estragon Marinade Sensia®",
+      "handle": "estragon-marinade-sensia",
+      "description": "Aromatische Marinade nach Estragon und Muskatnuss. Harmoniert am besten mit Geflügel und Fisch.\n\n**Dosierung:** 80–100 g/kg Fleisch oder Fisch.\n\n**Zutaten:** Pflanzenöle (Raps [CH], Raps vollgehärtet [CH]); Speisesalz jodiert; Gewürze (enth. Estragon 2.5 %); Gewürzextrakte.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/estragon-marinade-sensia.png"],
+      "variants": [
+        { "title": "2.5 kg Kessel", "sku": "1573625", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Tarragon Marinade Sensia®",
+          "subtitle": "Seasoning marinade based on Swiss rapeseed oil",
+          "description": "Aromatic marinade with tarragon and nutmeg. Pairs best with poultry and fish.\n\n**Dosage:** 80–100 g/kg meat or fish.\n\n**Ingredients:** Vegetable oils (rapeseed [CH], fully hydrogenated rapeseed [CH]); iodised table salt; spices (contains tarragon 2.5 %); spice extracts."
+        },
+        "it": {
+          "title": "Marinata al dragoncello Sensia®",
+          "subtitle": "Marinata speziata a base di olio di colza svizzero",
+          "description": "Marinata aromatica al dragoncello e noce moscata. Si abbina al meglio con pollame e pesce.\n\n**Dosaggio:** 80–100 g/kg di carne o pesce.\n\n**Ingredienti:** Oli vegetali (colza [CH], colza completamente idrogenata [CH]); sale da cucina iodato; spezie (contiene dragoncello 2.5 %); estratti di spezie."
+        }
+      }
+    },
+    {
+      "title": "Feuerland Marinade Sensia®",
+      "handle": "feuerland-marinade-sensia",
+      "description": "Pikante Marinade mit Pfeffer schwarz und Chili, abgerundet mit Knoblauch. Harmoniert am besten mit allen Fleischsorten und Fisch.\n\n**Dosierung:** 80–100 g/kg Fleisch oder Fisch.\n\n**Zutaten:** Pflanzenöle (Raps [CH], Raps vollgehärtet [CH]); Speisesalz jodiert; Gewürze; Maltodextrin; Gewürzextrakte; Hefeextrakt; Würze; Zitronenöl.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/feuerland-marinade-sensia.png"],
+      "variants": [
+        { "title": "2.5 kg Kessel", "sku": "2309125", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Feuerland Marinade Sensia®",
+          "subtitle": "Seasoning marinade based on Swiss rapeseed oil",
+          "description": "Spicy marinade with black pepper and chilli, rounded off with garlic. Pairs best with all types of meat and fish.\n\n**Dosage:** 80–100 g/kg meat or fish.\n\n**Ingredients:** Vegetable oils (rapeseed [CH], fully hydrogenated rapeseed [CH]); iodised table salt; spices; maltodextrin; spice extracts; yeast extract; seasoning; lemon oil."
+        },
+        "it": {
+          "title": "Marinata Feuerland Sensia®",
+          "subtitle": "Marinata speziata a base di olio di colza svizzero",
+          "description": "Marinata piccante con pepe nero e peperoncino, arrotondata con aglio. Si abbina al meglio con tutti i tipi di carne e pesce.\n\n**Dosaggio:** 80–100 g/kg di carne o pesce.\n\n**Ingredienti:** Oli vegetali (colza [CH], colza completamente idrogenata [CH]); sale da cucina iodato; spezie; maltodestrina; estratti di spezie; estratto di lievito; condimento; olio di limone."
+        }
+      }
+    },
+    {
+      "title": "Fresh Lemon Marinade Sensia®",
+      "handle": "fresh-lemon-marinade-sensia",
+      "description": "Frisch-würzige Marinade mit Zitrone, Zitronengras und Ingwer. Harmoniert am besten mit Geflügel und Fisch.\n\n**Dosierung:** 80–100 g/kg Fleisch oder Fisch.\n\n**Zutaten:** Pflanzenöle (Raps [CH], Raps vollgehärtet [CH]); Meersalz; Dextrose; Gewürze; Zitronensaftkonzentrat 2.5 %; Zitronenschale 1 %; Gewürzextrakte; Zitronenöl 0.09 %.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/fresh-lemon-marinade-sensia.png"],
+      "variants": [
+        { "title": "2.5 kg Kessel", "sku": "1489025", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Fresh Lemon Marinade Sensia®",
+          "subtitle": "Seasoning marinade based on Swiss rapeseed oil",
+          "description": "Fresh, spicy marinade with lemon, lemongrass and ginger. Pairs best with poultry and fish.\n\n**Dosage:** 80–100 g/kg meat or fish.\n\n**Ingredients:** Vegetable oils (rapeseed [CH], fully hydrogenated rapeseed [CH]); sea salt; dextrose; spices; lemon juice concentrate 2.5 %; lemon peel 1 %; spice extracts; lemon oil 0.09 %."
+        },
+        "it": {
+          "title": "Marinata Fresh Lemon Sensia®",
+          "subtitle": "Marinata speziata a base di olio di colza svizzero",
+          "description": "Marinata fresca e speziata con limone, citronella e zenzero. Si abbina al meglio con pollame e pesce.\n\n**Dosaggio:** 80–100 g/kg di carne o pesce.\n\n**Ingredienti:** Oli vegetali (colza [CH], colza completamente idrogenata [CH]); sale marino; destrosio; spezie; concentrato di succo di limone 2.5 %; scorza di limone 1 %; estratti di spezie; olio di limone 0.09 %."
+        }
+      }
+    },
+    {
+      "title": "Geflügel Marinade Sensia®",
+      "handle": "gefluegel-marinade-sensia",
+      "description": "Deftig-würzige Marinade mit Paprika, Rosmarin und Kräuter. Harmoniert am besten mit Geflügel.\n\n**Dosierung:** 80–100 g/kg Geflügelfleisch.\n\n**Zutaten:** Pflanzenöle (Raps [CH], Raps vollgehärtet [CH]); Speisesalz jodiert; Gewürze; Kräuter; Dextrose; Gewürzextrakte.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/gefluegel-marinade-sensia.png"],
+      "variants": [
+        { "title": "2.5 kg Kessel", "sku": "G15525", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Poultry Marinade Sensia®",
+          "subtitle": "Seasoning marinade based on Swiss rapeseed oil",
+          "description": "Hearty, spicy marinade with paprika, rosemary and herbs. Pairs best with poultry.\n\n**Dosage:** 80–100 g/kg poultry.\n\n**Ingredients:** Vegetable oils (rapeseed [CH], fully hydrogenated rapeseed [CH]); iodised table salt; spices; herbs; dextrose; spice extracts."
+        },
+        "it": {
+          "title": "Marinata per pollame Sensia®",
+          "subtitle": "Marinata speziata a base di olio di colza svizzero",
+          "description": "Marinata gustosa e speziata con paprika, rosmarino ed erbe. Si abbina al meglio con il pollame.\n\n**Dosaggio:** 80–100 g/kg di carne di pollame.\n\n**Ingredienti:** Oli vegetali (colza [CH], colza completamente idrogenata [CH]); sale da cucina iodato; spezie; erbe; destrosio; estratti di spezie."
+        }
+      }
+    },
+    {
+      "title": "Grün Pfeffer Marinade Sensia®",
+      "handle": "gruen-pfeffer-marinade-sensia",
+      "description": "Frisch-herbe Marinade abgerundet mit einer leichten Schärfe nach grünem Pfeffer. Harmoniert am besten mit Geflügel, Lamm, Pferd und Schwein.\n\n**Dosierung:** 80–100 g/kg Fleisch oder Fisch.\n\n**Zutaten:** Pflanzenöle (Raps [CH], Raps vollgehärtet [CH]); Gewürze; Speisesalz jodiert; grüner Pfeffer 4.5 %; Dextrose; Gewürzextrakte; Hefeextrakt.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/gruen-pfeffer-marinade-sensia.png"],
+      "variants": [
+        { "title": "2.5 kg Kessel", "sku": "1617025", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Green Pepper Marinade Sensia®",
+          "subtitle": "Seasoning marinade based on Swiss rapeseed oil",
+          "description": "Fresh, tangy marinade rounded off with a light heat of green pepper. Pairs best with poultry, lamb, horse and pork.\n\n**Dosage:** 80–100 g/kg meat or fish.\n\n**Ingredients:** Vegetable oils (rapeseed [CH], fully hydrogenated rapeseed [CH]); spices; iodised table salt; green pepper 4.5 %; dextrose; spice extracts; yeast extract."
+        },
+        "it": {
+          "title": "Marinata al pepe verde Sensia®",
+          "subtitle": "Marinata speziata a base di olio di colza svizzero",
+          "description": "Marinata fresca e aromatica arrotondata da una leggera piccantezza di pepe verde. Si abbina al meglio con pollame, agnello, cavallo e maiale.\n\n**Dosaggio:** 80–100 g/kg di carne o pesce.\n\n**Ingredienti:** Oli vegetali (colza [CH], colza completamente idrogenata [CH]); spezie; sale da cucina iodato; pepe verde 4.5 %; destrosio; estratti di spezie; estratto di lievito."
+        }
+      }
+    }
+  ]
+}

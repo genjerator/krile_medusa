@@ -1,0 +1,50 @@
+{
+  "defaults": {
+    "status": "published",
+    "currency_code": "eur",
+    "subtitle": "Würzmarinade auf Basis CH-Rapsöl",
+    "category_names": ["Marinaden"],
+    "sales_channel_names": ["IndustriesWebshop"],
+    "option_title": "Gebinde"
+  },
+  "products": [
+    {
+      "title": "Bärlauch Marinade Sensia®",
+      "handle": "baerlauch-marinade-sensia",
+      "description": "Deftige Marinade mit Bärlauchnote. Harmoniert am besten mit Geflügel, Lamm und Schwein.\n\n**Dosierung:** 80–100 g/kg Fleisch oder Fisch.\n\n**Zutaten:** Pflanzenöle (Raps [CH], Raps vollgehärtet [CH]); Bärlauch 14 %; Speisesalz jodiert; Gewürze; Gewürzextrakt.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/baerlauch-marinade-sensia.png"],
+      "variants": [
+        { "title": "6 Becher à 200 g (1 KT)", "sku": "155661K200", "price": null },
+        { "title": "2.5 kg Kessel", "sku": "1556625", "price": null }
+      ]
+    },
+    {
+      "title": "Black Garlic Marinade",
+      "handle": "black-garlic-marinade",
+      "description": "Aromatische Marinade abgerundet mit schwarzem Knoblauch und Pfeffer. Harmoniert am besten mit dunklen Fleischsorten.\n\n**Dosierung:** 80–100 g/kg Fleisch.\n\n**Zutaten:** Pflanzenöle (Raps [CH], Raps vollgehärtet [CH]); Speisesalz jodiert; Gewürze; Wasser; Knoblauch schwarz 6 %; Karamellzucker; Würze; Saccharose.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/black-garlic-marinade.png"],
+      "variants": [
+        { "title": "2.5 kg Kessel", "sku": "1792125", "price": null }
+      ]
+    },
+    {
+      "title": "Borneo Marinade Sensia®",
+      "handle": "borneo-marinade-sensia",
+      "description": "Exotische Marinade mit würziger Note nach Pfeffer, Curry, Sesam und Zitrone. Harmoniert am besten mit Rind, Lamm, Geflügel und Fisch.\n\n**Dosierung:** 80–100 g/kg Fleisch oder Fisch.\n\n**Zutaten:** Pflanzenöle (Raps [CH], Raps vollgehärtet [CH]); Gewürze (enth. SENF, Pfeffer 11 %); Speisesalz; SESAMSAMEN; Zitronenschalenzubereitung; Dextrose; Gewürzextrakte; Raucharoma.\n\n**Allergene:** Senf, Sesam",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/borneo-marinade-sensia.png"],
+      "variants": [
+        { "title": "6 Becher à 200 g (1 KT)", "sku": "161691K200", "price": null },
+        { "title": "2.5 kg Kessel", "sku": "1616925", "price": null }
+      ]
+    },
+    {
+      "title": "Brandy Marinade Sensia®",
+      "handle": "brandy-marinade-sensia",
+      "description": "Ausgewogene Marinade, abgerundet mit Weinbrand und Pfeffer schwarz. Harmoniert besonders mit Rind und Schwein.\n\n**Dosierung:** 80–100 g/kg Fleisch oder Fisch.\n\n**Zutaten:** Pflanzenöle (Raps [CH], Raps vollgehärtet [CH]); Gewürze; Speisesalz jodiert; Weinbrand 3.5 % (40 % vol.); Karamellzucker; Aroma; Gewürzextrakt.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/brandy-marinade-sensia.png"],
+      "variants": [
+        { "title": "2.5 kg Kessel", "sku": "865025", "price": null }
+      ]
+    }
+  ]
+}

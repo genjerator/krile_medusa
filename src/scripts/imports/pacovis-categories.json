@@ -1,0 +1,43 @@
+[
+  {
+    "name": "Gewürze",
+    "handle": "gewurze",
+    "is_active": true,
+    "is_internal": false,
+    "description": "Würzmarinaden, Gewürzmischungen, Paniersysteme und küchenfertige Produkte von Pacovis – Schweizer Qualität für Metzgerei, Gastronomie und Lebensmittelverarbeitung.",
+    "category_children": [
+      {
+        "name": "Marinaden",
+        "handle": "marinaden",
+        "is_active": true,
+        "is_internal": false,
+        "rank": 0,
+        "description": "Würzmarinaden auf Basis von Schweizer Rapsöl für Fleisch, Geflügel und Fisch – von klassisch bis exotisch, inklusive Bio- und Rahm-Varianten."
+      },
+      {
+        "name": "Gewürzmischungen",
+        "handle": "gewuerzmischungen",
+        "is_active": true,
+        "is_internal": false,
+        "rank": 1,
+        "description": "Klassische Gewürz- und Kräutermischungen sowie Würzmischungen mit Salz für vielfältige kulinarische Anwendungen."
+      },
+      {
+        "name": "Paniermehle und -systeme",
+        "handle": "paniermehle-und-systeme",
+        "is_active": true,
+        "is_internal": false,
+        "rank": 2,
+        "description": "Paniermehle, Panaden und Paniersysteme für knusprige Ergebnisse – klassisch, dekorativ, als Schnellpanade oder glutenfrei."
+      },
+      {
+        "name": "Küchen- und Traiteurartikel",
+        "handle": "kuechen-und-traiteurartikel",
+        "is_active": true,
+        "is_internal": false,
+        "rank": 3,
+        "description": "Streuwürzen, küchenfertige Produkte, Bouillons und Saucenbasen für Gastronomie, Handwerk und Industrie."
+      }
+    ]
+  }
+]
