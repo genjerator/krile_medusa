@@ -1,0 +1,45 @@
+{
+  "defaults": {
+    "status": "published",
+    "currency_code": "eur",
+    "subtitle": "Würzmarinade auf Basis Raps- und Olivenöl",
+    "category_names": ["Marinaden"],
+    "sales_channel_names": ["IndustriesWebshop"],
+    "option_title": "Gebinde"
+  },
+  "products": [
+    {
+      "title": "Dukka Marinade Sensia®",
+      "handle": "dukka-marinade-sensia",
+      "description": "Ausgewogene Marinade mit Kräutern und Knoblauch, abgerundet mit Olivenöl. Harmoniert am besten mit Lamm, Pferd und Fisch.\n\n**Dosierung:** 80–100 g/kg Fleisch oder Fisch.\n\n**Zutaten:** Pflanzenöle (Raps [CH], Oliven, Raps vollgehärtet [CH]); Speisesalz jodiert; Gewürze; Kräuter; Gewürzextrakt.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/dukka-marinade-sensia.png"],
+      "variants": [ { "title": "2.5 kg Kessel", "sku": "1710025", "price": null } ],
+      "translations": {
+        "en": { "title": "Dukka Marinade Sensia®", "subtitle": "Seasoning marinade based on rapeseed and olive oil", "description": "Balanced marinade with herbs and garlic, rounded off with olive oil. Pairs best with lamb, horse and fish.\n\n**Dosage:** 80–100 g/kg meat or fish.\n\n**Ingredients:** Vegetable oils (rapeseed [CH], olives, fully hydrogenated rapeseed [CH]); iodised table salt; spices; herbs; spice extract." },
+        "it": { "title": "Marinata Dukka Sensia®", "subtitle": "Marinata speziata a base di olio di colza e oliva", "description": "Marinata equilibrata con erbe e aglio, arrotondata con olio d'oliva. Si abbina al meglio con agnello, cavallo e pesce.\n\n**Dosaggio:** 80–100 g/kg di carne o pesce.\n\n**Ingredienti:** Oli vegetali (colza [CH], olive, colza completamente idrogenata [CH]); sale da cucina iodato; spezie; erbe; estratto di spezie." }
+      }
+    },
+    {
+      "title": "Katalania Marinade Sensia®",
+      "handle": "katalania-marinade-sensia",
+      "description": "Frisch-herbe Marinade mit Kräutern, Zitrone und Olivenöl. Harmoniert am besten mit hellen Fleischsorten wie Geflügel oder Fisch.\n\n**Dosierung:** 80–100 g/kg Fleisch oder Fisch.\n\n**Zutaten:** Pflanzenöle (Raps [CH], Oliven, Raps vollgehärtet [CH]); Speisesalz jodiert; Kräuter; Gewürze; Gewürzextrakte.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/katalania-marinade-sensia.png"],
+      "variants": [ { "title": "2.5 kg Kessel", "sku": "1710125", "price": null } ],
+      "translations": {
+        "en": { "title": "Katalania Marinade Sensia®", "subtitle": "Seasoning marinade based on rapeseed and olive oil", "description": "Fresh, tangy marinade with herbs, lemon and olive oil. Pairs best with light meats such as poultry or fish.\n\n**Dosage:** 80–100 g/kg meat or fish.\n\n**Ingredients:** Vegetable oils (rapeseed [CH], olives, fully hydrogenated rapeseed [CH]); iodised table salt; herbs; spices; spice extracts." },
+        "it": { "title": "Marinata Katalania Sensia®", "subtitle": "Marinata speziata a base di olio di colza e oliva", "description": "Marinata fresca ed erbacea con erbe, limone e olio d'oliva. Si abbina al meglio con carni chiare come pollame o pesce.\n\n**Dosaggio:** 80–100 g/kg di carne o pesce.\n\n**Ingredienti:** Oli vegetali (colza [CH], olive, colza completamente idrogenata [CH]); sale da cucina iodato; erbe; spezie; estratti di spezie." }
+      }
+    },
+    {
+      "title": "Tellicherry Marinade Sensia®",
+      "handle": "tellicherry-marinade-sensia",
+      "description": "Klassische Marinade mit Tellicherry Pfeffer und Koriander, abgerundet mit Olivenöl. Harmoniert am besten mit Rind, Lamm, Wild und hellen Fleischsorten.\n\n**Dosierung:** 80–100 g/kg Fleisch oder Fisch.\n\n**Zutaten:** Pflanzenöle (Raps [CH], Olive, Raps vollgehärtet [CH]); Speisesalz jodiert; Tellicherry-Pfeffer 6 %; Gewürze; Kräuter; Gewürzextrakte.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/tellicherry-marinade-sensia.png"],
+      "variants": [ { "title": "2.5 kg Kessel", "sku": "1686225", "price": null } ],
+      "translations": {
+        "en": { "title": "Tellicherry Marinade Sensia®", "subtitle": "Seasoning marinade based on rapeseed and olive oil", "description": "Classic marinade with Tellicherry pepper and coriander, rounded off with olive oil. Pairs best with beef, lamb, game and light meats.\n\n**Dosage:** 80–100 g/kg meat or fish.\n\n**Ingredients:** Vegetable oils (rapeseed [CH], olive, fully hydrogenated rapeseed [CH]); iodised table salt; Tellicherry pepper 6 %; spices; herbs; spice extracts." },
+        "it": { "title": "Marinata Tellicherry Sensia®", "subtitle": "Marinata speziata a base di olio di colza e oliva", "description": "Marinata classica con pepe Tellicherry e coriandolo, arrotondata con olio d'oliva. Si abbina al meglio con manzo, agnello, selvaggina e carni chiare.\n\n**Dosaggio:** 80–100 g/kg di carne o pesce.\n\n**Ingredienti:** Oli vegetali (colza [CH], oliva, colza completamente idrogenata [CH]); sale da cucina iodato; pepe Tellicherry 6 %; spezie; erbe; estratti di spezie." }
+      }
+    }
+  ]
+}

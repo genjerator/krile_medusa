@@ -1,0 +1,48 @@
+{
+  "defaults": {
+    "status": "published",
+    "currency_code": "eur",
+    "subtitle": "Saucen & Dips",
+    "category_names": ["Küchen und Traiteurartikel"],
+    "sales_channel_names": ["IndustriesWebshop"],
+    "option_title": "Gebinde"
+  },
+  "products": [
+    {
+      "title": "Paco Dipcombi Tomatencurry",
+      "handle": "paco-dipcombi-tomatencurry",
+      "subtitle": "Saucencompound für Tomaten-Curry-Dip",
+      "description": "Saucenpulver zur Zubereitung einer süsslich-milden Dipsauce mit Curry- und Tomatennote.\n\n**Dosierung:** 1 kg/l Wasser (heiss).\n\n**Zutaten:** Saccharose; Tomatenpulver 13 %; Speisesalz jodiert; Säuerungsmittel: E 262; Maistärke mod.; Gewürze (enth. Curry 4.5 %); Hefeextrakt; Verdickungsmittel: E 412; Aroma.\n\n**Allergene:** E 1442, E 262, E 412",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/paco-dipcombi-tomatencurry.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "126191", "price": null } ],
+      "translations": {
+        "en": { "title": "Paco Dipcombi Tomato Curry", "subtitle": "Sauce compound for tomato curry dip", "description": "Sauce powder for preparing a sweet, mild dip sauce with curry and tomato notes.\n\n**Dosage:** 1 kg/l hot water.\n\n**Ingredients:** sucrose; tomato powder 13 %; iodised table salt; acidifier: E 262; modified maize starch; spices (contains curry 4.5 %); yeast extract; thickener: E 412; flavouring.\n\n**Allergens:** E 1442, E 262, E 412" },
+        "it": { "title": "Paco Dipcombi Pomodoro Curry", "subtitle": "Composto per salsa per dip pomodoro-curry", "description": "Preparato in polvere per la preparazione di una salsa dip dolce e delicata con note di curry e pomodoro.\n\n**Dosaggio:** 1 kg/l acqua calda.\n\n**Ingredienti:** saccarosio; pomodoro in polvere 13 %; sale da cucina iodato; acidificante: E 262; amido di mais mod.; spezie (contiene curry 4.5 %); estratto di lievito; addensante: E 412; aroma.\n\n**Allergeni:** E 1442, E 262, E 412" }
+      }
+    },
+    {
+      "title": "Paco Dip",
+      "handle": "paco-dip",
+      "subtitle": "Dip-Sauce auf Basis Ketchup",
+      "description": "Dipsauce mit intensivem Geschmack nach Tomate und Ketchup.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Wasser; Saccharose; Tomatenmark; Tafelessig; Maisstärke; Speisesalz jodiert; Curry 1.5 %; Hefeextrakt; Verdickungsmittel: Guarkernmehl; Gewürzextrakt; Konservierungsstoff: Kaliumsorbat.\n\n**Allergene:** E 202, E 412",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/paco-dip.png"],
+      "variants": [ { "title": "2.5 kg Kessel", "sku": "F12425", "price": null } ],
+      "translations": {
+        "en": { "title": "Paco Dip", "subtitle": "Dip sauce based on ketchup", "description": "Dip sauce with an intense flavour of tomato and ketchup.\n\n**Dosage:** as required.\n\n**Ingredients:** water; sucrose; tomato paste; table vinegar; maize starch; iodised table salt; curry 1.5 %; yeast extract; thickener: guar gum; spice extract; preservative: potassium sorbate.\n\n**Allergens:** E 202, E 412" },
+        "it": { "title": "Paco Dip", "subtitle": "Salsa dip a base di ketchup", "description": "Salsa dip dal gusto intenso di pomodoro e ketchup.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** acqua; saccarosio; concentrato di pomodoro; aceto da tavola; amido di mais; sale da cucina iodato; curry 1.5 %; estratto di lievito; addensante: farina di semi di guar; estratto di spezie; conservante: sorbato di potassio.\n\n**Allergeni:** E 202, E 412" }
+      }
+    },
+    {
+      "title": "Mayonnaise",
+      "handle": "mayonnaise",
+      "subtitle": "Mayonnaise 80 % Fett",
+      "description": "Cremige Mayonnaise mit feiner Senfnote. Hergestellt mit Schweizer Eigelb aus Freilandhaltung.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Sonnenblumenöl; EIGELB past. (CH, Freiland); Tafelessig; Speisesalz jodiert; SENF; Saccharose.\n\n**Allergene:** Eier, Senf",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/mayonnaise.png"],
+      "variants": [ { "title": "10 kg Kessel", "sku": "1791910", "price": null } ],
+      "translations": {
+        "en": { "title": "Mayonnaise", "subtitle": "Mayonnaise 80 % fat", "description": "Creamy mayonnaise with a fine mustard note. Made with Swiss free-range egg yolk.\n\n**Dosage:** as required.\n\n**Ingredients:** sunflower oil; pasteurised EGG YOLK (CH, free-range); table vinegar; iodised table salt; MUSTARD; sucrose.\n\n**Allergens:** Eggs, Mustard" },
+        "it": { "title": "Maionese", "subtitle": "Maionese 80 % di grassi", "description": "Maionese cremosa con una fine nota di senape. Prodotta con tuorlo d'uovo svizzero da allevamento all'aperto.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** olio di girasole; TUORLO D'UOVO past. (CH, allevamento all'aperto); aceto da tavola; sale da cucina iodato; SENAPE; saccarosio.\n\n**Allergeni:** Uova, Senape" }
+      }
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "defaults": {
+    "status": "published",
+    "currency_code": "eur",
+    "subtitle": "Würzsauce",
+    "category_names": ["Küchen und Traiteurartikel"],
+    "sales_channel_names": ["IndustriesWebshop"],
+    "option_title": "Gebinde"
+  },
+  "products": [
+    {
+      "title": "Tatar Sauce",
+      "handle": "tatar-sauce",
+      "description": "Saucebasis für die Herstellung von Tatar mit Ketchup, Essiggurke und Chili.\n\n**Dosierung:** 200 g Sauce / 800 g Rindfleisch.\n\n**Zutaten:** Tomatenketchup (Tomaten, Zucker, Tafelessig, Glucosesirup, Speisesalz jodiert, Maisstärke, Gewürze); SENF (Tafelessig, Wasser, Senfsamen, Speisesalz jodiert, Zucker, Gewürze, Gewürzextrakte); Sonnenblumenöl; Silberzwiebeln (enth. SULFIT); Essiggurken (enth. SULFIT); Würzsauce; Gewürze; Speisesalz jodiert; Glucosesirup; Weinbrand (40 % vol.); Gewürzextrakt; Zitronensaftkonzentrat.\n\n**Allergene:** Schwefeldioxid (SO₂), Senf",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/tatar-sauce.png"],
+      "variants": [ { "title": "1 kg Dose", "sku": "71621", "price": null } ],
+      "translations": {
+        "en": { "title": "Tatar Sauce", "subtitle": "Seasoning sauce", "description": "Sauce base for making beef tartare with ketchup, gherkin and chilli.\n\n**Dosage:** 200 g sauce / 800 g beef.\n\n**Ingredients:** tomato ketchup (tomatoes, sugar, table vinegar, glucose syrup, iodised table salt, maize starch, spices); MUSTARD (table vinegar, water, mustard seeds, iodised table salt, sugar, spices, spice extracts); sunflower oil; silverskin onions (contains SULPHITE); gherkins (contains SULPHITE); seasoning sauce; spices; iodised table salt; glucose syrup; brandy (40 % vol.); spice extract; lemon juice concentrate.\n\n**Allergens:** Sulphur dioxide (SO₂), Mustard" },
+        "it": { "title": "Salsa Tatar", "subtitle": "Salsa da condimento", "description": "Base per salsa per la preparazione di tartara con ketchup, cetriolino e peperoncino.\n\n**Dosaggio:** 200 g di salsa / 800 g di carne di manzo.\n\n**Ingredienti:** ketchup di pomodoro (pomodori, zucchero, aceto da tavola, sciroppo di glucosio, sale da cucina iodato, amido di mais, spezie); SENAPE (aceto da tavola, acqua, semi di senape, sale da cucina iodato, zucchero, spezie, estratti di spezie); olio di girasole; cipolline (contiene SOLFITI); cetriolini (contiene SOLFITI); salsa da condimento; spezie; sale da cucina iodato; sciroppo di glucosio; brandy (40 % vol.); estratto di spezie; concentrato di succo di limone.\n\n**Allergeni:** Anidride solforosa (SO₂), Senape" }
+      }
+    },
+    {
+      "title": "Tatar Sauce plus",
+      "handle": "tatar-sauce-plus",
+      "description": "Saucebasis für die Herstellung von Tatar mit Ketchup, Essiggurke und Chili.\n\n**Dosierung:** 250 g Sauce / 750 g Rindfleisch.\n\n**Zutaten:** Tomatenketchup (Tomaten, Saccharose, Tafelessig, Glucosesirup, Speisesalz jodiert, Maisstärke, Gewürze); Essiggurken; Silberzwiebeln (enth. SULFIT); SENF (Tafelessig, Wasser, SENFSAMEN, Speisesalz jodiert, Zucker, Gewürze, Gewürzextrakte); Sonnenblumenöl; Speisesalz jodiert; Würzsauce (Peperoni, Wasser, Chili, Speisesalz, Gewürze, Tafelessig); Gewürze; Weinbrand (40 % vol.); Zitronensaftkonzentrat.\n\n**Allergene:** Schwefeldioxid (SO₂), Senf",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/tatar-sauce-plus.png"],
+      "variants": [ { "title": "6 Becher à 250 g (1 KT)", "sku": "226251K250", "price": null } ],
+      "translations": {
+        "en": { "title": "Tatar Sauce plus", "subtitle": "Seasoning sauce", "description": "Sauce base for making beef tartare with ketchup, gherkin and chilli.\n\n**Dosage:** 250 g sauce / 750 g beef.\n\n**Ingredients:** tomato ketchup (tomatoes, sucrose, table vinegar, glucose syrup, iodised table salt, maize starch, spices); gherkins; silverskin onions (contains SULPHITE); MUSTARD (table vinegar, water, MUSTARD SEEDS, iodised table salt, sugar, spices, spice extracts); sunflower oil; iodised table salt; seasoning sauce (peppers, water, chilli, table salt, spices, table vinegar); spices; brandy (40 % vol.); lemon juice concentrate.\n\n**Allergens:** Sulphur dioxide (SO₂), Mustard" },
+        "it": { "title": "Salsa Tatar plus", "subtitle": "Salsa da condimento", "description": "Base per salsa per la preparazione di tartara con ketchup, cetriolino e peperoncino.\n\n**Dosaggio:** 250 g di salsa / 750 g di carne di manzo.\n\n**Ingredienti:** ketchup di pomodoro (pomodori, saccarosio, aceto da tavola, sciroppo di glucosio, sale da cucina iodato, amido di mais, spezie); cetriolini; cipolline (contiene SOLFITI); SENAPE (aceto da tavola, acqua, SEMI DI SENAPE, sale da cucina iodato, zucchero, spezie, estratti di spezie); olio di girasole; sale da cucina iodato; salsa da condimento (peperoni, acqua, peperoncino, sale, spezie, aceto da tavola); spezie; brandy (40 % vol.); concentrato di succo di limone.\n\n**Allergeni:** Anidride solforosa (SO₂), Senape" }
+      }
+    },
+    {
+      "title": "Metzger Tatar Sauce",
+      "handle": "metzger-tatar-sauce",
+      "description": "Saucebasis für die Herstellung von Tatar mit zusätzlicher Frischhaltung.\n\n**Dosierung:** 270 g Sauce / 630 g Rindfleisch.\n\n**Zutaten:** Rapsöl; Wasser; Säureregulator: E 325; Speisesalz jodiert; MILCHEIWEISS; SOJASAUCE (Wasser, SOJA, Speisesalz, Weinessig); Tafelessig; Paprika; Zwiebel; Antioxidationsmittel: E 301; Maltodextrin; Gewürzextrakte; Geschmacksverstärker: E 621; färbender Apfelextrakt; Dextrose; Gewürze; Verdickungsmittel: E 415.\n\n**Allergene:** Soja, Milch, E 301, E 325, E 415, E 621",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/metzger-tatar-sauce.png"],
+      "variants": [ { "title": "6 Becher à 270 g (1 KT)", "sku": "232871K270", "price": null } ],
+      "translations": {
+        "en": { "title": "Butcher's Tatar Sauce", "subtitle": "Seasoning sauce", "description": "Sauce base for making beef tartare, with additional preservation.\n\n**Dosage:** 270 g sauce / 630 g beef.\n\n**Ingredients:** rapeseed oil; water; acidity regulator: E 325; iodised table salt; MILK PROTEIN; SOY SAUCE (water, SOY, table salt, wine vinegar); table vinegar; paprika; onion; antioxidant: E 301; maltodextrin; spice extracts; flavour enhancer: E 621; colouring apple extract; dextrose; spices; thickener: E 415.\n\n**Allergens:** Soy, Milk, E 301, E 325, E 415, E 621" },
+        "it": { "title": "Salsa Tatar del Macellaio", "subtitle": "Salsa da condimento", "description": "Base per salsa per la preparazione di tartara, con conservazione aggiuntiva.\n\n**Dosaggio:** 270 g di salsa / 630 g di carne di manzo.\n\n**Ingredienti:** olio di colza; acqua; correttore di acidità: E 325; sale da cucina iodato; PROTEINE DEL LATTE; SALSA DI SOIA (acqua, SOIA, sale, aceto di vino); aceto da tavola; paprika; cipolla; antiossidante: E 301; maltodestrina; estratti di spezie; esaltatore di sapidità: E 621; estratto di mela colorante; destrosio; spezie; addensante: E 415.\n\n**Allergeni:** Soia, Latte, E 301, E 325, E 415, E 621" }
+      }
+    }
+  ]
+}

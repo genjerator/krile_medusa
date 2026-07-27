@@ -1,0 +1,95 @@
+{
+  "defaults": {
+    "status": "published",
+    "currency_code": "eur",
+    "subtitle": "Würzmarinade auf Basis CH-Rapsöl",
+    "category_names": ["Marinaden"],
+    "sales_channel_names": ["IndustriesWebshop"],
+    "option_title": "Gebinde"
+  },
+  "products": [
+    {
+      "title": "Soja Honig Marinade Sensia®",
+      "handle": "soja-honig-marinade-sensia",
+      "description": "Süssliche Marinade abgerundet mit Sojasauce und Honig. Harmoniert am besten mit Geflügel und Fisch.\n\n**Dosierung:** 80–100 g/kg Fleisch oder Fisch.\n\n**Zutaten:** Pflanzenöle (Raps [CH], Raps vollgehärtet [CH]); Tafelessig; SOJASAUCE 14 % (Wasser, SOJA, Speisesalz, Weinessig); Gewürze; Speisesalz jodiert; Honig 4 %; Saccharose; Würze.\n\n**Allergene:** Soja",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/soja-honig-marinade-sensia.png"],
+      "variants": [ { "title": "2.5 kg Kessel", "sku": "1714525", "price": null } ],
+      "translations": {
+        "en": { "title": "Soy Honey Marinade Sensia®", "subtitle": "Seasoning marinade based on Swiss rapeseed oil", "description": "Sweet marinade rounded off with soy sauce and honey. Pairs best with poultry and fish.\n\n**Dosage:** 80–100 g/kg meat or fish.\n\n**Ingredients:** Vegetable oils (rapeseed [CH], fully hydrogenated rapeseed [CH]); table vinegar; SOY SAUCE 14 % (water, SOY, table salt, wine vinegar); spices; iodised table salt; honey 4 %; sucrose; seasoning.\n\n**Allergens:** Soy" },
+        "it": { "title": "Marinata soia e miele Sensia®", "subtitle": "Marinata speziata a base di olio di colza svizzero", "description": "Marinata dolce arrotondata con salsa di soia e miele. Si abbina al meglio con pollame e pesce.\n\n**Dosaggio:** 80–100 g/kg di carne o pesce.\n\n**Ingredienti:** Oli vegetali (colza [CH], colza completamente idrogenata [CH]); aceto da tavola; SALSA DI SOIA 14 % (acqua, SOIA, sale, aceto di vino); spezie; sale da cucina iodato; miele 4 %; saccarosio; condimento.\n\n**Allergeni:** Soia" }
+      }
+    },
+    {
+      "title": "Spare Ribs Marinade Sensia®",
+      "handle": "spare-ribs-marinade-sensia",
+      "description": "Süsslich-rauchige Marinade mit Honig- und Ingwernote. Harmoniert am besten zu Schwein, Rind und Geflügel.\n\n**Dosierung:** 80–100 g/kg Fleisch.\n\n**Zutaten:** Pflanzenöle (Raps [CH], Raps vollgehärtet [CH]); Honig 30 %; Speisesalz jodiert; Gewürze; Rohrzucker; Tomatenpulver; SOJASAUCE (Wasser, SOJA, Speisesalz, Weinessig); Gewürzextrakte; Dextrose; Maltodextrin geräuchert.\n\n**Allergene:** Soja",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/spare-ribs-marinade-sensia.png"],
+      "variants": [ { "title": "2.5 kg Kessel", "sku": "1573725", "price": null } ],
+      "translations": {
+        "en": { "title": "Spare Ribs Marinade Sensia®", "subtitle": "Seasoning marinade based on Swiss rapeseed oil", "description": "Sweet, smoky marinade with honey and ginger notes. Pairs best with pork, beef and poultry.\n\n**Dosage:** 80–100 g/kg meat.\n\n**Ingredients:** Vegetable oils (rapeseed [CH], fully hydrogenated rapeseed [CH]); honey 30 %; iodised table salt; spices; cane sugar; tomato powder; SOY SAUCE (water, SOY, table salt, wine vinegar); spice extracts; dextrose; smoked maltodextrin.\n\n**Allergens:** Soy" },
+        "it": { "title": "Marinata Spare Ribs Sensia®", "subtitle": "Marinata speziata a base di olio di colza svizzero", "description": "Marinata dolce e affumicata con note di miele e zenzero. Si abbina al meglio con maiale, manzo e pollame.\n\n**Dosaggio:** 80–100 g/kg di carne.\n\n**Ingredienti:** Oli vegetali (colza [CH], colza completamente idrogenata [CH]); miele 30 %; sale da cucina iodato; spezie; zucchero di canna; pomodoro in polvere; SALSA DI SOIA (acqua, SOIA, sale, aceto di vino); estratti di spezie; destrosio; maltodestrina affumicata.\n\n**Allergeni:** Soia" }
+      }
+    },
+    {
+      "title": "Spare Ribs Marinade oA Sensia®",
+      "handle": "spare-ribs-marinade-oa-sensia",
+      "description": "Süsslich-rauchige Marinade, ohne Allergene, mit Honig und Ingwer, ohne Sojasauce. Harmoniert am besten mit Rind, Schwein und Geflügel.\n\n**Dosierung:** 80–100 g/kg Fleisch oder Fisch.\n\n**Zutaten:** Pflanzenöle (Raps [CH], Raps vollgehärtet [CH]); Honig; Speisesalz jodiert; Gewürze; Rohrzucker; Tomatenpulver; Gewürzextrakt; Dextrose; Raucharoma; Hefeextrakt.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/spare-ribs-marinade-oa-sensia.png"],
+      "variants": [ { "title": "2.5 kg Kessel", "sku": "1757525", "price": null } ],
+      "translations": {
+        "en": { "title": "Spare Ribs Marinade, allergen-free Sensia®", "subtitle": "Seasoning marinade based on Swiss rapeseed oil", "description": "Sweet, smoky marinade, allergen-free, with honey and ginger, without soy sauce. Pairs best with beef, pork and poultry.\n\n**Dosage:** 80–100 g/kg meat or fish.\n\n**Ingredients:** Vegetable oils (rapeseed [CH], fully hydrogenated rapeseed [CH]); honey; iodised table salt; spices; cane sugar; tomato powder; spice extract; dextrose; smoke flavouring; yeast extract." },
+        "it": { "title": "Marinata Spare Ribs senza allergeni Sensia®", "subtitle": "Marinata speziata a base di olio di colza svizzero", "description": "Marinata dolce e affumicata, senza allergeni, con miele e zenzero, senza salsa di soia. Si abbina al meglio con manzo, maiale e pollame.\n\n**Dosaggio:** 80–100 g/kg di carne o pesce.\n\n**Ingredienti:** Oli vegetali (colza [CH], colza completamente idrogenata [CH]); miele; sale da cucina iodato; spezie; zucchero di canna; pomodoro in polvere; estratto di spezie; destrosio; aroma di affumicatura; estratto di lievito." }
+      }
+    },
+    {
+      "title": "Café de Paris Marinade Sensia®",
+      "handle": "cafe-de-paris-marinade-sensia",
+      "description": "Deftige, leicht rauchige Marinade nach Butter-, Paprika- und Kräuternote. Harmoniert am besten mit Lamm, Pferd, Rind und Schwein.\n\n**Dosierung:** 80–100 g/kg Fleisch oder Fisch.\n\n**Zutaten:** Pflanzenöle (Raps [CH], Raps vollgehärtet [CH]); Gewürze; Speisesalz jodiert; Würze; Dextrose; Aromen; Maltodextrin geräuchert; Gewürzextrakt.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/cafe-de-paris-marinade-sensia.png"],
+      "variants": [
+        { "title": "6 Becher à 200 g (1 KT)", "sku": "155751K200", "price": null },
+        { "title": "2.5 kg Kessel", "sku": "1557525", "price": null }
+      ],
+      "translations": {
+        "en": { "title": "Café de Paris Marinade Sensia®", "subtitle": "Seasoning marinade based on Swiss rapeseed oil", "description": "Hearty, slightly smoky marinade with butter, paprika and herb notes. Pairs best with lamb, horse, beef and pork.\n\n**Dosage:** 80–100 g/kg meat or fish.\n\n**Ingredients:** Vegetable oils (rapeseed [CH], fully hydrogenated rapeseed [CH]); spices; iodised table salt; seasoning; dextrose; flavourings; smoked maltodextrin; spice extract." },
+        "it": { "title": "Marinata Café de Paris Sensia®", "subtitle": "Marinata speziata a base di olio di colza svizzero", "description": "Marinata gustosa e leggermente affumicata con note di burro, paprika ed erbe. Si abbina al meglio con agnello, cavallo, manzo e maiale.\n\n**Dosaggio:** 80–100 g/kg di carne o pesce.\n\n**Ingredienti:** Oli vegetali (colza [CH], colza completamente idrogenata [CH]); spezie; sale da cucina iodato; condimento; destrosio; aromi; maltodestrina affumicata; estratto di spezie." }
+      }
+    },
+    {
+      "title": "Thymian-Citro Marinade Sensia®",
+      "handle": "thymian-citro-marinade-sensia",
+      "description": "Frisch-herbe Marinade mit Thymian und Zitrone. Harmoniert am besten mit Schwein, Fisch und Geflügel.\n\n**Dosierung:** 80–100 g/kg Fleisch oder Fisch.\n\n**Zutaten:** Pflanzenöle (Raps [CH], Raps vollgehärtet [CH]); Speisesalz jodiert; Gewürze; Saccharose; Thymian 2.5 %; Zitronenschale 1 %; Zitronenöl 0.5 %; Gewürzextrakte (enth. Thymianextrakt 0.2 %).",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/thymian-citro-marinade-sensia.png"],
+      "variants": [ { "title": "2.5 kg Kessel", "sku": "1709925", "price": null } ],
+      "translations": {
+        "en": { "title": "Thyme-Lemon Marinade Sensia®", "subtitle": "Seasoning marinade based on Swiss rapeseed oil", "description": "Fresh, tangy marinade with thyme and lemon. Pairs best with pork, fish and poultry.\n\n**Dosage:** 80–100 g/kg meat or fish.\n\n**Ingredients:** Vegetable oils (rapeseed [CH], fully hydrogenated rapeseed [CH]); iodised table salt; spices; sucrose; thyme 2.5 %; lemon peel 1 %; lemon oil 0.5 %; spice extracts (contains thyme extract 0.2 %)." },
+        "it": { "title": "Marinata timo-limone Sensia®", "subtitle": "Marinata speziata a base di olio di colza svizzero", "description": "Marinata fresca ed erbacea con timo e limone. Si abbina al meglio con maiale, pesce e pollame.\n\n**Dosaggio:** 80–100 g/kg di carne o pesce.\n\n**Ingredienti:** Oli vegetali (colza [CH], colza completamente idrogenata [CH]); sale da cucina iodato; spezie; saccarosio; timo 2.5 %; scorza di limone 1 %; olio di limone 0.5 %; estratti di spezie (contiene estratto di timo 0.2 %)." }
+      }
+    },
+    {
+      "title": "Whisky Marinade Sensia®",
+      "handle": "whisky-marinade-sensia",
+      "description": "Aromatisch-herbe Marinade, leicht rauchig mit Whisky. Harmoniert am besten mit dunklen Fleischsorten wie Rind oder Lamm.\n\n**Dosierung:** 80–100 g/kg Fleisch oder Fisch.\n\n**Zutaten:** Pflanzenöle (Raps [CH], Raps vollgehärtet [CH]); Gewürze; Speisesalz jodiert; Whisky 13 % (40 % vol.); Gewürzextrakt; Raucharoma.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/whisky-marinade-sensia.png"],
+      "variants": [ { "title": "2.5 kg Kessel", "sku": "1757625", "price": null } ],
+      "translations": {
+        "en": { "title": "Whisky Marinade Sensia®", "subtitle": "Seasoning marinade based on Swiss rapeseed oil", "description": "Aromatic, tangy marinade, lightly smoky with whisky. Pairs best with dark meats such as beef or lamb.\n\n**Dosage:** 80–100 g/kg meat or fish.\n\n**Ingredients:** Vegetable oils (rapeseed [CH], fully hydrogenated rapeseed [CH]); spices; iodised table salt; whisky 13 % (40 % vol.); spice extract; smoke flavouring." },
+        "it": { "title": "Marinata al whisky Sensia®", "subtitle": "Marinata speziata a base di olio di colza svizzero", "description": "Marinata aromatica ed erbacea, leggermente affumicata con whisky. Si abbina al meglio con carni scure come manzo o agnello.\n\n**Dosaggio:** 80–100 g/kg di carne o pesce.\n\n**Ingredienti:** Oli vegetali (colza [CH], colza completamente idrogenata [CH]); spezie; sale da cucina iodato; whisky 13 % (40 % vol.); estratto di spezie; aroma di affumicatura." }
+      }
+    },
+    {
+      "title": "Zitronenpfeffer Marinade Sensia®",
+      "handle": "zitronenpfeffer-marinade-sensia",
+      "description": "Frisch-aromatische Marinade mit Pfeffer schwarz und Zitrone. Harmoniert am besten mit hellen Fleischsorten, Geflügel oder Fisch.\n\n**Dosierung:** 80–100 g/kg Fleisch oder Fisch.\n\n**Zutaten:** Pflanzenöle (Raps [CH], Raps vollgehärtet [CH]); Speisesalz jodiert; Gewürze (enth. Pfeffer 5 %); Dextrose; Würze; Gewürzextrakte; Zitronenöl 0.3 %; nat. Aroma.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/zitronenpfeffer-marinade-sensia.png"],
+      "variants": [
+        { "title": "6 Becher à 200 g (1 KT)", "sku": "155741K200", "price": null },
+        { "title": "2.5 kg Kessel", "sku": "1557425", "price": null }
+      ],
+      "translations": {
+        "en": { "title": "Lemon Pepper Marinade Sensia®", "subtitle": "Seasoning marinade based on Swiss rapeseed oil", "description": "Fresh, aromatic marinade with black pepper and lemon. Pairs best with light meats, poultry or fish.\n\n**Dosage:** 80–100 g/kg meat or fish.\n\n**Ingredients:** Vegetable oils (rapeseed [CH], fully hydrogenated rapeseed [CH]); iodised table salt; spices (contains pepper 5 %); dextrose; seasoning; spice extracts; lemon oil 0.3 %; natural flavouring." },
+        "it": { "title": "Marinata al pepe e limone Sensia®", "subtitle": "Marinata speziata a base di olio di colza svizzero", "description": "Marinata fresca e aromatica con pepe nero e limone. Si abbina al meglio con carni chiare, pollame o pesce.\n\n**Dosaggio:** 80–100 g/kg di carne o pesce.\n\n**Ingredienti:** Oli vegetali (colza [CH], colza completamente idrogenata [CH]); sale da cucina iodato; spezie (contiene pepe 5 %); destrosio; condimento; estratti di spezie; olio di limone 0.3 %; aroma naturale." }
+      }
+    }
+  ]
+}

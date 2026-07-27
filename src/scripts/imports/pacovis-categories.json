@@ -4,7 +4,7 @@
     "handle": "gewurze",
     "is_active": true,
     "is_internal": false,
-    "description": "Würzmarinaden, Gewürzmischungen, Paniersysteme und küchenfertige Produkte von Pacovis – Schweizer Qualität für Metzgerei, Gastronomie und Lebensmittelverarbeitung.",
+    "description": "Würzmarinaden, Gewürzmischungen, Paniersysteme und küchenfertige Produkte von Planeta – Schweizer Qualität für Metzgerei, Gastronomie und Lebensmittelverarbeitung.",
     "category_children": [
       {
         "name": "Marinaden",
@@ -31,7 +31,7 @@
         "description": "Paniermehle, Panaden und Paniersysteme für knusprige Ergebnisse – klassisch, dekorativ, als Schnellpanade oder glutenfrei."
       },
       {
-        "name": "Küchen- und Traiteurartikel",
+        "name": "Küchen und Traiteurartikel",
         "handle": "kuechen-und-traiteurartikel",
         "is_active": true,
         "is_internal": false,
