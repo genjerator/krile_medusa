@@ -1,0 +1,65 @@
+{
+  "defaults": {
+    "status": "published",
+    "currency_code": "eur",
+    "subtitle": "Saucenzubereitung (CH-Rapsöl)",
+    "category_names": ["Marinaden"],
+    "sales_channel_names": ["IndustriesWebshop"],
+    "option_title": "Gebinde"
+  },
+  "products": [
+    {
+      "title": "Marisauce Satay",
+      "handle": "marisauce-satay",
+      "subtitle": "Saucenzubereitung auf Basis Joghurt",
+      "description": "Typische Satay Marisauce mit Erdnüssen, Sojasauce und Joghurt mit einer pikanten Würzung. Harmoniert am besten mit Geflügel oder Fisch.\n\n**Dosierung:** 250 g / 850 g Fleisch.\n\n**Zutaten:** VOLLMILCHJOGHURT; ERDNUSSPASTE 33 %; Speisesalz jodiert; ERDNUSSÖL 6.5 %; SOJASAUCE; Gewürze; färbender Apfelextrakt; Säuerungsmittel: E 270; Saccharose; Tafelessig; Konservierungsstoff: E 202; Gewürzextrakt.\n\n**Allergene:** Erdnuss, Soja, Milch, E 202, E 270",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/marisauce-satay.png"],
+      "variants": [ { "title": "6 Becher à 250 g (1 KT)", "sku": "228991K250", "price": null } ],
+      "translations": {
+        "en": { "title": "Marisauce Satay", "subtitle": "Yoghurt-based sauce preparation", "description": "Classic Satay Marisauce with peanuts, soy sauce and yoghurt with a spicy seasoning. Pairs best with poultry or fish.\n\n**Dosage:** 250 g / 850 g meat.\n\n**Ingredients:** WHOLE MILK YOGHURT; PEANUT PASTE 33 %; iodised table salt; PEANUT OIL 6.5 %; SOY SAUCE; spices; colouring apple extract; acidifier: E 270; sucrose; table vinegar; preservative: E 202; spice extract.\n\n**Allergens:** Peanut, Soy, Milk, E 202, E 270" },
+        "it": { "title": "Marisauce Satay", "subtitle": "Preparato per salsa a base di yogurt", "description": "Marisauce Satay classica con arachidi, salsa di soia e yogurt con una speziatura piccante. Si abbina al meglio con pollame o pesce.\n\n**Dosaggio:** 250 g / 850 g di carne.\n\n**Ingredienti:** YOGURT INTERO; PASTA DI ARACHIDI 33 %; sale da cucina iodato; OLIO DI ARACHIDI 6.5 %; SALSA DI SOIA; spezie; estratto di mela colorante; acidificante: E 270; saccarosio; aceto da tavola; conservante: E 202; estratto di spezie.\n\n**Allergeni:** Arachidi, Soia, Latte, E 202, E 270" }
+      }
+    },
+    {
+      "title": "Marisauce Stroganoff",
+      "handle": "marisauce-stroganoff",
+      "description": "Herzhafte, aromatische Stroganoff Marinade mit Paprika. Harmoniert am besten mit Rind.\n\n**Dosierung:** 160 g/kg Fleisch oder Gemüse.\n\n**Zutaten:** Pflanzenöle (Raps [CH], Raps vollgehärtet [CH]); Kartoffelstärke; Speisesalz jodiert; Gewürze; Reisstärke; Hefeextrakt; Konservierungsstoff: E 262; Verdickungsmittel: E 412, E 415; Gewürzextrakte; Antioxidationsmittel: E 300; Aromen; Würze.\n\n**Allergene:** E 262, E 300, E 412, E 415",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/marisauce-stroganoff.png"],
+      "variants": [
+        { "title": "6 Becher à 200 g (1 KT)", "sku": "159631K200", "price": null },
+        { "title": "2.5 kg Kessel", "sku": "1596325", "price": null },
+        { "title": "10 kg Kessel", "sku": "1596310", "price": null }
+      ],
+      "translations": {
+        "en": { "title": "Marisauce Stroganoff", "subtitle": "Sauce preparation (Swiss rapeseed oil)", "description": "Hearty, aromatic Stroganoff marinade with paprika. Pairs best with beef.\n\n**Dosage:** 160 g/kg meat or vegetables.\n\n**Ingredients:** vegetable oils (rapeseed [CH], fully hydrogenated rapeseed [CH]); potato starch; iodised table salt; spices; rice starch; yeast extract; preservative: E 262; thickeners: E 412, E 415; spice extracts; antioxidant: E 300; flavourings; seasoning.\n\n**Allergens:** E 262, E 300, E 412, E 415" },
+        "it": { "title": "Marisauce Stroganoff", "subtitle": "Preparato per salsa (olio di colza svizzero)", "description": "Marinata Stroganoff gustosa e aromatica con paprika. Si abbina al meglio con il manzo.\n\n**Dosaggio:** 160 g/kg di carne o verdure.\n\n**Ingredienti:** oli vegetali (colza [CH], colza completamente idrogenata [CH]); amido di patate; sale da cucina iodato; spezie; amido di riso; estratto di lievito; conservante: E 262; addensanti: E 412, E 415; estratti di spezie; antiossidante: E 300; aromi; condimento.\n\n**Allergeni:** E 262, E 300, E 412, E 415" }
+      }
+    },
+    {
+      "title": "Marisauce Sweet Sour",
+      "handle": "marisauce-sweet-sour",
+      "description": "Fruchtige, süss-saure Marinade mit Sojasauce und Mango. Harmoniert am besten mit hellem Fleisch.\n\n**Dosierung:** 160 g/kg Fleisch oder Gemüse.\n\n**Zutaten:** Pflanzenöle (Raps [CH], Raps vollgehärtet [CH]); Kartoffelstärke; Speisesalz jodiert; SOJASAUCE (Wasser, SOJA, Speisesalz, Weinessig); Mangozubereitung (Mango, Saccharose, Wasser, Aroma); Reisstärke; Gewürze; Säuerungsmittel: E 260, E 330; Würze; Verdickungsmittel: E 412, E 415; Gewürzextrakt; Süssstoff: E 951.\n\n**Allergene:** Soja, E 260, E 330, E 412, E 415, E 951",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/marisauce-sweet-sour.png"],
+      "variants": [
+        { "title": "6 Becher à 200 g (1 KT)", "sku": "171061K200", "price": null },
+        { "title": "2.5 kg Kessel", "sku": "1710625", "price": null }
+      ],
+      "translations": {
+        "en": { "title": "Marisauce Sweet Sour", "subtitle": "Sauce preparation (Swiss rapeseed oil)", "description": "Fruity, sweet-and-sour marinade with soy sauce and mango. Pairs best with light meat.\n\n**Dosage:** 160 g/kg meat or vegetables.\n\n**Ingredients:** vegetable oils (rapeseed [CH], fully hydrogenated rapeseed [CH]); potato starch; iodised table salt; SOY SAUCE (water, SOY, table salt, wine vinegar); mango preparation (mango, sucrose, water, flavouring); rice starch; spices; acidifiers: E 260, E 330; seasoning; thickeners: E 412, E 415; spice extract; sweetener: E 951.\n\n**Allergens:** Soy, E 260, E 330, E 412, E 415, E 951" },
+        "it": { "title": "Marisauce Sweet Sour", "subtitle": "Preparato per salsa (olio di colza svizzero)", "description": "Marinata fruttata, agrodolce con salsa di soia e mango. Si abbina al meglio con carni chiare.\n\n**Dosaggio:** 160 g/kg di carne o verdure.\n\n**Ingredienti:** oli vegetali (colza [CH], colza completamente idrogenata [CH]); amido di patate; sale da cucina iodato; SALSA DI SOIA (acqua, SOIA, sale, aceto di vino); preparato di mango (mango, saccarosio, acqua, aroma); amido di riso; spezie; acidificanti: E 260, E 330; condimento; addensanti: E 412, E 415; estratto di spezie; edulcorante: E 951.\n\n**Allergeni:** Soia, E 260, E 330, E 412, E 415, E 951" }
+      }
+    },
+    {
+      "title": "Marisauce Tikka Masala",
+      "handle": "marisauce-tikka-masala",
+      "subtitle": "Saucenzubereitung auf Basis Joghurt",
+      "description": "Pikante Marisauce aus Tomaten, Joghurt und einer feinen Currypaste mit einer pikanten Würzung in Richtung Curry Rot. Harmoniert am besten mit Geflügel, Schweinefleisch oder Rind.\n\n**Dosierung:** 250 g / 850 g Fleisch.\n\n**Zutaten:** Tomatenmark; VOLLMILCHJOGHURT; Pflanzenöle (Raps [CH], Raps vollgehärtet [CH]); Curry Paste; Gewürze; Speisesalz jodiert; Würze; Säuerungsmittel: E 270; Saccharose; Maisstärke; Tafelessig; Konservierungsstoff: E 202.\n\n**Allergene:** Milch, E 202, E 270",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/marisauce-tikka-masala.png"],
+      "variants": [ { "title": "6 Becher à 250 g (1 KT)", "sku": "226491K250", "price": null } ],
+      "translations": {
+        "en": { "title": "Marisauce Tikka Masala", "subtitle": "Yoghurt-based sauce preparation", "description": "Spicy Marisauce made from tomatoes, yoghurt and a fine curry paste with a spicy red-curry seasoning. Pairs best with poultry, pork or beef.\n\n**Dosage:** 250 g / 850 g meat.\n\n**Ingredients:** tomato paste; WHOLE MILK YOGHURT; vegetable oils (rapeseed [CH], fully hydrogenated rapeseed [CH]); curry paste; spices; iodised table salt; seasoning; acidifier: E 270; sucrose; maize starch; table vinegar; preservative: E 202.\n\n**Allergens:** Milk, E 202, E 270" },
+        "it": { "title": "Marisauce Tikka Masala", "subtitle": "Preparato per salsa a base di yogurt", "description": "Marisauce piccante a base di pomodori, yogurt e una fine pasta di curry con una speziatura piccante in stile curry rosso. Si abbina al meglio con pollame, maiale o manzo.\n\n**Dosaggio:** 250 g / 850 g di carne.\n\n**Ingredienti:** concentrato di pomodoro; YOGURT INTERO; oli vegetali (colza [CH], colza completamente idrogenata [CH]); pasta di curry; spezie; sale da cucina iodato; condimento; acidificante: E 270; saccarosio; amido di mais; aceto da tavola; conservante: E 202.\n\n**Allergeni:** Latte, E 202, E 270" }
+      }
+    }
+  ]
+}

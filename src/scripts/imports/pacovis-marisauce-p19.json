@@ -1,0 +1,63 @@
+{
+  "defaults": {
+    "status": "published",
+    "currency_code": "eur",
+    "subtitle": "Saucenzubereitung (CH-Rapsöl)",
+    "category_names": ["Marinaden"],
+    "sales_channel_names": ["IndustriesWebshop"],
+    "option_title": "Gebinde"
+  },
+  "products": [
+    {
+      "title": "Marisauce Butter Chicken",
+      "handle": "marisauce-butter-chicken",
+      "subtitle": "Saucenzubereitung auf Basis Joghurt",
+      "description": "Würzig-sämige Marisauce mit Tomaten, Butter und Joghurt mit einer authentischen Würzung nach Kreuzkümmel, Knoblauch und etwas Chili. Harmoniert am besten mit Geflügel.\n\n**Dosierung:** 250 g / 850 g Fleisch.\n\n**Zutaten:** VOLLMILCHJOGHURT; Tomatenmark; Pflanzenöle (Raps [CH], Raps vollgehärtet [CH]); Speisesalz jodiert; Gewürze; Tafelessig; BUTTER 1.5 %; Saccharose; Gewürzextrakte; Säuerungsmittel: E 270; Konservierungsstoff: E 202; Aroma.\n\n**Allergene:** Milch, E 202, E 270",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/marisauce-butter-chicken.png"],
+      "variants": [ { "title": "6 Becher à 250 g (1 KT)", "sku": "227241K250", "price": null } ],
+      "translations": {
+        "en": { "title": "Marisauce Butter Chicken", "subtitle": "Yoghurt-based sauce preparation", "description": "Spicy, creamy Marisauce with tomatoes, butter and yoghurt with an authentic seasoning of cumin, garlic and a hint of chilli. Pairs best with poultry.\n\n**Dosage:** 250 g / 850 g meat.\n\n**Ingredients:** WHOLE MILK YOGHURT; tomato paste; vegetable oils (rapeseed [CH], fully hydrogenated rapeseed [CH]); iodised table salt; spices; table vinegar; BUTTER 1.5 %; sucrose; spice extracts; acidifier: E 270; preservative: E 202; flavouring.\n\n**Allergens:** Milk, E 202, E 270" },
+        "it": { "title": "Marisauce Butter Chicken", "subtitle": "Preparato per salsa a base di yogurt", "description": "Marisauce speziata e cremosa con pomodori, burro e yogurt con un'autentica speziatura di cumino, aglio e un tocco di peperoncino. Si abbina al meglio con il pollame.\n\n**Dosaggio:** 250 g / 850 g di carne.\n\n**Ingredienti:** YOGURT INTERO; concentrato di pomodoro; oli vegetali (colza [CH], colza completamente idrogenata [CH]); sale da cucina iodato; spezie; aceto da tavola; BURRO 1.5 %; saccarosio; estratti di spezie; acidificante: E 270; conservante: E 202; aroma.\n\n**Allergeni:** Latte, E 202, E 270" }
+      }
+    },
+    {
+      "title": "Marisauce Curry",
+      "handle": "marisauce-curry",
+      "description": "Exotische, aromatische Marinade mit Curry. Harmoniert am besten mit Geflügel und Fisch.\n\n**Dosierung:** 160 g/kg Fleisch oder Gemüse.\n\n**Zutaten:** Pflanzenöle (Raps [CH], Raps vollgehärtet [CH]); Kartoffelstärke; Curry 15 %; Speisesalz jodiert; Saccharose; Konservierungsstoff: E 262; Verdickungsmittel: E 412, E 415; Gewürzextrakt; Aroma; Antioxidationsmittel: E 300.\n\n**Allergene:** E 262, E 300, E 412, E 415",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/marisauce-curry.png"],
+      "variants": [ { "title": "2.5 kg Kessel", "sku": "1710425", "price": null } ],
+      "translations": {
+        "en": { "title": "Marisauce Curry", "subtitle": "Sauce preparation (Swiss rapeseed oil)", "description": "Exotic, aromatic marinade with curry. Pairs best with poultry and fish.\n\n**Dosage:** 160 g/kg meat or vegetables.\n\n**Ingredients:** vegetable oils (rapeseed [CH], fully hydrogenated rapeseed [CH]); potato starch; curry 15 %; iodised table salt; sucrose; preservative: E 262; thickeners: E 412, E 415; spice extract; flavouring; antioxidant: E 300.\n\n**Allergens:** E 262, E 300, E 412, E 415" },
+        "it": { "title": "Marisauce Curry", "subtitle": "Preparato per salsa (olio di colza svizzero)", "description": "Marinata esotica e aromatica al curry. Si abbina al meglio con pollame e pesce.\n\n**Dosaggio:** 160 g/kg di carne o verdure.\n\n**Ingredienti:** oli vegetali (colza [CH], colza completamente idrogenata [CH]); amido di patate; curry 15 %; sale da cucina iodato; saccarosio; conservante: E 262; addensanti: E 412, E 415; estratto di spezie; aroma; antiossidante: E 300.\n\n**Allergeni:** E 262, E 300, E 412, E 415" }
+      }
+    },
+    {
+      "title": "Marisauce Gyros",
+      "handle": "marisauce-gyros",
+      "description": "Herzhafte Marisauce mit Knoblauch, Kreuzkümmel und Kräutern. Harmoniert am besten mit Rind, Schwein und Geflügel.\n\n**Dosierung:** 160 g/kg Fleisch oder Gemüse.\n\n**Zutaten:** Pflanzenöle (Raps [CH], Raps vollgehärtet [CH]); Kartoffelstärke; Gewürze; Speisesalz jodiert; Verdickungsmittel: E 412, E 415; Konservierungsstoff: E 262; Gewürzextrakte; Aroma.\n\n**Allergene:** E 262, E 412, E 415",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/marisauce-gyros.png"],
+      "variants": [
+        { "title": "6 Becher à 200 g (1 KT)", "sku": "171031K200", "price": null },
+        { "title": "2.5 kg Kessel", "sku": "1710325", "price": null }
+      ],
+      "translations": {
+        "en": { "title": "Marisauce Gyros", "subtitle": "Sauce preparation (Swiss rapeseed oil)", "description": "Hearty Marisauce with garlic, cumin and herbs. Pairs best with beef, pork and poultry.\n\n**Dosage:** 160 g/kg meat or vegetables.\n\n**Ingredients:** vegetable oils (rapeseed [CH], fully hydrogenated rapeseed [CH]); potato starch; spices; iodised table salt; thickeners: E 412, E 415; preservative: E 262; spice extracts; flavouring.\n\n**Allergens:** E 262, E 412, E 415" },
+        "it": { "title": "Marisauce Gyros", "subtitle": "Preparato per salsa (olio di colza svizzero)", "description": "Marisauce gustosa con aglio, cumino ed erbe. Si abbina al meglio con manzo, maiale e pollame.\n\n**Dosaggio:** 160 g/kg di carne o verdure.\n\n**Ingredienti:** oli vegetali (colza [CH], colza completamente idrogenata [CH]); amido di patate; spezie; sale da cucina iodato; addensanti: E 412, E 415; conservante: E 262; estratti di spezie; aroma.\n\n**Allergeni:** E 262, E 412, E 415" }
+      }
+    },
+    {
+      "title": "Marisauce Förster",
+      "handle": "marisauce-foerster",
+      "description": "Marinade mit deftigem Geschmack nach Braten. Harmoniert am besten mit dunklen Fleischsorten.\n\n**Dosierung:** 160 g/kg Fleisch oder Gemüse.\n\n**Zutaten:** Pflanzenöle (Raps [CH], Raps vollgehärtet [CH]); Kartoffelstärke; Speisesalz jodiert; Gewürze; Reisstärke; Würze; nat. Aroma; Verdickungsmittel: E 412, E 415; Gewürzextrakt.\n\n**Allergene:** E 412, E 415",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/marisauce-foerster.png"],
+      "variants": [
+        { "title": "6 Becher à 200 g (1 KT)", "sku": "171051K200", "price": null },
+        { "title": "2.5 kg Kessel", "sku": "1710525", "price": null }
+      ],
+      "translations": {
+        "en": { "title": "Marisauce Förster", "subtitle": "Sauce preparation (Swiss rapeseed oil)", "description": "Marinade with a hearty roast flavour. Pairs best with dark meats.\n\n**Dosage:** 160 g/kg meat or vegetables.\n\n**Ingredients:** vegetable oils (rapeseed [CH], fully hydrogenated rapeseed [CH]); potato starch; iodised table salt; spices; rice starch; seasoning; natural flavouring; thickeners: E 412, E 415; spice extract.\n\n**Allergens:** E 412, E 415" },
+        "it": { "title": "Marisauce Förster", "subtitle": "Preparato per salsa (olio di colza svizzero)", "description": "Marinata dal gusto intenso di arrosto. Si abbina al meglio con carni scure.\n\n**Dosaggio:** 160 g/kg di carne o verdure.\n\n**Ingredienti:** oli vegetali (colza [CH], colza completamente idrogenata [CH]); amido di patate; sale da cucina iodato; spezie; amido di riso; condimento; aroma naturale; addensanti: E 412, E 415; estratto di spezie.\n\n**Allergeni:** E 412, E 415" }
+      }
+    }
+  ]
+}

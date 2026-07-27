@@ -1,0 +1,89 @@
+{
+  "defaults": {
+    "status": "published",
+    "currency_code": "eur",
+    "subtitle": "Würzmarinade gebunden",
+    "category_names": ["Marinaden"],
+    "sales_channel_names": ["IndustriesWebshop"],
+    "option_title": "Gebinde"
+  },
+  "products": [
+    {
+      "title": "Geflügel Maricrème®",
+      "handle": "gefluegel-maricreme",
+      "description": "Deftige Marinade nach Paprika- und Rosmarinnote. Eignet sich am besten für Pfannengerichte mit Geflügel.\n\n**Dosierung:** 100 g/kg Fleisch.\n\n**Zutaten:** Wasser; Kräuterzubereitung (Sonnenblumenöl, Kräuter, Knoblauch, Speisesalz, Weissweinessig, Zitronensaftkonzentrat); Sonnenblumenöl; Gewürze; Speisesalz jodiert; Würze; Saccharose; Zitronensaftkonzentrat; Verdickungsmittel: E 415; Gewürzextrakt.\n\n**Allergene:** E 415",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/gefluegel-maricreme.png"],
+      "variants": [ { "title": "2.5 kg Kessel", "sku": "148525", "price": null } ],
+      "translations": {
+        "en": { "title": "Poultry Maricrème®", "subtitle": "Bound seasoning marinade", "description": "Hearty marinade with paprika and rosemary notes. Best suited for pan dishes with poultry.\n\n**Dosage:** 100 g/kg meat.\n\n**Ingredients:** water; herb preparation (sunflower oil, herbs, garlic, table salt, white wine vinegar, lemon juice concentrate); sunflower oil; spices; iodised table salt; seasoning; sucrose; lemon juice concentrate; thickener: E 415; spice extract.\n\n**Allergens:** E 415" },
+        "it": { "title": "Maricrème® pollame", "subtitle": "Marinata speziata legata", "description": "Marinata gustosa con note di paprika e rosmarino. Ideale per piatti in padella con pollame.\n\n**Dosaggio:** 100 g/kg di carne.\n\n**Ingredienti:** acqua; preparato di erbe (olio di girasole, erbe, aglio, sale, aceto di vino bianco, concentrato di succo di limone); olio di girasole; spezie; sale da cucina iodato; condimento; saccarosio; concentrato di succo di limone; addensante: E 415; estratto di spezie.\n\n**Allergeni:** E 415" }
+      }
+    },
+    {
+      "title": "Gewürz Maricrème®",
+      "handle": "gewuerz-maricreme",
+      "description": "Würzig-herbe Marinade mit Thymian, Knoblauch und Senf. Eignet sich am besten für Pfannengerichte mit Schwein, Kalb und Geflügel.\n\n**Dosierung:** 100 g/kg Fleisch.\n\n**Zutaten:** Wasser; SENF (Tafelessig, Wasser, SENFSAMEN, Speisesalz jodiert, Saccharose, Gewürze, Gewürzextrakte); Sonnenblumenöl; Kräuterzubereitung (Sonnenblumenöl, Kräuter, Knoblauch, Speisesalz, Essig, Zitronensaftkonzentrat); Speisesalz jodiert; Gewürze; Würze; Saccharose; Verdickungsmittel: E 415.\n\n**Allergene:** Senf, E 415",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/gewuerz-maricreme.png"],
+      "variants": [ { "title": "2.5 kg Kessel", "sku": "147425", "price": null } ],
+      "translations": {
+        "en": { "title": "Spice Maricrème®", "subtitle": "Bound seasoning marinade", "description": "Spicy, tangy marinade with thyme, garlic and mustard. Best suited for pan dishes with pork, veal and poultry.\n\n**Dosage:** 100 g/kg meat.\n\n**Ingredients:** water; MUSTARD (table vinegar, water, MUSTARD SEEDS, iodised table salt, sucrose, spices, spice extracts); sunflower oil; herb preparation (sunflower oil, herbs, garlic, table salt, vinegar, lemon juice concentrate); iodised table salt; spices; seasoning; sucrose; thickener: E 415.\n\n**Allergens:** Mustard, E 415" },
+        "it": { "title": "Maricrème® speziata", "subtitle": "Marinata speziata legata", "description": "Marinata speziata ed erbacea con timo, aglio e senape. Ideale per piatti in padella con maiale, vitello e pollame.\n\n**Dosaggio:** 100 g/kg di carne.\n\n**Ingredienti:** acqua; SENAPE (aceto da tavola, acqua, SEMI DI SENAPE, sale da cucina iodato, saccarosio, spezie, estratti di spezie); olio di girasole; preparato di erbe (olio di girasole, erbe, aglio, sale, aceto, concentrato di succo di limone); sale da cucina iodato; spezie; condimento; saccarosio; addensante: E 415.\n\n**Allergeni:** Senape, E 415" }
+      }
+    },
+    {
+      "title": "Gyros Maricrème®",
+      "handle": "gyros-maricreme",
+      "description": "Würzig-deftige Marinade mit Paprika-, Zwiebeln-, Knoblauch- und Oreganonote. Eignet sich am besten für Pfannengerichte mit Schwein, Rind und Geflügel.\n\n**Dosierung:** 100 g/kg Fleisch.\n\n**Zutaten:** Wasser; Sonnenblumenöl; Speisesalz; Gewürze; Würze; Aroma; Gewürzextrakte; Saccharose; Verdickungsmittel: E 415; mod. Maisstärke.\n\n**Allergene:** E 1442, E 415",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/gyros-maricreme.png"],
+      "variants": [ { "title": "2.5 kg Kessel", "sku": "1920425", "price": null } ],
+      "translations": {
+        "en": { "title": "Gyros Maricrème®", "subtitle": "Bound seasoning marinade", "description": "Spicy, hearty marinade with paprika, onion, garlic and oregano notes. Best suited for pan dishes with pork, beef and poultry.\n\n**Dosage:** 100 g/kg meat.\n\n**Ingredients:** water; sunflower oil; table salt; spices; seasoning; flavouring; spice extracts; sucrose; thickener: E 415; modified maize starch.\n\n**Allergens:** E 1442, E 415" },
+        "it": { "title": "Maricrème® Gyros", "subtitle": "Marinata speziata legata", "description": "Marinata speziata e gustosa con note di paprika, cipolla, aglio e origano. Ideale per piatti in padella con maiale, manzo e pollame.\n\n**Dosaggio:** 100 g/kg di carne.\n\n**Ingredienti:** acqua; olio di girasole; sale da cucina; spezie; condimento; aroma; estratti di spezie; saccarosio; addensante: E 415; amido di mais modificato.\n\n**Allergeni:** E 1442, E 415" }
+      }
+    },
+    {
+      "title": "Kräuter Knoblauch Maricrème®",
+      "handle": "kraeuter-knoblauch-maricreme",
+      "description": "Aromatische Marinade mit Knoblauch, Petersilie und Estragon. Eignet sich am besten für Pfannengerichte mit hellen Fleischsorten.\n\n**Dosierung:** 100 g/kg Fleisch.\n\n**Zutaten:** Wasser; Sonnenblumenöl; Gewürze (enth. Knoblauch 12 %, Kräuter 1.5 %); Speisesalz jodiert; Zitronensaftkonzentrat; Verdickungsmittel: E 415; Würze; Konservierungsstoff: E 202.\n\n**Allergene:** E 202, E 415",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/kraeuter-knoblauch-maricreme.png"],
+      "variants": [ { "title": "2.5 kg Kessel", "sku": "F45025", "price": null } ],
+      "translations": {
+        "en": { "title": "Herb Garlic Maricrème®", "subtitle": "Bound seasoning marinade", "description": "Aromatic marinade with garlic, parsley and tarragon. Best suited for pan dishes with light meats.\n\n**Dosage:** 100 g/kg meat.\n\n**Ingredients:** water; sunflower oil; spices (contains garlic 12 %, herbs 1.5 %); iodised table salt; lemon juice concentrate; thickener: E 415; seasoning; preservative: E 202.\n\n**Allergens:** E 202, E 415" },
+        "it": { "title": "Maricrème® erbe e aglio", "subtitle": "Marinata speziata legata", "description": "Marinata aromatica con aglio, prezzemolo e dragoncello. Ideale per piatti in padella con carni chiare.\n\n**Dosaggio:** 100 g/kg di carne.\n\n**Ingredienti:** acqua; olio di girasole; spezie (contiene aglio 12 %, erbe 1.5 %); sale da cucina iodato; concentrato di succo di limone; addensante: E 415; condimento; conservante: E 202.\n\n**Allergeni:** E 202, E 415" }
+      }
+    },
+    {
+      "title": "Mexicaine Maricrème®",
+      "handle": "mexicaine-maricreme",
+      "description": "Pikante, kräftige Marinade mit Paprika, Chili und Tomate. Eignet sich am besten für Pfannengerichte mit Rind und Schweinefleisch.\n\n**Dosierung:** 100 g/kg Fleisch.\n\n**Zutaten:** Wasser; Sonnenblumenöl; Gewürze; Speisesalz jodiert; SENF (Tafelessig, Wasser, SENFSAMEN, Speisesalz jodiert, Saccharose, Gewürze, Gewürzextrakte); Saccharose; Würze; Tomatenmark; Tafelessig; Glucosesirup; Verdickungsmittel: E 415; Maisstärke; Gewürzextrakt.\n\n**Allergene:** Senf, E 415",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/mexicaine-maricreme.png"],
+      "variants": [ { "title": "2.5 kg Kessel", "sku": "149525", "price": null } ],
+      "translations": {
+        "en": { "title": "Mexicaine Maricrème®", "subtitle": "Bound seasoning marinade", "description": "Spicy, robust marinade with paprika, chilli and tomato. Best suited for pan dishes with beef and pork.\n\n**Dosage:** 100 g/kg meat.\n\n**Ingredients:** water; sunflower oil; spices; iodised table salt; MUSTARD (table vinegar, water, MUSTARD SEEDS, iodised table salt, sucrose, spices, spice extracts); sucrose; seasoning; tomato paste; table vinegar; glucose syrup; thickener: E 415; maize starch; spice extract.\n\n**Allergens:** Mustard, E 415" },
+        "it": { "title": "Maricrème® Mexicaine", "subtitle": "Marinata speziata legata", "description": "Marinata piccante e intensa con paprika, peperoncino e pomodoro. Ideale per piatti in padella con manzo e maiale.\n\n**Dosaggio:** 100 g/kg di carne.\n\n**Ingredienti:** acqua; olio di girasole; spezie; sale da cucina iodato; SENAPE (aceto da tavola, acqua, SEMI DI SENAPE, sale da cucina iodato, saccarosio, spezie, estratti di spezie); saccarosio; condimento; concentrato di pomodoro; aceto da tavola; sciroppo di glucosio; addensante: E 415; amido di mais; estratto di spezie.\n\n**Allergeni:** Senape, E 415" }
+      }
+    },
+    {
+      "title": "Pusta Maricrème®",
+      "handle": "pusta-maricreme",
+      "description": "Herzhafte, kräftige Marinade mit Paprika und Zwiebeln. Eignet sich am besten für Pfannengerichte mit Schwein, Rind, Fisch und Geflügel.\n\n**Dosierung:** 100 g/kg Fleisch.\n\n**Zutaten:** Sonnenblumenöl; Wasser; Tomatenmark; Speisesalz jodiert; Gewürze; Zitronensaftkonzentrat; Gewürzextrakte; Konservierungsstoff: E 202; Verdickungsmittel: E 415; Würze; Saccharose.\n\n**Allergene:** E 202, E 415",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/pusta-maricreme.png"],
+      "variants": [ { "title": "2.5 kg Kessel", "sku": "561925", "price": null } ],
+      "translations": {
+        "en": { "title": "Pusta Maricrème®", "subtitle": "Bound seasoning marinade", "description": "Hearty, robust marinade with paprika and onions. Best suited for pan dishes with pork, beef, fish and poultry.\n\n**Dosage:** 100 g/kg meat.\n\n**Ingredients:** sunflower oil; water; tomato paste; iodised table salt; spices; lemon juice concentrate; spice extracts; preservative: E 202; thickener: E 415; seasoning; sucrose.\n\n**Allergens:** E 202, E 415" },
+        "it": { "title": "Maricrème® Pusta", "subtitle": "Marinata speziata legata", "description": "Marinata gustosa e intensa con paprika e cipolle. Ideale per piatti in padella con maiale, manzo, pesce e pollame.\n\n**Dosaggio:** 100 g/kg di carne.\n\n**Ingredienti:** olio di girasole; acqua; concentrato di pomodoro; sale da cucina iodato; spezie; concentrato di succo di limone; estratti di spezie; conservante: E 202; addensante: E 415; condimento; saccarosio.\n\n**Allergeni:** E 202, E 415" }
+      }
+    },
+    {
+      "title": "Safran Maricrème®",
+      "handle": "safran-maricreme",
+      "description": "Edle Marinade mit Safran, Morcheln und Rahm. Eignet sich am besten für Pfannengerichte mit Schwein, Lamm und Geflügel.\n\n**Dosierung:** 100 g/kg Fleisch.\n\n**Zutaten:** Wasser; Sonnenblumenöl; Speisesalz jodiert; Würze; Saccharose; Gewürze (enth. Safran 0.1 %); Brandy (40 % vol.); Morcheln; Zitronensaftkonzentrat; Aroma; Verdickungsmittel: E 415; Konservierungsstoff: E 202; Gewürzextrakt.\n\n**Allergene:** E 202, E 415",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/safran-maricreme.png"],
+      "variants": [ { "title": "2.5 kg Kessel", "sku": "668125", "price": null } ],
+      "translations": {
+        "en": { "title": "Saffron Maricrème®", "subtitle": "Bound seasoning marinade", "description": "Fine marinade with saffron, morels and cream. Best suited for pan dishes with pork, lamb and poultry.\n\n**Dosage:** 100 g/kg meat.\n\n**Ingredients:** water; sunflower oil; iodised table salt; seasoning; sucrose; spices (contains saffron 0.1 %); brandy (40 % vol.); morels; lemon juice concentrate; flavouring; thickener: E 415; preservative: E 202; spice extract.\n\n**Allergens:** E 202, E 415" },
+        "it": { "title": "Maricrème® allo zafferano", "subtitle": "Marinata speziata legata", "description": "Marinata pregiata con zafferano, spugnole e panna. Ideale per piatti in padella con maiale, agnello e pollame.\n\n**Dosaggio:** 100 g/kg di carne.\n\n**Ingredienti:** acqua; olio di girasole; sale da cucina iodato; condimento; saccarosio; spezie (contiene zafferano 0.1 %); brandy (40 % vol.); spugnole; concentrato di succo di limone; aroma; addensante: E 415; conservante: E 202; estratto di spezie.\n\n**Allergeni:** E 202, E 415" }
+      }
+    }
+  ]
+}

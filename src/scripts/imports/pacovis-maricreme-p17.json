@@ -1,0 +1,48 @@
+{
+  "defaults": {
+    "status": "published",
+    "currency_code": "eur",
+    "subtitle": "Würzmarinade gebunden",
+    "category_names": ["Marinaden"],
+    "sales_channel_names": ["IndustriesWebshop"],
+    "option_title": "Gebinde"
+  },
+  "products": [
+    {
+      "title": "Schweine-Kalb Maricrème®",
+      "handle": "schweine-kalb-maricreme",
+      "description": "Ausgewogene, würzige Marinade mit Paprika, Muskatnuss und Pfeffer weiss. Eignet sich am besten für Pfannengerichte mit Schwein und Kalb.\n\n**Dosierung:** 100 g/kg Fleisch.\n\n**Zutaten:** Wasser; Sonnenblumenöl; Gewürze; Speisesalz jodiert; Würze; Saccharose; Zitronensaftkonzentrat; Verdickungsmittel: E 415.\n\n**Allergene:** E 415",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/schweine-kalb-maricreme.png"],
+      "variants": [ { "title": "2.5 kg Kessel", "sku": "145825", "price": null } ],
+      "translations": {
+        "en": { "title": "Pork-Veal Maricrème®", "subtitle": "Bound seasoning marinade", "description": "Balanced, spicy marinade with paprika, nutmeg and white pepper. Best suited for pan dishes with pork and veal.\n\n**Dosage:** 100 g/kg meat.\n\n**Ingredients:** water; sunflower oil; spices; iodised table salt; seasoning; sucrose; lemon juice concentrate; thickener: E 415.\n\n**Allergens:** E 415" },
+        "it": { "title": "Maricrème® maiale e vitello", "subtitle": "Marinata speziata legata", "description": "Marinata equilibrata e speziata con paprika, noce moscata e pepe bianco. Ideale per piatti in padella con maiale e vitello.\n\n**Dosaggio:** 100 g/kg di carne.\n\n**Ingredienti:** acqua; olio di girasole; spezie; sale da cucina iodato; condimento; saccarosio; concentrato di succo di limone; addensante: E 415.\n\n**Allergeni:** E 415" }
+      }
+    },
+    {
+      "title": "Tomate-Basilikum Maricrème®",
+      "handle": "tomate-basilikum-maricreme",
+      "description": "Kräftige, würzige Marinade mit Tomaten und frischem Basilikum. Eignet sich am besten für Pfannengerichte mit Geflügel, Fisch und Schwein.\n\n**Dosierung:** 100 g/kg Fleisch.\n\n**Zutaten:** Sonnenblumenöl; Wasser; Gewürze (enth. Basilikum 6 %); Tomatenmark 10 %; Rotwein (12 % vol., enth. SULFIT); Speisesalz jodiert; Saccharose; Würze; Zitronensaftkonzentrat; Konservierungsstoff: E 202; Verdickungsmittel: E 415; Gewürzextrakte.\n\n**Allergene:** SO₂/Schwefel, E 202, E 415",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/tomate-basilikum-maricreme.png"],
+      "variants": [ { "title": "2.5 kg Kessel", "sku": "561625", "price": null } ],
+      "translations": {
+        "en": { "title": "Tomato-Basil Maricrème®", "subtitle": "Bound seasoning marinade", "description": "Robust, spicy marinade with tomatoes and fresh basil. Best suited for pan dishes with poultry, fish and pork.\n\n**Dosage:** 100 g/kg meat.\n\n**Ingredients:** sunflower oil; water; spices (contains basil 6 %); tomato paste 10 %; red wine (12 % vol., contains SULPHITE); iodised table salt; sucrose; seasoning; lemon juice concentrate; preservative: E 202; thickener: E 415; spice extracts.\n\n**Allergens:** SO₂/sulphur, E 202, E 415" },
+        "it": { "title": "Maricrème® pomodoro e basilico", "subtitle": "Marinata speziata legata", "description": "Marinata intensa e speziata con pomodori e basilico fresco. Ideale per piatti in padella con pollame, pesce e maiale.\n\n**Dosaggio:** 100 g/kg di carne.\n\n**Ingredienti:** olio di girasole; acqua; spezie (contiene basilico 6 %); concentrato di pomodoro 10 %; vino rosso (12 % vol., contiene SOLFITI); sale da cucina iodato; saccarosio; condimento; concentrato di succo di limone; conservante: E 202; addensante: E 415; estratti di spezie.\n\n**Allergeni:** SO₂/solforosa, E 202, E 415" }
+      }
+    },
+    {
+      "title": "Waldpilz Maricrème®",
+      "handle": "waldpilz-maricreme",
+      "description": "Herzhafte, rustikale Marinade mit Pilzen, Tomate und Rotwein. Eignet sich am besten für Pfannengerichte mit Wild, Schwein, Rind und Geflügel.\n\n**Dosierung:** 100 g/kg Fleisch.\n\n**Zutaten:** Wasser; Sonnenblumenöl; Speisesalz jodiert; Tafelessig; Tomatenmark; Rotwein (12 % vol.); Saccharose; Pilze 3 %; Gewürze; Pilzaroma 0.5 %; Konservierungsstoff: E 202; Verdickungsmittel: E 415; Karamellzucker; Zitronensaftkonzentrat; Gewürzextrakt.\n\n**Allergene:** E 202, E 415",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/waldpilz-maricreme.png"],
+      "variants": [
+        { "title": "6 Becher à 200 g (1 KT)", "sku": "86421K200", "price": null },
+        { "title": "2.5 kg Kessel", "sku": "864225", "price": null }
+      ],
+      "translations": {
+        "en": { "title": "Wild Mushroom Maricrème®", "subtitle": "Bound seasoning marinade", "description": "Hearty, rustic marinade with mushrooms, tomato and red wine. Best suited for pan dishes with game, pork, beef and poultry.\n\n**Dosage:** 100 g/kg meat.\n\n**Ingredients:** water; sunflower oil; iodised table salt; table vinegar; tomato paste; red wine (12 % vol.); sucrose; mushrooms 3 %; spices; mushroom flavouring 0.5 %; preservative: E 202; thickener: E 415; caramel sugar; lemon juice concentrate; spice extract.\n\n**Allergens:** E 202, E 415" },
+        "it": { "title": "Maricrème® funghi di bosco", "subtitle": "Marinata speziata legata", "description": "Marinata gustosa e rustica con funghi, pomodoro e vino rosso. Ideale per piatti in padella con selvaggina, maiale, manzo e pollame.\n\n**Dosaggio:** 100 g/kg di carne.\n\n**Ingredienti:** acqua; olio di girasole; sale da cucina iodato; aceto da tavola; concentrato di pomodoro; vino rosso (12 % vol.); saccarosio; funghi 3 %; spezie; aroma di funghi 0.5 %; conservante: E 202; addensante: E 415; zucchero caramellato; concentrato di succo di limone; estratto di spezie.\n\n**Allergeni:** E 202, E 415" }
+      }
+    }
+  ]
+}

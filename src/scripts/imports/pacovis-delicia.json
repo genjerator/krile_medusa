@@ -1,0 +1,59 @@
+{
+  "defaults": {
+    "status": "published",
+    "currency_code": "eur",
+    "subtitle": "Würzmarinade auf Ölbasis",
+    "category_names": ["Marinaden"],
+    "sales_channel_names": ["IndustriesWebshop"],
+    "option_title": "Gebinde"
+  },
+  "products": [
+    {
+      "title": "Bio Grill Marinade Delicia",
+      "handle": "bio-grill-marinade-delicia",
+      "description": "Grillmarinade in Bio-Qualität, klassisch nach Paprika, Pfeffer schwarz und Kräutern. Harmoniert am besten mit dunklen Fleischsorten.\n\n**Dosierung:** 80–100 g/kg Fleisch oder Fisch.\n\n**Zutaten:** *Pflanzenöl (Sonnenblume [CH/EU], Palm [CO]); Speisesalz [CH]; *Gewürze (Paprika [ES], Pfeffer [IN], Koriander [AT], Zwiebel [EG], Muskat [LK], Rosmarin [PE], Ingwer [LK], Knoblauch [EG], Basilikum [EG], Oregano [PE]). * = Knospe",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/bio-grill-marinade-delicia.png"],
+      "variants": [ { "title": "2.5 kg Kessel", "sku": "1466325", "price": null } ],
+      "translations": {
+        "en": { "title": "Organic Grill Marinade Delicia", "subtitle": "Oil-based seasoning marinade", "description": "Organic-quality grill marinade, classic with paprika, black pepper and herbs. Pairs best with dark meats.\n\n**Dosage:** 80–100 g/kg meat or fish.\n\n**Ingredients:** *vegetable oil (sunflower [CH/EU], palm [CO]); table salt [CH]; *spices (paprika [ES], pepper [IN], coriander [AT], onion [EG], nutmeg [LK], rosemary [PE], ginger [LK], garlic [EG], basil [EG], oregano [PE]). * = organic (Bud)" },
+        "it": { "title": "Marinata Grill Bio Delicia", "subtitle": "Marinata speziata a base di olio", "description": "Marinata da grigliata di qualità biologica, classica con paprika, pepe nero ed erbe. Si abbina al meglio con carni scure.\n\n**Dosaggio:** 80–100 g/kg di carne o pesce.\n\n**Ingredienti:** *olio vegetale (girasole [CH/EU], palma [CO]); sale da cucina [CH]; *spezie (paprika [ES], pepe [IN], coriandolo [AT], cipolla [EG], noce moscata [LK], rosmarino [PE], zenzero [LK], aglio [EG], basilico [EG], origano [PE]). * = biologico (Knospe)" }
+      }
+    },
+    {
+      "title": "Bio Knoblauch Marinade Delicia",
+      "handle": "bio-knoblauch-marinade-delicia",
+      "description": "Marinade in Bio-Qualität mit deftigem Geschmack nach Knoblauch, Estragon und Petersilie. Harmoniert am besten mit Rind, Schwein, Lamm und hellen Fleischsorten.\n\n**Dosierung:** 80–100 g/kg Fleisch oder Fisch.\n\n**Zutaten:** *Pflanzenöle (Sonnenblume [CH/EU], Palm [CO]); Speisesalz [CH]; *Gewürze (Knoblauch 8 % [EG], Curry [Asien, Europa], Petersilie [HU], Pfeffer [ID], Estragon [DE], Liebstöckel [HU], Lauch [EG], Muskat [LK], Thymian [TR]); *Saccharose [CH]; *Maltodextrin [AT]. * = Knospe",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/bio-knoblauch-marinade-delicia.png"],
+      "variants": [ { "title": "2.5 kg Kessel", "sku": "F33025", "price": null } ],
+      "translations": {
+        "en": { "title": "Organic Garlic Marinade Delicia", "subtitle": "Oil-based seasoning marinade", "description": "Organic-quality marinade with a hearty flavour of garlic, tarragon and parsley. Pairs best with beef, pork, lamb and light meats.\n\n**Dosage:** 80–100 g/kg meat or fish.\n\n**Ingredients:** *vegetable oils (sunflower [CH/EU], palm [CO]); table salt [CH]; *spices (garlic 8 % [EG], curry [Asia, Europe], parsley [HU], pepper [ID], tarragon [DE], lovage [HU], leek [EG], nutmeg [LK], thyme [TR]); *sucrose [CH]; *maltodextrin [AT]. * = organic (Bud)" },
+        "it": { "title": "Marinata all'aglio Bio Delicia", "subtitle": "Marinata speziata a base di olio", "description": "Marinata di qualità biologica con gusto intenso di aglio, dragoncello e prezzemolo. Si abbina al meglio con manzo, maiale, agnello e carni chiare.\n\n**Dosaggio:** 80–100 g/kg di carne o pesce.\n\n**Ingredienti:** *oli vegetali (girasole [CH/EU], palma [CO]); sale da cucina [CH]; *spezie (aglio 8 % [EG], curry [Asia, Europa], prezzemolo [HU], pepe [ID], dragoncello [DE], levistico [HU], porro [EG], noce moscata [LK], timo [TR]); *saccarosio [CH]; *maltodestrina [AT]. * = biologico (Knospe)" }
+      }
+    },
+    {
+      "title": "Bio Kräuter Marinade Delicia",
+      "handle": "bio-kraeuter-marinade-delicia",
+      "description": "Marinade in Bio-Qualität mit würzig-herbem Geschmack nach Thymian, Basilikum und Zwiebeln. Harmoniert am besten mit allen Fleischsorten.\n\n**Dosierung:** 80–100 g/kg Fleisch oder Fisch.\n\n**Zutaten:** *Pflanzenöle (Sonnenblume [CH/EU], Palm [CO]); Speisesalz [CH]; *Gewürze (Pfeffer [ID], Zwiebel [EG], Knoblauch [EG], Ingwer [LK], Muskat [LK], Lauch [EG], Paprika [HU]); *Maltodextrin [AT]; *Kräuter 3.5 % (Thymian [TR], Liebstock [HU], Petersilie [HU], Basilikum [EG]). * = Knospe",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/bio-kraeuter-marinade-delicia.png"],
+      "variants": [
+        { "title": "6 Becher à 200 g (1 KT)", "sku": "F3311K200", "price": null },
+        { "title": "2.5 kg Kessel", "sku": "F33125", "price": null }
+      ],
+      "translations": {
+        "en": { "title": "Organic Herb Marinade Delicia", "subtitle": "Oil-based seasoning marinade", "description": "Organic-quality marinade with a spicy, tangy flavour of thyme, basil and onions. Pairs best with all types of meat.\n\n**Dosage:** 80–100 g/kg meat or fish.\n\n**Ingredients:** *vegetable oils (sunflower [CH/EU], palm [CO]); table salt [CH]; *spices (pepper [ID], onion [EG], garlic [EG], ginger [LK], nutmeg [LK], leek [EG], paprika [HU]); *maltodextrin [AT]; *herbs 3.5 % (thyme [TR], lovage [HU], parsley [HU], basil [EG]). * = organic (Bud)" },
+        "it": { "title": "Marinata alle erbe Bio Delicia", "subtitle": "Marinata speziata a base di olio", "description": "Marinata di qualità biologica con gusto speziato ed erbaceo di timo, basilico e cipolle. Si abbina al meglio con tutti i tipi di carne.\n\n**Dosaggio:** 80–100 g/kg di carne o pesce.\n\n**Ingredienti:** *oli vegetali (girasole [CH/EU], palma [CO]); sale da cucina [CH]; *spezie (pepe [ID], cipolla [EG], aglio [EG], zenzero [LK], noce moscata [LK], porro [EG], paprika [HU]); *maltodestrina [AT]; *erbe 3.5 % (timo [TR], levistico [HU], prezzemolo [HU], basilico [EG]). * = biologico (Knospe)" }
+      }
+    },
+    {
+      "title": "Bio Pfeffer Marinade Delicia",
+      "handle": "bio-pfeffer-marinade-delicia",
+      "description": "Marinade in Bio-Qualität mit aromatisch-würzigem Geschmack nach Pfeffer schwarz und Paprika. Harmoniert am besten mit allen Fleischsorten.\n\n**Dosierung:** 80–100 g/kg Fleisch oder Fisch.\n\n**Zutaten:** *Pflanzenöle (Sonnenblume [CH/EU], Palm [CO]); Speisesalz [CH]; *Gewürze (Pfeffer 6 % [LK], Paprika [ES], Koriander [AT], Liebstock [HU], Ingwer [LK], Muskat [LK], Knoblauch [EG]); *Saccharose [CH/DE]; *Maltodextrin [AT]. * = Knospe",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/bio-pfeffer-marinade-delicia.png"],
+      "variants": [ { "title": "2.5 kg Kessel", "sku": "F32925", "price": null } ],
+      "translations": {
+        "en": { "title": "Organic Pepper Marinade Delicia", "subtitle": "Oil-based seasoning marinade", "description": "Organic-quality marinade with an aromatic, spicy flavour of black pepper and paprika. Pairs best with all types of meat.\n\n**Dosage:** 80–100 g/kg meat or fish.\n\n**Ingredients:** *vegetable oils (sunflower [CH/EU], palm [CO]); table salt [CH]; *spices (pepper 6 % [LK], paprika [ES], coriander [AT], lovage [HU], ginger [LK], nutmeg [LK], garlic [EG]); *sucrose [CH/DE]; *maltodextrin [AT]. * = organic (Bud)" },
+        "it": { "title": "Marinata al pepe Bio Delicia", "subtitle": "Marinata speziata a base di olio", "description": "Marinata di qualità biologica con gusto aromatico e speziato di pepe nero e paprika. Si abbina al meglio con tutti i tipi di carne.\n\n**Dosaggio:** 80–100 g/kg di carne o pesce.\n\n**Ingredienti:** *oli vegetali (girasole [CH/EU], palma [CO]); sale da cucina [CH]; *spezie (pepe 6 % [LK], paprika [ES], coriandolo [AT], levistico [HU], zenzero [LK], noce moscata [LK], aglio [EG]); *saccarosio [CH/DE]; *maltodestrina [AT]. * = biologico (Knospe)" }
+      }
+    }
+  ]
+}

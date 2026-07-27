@@ -1,0 +1,46 @@
+{
+  "defaults": {
+    "status": "published",
+    "currency_code": "eur",
+    "subtitle": "Ölmarinade ohne Salz",
+    "category_names": ["Marinaden"],
+    "sales_channel_names": ["IndustriesWebshop"],
+    "option_title": "Gebinde"
+  },
+  "products": [
+    {
+      "title": "Basic-Marinade Sensia®",
+      "handle": "basic-marinade-sensia",
+      "description": "Neutrale, rötliche Marinadenbasis für individuelle Anwendungen und Aromatisierungen.\n\n**Dosierung:** 50 g/kg Fleisch.\n\n**Zutaten:** Pflanzenöle (Raps [CH], Raps vollgehärtet [CH]); Gewürzextrakt.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/basic-marinade-sensia.png"],
+      "variants": [ { "title": "2.5 kg Kessel", "sku": "F57825", "price": null } ],
+      "translations": {
+        "en": { "title": "Basic Marinade Sensia®", "subtitle": "Oil marinade without salt", "description": "Neutral, reddish marinade base for individual applications and flavourings.\n\n**Dosage:** 50 g/kg meat.\n\n**Ingredients:** vegetable oils (rapeseed [CH], fully hydrogenated rapeseed [CH]); spice extract." },
+        "it": { "title": "Marinata Base Sensia®", "subtitle": "Marinata all'olio senza sale", "description": "Base per marinata neutra e rossastra per applicazioni e aromatizzazioni individuali.\n\n**Dosaggio:** 50 g/kg di carne.\n\n**Ingredienti:** oli vegetali (colza [CH], colza completamente idrogenata [CH]); estratto di spezie." }
+      }
+    },
+    {
+      "title": "Basic Marinade Senf",
+      "handle": "basic-marinade-senf",
+      "description": "Marinadenbasis mit leichter Senfnote für individuelle Anwendungen und Aromatisierungen.\n\n**Dosierung:** 50 g/kg Fleisch.\n\n**Zutaten:** Wasser; Rapsöl; SENF (Tafelessig, Wasser, SENFSAMEN, Speisesalz jodiert, Saccharose, Gewürze, Gewürzextrakte); Verdickungsmittel: E 415.\n\n**Allergene:** Senf, E 415",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/basic-marinade-senf.png"],
+      "variants": [ { "title": "2.5 kg Kessel", "sku": "2449725", "price": null } ],
+      "translations": {
+        "en": { "title": "Basic Marinade Mustard", "subtitle": "Oil marinade without salt", "description": "Marinade base with a light mustard note for individual applications and flavourings.\n\n**Dosage:** 50 g/kg meat.\n\n**Ingredients:** water; rapeseed oil; MUSTARD (table vinegar, water, MUSTARD SEEDS, iodised table salt, sucrose, spices, spice extracts); thickener: E 415.\n\n**Allergens:** Mustard, E 415" },
+        "it": { "title": "Marinata Base senape", "subtitle": "Marinata all'olio senza sale", "description": "Base per marinata con una leggera nota di senape per applicazioni e aromatizzazioni individuali.\n\n**Dosaggio:** 50 g/kg di carne.\n\n**Ingredienti:** acqua; olio di colza; SENAPE (aceto da tavola, acqua, SEMI DI SENAPE, sale da cucina iodato, saccarosio, spezie, estratti di spezie); addensante: E 415.\n\n**Allergeni:** Senape, E 415" }
+      }
+    },
+    {
+      "title": "Würzöl Basis Raps SG",
+      "handle": "wuerzoel-basis-raps-sg",
+      "subtitle": "Gewürztes Rapsöl",
+      "description": "Würzöl auf Basis Schweizer Rapsöl, neutral im Geschmack, für die Vorbehandlung beim Trockenwürzen.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Rapsöl (SGA); Paprikagewürzextrakt 0.1 %.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/wuerzoel-basis-raps-sg.png"],
+      "variants": [ { "title": "0.9 kg Flasche", "sku": "2173109", "price": null } ],
+      "translations": {
+        "en": { "title": "Seasoning Oil Rapeseed Base SG", "subtitle": "Seasoned rapeseed oil", "description": "Seasoning oil based on Swiss rapeseed oil, neutral in flavour, for pre-treatment when dry seasoning.\n\n**Dosage:** as required.\n\n**Ingredients:** rapeseed oil (SGA); paprika spice extract 0.1 %." },
+        "it": { "title": "Olio aromatizzato base colza SG", "subtitle": "Olio di colza aromatizzato", "description": "Olio aromatizzato a base di olio di colza svizzero, neutro nel gusto, per il pre-trattamento nella speziatura a secco.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** olio di colza (SGA); estratto di paprika 0.1 %." }
+      }
+    }
+  ]
+}

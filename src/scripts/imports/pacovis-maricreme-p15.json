@@ -1,0 +1,48 @@
+{
+  "defaults": {
+    "status": "published",
+    "currency_code": "eur",
+    "subtitle": "Würzmarinade gebunden",
+    "category_names": ["Marinaden"],
+    "sales_channel_names": ["IndustriesWebshop"],
+    "option_title": "Gebinde"
+  },
+  "products": [
+    {
+      "title": "Barbecue Maricrème®",
+      "handle": "barbecue-maricreme",
+      "description": "Ausgewogene Marinade mit Ketchup, Senf und Paprika. Eignet sich am besten für Pfannengerichte mit Geflügel, Schwein und Brustspitz.\n\n**Dosierung:** 100 g/kg Fleisch.\n\n**Zutaten:** Glucosesirup; SENF (Tafelessig, SENFSAMEN, Wasser, Weisswein, Speisesalz jodiert, Säuerungsmittel: E 334, Antioxidationsmittel: NATRIUMDISULFIT); Speisesalz jodiert; Sonnenblumenöl; Peperoni; Saccharose; Tomatenmark; Wasser; Tafelessig; Gewürze; Maltodextrin geräuchert; Würze; Wachsmaisstärke modifiziert; Verdickungsmittel: E 415; Chili.\n\n**Allergene:** Senf, SO₂/Schwefel, E 223, E 334, E 415",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/barbecue-maricreme.png"],
+      "variants": [ { "title": "2.5 kg Kessel", "sku": "139725", "price": null } ],
+      "translations": {
+        "en": { "title": "Barbecue Maricrème®", "subtitle": "Bound seasoning marinade", "description": "Balanced marinade with ketchup, mustard and paprika. Best suited for pan dishes with poultry, pork and beef brisket.\n\n**Dosage:** 100 g/kg meat.\n\n**Ingredients:** glucose syrup; MUSTARD (table vinegar, MUSTARD SEEDS, water, white wine, iodised table salt, acidifier: E 334, antioxidant: SODIUM METABISULPHITE); iodised table salt; sunflower oil; bell peppers; sucrose; tomato paste; water; table vinegar; spices; smoked maltodextrin; seasoning; modified waxy maize starch; thickener: E 415; chilli.\n\n**Allergens:** Mustard, SO₂/sulphur, E 223, E 334, E 415" },
+        "it": { "title": "Maricrème® Barbecue", "subtitle": "Marinata speziata legata", "description": "Marinata equilibrata con ketchup, senape e paprika. Ideale per piatti in padella con pollame, maiale e punta di petto di manzo.\n\n**Dosaggio:** 100 g/kg di carne.\n\n**Ingredienti:** sciroppo di glucosio; SENAPE (aceto da tavola, SEMI DI SENAPE, acqua, vino bianco, sale da cucina iodato, acidificante: E 334, antiossidante: METABISOLFITO DI SODIO); sale da cucina iodato; olio di girasole; peperoni; saccarosio; concentrato di pomodoro; acqua; aceto da tavola; spezie; maltodestrina affumicata; condimento; amido di mais ceroso modificato; addensante: E 415; peperoncino.\n\n**Allergeni:** Senape, SO₂/solforosa, E 223, E 334, E 415" }
+      }
+    },
+    {
+      "title": "Bier Maricrème®",
+      "handle": "bier-maricreme",
+      "description": "Aromatisch-rauchige Marinade mit Weizenbier. Eignet sich am besten für Pfannengerichte mit Schwein.\n\n**Dosierung:** 100 g/kg Fleisch.\n\n**Zutaten:** Wasser; Sonnenblumenöl; WEIZENBIER 20 % (Wasser, WEIZENMALZ, GERSTENMALZ, Hopfen, Hefe); Glucosesirup; Speisesalz jodiert; Gewürze; Würze; Tomatenmark; GERSTENMALZ-EXTRAKT; Zitronensaftkonzentrat; Verdickungsmittel: E 415; Karamellzucker; Konservierungsstoff: E 202; Raucharoma; Gewürzextrakt.\n\n**Allergene:** Gluten, E 202, E 415",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/bier-maricreme.png"],
+      "variants": [ { "title": "2.5 kg Kessel", "sku": "F45325", "price": null } ],
+      "translations": {
+        "en": { "title": "Beer Maricrème®", "subtitle": "Bound seasoning marinade", "description": "Aromatic, smoky marinade with wheat beer. Best suited for pan dishes with pork.\n\n**Dosage:** 100 g/kg meat.\n\n**Ingredients:** water; sunflower oil; WHEAT BEER 20 % (water, WHEAT MALT, BARLEY MALT, hops, yeast); glucose syrup; iodised table salt; spices; seasoning; tomato paste; BARLEY MALT EXTRACT; lemon juice concentrate; thickener: E 415; caramel sugar; preservative: E 202; smoke flavouring; spice extract.\n\n**Allergens:** Gluten, E 202, E 415" },
+        "it": { "title": "Maricrème® alla birra", "subtitle": "Marinata speziata legata", "description": "Marinata aromatica e affumicata con birra di frumento. Ideale per piatti in padella con maiale.\n\n**Dosaggio:** 100 g/kg di carne.\n\n**Ingredienti:** acqua; olio di girasole; BIRRA DI FRUMENTO 20 % (acqua, MALTO DI FRUMENTO, MALTO D'ORZO, luppolo, lievito); sciroppo di glucosio; sale da cucina iodato; spezie; condimento; concentrato di pomodoro; ESTRATTO DI MALTO D'ORZO; concentrato di succo di limone; addensante: E 415; zucchero caramellato; conservante: E 202; aroma di affumicatura; estratto di spezie.\n\n**Allergeni:** Glutine, E 202, E 415" }
+      }
+    },
+    {
+      "title": "Curry-Kokos Maricrème®",
+      "handle": "curry-kokos-maricreme",
+      "description": "Exotische Marinade mit Curry und Kokosnuss. Eignet sich am besten für Pfannengerichte mit hellen Fleischsorten.\n\n**Dosierung:** 100 g/kg Fleisch.\n\n**Zutaten:** Wasser; Sonnenblumenöl; Apfelmus (Äpfel, Saccharose); Speisesalz jodiert; Kokosmilch 8 %; Tafelessig; Saccharose; SOJASAUCE (Wasser, SOJA, Speisesalz); Gewürze (enth. Curry 2.2 %); Verdickungsmittel: E 415; Aromen (enth. EI); Konservierungsstoff: E 202; Zitronensaftkonzentrat; Gewürzextrakt.\n\n**Allergene:** Eier, Soja, E 202, E 415",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/curry-kokos-maricreme.png"],
+      "variants": [
+        { "title": "6 Becher à 200 g (1 KT)", "sku": "86281K200", "price": null },
+        { "title": "2.5 kg Kessel", "sku": "862825", "price": null }
+      ],
+      "translations": {
+        "en": { "title": "Curry Coconut Maricrème®", "subtitle": "Bound seasoning marinade", "description": "Exotic marinade with curry and coconut. Best suited for pan dishes with light meats.\n\n**Dosage:** 100 g/kg meat.\n\n**Ingredients:** water; sunflower oil; apple purée (apples, sucrose); iodised table salt; coconut milk 8 %; table vinegar; sucrose; SOY SAUCE (water, SOY, table salt); spices (contains curry 2.2 %); thickener: E 415; flavourings (contains EGG); preservative: E 202; lemon juice concentrate; spice extract.\n\n**Allergens:** Eggs, Soy, E 202, E 415" },
+        "it": { "title": "Maricrème® curry e cocco", "subtitle": "Marinata speziata legata", "description": "Marinata esotica con curry e cocco. Ideale per piatti in padella con carni chiare.\n\n**Dosaggio:** 100 g/kg di carne.\n\n**Ingredienti:** acqua; olio di girasole; purea di mele (mele, saccarosio); sale da cucina iodato; latte di cocco 8 %; aceto da tavola; saccarosio; SALSA DI SOIA (acqua, SOIA, sale); spezie (contiene curry 2.2 %); addensante: E 415; aromi (contiene UOVO); conservante: E 202; concentrato di succo di limone; estratto di spezie.\n\n**Allergeni:** Uova, Soia, E 202, E 415" }
+      }
+    }
+  ]
+}
