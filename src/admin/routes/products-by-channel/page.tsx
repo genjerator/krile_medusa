@@ -31,6 +31,10 @@ type Product = {
   status: string
   categories?: ProductCategory[]
   sales_channels?: Array<{ id: string; name: string }>
+  variants?: Array<{
+    id: string
+    prices?: Array<{ amount: number; currency_code: string }>
+  }>
 }
 
 const PAGE_SIZE = 20
@@ -66,6 +70,18 @@ const getCategoryInfo = (categories: ProductCategory[] | undefined) => {
     }
   }
   return { category: withoutParent[0].name, subcategory: null }
+}
+
+// One price per variant (prefer EUR, else the first price), in variant order.
+const getVariantPrices = (variants: Product["variants"]): number[] => {
+  if (!variants?.length) return []
+  return variants
+    .map((v) => {
+      const list = v.prices ?? []
+      const chosen = list.find((p) => p.currency_code === "eur") ?? list[0]
+      return chosen ? chosen.amount : null
+    })
+    .filter((a): a is number => a != null)
 }
 
 const STATUS_COLOR: Record<string, "green" | "grey" | "orange" | "red" | "blue" | "purple"> = {
@@ -141,6 +157,21 @@ const columns = [
     size: 160,
   }),
   columnHelper.display({
+    id: "prices",
+    header: "Prices",
+    cell: ({ row }) => {
+      const prices = getVariantPrices(row.original.variants)
+      return prices.length ? (
+        <Text size="small" leading="compact" className="text-ui-fg-base">
+          {prices.join(", ")}
+        </Text>
+      ) : (
+        <Text size="small" leading="compact" className="text-ui-fg-muted">—</Text>
+      )
+    },
+    size: 160,
+  }),
+  columnHelper.display({
     id: "storefront",
     header: "",
     cell: ({ row }) => {
@@ -207,7 +238,7 @@ const ProductsByChannelPage = () => {
   const queryParams: Record<string, any> = {
     limit: PAGE_SIZE,
     offset: pageIndex * PAGE_SIZE,
-    fields: "id,title,handle,thumbnail,status,sales_channels.id,sales_channels.name,categories.id,categories.name,categories.parent_category_id,categories.parent_category.name",
+    fields: "id,title,handle,thumbnail,status,sales_channels.id,sales_channels.name,categories.id,categories.name,categories.parent_category_id,categories.parent_category.name,variants.id,variants.prices.amount,variants.prices.currency_code",
     order: "-created_at",
   }
   if (search) queryParams.q = search
