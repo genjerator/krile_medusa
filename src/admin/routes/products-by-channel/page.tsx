@@ -13,7 +13,7 @@ import {
 import { ArrowDownTray, ArrowUpRightOnBox, Channels } from "@medusajs/icons"
 import { useQuery } from "@tanstack/react-query"
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useSearchParams } from "react-router-dom"
 import { sdk } from "../../lib/client"
 
 type ProductCategory = {
@@ -59,29 +59,43 @@ const getCategoryInfo = (categories: ProductCategory[] | undefined) => {
   const withParent = categories.filter((c) => c.parent_category_id)
   const withoutParent = categories.filter((c) => !c.parent_category_id)
 
-  if (withoutParent.length > 0 && withParent.length > 0) {
-    return { category: withoutParent[0].name, subcategory: withParent[0].name }
+  // All child categories, comma-separated when there is more than one.
+  const subcategory = withParent.length
+    ? withParent.map((c) => c.name).join(", ")
+    : null
+
+  if (withoutParent.length > 0) {
+    return { category: withoutParent[0].name, subcategory }
   }
   if (withParent.length > 0) {
-    const leaf = withParent[0]
-    return {
-      category: leaf.parent_category?.name ?? null,
-      subcategory: leaf.name,
-    }
+    return { category: withParent[0].parent_category?.name ?? null, subcategory }
   }
-  return { category: withoutParent[0].name, subcategory: null }
+  return { category: null, subcategory: null }
 }
 
+type VariantPrice = { amount: number; currency_code: string }
+
 // One price per variant (prefer EUR, else the first price), in variant order.
-const getVariantPrices = (variants: Product["variants"]): number[] => {
+const getVariantPrices = (variants: Product["variants"]): VariantPrice[] => {
   if (!variants?.length) return []
   return variants
     .map((v) => {
       const list = v.prices ?? []
-      const chosen = list.find((p) => p.currency_code === "eur") ?? list[0]
-      return chosen ? chosen.amount : null
+      return list.find((p) => p.currency_code === "eur") ?? list[0] ?? null
     })
-    .filter((a): a is number => a != null)
+    .filter((p): p is VariantPrice => p != null)
+}
+
+// Format a raw Medusa amount (stored as-is, not in cents) as money.
+const formatMoney = (amount: number, currency: string): string => {
+  try {
+    return new Intl.NumberFormat(undefined, {
+      style: "currency",
+      currency: currency.toUpperCase(),
+    }).format(amount)
+  } catch {
+    return `${amount} ${currency.toUpperCase()}`
+  }
 }
 
 const STATUS_COLOR: Record<string, "green" | "grey" | "orange" | "red" | "blue" | "purple"> = {
@@ -163,7 +177,7 @@ const columns = [
       const prices = getVariantPrices(row.original.variants)
       return prices.length ? (
         <Text size="small" leading="compact" className="text-ui-fg-base">
-          {prices.join(", ")}
+          {prices.map((p) => formatMoney(p.amount, p.currency_code)).join(", ")}
         </Text>
       ) : (
         <Text size="small" leading="compact" className="text-ui-fg-muted">—</Text>
@@ -177,7 +191,7 @@ const columns = [
     cell: ({ row }) => {
       const p = row.original
       if (!p.handle) return null
-      const url = `${getStorefrontUrl(p.sales_channels)}/de/products/${p.handle}`
+      const url = `${getStorefrontUrl(p.sales_channels)}/de/product/${p.handle}`
       return (
         <a
           href={url}
@@ -198,7 +212,19 @@ const columns = [
 
 const ProductsByChannelPage = () => {
   const navigate = useNavigate()
-  const [search, setSearch] = useState("")
+  const [searchParams, setSearchParams] = useSearchParams()
+  const search = searchParams.get("q") ?? ""
+  const setSearch = (value: string) => {
+    setSearchParams(
+      (prev) => {
+        const next = new URLSearchParams(prev)
+        if (value) next.set("q", value)
+        else next.delete("q")
+        return next
+      },
+      { replace: true }
+    )
+  }
   const [pageIndex, setPageIndex] = useState(0)
   const [channelId, setChannelId] = useState<string | null>(null)
   const [exporting, setExporting] = useState(false)
