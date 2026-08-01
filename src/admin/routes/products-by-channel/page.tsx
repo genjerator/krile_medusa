@@ -11,7 +11,7 @@ import {
   toast,
 } from "@medusajs/ui"
 import { ArrowDownTray, ArrowUpRightOnBox, Channels } from "@medusajs/icons"
-import { useQuery } from "@tanstack/react-query"
+import { useQuery, useQueryClient } from "@tanstack/react-query"
 import { useState } from "react"
 import { useNavigate, useSearchParams } from "react-router-dom"
 import { sdk } from "../../lib/client"
@@ -228,6 +228,15 @@ const ProductsByChannelPage = () => {
   const [pageIndex, setPageIndex] = useState(0)
   const [channelId, setChannelId] = useState<string | null>(null)
   const [exporting, setExporting] = useState(false)
+  const queryClient = useQueryClient()
+
+  // Switch channel: reset to first page and clear the cached product list so
+  // fresh data is fetched (no stale rows from the previously selected channel).
+  const changeChannel = (id: string | null) => {
+    setChannelId(id)
+    setPageIndex(0)
+    queryClient.invalidateQueries({ queryKey: ["products-custom-list"] })
+  }
 
   const handleExport = async () => {
     setExporting(true)
@@ -273,7 +282,12 @@ const ProductsByChannelPage = () => {
   const { data, isLoading } = useQuery({
     queryKey: ["products-custom-list", pageIndex, search, channelId],
     queryFn: () => sdk.admin.product.list(queryParams),
-    placeholderData: (prev) => prev,
+    // Keep previous rows only while paging/searching within the SAME channel;
+    // on a channel switch drop the placeholder so stale rows don't flash.
+    placeholderData: (prev, prevQuery) => {
+      const prevChannelId = (prevQuery?.queryKey as unknown[] | undefined)?.[3] ?? null
+      return prevChannelId === channelId ? prev : undefined
+    },
   })
 
   const products: Product[] = (data as any)?.products ?? []
@@ -327,7 +341,7 @@ const ProductsByChannelPage = () => {
           <Button
             size="small"
             variant={channelId === null ? "primary" : "secondary"}
-            onClick={() => { setChannelId(null); setPageIndex(0) }}
+            onClick={() => changeChannel(null)}
           >
             All
           </Button>
@@ -335,7 +349,7 @@ const ProductsByChannelPage = () => {
             <Button
               size="small"
               variant={channelId === industriesWebshop.id ? "primary" : "secondary"}
-              onClick={() => { setChannelId(industriesWebshop.id); setPageIndex(0) }}
+              onClick={() => changeChannel(industriesWebshop.id)}
             >
               IndustriesWebshop
             </Button>
@@ -344,7 +358,7 @@ const ProductsByChannelPage = () => {
             <Button
               size="small"
               variant={channelId === planetaWebshop.id ? "primary" : "secondary"}
-              onClick={() => { setChannelId(planetaWebshop.id); setPageIndex(0) }}
+              onClick={() => changeChannel(planetaWebshop.id)}
             >
               PlanetaWebshop
             </Button>
