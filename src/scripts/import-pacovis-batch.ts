@@ -1,5 +1,6 @@
 import { ExecArgs } from "@medusajs/framework/types"
 import { ContainerRegistrationKeys } from "@medusajs/framework/utils"
+import * as fs from "fs"
 import * as path from "path"
 import importOne from "./import-products-from-json"
 
@@ -21,30 +22,25 @@ import importOne from "./import-products-from-json"
  * cleaned images:  ... pnpm medusa exec ./src/scripts/apply-product-updates.js
  */
 
-// The 18 catalog files that produced the 2026-08-06 batch (106 products).
-const FILES = [
-  "pacovis-bouillon-p53-p54.json",
-  "pacovis-decor-paniermehle-p38-p39.json",
-  "pacovis-gewuerzmischungen-p25.json",
-  "pacovis-gewuerzmischungen-p26.json",
-  "pacovis-gewuerzmischungen-p27.json",
-  "pacovis-gewuerzmischungen-p29.json",
-  "pacovis-gewuerzmischungen-p30.json",
-  "pacovis-gewuerzmischungen-p31.json",
-  "pacovis-gewuerzmischungen-p33.json",
-  "pacovis-glutenfreie-decor-nasspanaden-p47.json",
-  "pacovis-glutenfreie-decor-paniermehle-p38.json",
-  "pacovis-glutenfreie-paniermehle-p46.json",
-  "pacovis-kuechenfertige-p51-p53.json",
-  "pacovis-nasspanaden-p41-p43.json",
-  "pacovis-panierfix-p40.json",
-  "pacovis-paniermehle-p37.json",
-  "pacovis-spezialitaeten-p43-p44.json",
-  "pacovis-streuwuerzen-p50.json",
-]
+// All Pacovis / Planeta catalog product files (every `pacovis-*.json` except the
+// category tree). Discovered at runtime so new catalog files are picked up
+// automatically.
+const IMPORTS_DIR = path.join(__dirname, "imports")
+function listFiles(): string[] {
+  return fs
+    .readdirSync(IMPORTS_DIR)
+    .filter(
+      (f) =>
+        f.startsWith("pacovis-") &&
+        f.endsWith(".json") &&
+        f !== "pacovis-categories.json"
+    )
+    .sort()
+}
 
 export default async function importPacovisBatch(execArgs: ExecArgs) {
   const logger = execArgs.container.resolve(ContainerRegistrationKeys.LOGGER)
+  const FILES = listFiles()
   logger.info(`📦 import-pacovis-batch: ${FILES.length} catalog file(s)`)
   const failed: string[] = []
   for (const file of FILES) {
