@@ -1,0 +1,122 @@
+{
+  "defaults": {
+    "status": "published",
+    "currency_code": "eur",
+    "subtitle": "Bouillon",
+    "category_names": ["Küchen und Traiteurartikel"],
+    "sales_channel_names": ["IndustriesWebshop"],
+    "option_title": "Gebinde"
+  },
+  "products": [
+    {
+      "title": "Bouillon mit Fleischaroma",
+      "handle": "bouillon-mit-fleischaroma",
+      "subtitle": "Fleischbouillon",
+      "description": "Rindsbouillon mit kräftigem Fleischgeschmack, verfeinert mit Pastinake und Zwiebeln.\n\n**Dosierung:** 20 g/kg.\n\n**Zutaten:** Speisesalz jodiert; natürliches Aroma; Saccharose; Hefeextrakt; Gewürze; Würze; Karamellzucker.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/bouillon-mit-fleischaroma.png"],
+      "variants": [
+        { "title": "1 kg Beutel", "sku": "162101", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Bouillon with meat flavour",
+          "subtitle": "Meat bouillon",
+          "description": "Beef bouillon with a strong meaty flavour, refined with parsnip and onion.\n\n**Dosage:** 20 g/kg.\n\n**Ingredients:** iodised table salt; natural flavouring; sucrose; yeast extract; spices; seasoning; caramel sugar."
+        },
+        "it": {
+          "title": "Brodo con aroma di carne",
+          "subtitle": "Brodo di carne",
+          "description": "Brodo di manzo dal deciso sapore di carne, raffinato con pastinaca e cipolla.\n\n**Dosaggio:** 20 g/kg.\n\n**Ingredienti:** sale da cucina iodato; aroma naturale; saccarosio; estratto di lievito; spezie; condimento; zucchero caramellato."
+        }
+      }
+    },
+    {
+      "title": "Bouillon mit Huhnaroma",
+      "handle": "bouillon-mit-huhnaroma",
+      "subtitle": "Hühnerbouillon",
+      "description": "Geflügelbouillon mit kräftigem Geflügelgeschmack, verfeinert mit Knoblauch und Zwiebeln.\n\n**Dosierung:** 22 g/l Wasser.\n\n**Zutaten:** Speisesalz jodiert; Aroma nat.; Maltodextrin; Hefeextrakt; Dextrose; Gewürze.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/bouillon-mit-huhnaroma.png"],
+      "variants": [
+        { "title": "1 kg Beutel", "sku": "G3491", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Bouillon with chicken flavour",
+          "subtitle": "Chicken bouillon",
+          "description": "Poultry bouillon with a strong poultry flavour, refined with garlic and onion.\n\n**Dosage:** 22 g/l water.\n\n**Ingredients:** iodised table salt; natural flavouring; maltodextrin; yeast extract; dextrose; spices."
+        },
+        "it": {
+          "title": "Brodo con aroma di pollo",
+          "subtitle": "Brodo di pollo",
+          "description": "Brodo di pollame dal deciso sapore di pollame, raffinato con aglio e cipolla.\n\n**Dosaggio:** 22 g/l acqua.\n\n**Ingredienti:** sale da cucina iodato; aroma naturale; maltodestrina; estratto di lievito; destrosio; spezie."
+        }
+      }
+    },
+    {
+      "title": "Buljo-Fix",
+      "handle": "buljo-fix",
+      "subtitle": "Gemüsebouillon",
+      "description": "Gemüsebouillon mit Meersalz und ausgewogenem Geschmack nach Lauch, Zwiebeln und Sellerie.\n\n**Dosierung:** 20 g/l Wasser.\n\n**Zutaten:** Meersalz; Geschmacksverstärker: E 621, E 635; Kartoffelstärke; Gemüse (enth. SELLERIE) 7.5 %; Rapsöl; Hefeextrakt; Gewürze (enth. SELLERIE).\n\n**Allergene:** Sellerie, E 621, E 635",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/buljo-fix.png"],
+      "variants": [
+        { "title": "1 kg Beutel", "sku": "125831", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Buljo-Fix",
+          "subtitle": "Vegetable bouillon",
+          "description": "Vegetable bouillon with sea salt and a balanced flavour of leek, onion and celery.\n\n**Dosage:** 20 g/l water.\n\n**Ingredients:** sea salt; flavour enhancers: E 621, E 635; potato starch; vegetables (contain CELERY) 7.5 %; rapeseed oil; yeast extract; spices (contain CELERY).\n\n**Allergens:** Celery, E 621, E 635"
+        },
+        "it": {
+          "title": "Buljo-Fix",
+          "subtitle": "Brodo vegetale",
+          "description": "Brodo vegetale con sale marino e un sapore equilibrato di porro, cipolla e sedano.\n\n**Dosaggio:** 20 g/l acqua.\n\n**Ingredienti:** sale marino; esaltatori di sapidità: E 621, E 635; amido di patata; verdure (contengono SEDANO) 7.5 %; olio di colza; estratto di lievito; spezie (contengono SEDANO).\n\n**Allergeni:** Sedano, E 621, E 635"
+        }
+      }
+    },
+    {
+      "title": "Gemüsebouillon oG (ohne Sellerie)",
+      "handle": "gemuesebouillon-og-ohne-sellerie",
+      "subtitle": "Gemüsebouillon",
+      "description": "Gemüsebouillon ohne Glutamat, ohne Sellerie, mit ausgewogenem Geschmack nach Liebstöckelwurzeln, Zwiebeln und Karotten.\n\n**Dosierung:** 20 g/l Wasser.\n\n**Zutaten:** Speisesalz; Würze; Saccharose; Maltodextrin; Gemüse 5 % (Zwiebeln, Karotten); Kartoffelstärke; Gewürze.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/gemuesebouillon-og-ohne-sellerie.png"],
+      "variants": [
+        { "title": "1 kg Beutel", "sku": "115191", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Vegetable bouillon MSG-free (celery-free)",
+          "subtitle": "Vegetable bouillon",
+          "description": "Vegetable bouillon without glutamate, without celery, with a balanced flavour of lovage root, onion and carrot.\n\n**Dosage:** 20 g/l water.\n\n**Ingredients:** table salt; seasoning; sucrose; maltodextrin; vegetables 5 % (onion, carrot); potato starch; spices."
+        },
+        "it": {
+          "title": "Brodo vegetale senza glutammato (senza sedano)",
+          "subtitle": "Brodo vegetale",
+          "description": "Brodo vegetale senza glutammato, senza sedano, con un sapore equilibrato di radice di levistico, cipolla e carota.\n\n**Dosaggio:** 20 g/l acqua.\n\n**Ingredienti:** sale da cucina; condimento; saccarosio; maltodestrina; verdure 5 % (cipolla, carota); amido di patata; spezie."
+        }
+      }
+    },
+    {
+      "title": "Gemüsebouillon oG",
+      "handle": "gemuesebouillon-og",
+      "subtitle": "Gemüsebouillon",
+      "description": "Gemüsebouillon ohne Glutamat und ausgewogenem Geschmack nach Zwiebeln, Sellerie und Lauch.\n\n**Dosierung:** 20 g/l Wasser.\n\n**Zutaten:** Speisesalz; Hefeextrakt; Reismehl; Gemüse 8 % (Zwiebeln, SELLERIE, Karotten, Lauch, Petersilie); Rapsöl; Gewürz.\n\n**Allergene:** Sellerie",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/gemuesebouillon-og.png"],
+      "variants": [
+        { "title": "1 kg Beutel", "sku": "121881", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Vegetable bouillon MSG-free",
+          "subtitle": "Vegetable bouillon",
+          "description": "Vegetable bouillon without glutamate and with a balanced flavour of onion, celery and leek.\n\n**Dosage:** 20 g/l water.\n\n**Ingredients:** table salt; yeast extract; rice flour; vegetables 8 % (onion, CELERY, carrot, leek, parsley); rapeseed oil; spice.\n\n**Allergens:** Celery"
+        },
+        "it": {
+          "title": "Brodo vegetale senza glutammato",
+          "subtitle": "Brodo vegetale",
+          "description": "Brodo vegetale senza glutammato e con un sapore equilibrato di cipolla, sedano e porro.\n\n**Dosaggio:** 20 g/l acqua.\n\n**Ingredienti:** sale da cucina; estratto di lievito; farina di riso; verdure 8 % (cipolla, SEDANO, carota, porro, prezzemolo); olio di colza; spezia.\n\n**Allergeni:** Sedano"
+        }
+      }
+    }
+  ]
+}

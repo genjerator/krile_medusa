@@ -1,0 +1,103 @@
+{
+  "defaults": {
+    "status": "published",
+    "currency_code": "eur",
+    "subtitle": "Würzmischung",
+    "category_names": ["Gewürzmischungen"],
+    "sales_channel_names": ["IndustriesWebshop"],
+    "option_title": "Gebinde"
+  },
+  "products": [
+    {
+      "title": "Poulet Gewürz",
+      "handle": "poulet-gewuerz",
+      "description": "Würzung mit Schweizer Alpensalz, Paprika und Rosmarin. Harmoniert am Besten mit Geflügel.\n\n**Dosierung:** 21 g/kg Fleisch.\n\n**Zutaten:** Speisesalz (Alpensalz, CH) 56 %; Gewürze (Paprika, Rosmarin, Pfeffer, Koriander, Muskat, Pastinake, Knoblauch, Ingwer, Zwiebel); Würze; Zucker.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/poulet-gewuerz.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "F1331", "price": null } ],
+      "translations": {
+        "en": { "title": "Poultry Seasoning", "subtitle": "Seasoning blend", "description": "Seasoning with Swiss Alpine salt, paprika and rosemary. Pairs best with poultry.\n\n**Dosage:** 21 g/kg meat.\n\n**Ingredients:** table salt (Alpine salt, CH) 56 %; spices (paprika, rosemary, pepper, coriander, nutmeg, parsnip, garlic, ginger, onion); seasoning; sugar." },
+        "it": { "title": "Condimento per pollame", "subtitle": "Miscela di condimento", "description": "Condimento con sale alpino svizzero, paprika e rosmarino. Si abbina al meglio con il pollame.\n\n**Dosaggio:** 21 g/kg di carne.\n\n**Ingredienti:** sale da cucina (sale alpino, CH) 56 %; spezie (paprika, rosmarino, pepe, coriandolo, noce moscata, pastinaca, aglio, zenzero, cipolla); condimento; zucchero." }
+      }
+    },
+    {
+      "title": "Poulet Mix",
+      "handle": "poulet-mix",
+      "subtitle": "Feine Würzmischung mit Kräutern",
+      "description": "Aromatische Würzung mit Rosmarin und Paprika. Harmoniert am besten mit Geflügel.\n\n**Dosierung:** 20 g/kg Fleisch.\n\n**Zutaten:** Speisesalz; Gewürze (enth. SELLERIE); Geschmacksverstärker: E 621; Saccharose; Nährhefe; Gewürzextrakt.\n\n**Allergene:** Sellerie, E 621",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/poulet-mix.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "14271", "price": null } ],
+      "translations": {
+        "en": { "title": "Poultry Mix", "subtitle": "Fine seasoning blend with herbs", "description": "Aromatic seasoning with rosemary and paprika. Pairs best with poultry.\n\n**Dosage:** 20 g/kg meat.\n\n**Ingredients:** table salt; spices (contains CELERY); flavour enhancer: E 621; sucrose; nutritional yeast; spice extract.\n\n**Allergens:** Celery, E 621" },
+        "it": { "title": "Poultry Mix", "subtitle": "Miscela di condimento fine con erbe", "description": "Condimento aromatico con rosmarino e paprika. Si abbina al meglio con il pollame.\n\n**Dosaggio:** 20 g/kg di carne.\n\n**Ingredienti:** sale da cucina; spezie (contiene SEDANO); esaltatore di sapidità: E 621; saccarosio; lievito alimentare; estratto di spezie.\n\n**Allergeni:** Sedano, E 621" }
+      }
+    },
+    {
+      "title": "Schweinshaxe Gewürzmix",
+      "handle": "schweinshaxe-gewuerzmix",
+      "description": "Aromatische Würzung mit Bohnenkraut, Oregano und Zwiebeln. Harmoniert am besten mit Schweinehaxen.\n\n**Dosierung:** 30 g/kg Fleisch.\n\n**Zutaten:** Speisesalz jodiert; Gewürze; Saccharose; Geschmacksverstärker: E 621; Kräuter.\n\n**Allergene:** E 621",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/schweinshaxe-gewuerzmix.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "85161", "price": null } ],
+      "translations": {
+        "en": { "title": "Pork Knuckle Spice Mix", "subtitle": "Seasoning blend", "description": "Aromatic seasoning with savory, oregano and onions. Pairs best with pork knuckle.\n\n**Dosage:** 30 g/kg meat.\n\n**Ingredients:** iodised table salt; spices; sucrose; flavour enhancer: E 621; herbs.\n\n**Allergens:** E 621" },
+        "it": { "title": "Mix di spezie per stinco di maiale", "subtitle": "Miscela di condimento", "description": "Condimento aromatico con santoreggia, origano e cipolle. Si abbina al meglio con lo stinco di maiale.\n\n**Dosaggio:** 30 g/kg di carne.\n\n**Ingredienti:** sale da cucina iodato; spezie; saccarosio; esaltatore di sapidità: E 621; erbe.\n\n**Allergeni:** E 621" }
+      }
+    },
+    {
+      "title": "Steakbutter Gewürzmix",
+      "handle": "steakbutter-gewuerzmix",
+      "subtitle": "Gewürzzubereitung",
+      "description": "Deftige, leicht rauchige Würzmischung nach Butter-, Paprika- und Kräuternote. Harmoniert am besten mit Lamm, Pferd, Rind und Schwein.\n\n**Dosierung:** 35 g/kg Fleisch.\n\n**Zutaten:** Gewürze; Speisesalz jodiert; Würze; Maisstärke; Gewürzextrakt; Aroma; Maltodextrin geräuchert.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/steakbutter-gewuerzmix.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "203691", "price": null } ],
+      "translations": {
+        "en": { "title": "Steak Butter Spice Mix", "subtitle": "Spice preparation", "description": "Hearty, lightly smoky seasoning blend with butter, paprika and herb notes. Pairs best with lamb, horse, beef and pork.\n\n**Dosage:** 35 g/kg meat.\n\n**Ingredients:** spices; iodised table salt; seasoning; maize starch; spice extract; flavouring; smoked maltodextrin." },
+        "it": { "title": "Mix di spezie burro per bistecca", "subtitle": "Preparazione di spezie", "description": "Miscela di condimento gustosa e leggermente affumicata con note di burro, paprika ed erbe. Si abbina al meglio con agnello, cavallo, manzo e maiale.\n\n**Dosaggio:** 35 g/kg di carne.\n\n**Ingredienti:** spezie; sale da cucina iodato; condimento; amido di mais; estratto di spezie; aroma; maltodestrina affumicata." }
+      }
+    },
+    {
+      "title": "Streumix oG",
+      "handle": "streumix-og",
+      "subtitle": "Gewürzsalz",
+      "description": "Universelle Mischung ohne Glutamat, mit Pastinake und Tomate.\n\n**Dosierung:** 20 g/kg Fleisch.\n\n**Zutaten:** Speisesalz; Gewürze; Saccharose; Hefeextrakt; Tomatenpulver; Würze.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/streumix-og.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "98341", "price": null } ],
+      "translations": {
+        "en": { "title": "Streumix, MSG-free", "subtitle": "Seasoning salt", "description": "Universal blend without MSG, with parsnip and tomato.\n\n**Dosage:** 20 g/kg meat.\n\n**Ingredients:** table salt; spices; sucrose; yeast extract; tomato powder; seasoning." },
+        "it": { "title": "Streumix senza glutammato", "subtitle": "Sale aromatizzato", "description": "Miscela universale senza glutammato, con pastinaca e pomodoro.\n\n**Dosaggio:** 20 g/kg di carne.\n\n**Ingredienti:** sale da cucina; spezie; saccarosio; estratto di lievito; pomodoro in polvere; condimento." }
+      }
+    },
+    {
+      "title": "Zitronenpfeffer Würzmischung",
+      "handle": "zitronenpfeffer-wuerzmischung",
+      "description": "Pikant-frische Würzung mit Pfeffer schwarz und Zitrone. Harmoniert am besten mit Geflügel, Fisch und Meeresfrüchten.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Gewürze (enth. Pfeffer 30.5 %); Speisesalz jodiert; Dextrose; Saccharose; Zitronenextrakt 9.5 %; Zitronensaft getrocknet 8 %; Säuerungsmittel: E 330; Geschmacksverstärker: E 621; Gewürzextrakte.\n\n**Allergene:** E 330, E 621",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/zitronenpfeffer-wuerzmischung.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "02021", "price": null } ],
+      "translations": {
+        "en": { "title": "Lemon Pepper Seasoning", "subtitle": "Seasoning blend", "description": "Spicy, fresh seasoning with black pepper and lemon. Pairs best with poultry, fish and seafood.\n\n**Dosage:** as required.\n\n**Ingredients:** spices (contains pepper 30.5 %); iodised table salt; dextrose; sucrose; lemon extract 9.5 %; dried lemon juice 8 %; acidifier: E 330; flavour enhancer: E 621; spice extracts.\n\n**Allergens:** E 330, E 621" },
+        "it": { "title": "Miscela pepe e limone", "subtitle": "Miscela di condimento", "description": "Condimento piccante e fresco con pepe nero e limone. Si abbina al meglio con pollame, pesce e frutti di mare.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** spezie (contiene pepe 30.5 %); sale da cucina iodato; destrosio; saccarosio; estratto di limone 9.5 %; succo di limone essiccato 8 %; acidificante: E 330; esaltatore di sapidità: E 621; estratti di spezie.\n\n**Allergeni:** E 330, E 621" }
+      }
+    },
+    {
+      "title": "Bio Grill Gewürz",
+      "handle": "bio-grill-gewuerz",
+      "description": "Würzung in Bio-Qualität mit Paprika, Pfeffer schwarz und Koriander. Harmoniert am besten mit Schwein, Rind und Lamm.\n\n**Dosierung:** 20 g/kg Fleisch.\n\n**Zutaten:** Speisesalz [CH]; *Gewürze (Paprika [ES], Pfeffer [IN], Koriander [EG], Muskat [LK], Knoblauch [EG], Ingwer [LK], Bohnenkraut [BA], Rosmarin [TR], Oregano [PE], Majoran [EG], Basilikum [EG]). * = Knospe",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/bio-grill-gewuerz.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "89041", "price": null } ],
+      "translations": {
+        "en": { "title": "Organic Grill Seasoning", "subtitle": "Seasoning blend", "description": "Organic-quality seasoning with paprika, black pepper and coriander. Pairs best with pork, beef and lamb.\n\n**Dosage:** 20 g/kg meat.\n\n**Ingredients:** table salt [CH]; *spices (paprika [ES], pepper [IN], coriander [EG], nutmeg [LK], garlic [EG], ginger [LK], savory [BA], rosemary [TR], oregano [PE], marjoram [EG], basil [EG]). * = Knospe (organic)" },
+        "it": { "title": "Condimento per grigliate bio", "subtitle": "Miscela di condimento", "description": "Condimento di qualità biologica con paprika, pepe nero e coriandolo. Si abbina al meglio con maiale, manzo e agnello.\n\n**Dosaggio:** 20 g/kg di carne.\n\n**Ingredienti:** sale da cucina [CH]; *spezie (paprika [ES], pepe [IN], coriandolo [EG], noce moscata [LK], aglio [EG], zenzero [LK], santoreggia [BA], rosmarino [TR], origano [PE], maggiorana [EG], basilico [EG]). * = Knospe (bio)" }
+      }
+    },
+    {
+      "title": "Bio Poulet Gewürz",
+      "handle": "bio-poulet-gewuerz",
+      "description": "Aromatische Würzung in Bio-Qualität mit Rosmarin, Paprika und Pfeffer weiss. Harmoniert am besten mit Geflügel.\n\n**Dosierung:** 30 g/kg Geflügel.\n\n**Zutaten:** Speisesalz [CH]; *Gewürze (Paprika [ES], Pfeffer [IN], Bohnenkraut [BA], Rosmarin [TR], Knoblauchpulver [EG], Oregano [PE], Majoran [EG], Lauch [EG], SELLERIE [DE]); *WEIZENSTÄRKE [DE]). * = Knospe\n\n**Allergene:** Gluten, Sellerie",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/bio-poulet-gewuerz.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "89051", "price": null } ],
+      "translations": {
+        "en": { "title": "Organic Poultry Seasoning", "subtitle": "Seasoning blend", "description": "Aromatic organic-quality seasoning with rosemary, paprika and white pepper. Pairs best with poultry.\n\n**Dosage:** 30 g/kg poultry.\n\n**Ingredients:** table salt [CH]; *spices (paprika [ES], pepper [IN], savory [BA], rosemary [TR], garlic powder [EG], oregano [PE], marjoram [EG], leek [EG], CELERY [DE]); *WHEAT STARCH [DE]). * = Knospe (organic)\n\n**Allergens:** Gluten, Celery" },
+        "it": { "title": "Condimento per pollame bio", "subtitle": "Miscela di condimento", "description": "Condimento aromatico di qualità biologica con rosmarino, paprika e pepe bianco. Si abbina al meglio con il pollame.\n\n**Dosaggio:** 30 g/kg di pollame.\n\n**Ingredienti:** sale da cucina [CH]; *spezie (paprika [ES], pepe [IN], santoreggia [BA], rosmarino [TR], aglio in polvere [EG], origano [PE], maggiorana [EG], porro [EG], SEDANO [DE]); *AMIDO DI FRUMENTO [DE]). * = Knospe (bio)\n\n**Allergeni:** Glutine, Sedano" }
+      }
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "defaults": {
+    "status": "published",
+    "currency_code": "eur",
+    "subtitle": "Streuwürze",
+    "category_names": ["Küchen und Traiteurartikel"],
+    "sales_channel_names": ["IndustriesWebshop"],
+    "option_title": "Gebinde"
+  },
+  "products": [
+    {
+      "title": "Paco Glutamatersatz",
+      "handle": "paco-glutamatersatz",
+      "description": "Geschmacksverstärker ohne Zusatzstoffe oder Allergene.\n\n**Dosierung:** 1 g Natriumglutamat wird mit 1.63 g Paco Glutamatersatz ersetzt.\n\n**Zutaten:** Gewürze; Speisesalz; Dextrose.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/paco-glutamatersatz.png"],
+      "variants": [
+        { "title": "1 kg Beutel", "sku": "227911", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Paco Glutamate Substitute",
+          "subtitle": "Seasoning",
+          "description": "Flavour enhancer without additives or allergens.\n\n**Dosage:** 1 g monosodium glutamate is replaced by 1.63 g Paco Glutamate Substitute.\n\n**Ingredients:** spices; table salt; dextrose."
+        },
+        "it": {
+          "title": "Paco sostituto del glutammato",
+          "subtitle": "Condimento",
+          "description": "Esaltatore di sapidità senza additivi o allergeni.\n\n**Dosaggio:** 1 g di glutammato monosodico viene sostituito con 1.63 g di Paco sostituto del glutammato.\n\n**Ingredienti:** spezie; sale da cucina; destrosio."
+        }
+      }
+    },
+    {
+      "title": "Streuwürze",
+      "handle": "streuwuerze",
+      "subtitle": "Klassische Streuwürze",
+      "description": "Klassische, gelbe Würzung auf Basis Salz und Glutamat.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Speisesalz jodiert; Geschmacksverstärker: E 621; Saccharose; Gewürze; Nährhefe; Kartoffelstärke.\n\n**Allergene:** E 621",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/streuwuerze.png"],
+      "variants": [
+        { "title": "1 kg Beutel", "sku": "41761S", "price": null },
+        { "title": "5 kg Kessel", "sku": "41765K", "price": null },
+        { "title": "5 kg Beutel", "sku": "41765S", "price": null },
+        { "title": "25 kg Sack", "sku": "417625S", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Seasoning salt",
+          "subtitle": "Classic seasoning salt",
+          "description": "Classic, yellow seasoning based on salt and glutamate.\n\n**Dosage:** as required.\n\n**Ingredients:** iodised table salt; flavour enhancer: E 621; sucrose; spices; nutritional yeast; potato starch.\n\n**Allergens:** E 621"
+        },
+        "it": {
+          "title": "Condimento da spolvero",
+          "subtitle": "Condimento classico",
+          "description": "Condimento classico giallo a base di sale e glutammato.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** sale da cucina iodato; esaltatore di sapidità: E 621; saccarosio; spezie; lievito alimentare; amido di patata.\n\n**Allergeni:** E 621"
+        }
+      }
+    },
+    {
+      "title": "Streuwürze naturelle",
+      "handle": "streuwuerze-naturelle",
+      "subtitle": "Streuwürze allergenfrei, ohne Glutamat",
+      "description": "Klassische, helle Würzung auf Basis Salz und Hefeextrakt, verfeinert mit Lauch und Zwiebeln.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Speisesalz jodiert; Glucosesirup; Saccharose; Hefeextrakt; Gewürze.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/streuwuerze-naturelle.png"],
+      "variants": [
+        { "title": "1 kg Beutel", "sku": "93721", "price": null },
+        { "title": "5 kg Beutel", "sku": "93725", "price": null },
+        { "title": "25 kg Sack", "sku": "937225", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Seasoning salt naturelle",
+          "subtitle": "Seasoning salt, allergen-free, no glutamate",
+          "description": "Classic, light seasoning based on salt and yeast extract, refined with leek and onion.\n\n**Dosage:** as required.\n\n**Ingredients:** iodised table salt; glucose syrup; sucrose; yeast extract; spices."
+        },
+        "it": {
+          "title": "Condimento da spolvero naturelle",
+          "subtitle": "Condimento senza allergeni, senza glutammato",
+          "description": "Condimento classico chiaro a base di sale ed estratto di lievito, raffinato con porro e cipolla.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** sale da cucina iodato; sciroppo di glucosio; saccarosio; estratto di lievito; spezie."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "defaults": {
+    "status": "published",
+    "currency_code": "eur",
+    "subtitle": "Gewürzmischung",
+    "category_names": ["Gewürzmischungen"],
+    "sales_channel_names": ["IndustriesWebshop"],
+    "option_title": "Gebinde"
+  },
+  "products": [
+    {
+      "title": "Dekor Rot Mix",
+      "handle": "dekor-rot-mix",
+      "description": "Dekorwürzung mit groben Gewürzbestandteilen von Senf, Paprika und Zwiebeln.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Gewürze (enth. SENF).\n\n**Allergene:** Senf",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/dekor-rot-mix.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "64201", "price": null } ],
+      "translations": {
+        "en": { "title": "Decor Red Mix", "subtitle": "Spice blend", "description": "Decorative seasoning with coarse spice pieces of mustard, paprika and onions.\n\n**Dosage:** as required.\n\n**Ingredients:** Spices (contains MUSTARD).\n\n**Allergens:** Mustard" },
+        "it": { "title": "Mix Decor Rosso", "subtitle": "Miscela di spezie", "description": "Condimento decorativo con pezzi grossolani di spezie di senape, paprika e cipolle.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** Spezie (contiene SENAPE).\n\n**Allergeni:** Senape" }
+      }
+    },
+    {
+      "title": "Gemüse – Mix",
+      "handle": "gemuese-mix",
+      "subtitle": "Gemüsemischung",
+      "description": "Gemüsewürzung mit grob geschnittenen Gemüsebestandteilen von Weisskohl, Karotten und Zwiebeln.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Gemüse (Weisskohl, Zwiebel, Karotte, Lauch).",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/gemuese-mix.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "18151", "price": null } ],
+      "translations": {
+        "en": { "title": "Vegetable Mix", "subtitle": "Vegetable blend", "description": "Vegetable seasoning with coarsely cut vegetable pieces of white cabbage, carrots and onions.\n\n**Dosage:** as required.\n\n**Ingredients:** Vegetables (white cabbage, onion, carrot, leek)." },
+        "it": { "title": "Mix di verdure", "subtitle": "Miscela di verdure", "description": "Condimento vegetale con pezzi di verdura tagliati grossolanamente di cavolo bianco, carote e cipolle.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** Verdure (cavolo bianco, cipolla, carota, porro)." }
+      }
+    },
+    {
+      "title": "Gemüse – Mix Gyros",
+      "handle": "gemuese-mix-gyros",
+      "subtitle": "Gemüsemischung",
+      "description": "Gemüsewürzung mit grob geschnittenen Gemüsebestandteilen von Zwiebeln, Lauch und Paprika.\n\n**Dosierung:** 40 g/kg Fleisch.\n\n**Zutaten:** Gemüse (Zwiebeln, Lauch, Paprika).",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/gemuese-mix-gyros.png"],
+      "variants": [ { "title": "1.5 kg Beutel", "sku": "971915", "price": null } ],
+      "translations": {
+        "en": { "title": "Vegetable Mix Gyros", "subtitle": "Vegetable blend", "description": "Vegetable seasoning with coarsely cut vegetable pieces of onions, leek and paprika.\n\n**Dosage:** 40 g/kg meat.\n\n**Ingredients:** Vegetables (onions, leek, paprika)." },
+        "it": { "title": "Mix di verdure Gyros", "subtitle": "Miscela di verdure", "description": "Condimento vegetale con pezzi di verdura tagliati grossolanamente di cipolle, porro e paprika.\n\n**Dosaggio:** 40 g/kg di carne.\n\n**Ingredienti:** Verdure (cipolle, porro, paprika)." }
+      }
+    },
+    {
+      "title": "Jalapaco",
+      "handle": "jalapaco",
+      "description": "Pikant-fruchtige Flockenmischung. Diese Mischung aus Chili- und Jalapeñoflocken sowie roten und grünen Paprikaflocken verleiht Wurst- und Schinkenwaren eine fruchtig-süße Schärfe.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Gewürze.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/jalapaco.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "232041", "price": null } ],
+      "translations": {
+        "en": { "title": "Jalapaco", "subtitle": "Spice blend", "description": "Spicy, fruity flake blend. This mix of chilli and jalapeño flakes together with red and green paprika flakes lends sausage and ham products a fruity-sweet heat.\n\n**Dosage:** as required.\n\n**Ingredients:** Spices." },
+        "it": { "title": "Jalapaco", "subtitle": "Miscela di spezie", "description": "Miscela di fiocchi piccante e fruttata. Questa miscela di fiocchi di peperoncino e jalapeño con fiocchi di paprika rossa e verde conferisce a salumi e prosciutti una piccantezza fruttata e dolce.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** Spezie." }
+      }
+    },
+    {
+      "title": "Kräutermischung italienisch fein",
+      "handle": "kraeutermischung-italienisch-fein",
+      "subtitle": "Kräutermischung",
+      "description": "Kräuterwürzung mit groben Gewürzbestandteilen von Bohnenkraut, Rosmarin, Oregano und Majoran.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Kräuter (Bohnenkraut, Rosmarin, Oregano, Majoran, Basilikum, Thymian, Salbei).",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/kraeutermischung-italienisch-fein.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "11401", "price": null } ],
+      "translations": {
+        "en": { "title": "Italian Herb Blend, fine", "subtitle": "Herb blend", "description": "Herb seasoning with coarse spice pieces of savory, rosemary, oregano and marjoram.\n\n**Dosage:** as required.\n\n**Ingredients:** Herbs (savory, rosemary, oregano, marjoram, basil, thyme, sage)." },
+        "it": { "title": "Miscela di erbe italiana fine", "subtitle": "Miscela di erbe", "description": "Condimento alle erbe con pezzi grossolani di spezie di santoreggia, rosmarino, origano e maggiorana.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** Erbe (santoreggia, rosmarino, origano, maggiorana, basilico, timo, salvia)." }
+      }
+    },
+    {
+      "title": "Bio Kräutermischung italienisch",
+      "handle": "bio-kraeutermischung-italienisch",
+      "subtitle": "Kräutermischung",
+      "description": "Kräuterwürzung in Bio-Qualität mit groben Gewürzbestandteilen von Bohnenkraut, Rosmarin, Oregano und Majoran.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Kräuter (*Bohnenkraut [BA], *Rosmarin [PE], *Oregano [PE], *Thymian [PE], *Basilikum [EG], *Majoran [EG], *Salbei [HR]). * = Knospe",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/bio-kraeutermischung-italienisch.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "61901", "price": null } ],
+      "translations": {
+        "en": { "title": "Organic Italian Herb Blend", "subtitle": "Herb blend", "description": "Organic-quality herb seasoning with coarse spice pieces of savory, rosemary, oregano and marjoram.\n\n**Dosage:** as required.\n\n**Ingredients:** Herbs (*savory [BA], *rosemary [PE], *oregano [PE], *thyme [PE], *basil [EG], *marjoram [EG], *sage [HR]). * = Knospe (organic)" },
+        "it": { "title": "Miscela di erbe italiana bio", "subtitle": "Miscela di erbe", "description": "Condimento alle erbe di qualità biologica con pezzi grossolani di spezie di santoreggia, rosmarino, origano e maggiorana.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** Erbe (*santoreggia [BA], *rosmarino [PE], *origano [PE], *timo [PE], *basilico [EG], *maggiorana [EG], *salvia [HR]). * = Knospe (bio)" }
+      }
+    },
+    {
+      "title": "Kräutermischung Provence",
+      "handle": "kraeutermischung-provence",
+      "subtitle": "Kräutermischung",
+      "description": "Aromatische grobe Kräutermischung nach Thymian, Rosmarin, Salbei und Lavendel.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Kräuter; Fenchel; Lavendel.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/kraeutermischung-provence.png"],
+      "variants": [
+        { "title": "1 kg Beutel", "sku": "11391", "price": null },
+        { "title": "10 kg Sack", "sku": "113910", "price": null }
+      ],
+      "translations": {
+        "en": { "title": "Herb Blend Provence", "subtitle": "Herb blend", "description": "Aromatic coarse herb blend with thyme, rosemary, sage and lavender.\n\n**Dosage:** as required.\n\n**Ingredients:** Herbs; fennel; lavender." },
+        "it": { "title": "Miscela di erbe Provenza", "subtitle": "Miscela di erbe", "description": "Miscela di erbe grossolana e aromatica con timo, rosmarino, salvia e lavanda.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** Erbe; finocchio; lavanda." }
+      }
+    },
+    {
+      "title": "Bio Kräutermischung Provence",
+      "handle": "bio-kraeutermischung-provence",
+      "subtitle": "Kräutermischung",
+      "description": "Kräuterwürzung in Bio-Qualität mit groben Gewürzbestandteilen von Thymian, Rosmarin, Salbei und Lavendel.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** *Kräuter (Thymian [TR], Rosmarin [PE], Basilikum [EG], Oregano [PE], Bohnenkraut [BA], Lorbeerblätter [BA], Lavendelblüten [AL]). * = Knospe",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/bio-kraeutermischung-provence.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "61421", "price": null } ],
+      "translations": {
+        "en": { "title": "Organic Herb Blend Provence", "subtitle": "Herb blend", "description": "Organic-quality herb seasoning with coarse spice pieces of thyme, rosemary, sage and lavender.\n\n**Dosage:** as required.\n\n**Ingredients:** *Herbs (thyme [TR], rosemary [PE], basil [EG], oregano [PE], savory [BA], bay leaves [BA], lavender flowers [AL]). * = Knospe (organic)" },
+        "it": { "title": "Miscela di erbe Provenza bio", "subtitle": "Miscela di erbe", "description": "Condimento alle erbe di qualità biologica con pezzi grossolani di spezie di timo, rosmarino, salvia e lavanda.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** *Erbe (timo [TR], rosmarino [PE], basilico [EG], origano [PE], santoreggia [BA], foglie di alloro [BA], fiori di lavanda [AL]). * = Knospe (bio)" }
+      }
+    }
+  ]
+}

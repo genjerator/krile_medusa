@@ -1,0 +1,97 @@
+{
+  "defaults": {
+    "status": "published",
+    "currency_code": "eur",
+    "subtitle": "Glutenfreies Decor-Paniermehl",
+    "category_names": ["Paniermehle und -systeme"],
+    "sales_channel_names": ["IndustriesWebshop"],
+    "option_title": "Gebinde"
+  },
+  "products": [
+    {
+      "title": "Paniermehl Cornflakes & Mandeln",
+      "handle": "paniermehl-cornflakes-mandeln",
+      "description": "Glutenfreies Paniermehl auf Basis Mais mit Mandelsplitter.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Cornflakes (Mais 96 %, Saccharose, Speisesalz); MANDELN 13 %.\n\n**Allergene:** Nüsse",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/paniermehl-cornflakes-mandeln.png"],
+      "variants": [
+        { "title": "1 kg Beutel", "sku": "93221", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Breadcrumbs Cornflakes & Almonds",
+          "subtitle": "Gluten-free decor breadcrumbs",
+          "description": "Gluten-free breadcrumbs based on maize with almond slivers.\n\n**Dosage:** as required.\n\n**Ingredients:** cornflakes (maize 96 %, sucrose, table salt); ALMONDS 13 %.\n\n**Allergens:** Nuts"
+        },
+        "it": {
+          "title": "Pangrattato Cornflakes & Mandorle",
+          "subtitle": "Pangrattato decorativo senza glutine",
+          "description": "Pangrattato senza glutine a base di mais con scaglie di mandorle.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** cornflakes (mais 96 %, saccarosio, sale da cucina); MANDORLE 13 %.\n\n**Allergeni:** Frutta a guscio"
+        }
+      }
+    },
+    {
+      "title": "Paniermehl Quinoa (Paracas)",
+      "handle": "paniermehl-quinoa-paracas",
+      "description": "Glutenfreies Paniermehl auf Basis Quinoa gepufft.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Paniermehl (Reis, Mais, Speisesalz); Quinoa 20 %; Gewürze, Rapsöl.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/paniermehl-quinoa-paracas.png"],
+      "variants": [
+        { "title": "1 kg Beutel", "sku": "175541", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Breadcrumbs Quinoa (Paracas)",
+          "subtitle": "Gluten-free decor breadcrumbs",
+          "description": "Gluten-free breadcrumbs based on puffed quinoa.\n\n**Dosage:** as required.\n\n**Ingredients:** breadcrumbs (rice, maize, table salt); quinoa 20 %; spices, rapeseed oil."
+        },
+        "it": {
+          "title": "Pangrattato Quinoa (Paracas)",
+          "subtitle": "Pangrattato decorativo senza glutine",
+          "description": "Pangrattato senza glutine a base di quinoa soffiata.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** pangrattato (riso, mais, sale da cucina); quinoa 20 %; spezie, olio di colza."
+        }
+      }
+    },
+    {
+      "title": "Paniermehl Tigernuts & Corn",
+      "handle": "paniermehl-tigernuts-corn",
+      "description": "Glutenfreies Paniermehl auf Basis Erdmandeln und Mais.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Tigernuss 50 %; Cornflakes 50 % (Mais 96 %, Speisesalz, Saccharose).",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/paniermehl-tigernuts-corn.png"],
+      "variants": [
+        { "title": "1 kg Beutel", "sku": "130271", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Breadcrumbs Tigernuts & Corn",
+          "subtitle": "Gluten-free decor breadcrumbs",
+          "description": "Gluten-free breadcrumbs based on tiger nuts and maize.\n\n**Dosage:** as required.\n\n**Ingredients:** tiger nut 50 %; cornflakes 50 % (maize 96 %, table salt, sucrose)."
+        },
+        "it": {
+          "title": "Pangrattato Tigernuts & Corn",
+          "subtitle": "Pangrattato decorativo senza glutine",
+          "description": "Pangrattato senza glutine a base di zigoli dolci e mais.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** zigolo dolce 50 %; cornflakes 50 % (mais 96 %, sale da cucina, saccarosio)."
+        }
+      }
+    },
+    {
+      "title": "Panademehl ohne Weizenmehl",
+      "handle": "panademehl-ohne-weizenmehl",
+      "subtitle": "Glutenfreie Nasspanade",
+      "description": "Gewürztes, glutenfreies Panademehl.\n\n**Dosierung:** 625 g/kg Wasser oder 1 kg für 1.6 kg Wasser; 10 min quellen lassen.\n\n**Zutaten:** Kartoffelstärke; Speisesalz jodiert; Reisstärke; Gewürze; Dextrose; Verdickungsmittel: E 415, E 401; Gewürzextrakt.\n\n**Allergene:** E 401, E 415",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/panademehl-ohne-weizenmehl.png"],
+      "variants": [
+        { "title": "1 kg Beutel", "sku": "F6361", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Wet breading without wheat flour",
+          "subtitle": "Gluten-free wet breading",
+          "description": "Seasoned, gluten-free wet breading.\n\n**Dosage:** 625 g/kg water or 1 kg for 1.6 kg water; leave to swell for 10 min.\n\n**Ingredients:** potato starch; iodised table salt; rice starch; spices; dextrose; thickeners: E 415, E 401; spice extract.\n\n**Allergens:** E 401, E 415"
+        },
+        "it": {
+          "title": "Panatura umida senza farina di frumento",
+          "subtitle": "Panatura umida senza glutine",
+          "description": "Panatura umida speziata e senza glutine.\n\n**Dosaggio:** 625 g/kg acqua oppure 1 kg per 1.6 kg acqua; lasciar gonfiare 10 min.\n\n**Ingredienti:** amido di patata; sale da cucina iodato; amido di riso; spezie; destrosio; addensanti: E 415, E 401; estratto di spezie.\n\n**Allergeni:** E 401, E 415"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,193 @@
+{
+  "defaults": {
+    "status": "published",
+    "currency_code": "eur",
+    "subtitle": "Paniermehl",
+    "category_names": [
+      "Paniermehle und -systeme"
+    ],
+    "sales_channel_names": [
+      "IndustriesWebshop"
+    ],
+    "option_title": "Gebinde"
+  },
+  "products": [
+    {
+      "title": "Paniermehl gelb grob SG, IPS",
+      "handle": "paniermehl-gelb-grob-sg-ips",
+      "description": "Gelbliches, grobkörniges Paniermehl in Suisse Garantie – Qualität, zum Panieren von Geflügel, Fleisch, Fisch, Käse und Gemüse.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** WEIZENMEHL (IPS); Speisesalz; Hefe; Gewürzextrakt.\n\n**Allergene:** Gluten",
+      "images": [
+        "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/paniermehl-gelb-grob-sg-ips.png"
+      ],
+      "variants": [
+        {
+          "title": "23 kg Sack",
+          "sku": "1690823",
+          "price": null
+        }
+      ],
+      "translations": {
+        "en": {
+          "title": "Breadcrumbs, yellow coarse SG, IPS",
+          "subtitle": "Breadcrumbs",
+          "description": "Yellowish, coarse-grained breadcrumbs in Suisse Garantie quality, for coating poultry, meat, fish, cheese and vegetables.\n\n**Dosage:** as required.\n\n**Ingredients:** WHEAT FLOUR (IPS); table salt; yeast; spice extract.\n\n**Allergens:** Gluten"
+        },
+        "it": {
+          "title": "Pangrattato giallo grosso SG, IPS",
+          "subtitle": "Pangrattato",
+          "description": "Pangrattato giallastro a grana grossa in qualità Suisse Garantie, per impanare pollame, carne, pesce, formaggio e verdure.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** FARINA DI FRUMENTO (IPS); sale da cucina; lievito; estratto di spezie.\n\n**Allergeni:** Glutine"
+        }
+      }
+    },
+    {
+      "title": "Paniermehl gelb fein",
+      "handle": "paniermehl-gelb-fein",
+      "description": "Gelbliches Paniermehl, zum Panieren von Geflügel, Fleisch, Fisch, Käse und Gemüse.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** WEIZENMEHL; Speisesalz; Hefe; Gewürze; Paprikaextrakt.\n\n**Allergene:** Gluten",
+      "images": [
+        "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/paniermehl-gelb-fein.png"
+      ],
+      "variants": [
+        {
+          "title": "5 kg Beutel",
+          "sku": "21245",
+          "price": null
+        },
+        {
+          "title": "25 kg Sack",
+          "sku": "212425",
+          "price": null
+        }
+      ],
+      "translations": {
+        "en": {
+          "title": "Breadcrumbs, yellow fine",
+          "subtitle": "Breadcrumbs",
+          "description": "Yellowish breadcrumbs for coating poultry, meat, fish, cheese and vegetables.\n\n**Dosage:** as required.\n\n**Ingredients:** WHEAT FLOUR; table salt; yeast; spices; paprika extract.\n\n**Allergens:** Gluten"
+        },
+        "it": {
+          "title": "Pangrattato giallo fine",
+          "subtitle": "Pangrattato",
+          "description": "Pangrattato giallastro per impanare pollame, carne, pesce, formaggio e verdure.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** FARINA DI FRUMENTO; sale da cucina; lievito; spezie; estratto di paprica.\n\n**Allergeni:** Glutine"
+        }
+      }
+    },
+    {
+      "title": "Paniermehl leicht rosa",
+      "handle": "paniermehl-leicht-rosa",
+      "description": "Leicht rosa farbenes Paniermehl, zum Panieren von Geflügel, Fleisch, Fisch, Käse und Gemüse.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** WEIZENMEHL; Speisesalz; Hefe; Gewürze; Paprikaextrakt.\n\n**Allergene:** Gluten",
+      "images": [
+        "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/paniermehl-leicht-rosa.png"
+      ],
+      "variants": [
+        {
+          "title": "5 kg Beutel",
+          "sku": "21225",
+          "price": null
+        },
+        {
+          "title": "25 kg Sack",
+          "sku": "212225",
+          "price": null
+        }
+      ],
+      "translations": {
+        "en": {
+          "title": "Breadcrumbs, light pink",
+          "subtitle": "Breadcrumbs",
+          "description": "Slightly pink-coloured breadcrumbs for coating poultry, meat, fish, cheese and vegetables.\n\n**Dosage:** as required.\n\n**Ingredients:** WHEAT FLOUR; table salt; yeast; spices; paprika extract.\n\n**Allergens:** Gluten"
+        },
+        "it": {
+          "title": "Pangrattato rosa chiaro",
+          "subtitle": "Pangrattato",
+          "description": "Pangrattato di colore leggermente rosato, per impanare pollame, carne, pesce, formaggio e verdure.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** FARINA DI FRUMENTO; sale da cucina; lievito; spezie; estratto di paprica.\n\n**Allergeni:** Glutine"
+        }
+      }
+    },
+    {
+      "title": "Paniermehl Industrie",
+      "handle": "paniermehl-industrie",
+      "description": "Helles Paniermehl mit Krustenanteil, geeignet zum Panieren von Geflügel, Fleisch, Fisch, Käse und Gemüse.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** WEIZENMEHL; Speisesalz; Hefe.\n\n**Allergene:** Gluten",
+      "images": [
+        "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/paniermehl-industrie.png"
+      ],
+      "variants": [
+        {
+          "title": "25 kg Sack",
+          "sku": "R17725",
+          "price": null
+        }
+      ],
+      "translations": {
+        "en": {
+          "title": "Breadcrumbs, Industrie",
+          "subtitle": "Breadcrumbs",
+          "description": "Light breadcrumbs with a share of crust, suitable for coating poultry, meat, fish, cheese and vegetables.\n\n**Dosage:** as required.\n\n**Ingredients:** WHEAT FLOUR; table salt; yeast.\n\n**Allergens:** Gluten"
+        },
+        "it": {
+          "title": "Pangrattato Industrie",
+          "subtitle": "Pangrattato",
+          "description": "Pangrattato chiaro con parte di crosta, adatto a impanare pollame, carne, pesce, formaggio e verdure.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** FARINA DI FRUMENTO; sale da cucina; lievito.\n\n**Allergeni:** Glutine"
+        }
+      }
+    },
+    {
+      "title": "Rusk superfine",
+      "handle": "rusk-superfine",
+      "description": "Helles, feines Paniermehl, mit dunkleren Krustenanteilen, zum Panieren von Geflügel, Fleisch, Fisch, Käse und Gemüse.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** WEIZENMEHL (angereichert mit Calciumcarbonat, Eisen, Niacin, Thiamin); Speisesalz; Backtriebmittel: E 503.\n\n**Allergene:** Gluten, E 503",
+      "images": [
+        "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/rusk-superfine.png"
+      ],
+      "variants": [
+        {
+          "title": "25 kg Sack",
+          "sku": "213525",
+          "price": null
+        }
+      ],
+      "translations": {
+        "en": {
+          "title": "Rusk superfine",
+          "subtitle": "Breadcrumbs",
+          "description": "Light, fine breadcrumbs with darker crust particles, for coating poultry, meat, fish, cheese and vegetables.\n\n**Dosage:** as required.\n\n**Ingredients:** WHEAT FLOUR (enriched with calcium carbonate, iron, niacin, thiamine); table salt; raising agent: E 503.\n\n**Allergens:** Gluten, E 503"
+        },
+        "it": {
+          "title": "Rusk superfine",
+          "subtitle": "Pangrattato",
+          "description": "Pangrattato chiaro e fine, con particelle di crosta più scure, per impanare pollame, carne, pesce, formaggio e verdure.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** FARINA DI FRUMENTO (arricchita con carbonato di calcio, ferro, niacina, tiamina); sale da cucina; agente lievitante: E 503.\n\n**Allergeni:** Glutine, E 503"
+        }
+      }
+    },
+    {
+      "title": "Rusk medium Granulat",
+      "handle": "rusk-medium-granulat",
+      "description": "Helles, grobes Paniermehl, mit dunkleren Krustenanteilen, zum Panieren von Geflügel, Fleisch, Fisch, Käse und Gemüse.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** WEIZENMEHL (enth. Trennmittel: E 170, Eisen, Niacin, Thiamin); Speisesalz; Backtriebmittel: E 503.\n\n**Allergene:** Gluten, E 503",
+      "images": [
+        "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/rusk-medium-granulat.png"
+      ],
+      "variants": [
+        {
+          "title": "5 kg Beutel",
+          "sku": "21345",
+          "price": null
+        },
+        {
+          "title": "25 kg Sack",
+          "sku": "213425",
+          "price": null
+        }
+      ],
+      "translations": {
+        "en": {
+          "title": "Rusk medium granulate",
+          "subtitle": "Breadcrumbs",
+          "description": "Light, coarse breadcrumbs with darker crust particles, for coating poultry, meat, fish, cheese and vegetables.\n\n**Dosage:** as required.\n\n**Ingredients:** WHEAT FLOUR (contains anti-caking agent: E 170, iron, niacin, thiamine); table salt; raising agent: E 503.\n\n**Allergens:** Gluten, E 503"
+        },
+        "it": {
+          "title": "Rusk medium granulato",
+          "subtitle": "Pangrattato",
+          "description": "Pangrattato chiaro e grosso, con particelle di crosta più scure, per impanare pollame, carne, pesce, formaggio e verdure.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** FARINA DI FRUMENTO (contiene antiagglomerante: E 170, ferro, niacina, tiamina); sale da cucina; agente lievitante: E 503.\n\n**Allergeni:** Glutine, E 503"
+        }
+      }
+    }
+  ]
+}

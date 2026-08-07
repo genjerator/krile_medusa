@@ -1,0 +1,110 @@
+{
+  "defaults": {
+    "status": "published",
+    "currency_code": "eur",
+    "subtitle": "Würzmischung",
+    "category_names": ["Gewürzmischungen"],
+    "sales_channel_names": ["IndustriesWebshop"],
+    "option_title": "Gebinde"
+  },
+  "products": [
+    {
+      "title": "Kalbfleisch Gewürzmix",
+      "handle": "kalbfleisch-gewuerzmix",
+      "subtitle": "Würzmischung mit Reisstärke",
+      "description": "Aromatische Würzung mit Rosmarin, Zwiebeln und Pfeffer weiss. Harmoniert am besten mit Kalb und Geflügel.\n\n**Dosierung:** 30 g/kg Fleisch.\n\n**Zutaten:** Speisesalz jodiert; Geschmacksverstärker: E 621; Gewürze; Reisstärke; Saccharose; Hefeextrakt.\n\n**Allergene:** E 621",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/kalbfleisch-gewuerzmix.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "18511", "price": null } ],
+      "translations": {
+        "en": { "title": "Veal Spice Mix", "subtitle": "Seasoning blend with rice starch", "description": "Aromatic seasoning with rosemary, onions and white pepper. Pairs best with veal and poultry.\n\n**Dosage:** 30 g/kg meat.\n\n**Ingredients:** iodised table salt; flavour enhancer: E 621; spices; rice starch; sucrose; yeast extract.\n\n**Allergens:** E 621" },
+        "it": { "title": "Mix di spezie per vitello", "subtitle": "Miscela di condimento con amido di riso", "description": "Condimento aromatico con rosmarino, cipolle e pepe bianco. Si abbina al meglio con vitello e pollame.\n\n**Dosaggio:** 30 g/kg di carne.\n\n**Ingredienti:** sale da cucina iodato; esaltatore di sapidità: E 621; spezie; amido di riso; saccarosio; estratto di lievito.\n\n**Allergeni:** E 621" }
+      }
+    },
+    {
+      "title": "Knoblauch Gewürzmix oG",
+      "handle": "knoblauch-gewuerzmix-og",
+      "subtitle": "Gewürzzubereitung mit Reisstärke",
+      "description": "Herzhafte Würzung ohne Glutamat, mit Knoblauch, Pfeffer weiss und Paprika. Harmoniert am besten mit Rind und Schwein.\n\n**Dosierung:** 30 g/kg Fleisch.\n\n**Zutaten:** Speisesalz jodiert; Gewürze; Knoblauch 22 %; Reisstärke; Würze; Dextrose; Hefeextrakt; Gewürzextrakte.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/knoblauch-gewuerzmix-og.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "63921", "price": null } ],
+      "translations": {
+        "en": { "title": "Garlic Spice Mix, MSG-free", "subtitle": "Spice preparation with rice starch", "description": "Hearty seasoning without MSG, with garlic, white pepper and paprika. Pairs best with beef and pork.\n\n**Dosage:** 30 g/kg meat.\n\n**Ingredients:** iodised table salt; spices; garlic 22 %; rice starch; seasoning; dextrose; yeast extract; spice extracts." },
+        "it": { "title": "Mix di spezie all'aglio senza glutammato", "subtitle": "Preparazione di spezie con amido di riso", "description": "Condimento gustoso senza glutammato, con aglio, pepe bianco e paprika. Si abbina al meglio con manzo e maiale.\n\n**Dosaggio:** 30 g/kg di carne.\n\n**Ingredienti:** sale da cucina iodato; spezie; aglio 22 %; amido di riso; condimento; destrosio; estratto di lievito; estratti di spezie." }
+      }
+    },
+    {
+      "title": "Kräuter Gewürzmix",
+      "handle": "kraeuter-gewuerzmix",
+      "subtitle": "Gewürzzubereitung mit Reisstärke",
+      "description": "Aromatische Würzung mit mediterranen Kräutern, Knoblauch und Paprika. Harmoniert am besten mit Lamm und Schwein.\n\n**Dosierung:** 30 g/kg Fleisch.\n\n**Zutaten:** Speisesalz jodiert; Gewürze (enth. Kräuter 7 %); Geschmacksverstärker: E 621; Reisstärke; Saccharose; Nährhefe.\n\n**Allergene:** E 621",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/kraeuter-gewuerzmix.png"],
+      "variants": [
+        { "title": "1 kg Beutel", "sku": "18501", "price": null },
+        { "title": "10 kg Sack", "sku": "185010", "price": null }
+      ],
+      "translations": {
+        "en": { "title": "Herb Spice Mix", "subtitle": "Spice preparation with rice starch", "description": "Aromatic seasoning with Mediterranean herbs, garlic and paprika. Pairs best with lamb and pork.\n\n**Dosage:** 30 g/kg meat.\n\n**Ingredients:** iodised table salt; spices (contains herbs 7 %); flavour enhancer: E 621; rice starch; sucrose; nutritional yeast.\n\n**Allergens:** E 621" },
+        "it": { "title": "Mix di spezie alle erbe", "subtitle": "Preparazione di spezie con amido di riso", "description": "Condimento aromatico con erbe mediterranee, aglio e paprika. Si abbina al meglio con agnello e maiale.\n\n**Dosaggio:** 30 g/kg di carne.\n\n**Ingredienti:** sale da cucina iodato; spezie (contiene erbe 7 %); esaltatore di sapidità: E 621; amido di riso; saccarosio; lievito alimentare.\n\n**Allergeni:** E 621" }
+      }
+    },
+    {
+      "title": "Mama Africa",
+      "handle": "mama-africa",
+      "description": "Fruchtig-exotische Würzung mit Orange, Mohnsamen und Koriander. Harmoniert am besten mit Geflügel und Fisch.\n\n**Dosierung:** 30 g/kg Fleisch.\n\n**Zutaten:** Gewürze; Speisesalz jodiert; Saccharose; Mohnsamen; Hefeextrakt; Gewürzextrakte.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/mama-africa.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "91751", "price": null } ],
+      "translations": {
+        "en": { "title": "Mama Africa", "subtitle": "Seasoning blend", "description": "Fruity, exotic seasoning with orange, poppy seeds and coriander. Pairs best with poultry and fish.\n\n**Dosage:** 30 g/kg meat.\n\n**Ingredients:** spices; iodised table salt; sucrose; poppy seeds; yeast extract; spice extracts." },
+        "it": { "title": "Mama Africa", "subtitle": "Miscela di condimento", "description": "Condimento fruttato ed esotico con arancia, semi di papavero e coriandolo. Si abbina al meglio con pollame e pesce.\n\n**Dosaggio:** 30 g/kg di carne.\n\n**Ingredienti:** spezie; sale da cucina iodato; saccarosio; semi di papavero; estratto di lievito; estratti di spezie." }
+      }
+    },
+    {
+      "title": "Mélange du trappeur",
+      "handle": "melange-du-trappeur",
+      "subtitle": "Würzmischung für caramelisierte Note",
+      "description": "Süss-saure Würzung mit Ahornsirup und Zwiebeln. Harmoniert am besten mit Geflügel.\n\n**Dosierung:** 30 g/kg Fleisch.\n\n**Zutaten:** Gewürze; Speisesalz; Ahornsirup getrocknet 23 %; Saccharose.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/melange-du-trappeur.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "110491", "price": null } ],
+      "translations": {
+        "en": { "title": "Mélange du trappeur", "subtitle": "Seasoning blend for a caramelised note", "description": "Sweet-and-sour seasoning with maple syrup and onions. Pairs best with poultry.\n\n**Dosage:** 30 g/kg meat.\n\n**Ingredients:** spices; table salt; dried maple syrup 23 %; sucrose." },
+        "it": { "title": "Mélange du trappeur", "subtitle": "Miscela di condimento per una nota caramellata", "description": "Condimento agrodolce con sciroppo d'acero e cipolle. Si abbina al meglio con il pollame.\n\n**Dosaggio:** 30 g/kg di carne.\n\n**Ingredienti:** spezie; sale da cucina; sciroppo d'acero essiccato 23 %; saccarosio." }
+      }
+    },
+    {
+      "title": "Paco Weingärtner oG",
+      "handle": "paco-weingaertner-og",
+      "subtitle": "Grobes Gewürzsalz für Steaks oder Braten",
+      "description": "Kräftige Würzung ohne Glutamat, mit Pfeffer schwarz, Koriander und Paprika. Harmoniert am besten mit Steak- und Bratstücken.\n\n**Dosierung:** 25 g/kg Fleisch.\n\n**Zutaten:** Speisesalz jodiert (mit gehärtetem Sonnenblumenöl ummantelt); Gewürze; Würze.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/paco-weingaertner-og.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "18261", "price": null } ],
+      "translations": {
+        "en": { "title": "Paco Weingärtner, MSG-free", "subtitle": "Coarse seasoning salt for steaks or roasts", "description": "Robust seasoning without MSG, with black pepper, coriander and paprika. Pairs best with steaks and roasting cuts.\n\n**Dosage:** 25 g/kg meat.\n\n**Ingredients:** iodised table salt (coated with hydrogenated sunflower oil); spices; seasoning." },
+        "it": { "title": "Paco Weingärtner senza glutammato", "subtitle": "Sale aromatizzato grossolano per bistecche o arrosti", "description": "Condimento intenso senza glutammato, con pepe nero, coriandolo e paprika. Si abbina al meglio con bistecche e tagli da arrosto.\n\n**Dosaggio:** 25 g/kg di carne.\n\n**Ingredienti:** sale da cucina iodato (rivestito con olio di girasole idrogenato); spezie; condimento." }
+      }
+    },
+    {
+      "title": "Pfeffer Gewürzmix",
+      "handle": "pfeffer-gewuerzmix",
+      "subtitle": "Gewürzzubereitung mit Reisstärke",
+      "description": "Charakteristische Würzung mit Pfeffer schwarz. Harmoniert am besten mit Rind, Schwein, Geflügel und Fisch.\n\n**Dosierung:** 30 g/kg Fleisch.\n\n**Zutaten:** Gewürze (enth. Pfeffer 15.5 %, SELLERIE); Speisesalz jodiert; Geschmacksverstärker: E 621; Reisstärke; Saccharose; Karamellzucker.\n\n**Allergene:** Sellerie, E 621",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/pfeffer-gewuerzmix.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "18541", "price": null } ],
+      "translations": {
+        "en": { "title": "Pepper Spice Mix", "subtitle": "Spice preparation with rice starch", "description": "Characteristic seasoning with black pepper. Pairs best with beef, pork, poultry and fish.\n\n**Dosage:** 30 g/kg meat.\n\n**Ingredients:** spices (contains pepper 15.5 %, CELERY); iodised table salt; flavour enhancer: E 621; rice starch; sucrose; caramel sugar.\n\n**Allergens:** Celery, E 621" },
+        "it": { "title": "Mix di spezie al pepe", "subtitle": "Preparazione di spezie con amido di riso", "description": "Condimento caratteristico al pepe nero. Si abbina al meglio con manzo, maiale, pollame e pesce.\n\n**Dosaggio:** 30 g/kg di carne.\n\n**Ingredienti:** spezie (contiene pepe 15.5 %, SEDANO); sale da cucina iodato; esaltatore di sapidità: E 621; amido di riso; saccarosio; zucchero caramellato.\n\n**Allergeni:** Sedano, E 621" }
+      }
+    },
+    {
+      "title": "Pfeffer Gewürzmix oG, oA",
+      "handle": "pfeffer-gewuerzmix-og-oa",
+      "subtitle": "Gewürzzubereitung",
+      "description": "Charakteristische Würzung ohne Glutamat, mit Pfeffer schwarz. Harmoniert am besten mit Rind, Schwein, Geflügel und Fisch.\n\n**Dosierung:** 30 g/kg Fleisch.\n\n**Zutaten:** Gewürze (enth. Pfeffer 15.7 %); Speisesalz jodiert; Reisstärke; Saccharose; Hefeextrakt; Würze; nat. Aroma.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/pfeffer-gewuerzmix-og-oa.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "F8131", "price": null } ],
+      "translations": {
+        "en": { "title": "Pepper Spice Mix, MSG- & allergen-free", "subtitle": "Spice preparation", "description": "Characteristic seasoning without MSG, with black pepper. Pairs best with beef, pork, poultry and fish.\n\n**Dosage:** 30 g/kg meat.\n\n**Ingredients:** spices (contains pepper 15.7 %); iodised table salt; rice starch; sucrose; yeast extract; seasoning; natural flavouring." },
+        "it": { "title": "Mix di spezie al pepe senza glutammato e allergeni", "subtitle": "Preparazione di spezie", "description": "Condimento caratteristico senza glutammato, al pepe nero. Si abbina al meglio con manzo, maiale, pollame e pesce.\n\n**Dosaggio:** 30 g/kg di carne.\n\n**Ingredienti:** spezie (contiene pepe 15.7 %); sale da cucina iodato; amido di riso; saccarosio; estratto di lievito; condimento; aroma naturale." }
+      }
+    }
+  ]
+}

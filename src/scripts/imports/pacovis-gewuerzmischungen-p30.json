@@ -1,0 +1,98 @@
+{
+  "defaults": {
+    "status": "published",
+    "currency_code": "eur",
+    "subtitle": "Würzmischung",
+    "category_names": ["Gewürzmischungen"],
+    "sales_channel_names": ["IndustriesWebshop"],
+    "option_title": "Gebinde"
+  },
+  "products": [
+    {
+      "title": "Grill Mix oG, oA",
+      "handle": "grill-mix-og-oa",
+      "subtitle": "Würzmischung mit Zucker für caramelisierte Note",
+      "description": "Würzung ohne Glutamat oder Allergene, mit Paprika, Pfeffer weiss, mediterranen Kräutern und einer süssen Caramellnote. Harmoniert mit allen Fleischsorten und Grilladen.\n\n**Dosierung:** 25 g/kg Fleisch.\n\n**Zutaten:** Speisesalz jodiert; Gewürze; Reisstärke; Würze; Saccharose; Glucosesirup; Hefeextrakt.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/grill-mix-og-oa.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "G0941", "price": null } ],
+      "translations": {
+        "en": { "title": "Grill Mix, MSG- & allergen-free", "subtitle": "Seasoning blend with sugar for a caramelised note", "description": "Seasoning without MSG or allergens, with paprika, white pepper, Mediterranean herbs and a sweet caramel note. Pairs with all types of meat and grilled dishes.\n\n**Dosage:** 25 g/kg meat.\n\n**Ingredients:** iodised table salt; spices; rice starch; seasoning; sucrose; glucose syrup; yeast extract." },
+        "it": { "title": "Grill Mix, senza glutammato e allergeni", "subtitle": "Miscela di condimento con zucchero per una nota caramellata", "description": "Condimento senza glutammato né allergeni, con paprika, pepe bianco, erbe mediterranee e una dolce nota di caramello. Si abbina a tutti i tipi di carne e grigliate.\n\n**Dosaggio:** 25 g/kg di carne.\n\n**Ingredienti:** sale da cucina iodato; spezie; amido di riso; condimento; saccarosio; sciroppo di glucosio; estratto di lievito." }
+      }
+    },
+    {
+      "title": "Gyros Gewürzmix",
+      "handle": "gyros-gewuerzmix",
+      "subtitle": "Gewürzsalz",
+      "description": "Würzung mit Oregano und Thymian. Harmoniert am besten mit Schwein und Rind.\n\n**Dosierung:** 20 g/kg Fleisch.\n\n**Zutaten:** Speisesalz jodiert; Gewürze; Dextrose; Würze; Gewürzextrakt.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/gyros-gewuerzmix.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "53801", "price": null } ],
+      "translations": {
+        "en": { "title": "Gyros Spice Mix", "subtitle": "Seasoning salt", "description": "Seasoning with oregano and thyme. Pairs best with pork and beef.\n\n**Dosage:** 20 g/kg meat.\n\n**Ingredients:** iodised table salt; spices; dextrose; seasoning; spice extract." },
+        "it": { "title": "Mix di spezie Gyros", "subtitle": "Sale aromatizzato", "description": "Condimento con origano e timo. Si abbina al meglio con maiale e manzo.\n\n**Dosaggio:** 20 g/kg di carne.\n\n**Ingredienti:** sale da cucina iodato; spezie; destrosio; condimento; estratto di spezie." }
+      }
+    },
+    {
+      "title": "Gyros Kreta Gewürzmix",
+      "handle": "gyros-kreta-gewuerzmix",
+      "subtitle": "Gewürzzubereitung",
+      "description": "Würzung mit Knoblauch, Rosmarin und Zwiebeln. Harmoniert am besten mit Geflügel und Lamm.\n\n**Dosierung:** 25 g/kg Fleisch.\n\n**Zutaten:** Speisesalz jodiert; Gewürze; Dextrose; Reisstärke; Gewürzextrakte; Hefeextrakt.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/gyros-kreta-gewuerzmix.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "75871", "price": null } ],
+      "translations": {
+        "en": { "title": "Gyros Kreta Spice Mix", "subtitle": "Spice preparation", "description": "Seasoning with garlic, rosemary and onions. Pairs best with poultry and lamb.\n\n**Dosage:** 25 g/kg meat.\n\n**Ingredients:** iodised table salt; spices; dextrose; rice starch; spice extracts; yeast extract." },
+        "it": { "title": "Mix di spezie Gyros Kreta", "subtitle": "Preparazione di spezie", "description": "Condimento con aglio, rosmarino e cipolle. Si abbina al meglio con pollame e agnello.\n\n**Dosaggio:** 25 g/kg di carne.\n\n**Ingredienti:** sale da cucina iodato; spezie; destrosio; amido di riso; estratti di spezie; estratto di lievito." }
+      }
+    },
+    {
+      "title": "Hot & Smokey Mix",
+      "handle": "hot-smokey-mix",
+      "subtitle": "Würzmischung mit Reisstärke",
+      "description": "Pikant-rauchige Würzung mit Chili, Pfeffer weiss und Raucharoma. Harmoniert mit allen Fleischarten und Grilladen.\n\n**Dosierung:** 30 g/kg Fleisch.\n\n**Zutaten:** Speisesalz jodiert; Gewürze (enth. Chili 12 %); Würze; Reisstärke; Saccharose; Hefeextrakt; Dextrose; Raucharoma 1.6 %; Gewürzextrakt.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/hot-smokey-mix.png"],
+      "variants": [
+        { "title": "1 kg Beutel", "sku": "F2261", "price": null },
+        { "title": "10 kg Sack", "sku": "F22610", "price": null }
+      ],
+      "translations": {
+        "en": { "title": "Hot & Smokey Mix", "subtitle": "Seasoning blend with rice starch", "description": "Spicy, smoky seasoning with chilli, white pepper and smoke flavour. Pairs with all types of meat and grilled dishes.\n\n**Dosage:** 30 g/kg meat.\n\n**Ingredients:** iodised table salt; spices (contains chilli 12 %); seasoning; rice starch; sucrose; yeast extract; dextrose; smoke flavour 1.6 %; spice extract." },
+        "it": { "title": "Hot & Smokey Mix", "subtitle": "Miscela di condimento con amido di riso", "description": "Condimento piccante e affumicato con peperoncino, pepe bianco e aroma di fumo. Si abbina a tutti i tipi di carne e grigliate.\n\n**Dosaggio:** 30 g/kg di carne.\n\n**Ingredienti:** sale da cucina iodato; spezie (contiene peperoncino 12 %); condimento; amido di riso; saccarosio; estratto di lievito; destrosio; aroma di fumo 1.6 %; estratto di spezie." }
+      }
+    },
+    {
+      "title": "Hot Gewürzmix",
+      "handle": "hot-gewuerzmix",
+      "subtitle": "Würzmischung mit Reisstärke",
+      "description": "Pikant-scharfe Würzung mit Chili, Paprika und Pfeffer weiss. Harmoniert am besten mit Hackfleisch aus Rind und Schwein.\n\n**Dosierung:** 30 g/kg Fleisch.\n\n**Zutaten:** Speisesalz jodiert; Gewürze (enth. Chili 13 %); Geschmacksverstärker: E 621; Reisstärke; Saccharose; Gewürzextrakt.\n\n**Allergene:** E 621",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/hot-gewuerzmix.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "88001", "price": null } ],
+      "translations": {
+        "en": { "title": "Hot Spice Mix", "subtitle": "Seasoning blend with rice starch", "description": "Hot, spicy seasoning with chilli, paprika and white pepper. Pairs best with beef and pork mince.\n\n**Dosage:** 30 g/kg meat.\n\n**Ingredients:** iodised table salt; spices (contains chilli 13 %); flavour enhancer: E 621; rice starch; sucrose; spice extract.\n\n**Allergens:** E 621" },
+        "it": { "title": "Mix di spezie Hot", "subtitle": "Miscela di condimento con amido di riso", "description": "Condimento piccante con peperoncino, paprika e pepe bianco. Si abbina al meglio con carne macinata di manzo e maiale.\n\n**Dosaggio:** 30 g/kg di carne.\n\n**Ingredienti:** sale da cucina iodato; spezie (contiene peperoncino 13 %); esaltatore di sapidità: E 621; amido di riso; saccarosio; estratto di spezie.\n\n**Allergeni:** E 621" }
+      }
+    },
+    {
+      "title": "Hot Gewürzmix oG",
+      "handle": "hot-gewuerzmix-og",
+      "subtitle": "Gewürzzubereitung mit Reisstärke",
+      "description": "Pikant-scharfe Würzung ohne Glutamat, mit Chili, Paprika und Pfeffer weiss. Harmoniert am besten mit Hackfleisch aus Rind und Schwein.\n\n**Dosierung:** 30 g/kg Fleisch.\n\n**Zutaten:** Gewürze (enth. Chili 14 %); Speisesalz jodiert; Reisstärke; Saccharose; Gewürzextrakt.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/hot-gewuerzmix-og.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "F6161", "price": null } ],
+      "translations": {
+        "en": { "title": "Hot Spice Mix, MSG-free", "subtitle": "Spice preparation with rice starch", "description": "Hot, spicy seasoning without MSG, with chilli, paprika and white pepper. Pairs best with beef and pork mince.\n\n**Dosage:** 30 g/kg meat.\n\n**Ingredients:** spices (contains chilli 14 %); iodised table salt; rice starch; sucrose; spice extract." },
+        "it": { "title": "Mix di spezie Hot senza glutammato", "subtitle": "Preparazione di spezie con amido di riso", "description": "Condimento piccante senza glutammato, con peperoncino, paprika e pepe bianco. Si abbina al meglio con carne macinata di manzo e maiale.\n\n**Dosaggio:** 30 g/kg di carne.\n\n**Ingredienti:** spezie (contiene peperoncino 14 %); sale da cucina iodato; amido di riso; saccarosio; estratto di spezie." }
+      }
+    },
+    {
+      "title": "Kartoffel Gewürz",
+      "handle": "kartoffel-gewuerz",
+      "description": "Würzung mit Schweizer Alpensalz, Paprika und Zwiebeln. Harmoniert am besten mit Pommes Frites und Kartoffelgerichten.\n\n**Dosierung:** 25 g/kg Kartoffeln.\n\n**Zutaten:** Speisesalz (Alpensalz, CH) 60 %; Gewürze (Paprika, Zwiebeln, Lauch, Petersilienwurzel, Liebstöckel, Pfeffer, Bohnenkraut, Basilikum, Rosmarin, Knoblauch, Ingwer, Koriander, Kreuzkümmel); Traubenzucker; Würze.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/kartoffel-gewuerz.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "199011", "price": null } ],
+      "translations": {
+        "en": { "title": "Potato Seasoning", "subtitle": "Seasoning blend", "description": "Seasoning with Swiss Alpine salt, paprika and onions. Pairs best with French fries and potato dishes.\n\n**Dosage:** 25 g/kg potatoes.\n\n**Ingredients:** table salt (Alpine salt, CH) 60 %; spices (paprika, onions, leek, parsley root, lovage, pepper, savory, basil, rosemary, garlic, ginger, coriander, cumin); dextrose; seasoning." },
+        "it": { "title": "Condimento per patate", "subtitle": "Miscela di condimento", "description": "Condimento con sale alpino svizzero, paprika e cipolle. Si abbina al meglio con patatine fritte e piatti di patate.\n\n**Dosaggio:** 25 g/kg di patate.\n\n**Ingredienti:** sale da cucina (sale alpino, CH) 60 %; spezie (paprika, cipolle, porro, radice di prezzemolo, levistico, pepe, santoreggia, basilico, rosmarino, aglio, zenzero, coriandolo, cumino); destrosio; condimento." }
+      }
+    }
+  ]
+}

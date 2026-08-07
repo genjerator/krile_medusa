@@ -1,0 +1,104 @@
+{
+  "defaults": {
+    "status": "published",
+    "currency_code": "eur",
+    "subtitle": "Würzmischung",
+    "category_names": ["Gewürzmischungen"],
+    "sales_channel_names": ["IndustriesWebshop"],
+    "option_title": "Gebinde"
+  },
+  "products": [
+    {
+      "title": "Ahorn Gewürzmix",
+      "handle": "ahorn-gewuerzmix",
+      "description": "Würzung mit Ahornsirup, Koriander und Pfeffer schwarz. Harmoniert am besten mit Geflügel.\n\n**Dosierung:** 22 g/kg Fleisch.\n\n**Zutaten:** Speisesalz jodiert; Ahornzucker 22.7 %; Gewürze.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/ahorn-gewuerzmix.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "108311", "price": null } ],
+      "translations": {
+        "en": { "title": "Maple Spice Mix", "subtitle": "Seasoning blend", "description": "Seasoning with maple syrup, coriander and black pepper. Pairs best with poultry.\n\n**Dosage:** 22 g/kg meat.\n\n**Ingredients:** iodised table salt; maple sugar 22.7 %; spices." },
+        "it": { "title": "Mix di spezie all'acero", "subtitle": "Miscela di condimento", "description": "Condimento con sciroppo d'acero, coriandolo e pepe nero. Si abbina al meglio con il pollame.\n\n**Dosaggio:** 22 g/kg di carne.\n\n**Ingredienti:** sale da cucina iodato; zucchero d'acero 22.7 %; spezie." }
+      }
+    },
+    {
+      "title": "BBQ Gewürzmix",
+      "handle": "bbq-gewuerzmix",
+      "description": "Süsslich-rauchige Würzung mit Paprika, Pfeffer schwarz und Raucharoma für Spare-Ribs oder BBQ-Anwendungen.\n\n**Dosierung:** 42 g/kg Spare Ribs.\n\n**Zutaten:** Speisesalz jodiert; Saccharose; Gewürze; Reisstärke; Würze; Glucosesirup; Raucharoma.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/bbq-gewuerzmix.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "F0681", "price": null } ],
+      "translations": {
+        "en": { "title": "BBQ Spice Mix", "subtitle": "Seasoning blend", "description": "Sweet, smoky seasoning with paprika, black pepper and smoke flavour for spare ribs or BBQ applications.\n\n**Dosage:** 42 g/kg spare ribs.\n\n**Ingredients:** iodised table salt; sucrose; spices; rice starch; seasoning; glucose syrup; smoke flavour." },
+        "it": { "title": "Mix di spezie BBQ", "subtitle": "Miscela di condimento", "description": "Condimento dolce e affumicato con paprika, pepe nero e aroma di fumo per spare ribs o applicazioni BBQ.\n\n**Dosaggio:** 42 g/kg di spare ribs.\n\n**Ingredienti:** sale da cucina iodato; saccarosio; spezie; amido di riso; condimento; sciroppo di glucosio; aroma di fumo." }
+      }
+    },
+    {
+      "title": "Bier Gewürzmix",
+      "handle": "bier-gewuerzmix",
+      "description": "Aromatische Würzung mit Malz, Pfeffer schwarz und Ahornsirup. Harmoniert am besten mit Geflügel.\n\n**Dosierung:** 20 g/kg Fleisch.\n\n**Zutaten:** GERSTENMALZEXTRAKT; Gewürze; Speisesalz; Ahornsirup; Dextrose; Saccharose; Hefeextrakt.\n\n**Allergene:** Gluten",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/bier-gewuerzmix.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "156401", "price": null } ],
+      "translations": {
+        "en": { "title": "Beer Spice Mix", "subtitle": "Seasoning blend", "description": "Aromatic seasoning with malt, black pepper and maple syrup. Pairs best with poultry.\n\n**Dosage:** 20 g/kg meat.\n\n**Ingredients:** BARLEY MALT EXTRACT; spices; table salt; maple syrup; dextrose; sucrose; yeast extract.\n\n**Allergens:** Gluten" },
+        "it": { "title": "Mix di spezie alla birra", "subtitle": "Miscela di condimento", "description": "Condimento aromatico con malto, pepe nero e sciroppo d'acero. Si abbina al meglio con il pollame.\n\n**Dosaggio:** 20 g/kg di carne.\n\n**Ingredienti:** ESTRATTO DI MALTO D'ORZO; spezie; sale da cucina; sciroppo d'acero; destrosio; saccarosio; estratto di lievito.\n\n**Allergeni:** Glutine" }
+      }
+    },
+    {
+      "title": "Chili Gewürzmix",
+      "handle": "chili-gewuerzmix",
+      "subtitle": "Würzmischung mit Reisstärke",
+      "description": "Herzhafte Würzung mit Chili und Paprika. Harmoniert am besten mit Rind, Schwein und Geflügel.\n\n**Dosierung:** 40 g/kg Fleisch.\n\n**Zutaten:** Gewürze; Speisesalz; Geschmacksverstärker: E 621; Reisstärke nativ; Saccharose; Chili 2.5 %.\n\n**Allergene:** E 621",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/chili-gewuerzmix.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "18521", "price": null } ],
+      "translations": {
+        "en": { "title": "Chilli Spice Mix", "subtitle": "Seasoning blend with rice starch", "description": "Hearty seasoning with chilli and paprika. Pairs best with beef, pork and poultry.\n\n**Dosage:** 40 g/kg meat.\n\n**Ingredients:** spices; table salt; flavour enhancer: E 621; native rice starch; sucrose; chilli 2.5 %.\n\n**Allergens:** E 621" },
+        "it": { "title": "Mix di spezie al peperoncino", "subtitle": "Miscela di condimento con amido di riso", "description": "Condimento gustoso con peperoncino e paprika. Si abbina al meglio con manzo, maiale e pollame.\n\n**Dosaggio:** 40 g/kg di carne.\n\n**Ingredienti:** spezie; sale da cucina; esaltatore di sapidità: E 621; amido di riso nativo; saccarosio; peperoncino 2.5 %.\n\n**Allergeni:** E 621" }
+      }
+    },
+    {
+      "title": "China Gewürzmix",
+      "handle": "china-gewuerzmix",
+      "subtitle": "Würzmischung mit Reisstärke",
+      "description": "Aromatische Würzung mit Ingwer, Zimt und Knoblauch. Harmoniert am besten mit Ente und Geflügel.\n\n**Dosierung:** 40 g/kg Fleisch.\n\n**Zutaten:** Speisesalz jodiert; Gewürze; Saccharose; Reisstärke.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/china-gewuerzmix.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "18561", "price": null } ],
+      "translations": {
+        "en": { "title": "China Spice Mix", "subtitle": "Seasoning blend with rice starch", "description": "Aromatic seasoning with ginger, cinnamon and garlic. Pairs best with duck and poultry.\n\n**Dosage:** 40 g/kg meat.\n\n**Ingredients:** iodised table salt; spices; sucrose; rice starch." },
+        "it": { "title": "Mix di spezie China", "subtitle": "Miscela di condimento con amido di riso", "description": "Condimento aromatico con zenzero, cannella e aglio. Si abbina al meglio con anatra e pollame.\n\n**Dosaggio:** 40 g/kg di carne.\n\n**Ingredienti:** sale da cucina iodato; spezie; saccarosio; amido di riso." }
+      }
+    },
+    {
+      "title": "Curry Gewürzmix",
+      "handle": "curry-gewuerzmix",
+      "subtitle": "Würzmischung mit Reisstärke",
+      "description": "Charakteristische Würzung mit Curry (Curcuma, Koriander, Kreuzkümmel). Harmoniert am besten mit Geflügel und Schwein.\n\n**Dosierung:** 30–40 g/kg Fleisch.\n\n**Zutaten:** Speisesalz jodiert; Curry 32 %; Reisstärke; Geschmacksverstärker: E 621; Saccharose.\n\n**Allergene:** E 621",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/curry-gewuerzmix.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "18531", "price": null } ],
+      "translations": {
+        "en": { "title": "Curry Spice Mix", "subtitle": "Seasoning blend with rice starch", "description": "Characteristic seasoning with curry (turmeric, coriander, cumin). Pairs best with poultry and pork.\n\n**Dosage:** 30–40 g/kg meat.\n\n**Ingredients:** iodised table salt; curry 32 %; rice starch; flavour enhancer: E 621; sucrose.\n\n**Allergens:** E 621" },
+        "it": { "title": "Mix di spezie al curry", "subtitle": "Miscela di condimento con amido di riso", "description": "Condimento caratteristico al curry (curcuma, coriandolo, cumino). Si abbina al meglio con pollame e maiale.\n\n**Dosaggio:** 30–40 g/kg di carne.\n\n**Ingredienti:** sale da cucina iodato; curry 32 %; amido di riso; esaltatore di sapidità: E 621; saccarosio.\n\n**Allergeni:** E 621" }
+      }
+    },
+    {
+      "title": "Dry Age Gewürzmix",
+      "handle": "dry-age-gewuerzmix",
+      "description": "Würzung mit Pfeffer schwarz, Rohzucker und Dry-Age-Aroma. Harmoniert am besten mit Rind.\n\n**Dosierung:** 25 g/kg Fleisch.\n\n**Zutaten:** Meersalz; Gewürze; Ahornsirup getrocknet; Saccharose; Aroma; Maltodextrin geräuchert.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/dry-age-gewuerzmix.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "161491", "price": null } ],
+      "translations": {
+        "en": { "title": "Dry Age Spice Mix", "subtitle": "Seasoning blend", "description": "Seasoning with black pepper, raw cane sugar and dry-age aroma. Pairs best with beef.\n\n**Dosage:** 25 g/kg meat.\n\n**Ingredients:** sea salt; spices; dried maple syrup; sucrose; flavouring; smoked maltodextrin." },
+        "it": { "title": "Mix di spezie Dry Age", "subtitle": "Miscela di condimento", "description": "Condimento con pepe nero, zucchero grezzo e aroma dry-age. Si abbina al meglio con il manzo.\n\n**Dosaggio:** 25 g/kg di carne.\n\n**Ingredienti:** sale marino; spezie; sciroppo d'acero essiccato; saccarosio; aroma; maltodestrina affumicata." }
+      }
+    },
+    {
+      "title": "Episin Grillgewürz",
+      "handle": "episin-grillgewuerz",
+      "subtitle": "Gewürzzubereitung mit Pfeffer",
+      "description": "Würzung mit Pfeffer weiss und Muskatnuss. Eignet sich als Zusatzwürzung für alle Fleischsorten.\n\n**Dosierung:** 20 g/kg Fleisch.\n\n**Zutaten:** Speisesalz jodiert; Geschmacksverstärker: E 621; Gewürze; Saccharose; Nährhefe.\n\n**Allergene:** E 621",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/episin-grillgewuerz.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "14671", "price": null } ],
+      "translations": {
+        "en": { "title": "Episin Grill Spice", "subtitle": "Spice preparation with pepper", "description": "Seasoning with white pepper and nutmeg. Suitable as an additional seasoning for all types of meat.\n\n**Dosage:** 20 g/kg meat.\n\n**Ingredients:** iodised table salt; flavour enhancer: E 621; spices; sucrose; nutritional yeast.\n\n**Allergens:** E 621" },
+        "it": { "title": "Spezie per grigliate Episin", "subtitle": "Preparazione di spezie con pepe", "description": "Condimento con pepe bianco e noce moscata. Adatto come condimento aggiuntivo per tutti i tipi di carne.\n\n**Dosaggio:** 20 g/kg di carne.\n\n**Ingredienti:** sale da cucina iodato; esaltatore di sapidità: E 621; spezie; saccarosio; lievito alimentare.\n\n**Allergeni:** E 621" }
+      }
+    }
+  ]
+}

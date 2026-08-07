@@ -1,0 +1,105 @@
+{
+  "defaults": {
+    "status": "published",
+    "currency_code": "eur",
+    "subtitle": "Würzmischung",
+    "category_names": ["Gewürzmischungen"],
+    "sales_channel_names": ["IndustriesWebshop"],
+    "option_title": "Gebinde"
+  },
+  "products": [
+    {
+      "title": "Fisch Gewürzmix",
+      "handle": "fisch-gewuerzmix",
+      "description": "Frische Würzung mit Zitrone, Dill und Ingwer. Harmoniert am besten mit Fisch und Meeresfrüchten.\n\n**Dosierung:** 30–40 g/kg Fisch.\n\n**Zutaten:** Meersalz; Geschmacksverstärker: E 621; Reisstärke; Gewürze; Dextrose; Säuerungsmittel: E 330; Zitronenöl.\n\n**Allergene:** Milch, E 330, E 621",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/fisch-gewuerzmix.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "14281", "price": null } ],
+      "translations": {
+        "en": { "title": "Fish Spice Mix", "subtitle": "Seasoning blend", "description": "Fresh seasoning with lemon, dill and ginger. Pairs best with fish and seafood.\n\n**Dosage:** 30–40 g/kg fish.\n\n**Ingredients:** sea salt; flavour enhancer: E 621; rice starch; spices; dextrose; acidifier: E 330; lemon oil.\n\n**Allergens:** Milk, E 330, E 621" },
+        "it": { "title": "Mix di spezie per pesce", "subtitle": "Miscela di condimento", "description": "Condimento fresco con limone, aneto e zenzero. Si abbina al meglio con pesce e frutti di mare.\n\n**Dosaggio:** 30–40 g/kg di pesce.\n\n**Ingredienti:** sale marino; esaltatore di sapidità: E 621; amido di riso; spezie; destrosio; acidificante: E 330; olio di limone.\n\n**Allergeni:** Latte, E 330, E 621" }
+      }
+    },
+    {
+      "title": "Fisch Gewürz",
+      "handle": "fisch-gewuerz",
+      "description": "Würzung mit Schweizer Alpensalz, Zitrone und Dill. Harmoniert am Besten mit Fisch und Meeresfrüchten.\n\n**Dosierung:** 24 g/kg Fisch.\n\n**Zutaten:** Speisesalz (Alpensalz, CH) 55 %; Zucker; Reisstärke; Würze; Gewürze (Pastinake, Pfeffer, Ingwer, Dill); Traubenzucker; Säuerungsmittel: Zitronensäure; Zitronenöl.\n\n**Allergene:** E 330",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/fisch-gewuerz.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "F1321", "price": null } ],
+      "translations": {
+        "en": { "title": "Fish Seasoning", "subtitle": "Seasoning blend", "description": "Seasoning with Swiss Alpine salt, lemon and dill. Pairs best with fish and seafood.\n\n**Dosage:** 24 g/kg fish.\n\n**Ingredients:** table salt (Alpine salt, CH) 55 %; sugar; rice starch; seasoning; spices (parsnip, pepper, ginger, dill); dextrose; acidifier: citric acid; lemon oil.\n\n**Allergens:** E 330" },
+        "it": { "title": "Condimento per pesce", "subtitle": "Miscela di condimento", "description": "Condimento con sale alpino svizzero, limone e aneto. Si abbina al meglio con pesce e frutti di mare.\n\n**Dosaggio:** 24 g/kg di pesce.\n\n**Ingredienti:** sale da cucina (sale alpino, CH) 55 %; zucchero; amido di riso; condimento; spezie (pastinaca, pepe, zenzero, aneto); destrosio; acidificante: acido citrico; olio di limone.\n\n**Allergeni:** E 330" }
+      }
+    },
+    {
+      "title": "Fleisch Gewürz",
+      "handle": "fleisch-gewuerz",
+      "description": "Würzung mit Schweizer Alpensalz, Pfeffer schwarz und Thymian. Harmoniert am Besten mit Grilladen und Fleischgerichten.\n\n**Dosierung:** 25 g/kg Fleisch.\n\n**Zutaten:** Speisesalz (Alpensalz, CH) 52 %; Gewürze (Paprika, Pastinake, Rosmarin, Pfeffer, Koriander, Thymian, Muskat, Knoblauch, Curcuma, Zwiebel); Hefeextrakt; Zucker; Würze; Traubenzucker; Gewürzextrakt.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/fleisch-gewuerz.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "F1601", "price": null } ],
+      "translations": {
+        "en": { "title": "Meat Seasoning", "subtitle": "Seasoning blend", "description": "Seasoning with Swiss Alpine salt, black pepper and thyme. Pairs best with grilled dishes and meat dishes.\n\n**Dosage:** 25 g/kg meat.\n\n**Ingredients:** table salt (Alpine salt, CH) 52 %; spices (paprika, parsnip, rosemary, pepper, coriander, thyme, nutmeg, garlic, turmeric, onion); yeast extract; sugar; seasoning; dextrose; spice extract." },
+        "it": { "title": "Condimento per carne", "subtitle": "Miscela di condimento", "description": "Condimento con sale alpino svizzero, pepe nero e timo. Si abbina al meglio con grigliate e piatti di carne.\n\n**Dosaggio:** 25 g/kg di carne.\n\n**Ingredienti:** sale da cucina (sale alpino, CH) 52 %; spezie (paprika, pastinaca, rosmarino, pepe, coriandolo, timo, noce moscata, aglio, curcuma, cipolla); estratto di lievito; zucchero; condimento; destrosio; estratto di spezie." }
+      }
+    },
+    {
+      "title": "Grill Gewürzmix",
+      "handle": "grill-gewuerzmix",
+      "subtitle": "Grobe Würzmischung mit Kräuter und Reisstärke",
+      "description": "Würzung mit groben Würzbestandteilen aus Paprika, Pfeffer weiss und Muskatnuss. Harmoniert mit allen Fleischsorten und Grilladen.\n\n**Dosierung:** 30 g/kg Fleisch.\n\n**Zutaten:** Speisesalz jodiert; Geschmacksverstärker: E 621; Gewürze; Reisstärke; Saccharose; Nährhefe.\n\n**Allergene:** E 621",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/grill-gewuerzmix.png"],
+      "variants": [
+        { "title": "1 kg Beutel", "sku": "18551", "price": null },
+        { "title": "25 kg Sack", "sku": "185525", "price": null }
+      ],
+      "translations": {
+        "en": { "title": "Grill Spice Mix", "subtitle": "Coarse seasoning blend with herbs and rice starch", "description": "Seasoning with coarse spice pieces of paprika, white pepper and nutmeg. Pairs with all types of meat and grilled dishes.\n\n**Dosage:** 30 g/kg meat.\n\n**Ingredients:** iodised table salt; flavour enhancer: E 621; spices; rice starch; sucrose; nutritional yeast.\n\n**Allergens:** E 621" },
+        "it": { "title": "Mix di spezie per grigliate", "subtitle": "Miscela di condimento grossolana con erbe e amido di riso", "description": "Condimento con pezzi grossolani di spezie di paprika, pepe bianco e noce moscata. Si abbina a tutti i tipi di carne e grigliate.\n\n**Dosaggio:** 30 g/kg di carne.\n\n**Ingredienti:** sale da cucina iodato; esaltatore di sapidità: E 621; spezie; amido di riso; saccarosio; lievito alimentare.\n\n**Allergeni:** E 621" }
+      }
+    },
+    {
+      "title": "Grill Mix",
+      "handle": "grill-mix",
+      "subtitle": "Feine Würzmischung mit Kräutern",
+      "description": "Würzung mit groben Würzbestandteilen aus Paprika, Pfeffer weiss und mediterranen Kräutern. Harmoniert mit allen Fleischsorten und Grilladen.\n\n**Dosierung:** 25–30 g/kg Fleisch.\n\n**Zutaten:** Speisesalz; Geschmacksverstärker: E 621; Gewürze; Saccharose; Gewürzextrakt.\n\n**Allergene:** E 621",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/grill-mix.png"],
+      "variants": [
+        { "title": "2.5 kg Beutel", "sku": "102325S", "price": null },
+        { "title": "10 kg Sack", "sku": "102310", "price": null },
+        { "title": "25 kg Sack", "sku": "102325", "price": null }
+      ],
+      "translations": {
+        "en": { "title": "Grill Mix", "subtitle": "Fine seasoning blend with herbs", "description": "Seasoning with coarse spice pieces of paprika, white pepper and Mediterranean herbs. Pairs with all types of meat and grilled dishes.\n\n**Dosage:** 25–30 g/kg meat.\n\n**Ingredients:** table salt; flavour enhancer: E 621; spices; sucrose; spice extract.\n\n**Allergens:** E 621" },
+        "it": { "title": "Grill Mix", "subtitle": "Miscela di condimento fine con erbe", "description": "Condimento con pezzi grossolani di spezie di paprika, pepe bianco ed erbe mediterranee. Si abbina a tutti i tipi di carne e grigliate.\n\n**Dosaggio:** 25–30 g/kg di carne.\n\n**Ingredienti:** sale da cucina; esaltatore di sapidità: E 621; spezie; saccarosio; estratto di spezie.\n\n**Allergeni:** E 621" }
+      }
+    },
+    {
+      "title": "Grill Mix Spezial",
+      "handle": "grill-mix-spezial",
+      "subtitle": "Grobe Würzmischung mit Kräutern und Salz ummantelt",
+      "description": "Aromatische Würzung mit ummanteltem Salz und groben Würzbestandteilen von Paprika, Pfeffer weiss, Knoblauch und mediterranen Kräutern. Harmoniert mit allen Fleischsorten und Grilladen.\n\n**Dosierung:** 25 g/kg Fleisch.\n\n**Zutaten:** Speisesalz (mit gehärtetem Sonnenblumenöl ummantelt); Geschmacksverstärker: E 621; Gewürze; Gewürzextrakt.\n\n**Allergene:** E 621",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/grill-mix-spezial.png"],
+      "variants": [
+        { "title": "2.5 kg Kessel", "sku": "14242,5", "price": null },
+        { "title": "2.5 kg Beutel", "sku": "14242,5S", "price": null },
+        { "title": "10 kg Kessel", "sku": "142410", "price": null },
+        { "title": "25 kg Sack", "sku": "142425", "price": null }
+      ],
+      "translations": {
+        "en": { "title": "Grill Mix Special", "subtitle": "Coarse seasoning blend with herbs and coated salt", "description": "Aromatic seasoning with coated salt and coarse spice pieces of paprika, white pepper, garlic and Mediterranean herbs. Pairs with all types of meat and grilled dishes.\n\n**Dosage:** 25 g/kg meat.\n\n**Ingredients:** table salt (coated with hydrogenated sunflower oil); flavour enhancer: E 621; spices; spice extract.\n\n**Allergens:** E 621" },
+        "it": { "title": "Grill Mix Speciale", "subtitle": "Miscela di condimento grossolana con erbe e sale rivestito", "description": "Condimento aromatico con sale rivestito e pezzi grossolani di spezie di paprika, pepe bianco, aglio ed erbe mediterranee. Si abbina a tutti i tipi di carne e grigliate.\n\n**Dosaggio:** 25 g/kg di carne.\n\n**Ingredienti:** sale da cucina (rivestito con olio di girasole idrogenato); esaltatore di sapidità: E 621; spezie; estratto di spezie.\n\n**Allergeni:** E 621" }
+      }
+    },
+    {
+      "title": "Grill Gewürzmix oG",
+      "handle": "grill-gewuerzmix-og",
+      "subtitle": "Grobe Würzmischung mit Kräutern und Reisstärke",
+      "description": "Aromatisch feine Würzung ohne Glutamat, mit groben Gewürzbestandteilen von Paprika, Zwiebel und Knoblauch. Harmoniert mit allen Fleischsorten und Grilladen.\n\n**Dosierung:** 30 g/kg Fleisch oder Fisch.\n\n**Zutaten:** Speisesalz jodiert; Gewürze; Reisstärke; Saccharose; Nährhefe; Würze.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/grill-gewuerzmix-og.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "64681", "price": null } ],
+      "translations": {
+        "en": { "title": "Grill Spice Mix, MSG-free", "subtitle": "Coarse seasoning blend with herbs and rice starch", "description": "Aromatic, fine seasoning without MSG, with coarse spice pieces of paprika, onion and garlic. Pairs with all types of meat and grilled dishes.\n\n**Dosage:** 30 g/kg meat or fish.\n\n**Ingredients:** iodised table salt; spices; rice starch; sucrose; nutritional yeast; seasoning." },
+        "it": { "title": "Mix di spezie per grigliate senza glutammato", "subtitle": "Miscela di condimento grossolana con erbe e amido di riso", "description": "Condimento fine e aromatico senza glutammato, con pezzi grossolani di spezie di paprika, cipolla e aglio. Si abbina a tutti i tipi di carne e grigliate.\n\n**Dosaggio:** 30 g/kg di carne o pesce.\n\n**Ingredienti:** sale da cucina iodato; spezie; amido di riso; saccarosio; lievito alimentare; condimento." }
+      }
+    }
+  ]
+}

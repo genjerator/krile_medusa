@@ -1,0 +1,183 @@
+{
+  "defaults": {
+    "status": "published",
+    "currency_code": "eur",
+    "subtitle": "Decor-Paniermehl",
+    "category_names": [
+      "Paniermehle und -systeme"
+    ],
+    "sales_channel_names": [
+      "IndustriesWebshop"
+    ],
+    "option_title": "Gebinde"
+  },
+  "products": [
+    {
+      "title": "Paniermehl Italienne",
+      "handle": "paniermehl-italienne",
+      "description": "Leicht rötliches Decor-Paniermehl nach Tomaten und Oregano, zum Panieren von Geflügel, Fleisch, Fisch, Käse und Gemüse.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Paniermehl (WEIZENMEHL, Salz, Hefe, Curcuma, Paprikaextrakt); Gewürze; Rapsöl; Aroma; Gewürzextrakte.\n\n**Allergene:** Gluten",
+      "images": [
+        "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/paniermehl-italienne.png"
+      ],
+      "variants": [
+        {
+          "title": "2.5 kg Beutel",
+          "sku": "682725",
+          "price": null
+        }
+      ],
+      "translations": {
+        "en": {
+          "title": "Breadcrumbs Italienne",
+          "subtitle": "Decor breadcrumbs",
+          "description": "Slightly reddish decor breadcrumbs with tomato and oregano, for coating poultry, meat, fish, cheese and vegetables.\n\n**Dosage:** as required.\n\n**Ingredients:** breadcrumbs (WHEAT FLOUR, salt, yeast, turmeric, paprika extract); spices; rapeseed oil; flavouring; spice extracts.\n\n**Allergens:** Gluten"
+        },
+        "it": {
+          "title": "Pangrattato Italienne",
+          "subtitle": "Pangrattato decorativo",
+          "description": "Pangrattato decorativo leggermente rossastro al pomodoro e origano, per impanare pollame, carne, pesce, formaggio e verdure.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** pangrattato (FARINA DI FRUMENTO, sale, lievito, curcuma, estratto di paprica); spezie; olio di colza; aroma; estratti di spezie.\n\n**Allergeni:** Glutine"
+        }
+      }
+    },
+    {
+      "title": "Paniermehl Kräuter",
+      "handle": "paniermehl-kraeuter",
+      "description": "Helles Decor-Paniermehl, mit Kräutern, zum Panieren von Geflügel, Fleisch, Fisch, Käse und Gemüse.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Paniermehl (WEIZENMEHL, Speisesalz, Hefe, Gewürze, Paprikaextrakt); Speisesalz jodiert; Petersilie 2.1 %.\n\n**Allergene:** Gluten",
+      "images": [
+        "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/paniermehl-kraeuter.png"
+      ],
+      "variants": [
+        {
+          "title": "5 kg Beutel",
+          "sku": "F8455",
+          "price": null
+        }
+      ],
+      "translations": {
+        "en": {
+          "title": "Breadcrumbs, herbs",
+          "subtitle": "Decor breadcrumbs",
+          "description": "Light decor breadcrumbs with herbs, for coating poultry, meat, fish, cheese and vegetables.\n\n**Dosage:** as required.\n\n**Ingredients:** breadcrumbs (WHEAT FLOUR, table salt, yeast, spices, paprika extract); iodised table salt; parsley 2.1 %.\n\n**Allergens:** Gluten"
+        },
+        "it": {
+          "title": "Pangrattato alle erbe",
+          "subtitle": "Pangrattato decorativo",
+          "description": "Pangrattato decorativo chiaro con erbe, per impanare pollame, carne, pesce, formaggio e verdure.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** pangrattato (FARINA DI FRUMENTO, sale da cucina, lievito, spezie, estratto di paprica); sale da cucina iodato; prezzemolo 2.1 %.\n\n**Allergeni:** Glutine"
+        }
+      }
+    },
+    {
+      "title": "Paniermehl Parmesan",
+      "handle": "paniermehl-parmesan",
+      "description": "Helles Decor-Paniermehl, mit Parmesan, zum Panieren von Geflügel, Fleisch, Fisch, Käse und Gemüse.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Paniermehl (WEIZENMEHL, Speisesalz, Hefe, Gewürze, Paprikaextrakt); Aroma Parmesan (enth. MILCH, LACTOSE); Petersilie.\n\n**Allergene:** Gluten, Milch",
+      "images": [
+        "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/paniermehl-parmesan.png"
+      ],
+      "variants": [
+        {
+          "title": "1.5 kg Beutel",
+          "sku": "F45215",
+          "price": null
+        }
+      ],
+      "translations": {
+        "en": {
+          "title": "Breadcrumbs Parmesan",
+          "subtitle": "Decor breadcrumbs",
+          "description": "Light decor breadcrumbs with Parmesan, for coating poultry, meat, fish, cheese and vegetables.\n\n**Dosage:** as required.\n\n**Ingredients:** breadcrumbs (WHEAT FLOUR, table salt, yeast, spices, paprika extract); Parmesan flavouring (contains MILK, LACTOSE); parsley.\n\n**Allergens:** Gluten, Milk"
+        },
+        "it": {
+          "title": "Pangrattato al parmigiano",
+          "subtitle": "Pangrattato decorativo",
+          "description": "Pangrattato decorativo chiaro al parmigiano, per impanare pollame, carne, pesce, formaggio e verdure.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** pangrattato (FARINA DI FRUMENTO, sale da cucina, lievito, spezie, estratto di paprica); aroma di parmigiano (contiene LATTE, LATTOSIO); prezzemolo.\n\n**Allergeni:** Glutine, Latte"
+        }
+      }
+    },
+    {
+      "title": "Paniermehl Gyros SG, IPS",
+      "handle": "paniermehl-gyros-sg-ips",
+      "description": "Leicht rötliches Decor-Paniermehl in Suisse-Garantie Qualität, mit Paprika, Lauch und Kräutern, zum Panieren von Geflügel, Fleisch, Fisch, Käse und Gemüse.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Paniermehl SG/IPS (WEIZENMEHL IPS, Wasser, Speisesalz, Hefe, Gewürzextrakte); Gemüse; Kräuter; Gewürzextrakt.\n\n**Allergene:** Gluten",
+      "images": [
+        "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/paniermehl-gyros-sg-ips.png"
+      ],
+      "variants": [
+        {
+          "title": "1 kg Beutel",
+          "sku": "93231",
+          "price": null
+        }
+      ],
+      "translations": {
+        "en": {
+          "title": "Breadcrumbs Gyros SG, IPS",
+          "subtitle": "Decor breadcrumbs",
+          "description": "Slightly reddish decor breadcrumbs in Suisse-Garantie quality, with paprika, leek and herbs, for coating poultry, meat, fish, cheese and vegetables.\n\n**Dosage:** as required.\n\n**Ingredients:** breadcrumbs SG/IPS (WHEAT FLOUR IPS, water, table salt, yeast, spice extracts); vegetables; herbs; spice extract.\n\n**Allergens:** Gluten"
+        },
+        "it": {
+          "title": "Pangrattato Gyros SG, IPS",
+          "subtitle": "Pangrattato decorativo",
+          "description": "Pangrattato decorativo leggermente rossastro in qualità Suisse-Garantie, con paprica, porro ed erbe, per impanare pollame, carne, pesce, formaggio e verdure.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** pangrattato SG/IPS (FARINA DI FRUMENTO IPS, acqua, sale da cucina, lievito, estratti di spezie); verdure; erbe; estratto di spezie.\n\n**Allergeni:** Glutine"
+        }
+      }
+    },
+    {
+      "title": "Paniermehl Tomaten & Oregano SG, IPS",
+      "handle": "paniermehl-tomaten-oregano-sg-ips",
+      "description": "Rötliches Decor-Paniermehl in Suisse-Garantie Qualität, mit Tomaten und Oregano, zum Panieren von Geflügel, Fleisch, Fisch, Käse und Gemüse.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Paniermehl SG/IPS (WEIZENMEHL IPS, Wasser, Speisesalz, Hefe, Gewürzextrakte); Oregano 0.73 %; Gewürzextrakt; Estragon; Tomatenaroma 0.24 %.\n\n**Allergene:** Gluten",
+      "images": [
+        "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/paniermehl-tomaten-oregano-sg-ips.png"
+      ],
+      "variants": [
+        {
+          "title": "1 kg Beutel",
+          "sku": "93211",
+          "price": null
+        }
+      ],
+      "translations": {
+        "en": {
+          "title": "Breadcrumbs Tomato & Oregano SG, IPS",
+          "subtitle": "Decor breadcrumbs",
+          "description": "Reddish decor breadcrumbs in Suisse-Garantie quality, with tomato and oregano, for coating poultry, meat, fish, cheese and vegetables.\n\n**Dosage:** as required.\n\n**Ingredients:** breadcrumbs SG/IPS (WHEAT FLOUR IPS, water, table salt, yeast, spice extracts); oregano 0.73 %; spice extract; tarragon; tomato flavouring 0.24 %.\n\n**Allergens:** Gluten"
+        },
+        "it": {
+          "title": "Pangrattato Pomodoro & Origano SG, IPS",
+          "subtitle": "Pangrattato decorativo",
+          "description": "Pangrattato decorativo rossastro in qualità Suisse-Garantie, con pomodoro e origano, per impanare pollame, carne, pesce, formaggio e verdure.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** pangrattato SG/IPS (FARINA DI FRUMENTO IPS, acqua, sale da cucina, lievito, estratti di spezie); origano 0.73 %; estratto di spezie; dragoncello; aroma di pomodoro 0.24 %.\n\n**Allergeni:** Glutine"
+        }
+      }
+    },
+    {
+      "title": "Paniermehl Zitrone SG, IPS",
+      "handle": "paniermehl-zitrone-sg-ips",
+      "description": "Leicht gelbliches Decor-Paniermehl in Suisse-Garantie Qualität, mit Zitrone, zum Panieren von Geflügel, Fleisch, Fisch, Käse und Gemüse.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Paniermehl SG/IPS (WEIZENMEHL IPS, Wasser, Speisesalz, Hefe, Gewürzextrakte); Petersilie; Zitronenöl 0.2 %; Gewürzextrakt.\n\n**Allergene:** Gluten",
+      "images": [
+        "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/paniermehl-zitrone-sg-ips.png"
+      ],
+      "variants": [
+        {
+          "title": "1 kg Beutel",
+          "sku": "93181",
+          "price": null
+        },
+        {
+          "title": "10 kg Sack",
+          "sku": "931810",
+          "price": null
+        }
+      ],
+      "translations": {
+        "en": {
+          "title": "Breadcrumbs Lemon SG, IPS",
+          "subtitle": "Decor breadcrumbs",
+          "description": "Slightly yellowish decor breadcrumbs in Suisse-Garantie quality, with lemon, for coating poultry, meat, fish, cheese and vegetables.\n\n**Dosage:** as required.\n\n**Ingredients:** breadcrumbs SG/IPS (WHEAT FLOUR IPS, water, table salt, yeast, spice extracts); parsley; lemon oil 0.2 %; spice extract.\n\n**Allergens:** Gluten"
+        },
+        "it": {
+          "title": "Pangrattato al limone SG, IPS",
+          "subtitle": "Pangrattato decorativo",
+          "description": "Pangrattato decorativo leggermente giallastro in qualità Suisse-Garantie, con limone, per impanare pollame, carne, pesce, formaggio e verdure.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** pangrattato SG/IPS (FARINA DI FRUMENTO IPS, acqua, sale da cucina, lievito, estratti di spezie); prezzemolo; olio di limone 0.2 %; estratto di spezie.\n\n**Allergeni:** Glutine"
+        }
+      }
+    }
+  ]
+}

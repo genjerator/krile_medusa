@@ -1,0 +1,70 @@
+{
+  "defaults": {
+    "status": "published",
+    "currency_code": "eur",
+    "subtitle": "Decor-Paniermehl glutenfrei",
+    "category_names": [
+      "Paniermehle und -systeme"
+    ],
+    "sales_channel_names": [
+      "IndustriesWebshop"
+    ],
+    "option_title": "Gebinde"
+  },
+  "products": [
+    {
+      "title": "Paniermehl Asia glutenfrei",
+      "handle": "paniermehl-asia-glutenfrei",
+      "description": "Gelbliches, glutenfreies Decor-Paniermehl, mit Curry und Kokosraspeln, zum Panieren von Geflügel, Fleisch, Fisch, Käse und Gemüse.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Paniermehl glutenfrei (Reis, Mais, Dextrose, Speisesalz); Kokosflocken; Gewürze.",
+      "images": [
+        "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/paniermehl-asia-glutenfrei.png"
+      ],
+      "variants": [
+        {
+          "title": "2.5 kg Beutel",
+          "sku": "682825",
+          "price": null
+        }
+      ],
+      "translations": {
+        "en": {
+          "title": "Breadcrumbs Asia gluten-free",
+          "subtitle": "Decor breadcrumbs gluten-free",
+          "description": "Yellowish, gluten-free decor breadcrumbs with curry and grated coconut, for coating poultry, meat, fish, cheese and vegetables.\n\n**Dosage:** as required.\n\n**Ingredients:** gluten-free breadcrumbs (rice, maize, dextrose, table salt); coconut flakes; spices."
+        },
+        "it": {
+          "title": "Pangrattato Asia senza glutine",
+          "subtitle": "Pangrattato decorativo senza glutine",
+          "description": "Pangrattato decorativo giallastro e senza glutine, con curry e cocco grattugiato, per impanare pollame, carne, pesce, formaggio e verdure.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** pangrattato senza glutine (riso, mais, destrosio, sale da cucina); scaglie di cocco; spezie."
+        }
+      }
+    },
+    {
+      "title": "Paniermehl Hawaii glutenfrei",
+      "handle": "paniermehl-hawaii-glutenfrei",
+      "description": "Gelbliches, glutenfreies Decor-Paniermehl mit Paprika, Koriander und Petersilie, zum Panieren von Geflügel, Fleisch, Fisch, Käse und Gemüse.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Paniermehl glutenfrei (Reis, Mais, Dextrose, Speisesalz); Gemüse; Gewürze.",
+      "images": [
+        "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/paniermehl-hawaii-glutenfrei.png"
+      ],
+      "variants": [
+        {
+          "title": "2.5 kg Beutel",
+          "sku": "212825",
+          "price": null
+        }
+      ],
+      "translations": {
+        "en": {
+          "title": "Breadcrumbs Hawaii gluten-free",
+          "subtitle": "Decor breadcrumbs gluten-free",
+          "description": "Yellowish, gluten-free decor breadcrumbs with paprika, coriander and parsley, for coating poultry, meat, fish, cheese and vegetables.\n\n**Dosage:** as required.\n\n**Ingredients:** gluten-free breadcrumbs (rice, maize, dextrose, table salt); vegetables; spices."
+        },
+        "it": {
+          "title": "Pangrattato Hawaii senza glutine",
+          "subtitle": "Pangrattato decorativo senza glutine",
+          "description": "Pangrattato decorativo giallastro e senza glutine, con paprica, coriandolo e prezzemolo, per impanare pollame, carne, pesce, formaggio e verdure.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** pangrattato senza glutine (riso, mais, destrosio, sale da cucina); verdure; spezie."
+        }
+      }
+    }
+  ]
+}

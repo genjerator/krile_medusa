@@ -1,0 +1,45 @@
+{
+  "defaults": {
+    "status": "published",
+    "currency_code": "eur",
+    "subtitle": "Gewürzmischung",
+    "category_names": ["Gewürzmischungen"],
+    "sales_channel_names": ["IndustriesWebshop"],
+    "option_title": "Gebinde"
+  },
+  "products": [
+    {
+      "title": "Pacovario",
+      "handle": "pacovario",
+      "description": "Dekorwürzung mit groben Gewürzbestandteilen von Senf, Pfeffer schwarz und Koriander.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Gewürze (Pfeffer, SENFSAMEN, Paprika; Koriander, Zwiebeln).\n\n**Allergene:** Senf",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/pacovario.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "99761", "price": null } ],
+      "translations": {
+        "en": { "title": "Pacovario", "subtitle": "Spice blend", "description": "Decorative seasoning with coarse spice pieces of mustard, black pepper and coriander.\n\n**Dosage:** as required.\n\n**Ingredients:** Spices (pepper, MUSTARD SEEDS, paprika; coriander, onions).\n\n**Allergens:** Mustard" },
+        "it": { "title": "Pacovario", "subtitle": "Miscela di spezie", "description": "Condimento decorativo con pezzi grossolani di spezie di senape, pepe nero e coriandolo.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** Spezie (pepe, SEMI DI SENAPE, paprika; coriandolo, cipolle).\n\n**Allergeni:** Senape" }
+      }
+    },
+    {
+      "title": "Pacovario fin",
+      "handle": "pacovario-fin",
+      "description": "Dekorwürzung mit mittelgroben Gewürzbestandteilen von Senf, Pfeffer schwarz und Koriander.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Gewürze (Pfeffer, SENF, Paprika, Koriander, Zwiebel).\n\n**Allergene:** Senf",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/pacovario-fin.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "81081", "price": null } ],
+      "translations": {
+        "en": { "title": "Pacovario fin", "subtitle": "Spice blend", "description": "Decorative seasoning with medium-coarse spice pieces of mustard, black pepper and coriander.\n\n**Dosage:** as required.\n\n**Ingredients:** Spices (pepper, MUSTARD, paprika, coriander, onion).\n\n**Allergens:** Mustard" },
+        "it": { "title": "Pacovario fin", "subtitle": "Miscela di spezie", "description": "Condimento decorativo con pezzi medio-grossolani di spezie di senape, pepe nero e coriandolo.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** Spezie (pepe, SENAPE, paprika, coriandolo, cipolla).\n\n**Allergeni:** Senape" }
+      }
+    },
+    {
+      "title": "Vier-Pfeffer-Mischung",
+      "handle": "vier-pfeffer-mischung",
+      "description": "Gewürzmischung mit vier Pfeffersorten zur Aromatisierung oder Dekoration.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Gewürze (Pfeffer grün, Pfeffer schwarz, Pfeffer weiss, rosa Pfeffer).",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/vier-pfeffer-mischung.png"],
+      "variants": [ { "title": "1 kg Beutel", "sku": "19701", "price": null } ],
+      "translations": {
+        "en": { "title": "Four-Pepper Blend", "subtitle": "Spice blend", "description": "Spice blend with four types of pepper for flavouring or decoration.\n\n**Dosage:** as required.\n\n**Ingredients:** Spices (green pepper, black pepper, white pepper, pink pepper)." },
+        "it": { "title": "Miscela ai quattro pepi", "subtitle": "Miscela di spezie", "description": "Miscela di spezie con quattro tipi di pepe per aromatizzare o decorare.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** Spezie (pepe verde, pepe nero, pepe bianco, pepe rosa)." }
+      }
+    }
+  ]
+}

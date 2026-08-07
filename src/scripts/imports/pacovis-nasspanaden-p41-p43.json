@@ -1,0 +1,142 @@
+{
+  "defaults": {
+    "status": "published",
+    "currency_code": "eur",
+    "subtitle": "Nasspanade",
+    "category_names": ["Paniermehle und -systeme"],
+    "sales_channel_names": ["IndustriesWebshop"],
+    "option_title": "Gebinde"
+  },
+  "products": [
+    {
+      "title": "Panademehl ungewürzt SG, IPS",
+      "handle": "panademehl-ungewuerzt-sg-ips",
+      "description": "Ungewürztes Panademehl in Suisse-Garantie Qualität, als Basis für eigene Kreationen.\n\n**Dosierung:** 500 g/kg Wasser; 10 min quellen lassen.\n\n**Zutaten:** WEIZENMEHL SG/IPS; Speisesalz jodiert; Reisstärke; Maisstärke; Curcuma.\n\n**Allergene:** Gluten",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/panademehl-ungewuerzt-sg-ips.png"],
+      "variants": [
+        { "title": "4 kg Kessel", "sku": "17044", "price": null },
+        { "title": "25 kg Sack", "sku": "170425", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Wet breading, unseasoned SG, IPS",
+          "subtitle": "Wet breading",
+          "description": "Unseasoned wet breading in Suisse-Garantie quality, as a base for your own creations.\n\n**Dosage:** 500 g/kg water; leave to swell for 10 min.\n\n**Ingredients:** WHEAT FLOUR SG/IPS; iodised table salt; rice starch; maize starch; turmeric.\n\n**Allergens:** Gluten"
+        },
+        "it": {
+          "title": "Panatura umida non speziata SG, IPS",
+          "subtitle": "Panatura umida",
+          "description": "Panatura umida non speziata in qualità Suisse-Garantie, come base per le proprie creazioni.\n\n**Dosaggio:** 500 g/kg acqua; lasciar gonfiare 10 min.\n\n**Ingredienti:** FARINA DI FRUMENTO SG/IPS; sale da cucina iodato; amido di riso; amido di mais; curcuma.\n\n**Allergeni:** Glutine"
+        }
+      }
+    },
+    {
+      "title": "Panademehl gewürzt SG, IPS",
+      "handle": "panademehl-gewuerzt-sg-ips",
+      "description": "Gewürztes Panademehl in Suisse-Garantie Qualität.\n\n**Dosierung:** 500 g/kg Wasser; 10 min quellen lassen.\n\n**Zutaten:** WEIZENMEHL SG/IPS; Speisesalz jodiert; Geschmacksverstärker: E 621; Reisstärke; Gewürze; Maisstärke; Saccharose.\n\n**Allergene:** Gluten, E 621",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/panademehl-gewuerzt-sg-ips.png"],
+      "variants": [
+        { "title": "4 kg Kessel", "sku": "17054", "price": null },
+        { "title": "25 kg Sack", "sku": "170525", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Wet breading, seasoned SG, IPS",
+          "subtitle": "Wet breading",
+          "description": "Seasoned wet breading in Suisse-Garantie quality.\n\n**Dosage:** 500 g/kg water; leave to swell for 10 min.\n\n**Ingredients:** WHEAT FLOUR SG/IPS; iodised table salt; flavour enhancer: E 621; rice starch; spices; maize starch; sucrose.\n\n**Allergens:** Gluten, E 621"
+        },
+        "it": {
+          "title": "Panatura umida speziata SG, IPS",
+          "subtitle": "Panatura umida",
+          "description": "Panatura umida speziata in qualità Suisse-Garantie.\n\n**Dosaggio:** 500 g/kg acqua; lasciar gonfiare 10 min.\n\n**Ingredienti:** FARINA DI FRUMENTO SG/IPS; sale da cucina iodato; esaltatore di sapidità: E 621; amido di riso; spezie; amido di mais; saccarosio.\n\n**Allergeni:** Glutine, E 621"
+        }
+      }
+    },
+    {
+      "title": "Panademehl gewürzt oG SG",
+      "handle": "panademehl-gewuerzt-og-sg",
+      "description": "Gewürztes Panademehl in Suisse-Garantie Qualität, ohne Glutamat.\n\n**Dosierung:** 500 g/kg Wasser; 10 min quellen lassen.\n\n**Zutaten:** WEIZENMEHL SG/IPS; Speisesalz jodiert; Gewürze; Reisstärke; Maisstärke nativ; Nährhefe; Saccharose; VOLLEIPULVER (Bodenhaltung).\n\n**Allergene:** Gluten, Eier",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/panademehl-gewuerzt-og-sg.png"],
+      "variants": [
+        { "title": "4 kg Kessel", "sku": "167154", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Wet breading, seasoned MSG-free SG",
+          "subtitle": "Wet breading",
+          "description": "Seasoned wet breading in Suisse-Garantie quality, without monosodium glutamate.\n\n**Dosage:** 500 g/kg water; leave to swell for 10 min.\n\n**Ingredients:** WHEAT FLOUR SG/IPS; iodised table salt; spices; rice starch; native maize starch; nutritional yeast; sucrose; WHOLE EGG POWDER (barn-raised).\n\n**Allergens:** Gluten, Eggs"
+        },
+        "it": {
+          "title": "Panatura umida speziata senza glutammato SG",
+          "subtitle": "Panatura umida",
+          "description": "Panatura umida speziata in qualità Suisse-Garantie, senza glutammato.\n\n**Dosaggio:** 500 g/kg acqua; lasciar gonfiare 10 min.\n\n**Ingredienti:** FARINA DI FRUMENTO SG/IPS; sale da cucina iodato; spezie; amido di riso; amido di mais nativo; lievito alimentare; saccarosio; UOVO INTERO IN POLVERE (da allevamento a terra).\n\n**Allergeni:** Glutine, Uova"
+        }
+      }
+    },
+    {
+      "title": "Panademehl gold",
+      "handle": "panademehl-gold",
+      "description": "Goldgelbes, gewürztes Panademehl mit zusätzlichem Ei-Anteil und erhöhter Prozessstabilität.\n\n**Dosierung:** 650 g/kg Wasser; 10 min quellen lassen.\n\n**Zutaten:** WEIZENSTÄRKE; Speisesalz jodiert; VOLLEIPULVER 11 % (Bodenhaltung); Reisstärke; Gewürze; Gewürzextrakte; Verdickungsmittel: E 415, E 401.\n\n**Allergene:** Gluten, Eier, E 401, E 415",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/panademehl-gold.png"],
+      "variants": [
+        { "title": "1 kg Beutel", "sku": "88751", "price": null },
+        { "title": "4 kg Kessel", "sku": "88754K", "price": null },
+        { "title": "10 kg Sack", "sku": "887510", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Wet breading gold",
+          "subtitle": "Wet breading",
+          "description": "Golden-yellow, seasoned wet breading with an additional egg content and improved process stability.\n\n**Dosage:** 650 g/kg water; leave to swell for 10 min.\n\n**Ingredients:** WHEAT STARCH; iodised table salt; WHOLE EGG POWDER 11 % (barn-raised); rice starch; spices; spice extracts; thickeners: E 415, E 401.\n\n**Allergens:** Gluten, Eggs, E 401, E 415"
+        },
+        "it": {
+          "title": "Panatura umida gold",
+          "subtitle": "Panatura umida",
+          "description": "Panatura umida speziata giallo-oro con contenuto di uova aggiuntivo e maggiore stabilità di processo.\n\n**Dosaggio:** 650 g/kg acqua; lasciar gonfiare 10 min.\n\n**Ingredienti:** AMIDO DI FRUMENTO; sale da cucina iodato; UOVO INTERO IN POLVERE 11 % (da allevamento a terra); amido di riso; spezie; estratti di spezie; addensanti: E 415, E 401.\n\n**Allergeni:** Glutine, Uova, E 401, E 415"
+        }
+      }
+    },
+    {
+      "title": "Panademehl Industrie",
+      "handle": "panademehl-industrie",
+      "description": "Goldgelbes, gewürztes Panademehl mit erhöhter Prozessstabilität.\n\n**Dosierung:** 650 g/kg Wasser; 10 min quellen lassen.\n\n**Zutaten:** WEIZENMEHL; WEIZENSTÄRKE; Speisesalz jodiert; Gewürze; mod. Maisstärke; Saccharose.\n\n**Allergene:** Gluten",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/panademehl-industrie.png"],
+      "variants": [
+        { "title": "4 kg Beutel", "sku": "F9244", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Wet breading Industrie",
+          "subtitle": "Wet breading",
+          "description": "Golden-yellow, seasoned wet breading with improved process stability.\n\n**Dosage:** 650 g/kg water; leave to swell for 10 min.\n\n**Ingredients:** WHEAT FLOUR; WHEAT STARCH; iodised table salt; spices; modified maize starch; sucrose.\n\n**Allergens:** Gluten"
+        },
+        "it": {
+          "title": "Panatura umida Industrie",
+          "subtitle": "Panatura umida",
+          "description": "Panatura umida speziata giallo-oro con maggiore stabilità di processo.\n\n**Dosaggio:** 650 g/kg acqua; lasciar gonfiare 10 min.\n\n**Ingredienti:** FARINA DI FRUMENTO; AMIDO DI FRUMENTO; sale da cucina iodato; spezie; amido di mais modificato; saccarosio.\n\n**Allergeni:** Glutine"
+        }
+      }
+    },
+    {
+      "title": "Bio Panademehl gewürzt",
+      "handle": "bio-panademehl-gewuerzt",
+      "description": "Gewürztes Panademehl in Bio-Qualität.\n\n**Dosierung:** 1.2 kg/kg Wasser; 5 min quellen lassen.\n\n**Zutaten:** *WEIZENSTÄRKE [DE]; Speisesalz [CH]; *Pfeffer [IN]. * = Knospe\n\n**Allergene:** Gluten",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/bio-panademehl-gewuerzt.png"],
+      "variants": [
+        { "title": "1 kg Beutel", "sku": "F5491", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Organic wet breading, seasoned",
+          "subtitle": "Wet breading",
+          "description": "Seasoned wet breading in organic quality.\n\n**Dosage:** 1.2 kg/kg water; leave to swell for 5 min.\n\n**Ingredients:** *WHEAT STARCH [DE]; table salt [CH]; *pepper [IN]. * = Knospe (organic)\n\n**Allergens:** Gluten"
+        },
+        "it": {
+          "title": "Panatura umida bio, speziata",
+          "subtitle": "Panatura umida",
+          "description": "Panatura umida speziata in qualità biologica.\n\n**Dosaggio:** 1.2 kg/kg acqua; lasciar gonfiare 5 min.\n\n**Ingredienti:** *AMIDO DI FRUMENTO [DE]; sale da cucina [CH]; *pepe [IN]. * = Knospe (bio)\n\n**Allergeni:** Glutine"
+        }
+      }
+    }
+  ]
+}

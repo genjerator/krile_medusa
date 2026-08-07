@@ -1,0 +1,124 @@
+{
+  "defaults": {
+    "status": "published",
+    "currency_code": "eur",
+    "subtitle": "Spezialität",
+    "category_names": ["Paniermehle und -systeme"],
+    "sales_channel_names": ["IndustriesWebshop"],
+    "option_title": "Gebinde"
+  },
+  "products": [
+    {
+      "title": "Knusper Fix SG, IPS",
+      "handle": "knusper-fix-sg-ips",
+      "subtitle": "Paniermehl gewürzt mit Salz",
+      "description": "Gewürzte Panier-Kombimischung, für eine besonders knusprige Panade.\n\n**Dosierung:** 200 g/kg Fleisch.\n\n**Zutaten:** Paniermehl SG/IPS (HALBWEISSMEHL [IPS], Wasser, Speisesalz, Hefe, Gewürzextrakte); Speisesalz; Würze; HÜHNEREIEIWEISS (Freilandhaltung); Gewürze; LACTOSE; Saccharose.\n\n**Allergene:** Gluten, Eier, Milch",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/knusper-fix-sg-ips.png"],
+      "variants": [
+        { "title": "1 kg Beutel", "sku": "47081", "price": null },
+        { "title": "10 kg Sack", "sku": "470810", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Knusper Fix SG, IPS",
+          "subtitle": "Seasoned breadcrumbs with salt",
+          "description": "Seasoned breading mix for an especially crispy coating.\n\n**Dosage:** 200 g/kg meat.\n\n**Ingredients:** breadcrumbs SG/IPS (SEMI-WHITE FLOUR [IPS], water, table salt, yeast, spice extracts); table salt; seasoning; EGG WHITE (free-range); spices; LACTOSE; sucrose.\n\n**Allergens:** Gluten, Eggs, Milk"
+        },
+        "it": {
+          "title": "Knusper Fix SG, IPS",
+          "subtitle": "Pangrattato speziato con sale",
+          "description": "Miscela per impanatura speziata per una panatura particolarmente croccante.\n\n**Dosaggio:** 200 g/kg carne.\n\n**Ingredienti:** pangrattato SG/IPS (FARINA SEMIBIANCA [IPS], acqua, sale da cucina, lievito, estratti di spezie); sale da cucina; condimento; ALBUME D'UOVO (da allevamento all'aperto); spezie; LATTOSIO; saccarosio.\n\n**Allergeni:** Glutine, Uova, Latte"
+        }
+      }
+    },
+    {
+      "title": "Knusper-Fix classic",
+      "handle": "knusper-fix-classic",
+      "subtitle": "Paniermehl gewürzt mit Salz",
+      "description": "Gewürzte Panier-Kombimischung mit klassischer Würzung für eine besonders knusprige Panade.\n\n**Dosierung:** 200 g/kg Fleisch.\n\n**Zutaten:** Paniermehl (WEIZENMEHL, Speisesalz, Hefe, Gewürze, Paprikaextrakt); Speisesalz; HÜHNEREI-EIWEISS (Freilandhaltung); Würze; Gewürze; LACTOSE; Geschmacksverstärker: E 621; Saccharose.\n\n**Allergene:** Gluten, Eier, Milch, E 621",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/knusper-fix-classic.png"],
+      "variants": [
+        { "title": "1 kg Beutel", "sku": "216341", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Knusper-Fix classic",
+          "subtitle": "Seasoned breadcrumbs with salt",
+          "description": "Seasoned breading mix with a classic seasoning for an especially crispy coating.\n\n**Dosage:** 200 g/kg meat.\n\n**Ingredients:** breadcrumbs (WHEAT FLOUR, table salt, yeast, spices, paprika extract); table salt; EGG WHITE (free-range); seasoning; spices; LACTOSE; flavour enhancer: E 621; sucrose.\n\n**Allergens:** Gluten, Eggs, Milk, E 621"
+        },
+        "it": {
+          "title": "Knusper-Fix classic",
+          "subtitle": "Pangrattato speziato con sale",
+          "description": "Miscela per impanatura speziata con condimento classico per una panatura particolarmente croccante.\n\n**Dosaggio:** 200 g/kg carne.\n\n**Ingredienti:** pangrattato (FARINA DI FRUMENTO, sale da cucina, lievito, spezie, estratto di paprica); sale da cucina; ALBUME D'UOVO (da allevamento all'aperto); condimento; spezie; LATTOSIO; esaltatore di sapidità: E 621; saccarosio.\n\n**Allergeni:** Glutine, Uova, Latte, E 621"
+        }
+      }
+    },
+    {
+      "title": "Panade Pariser Schnitzel",
+      "handle": "panade-pariser-schnitzel",
+      "subtitle": "Flüssige Panade",
+      "description": "Flüssige Panade basierend auf Trockenei und Senf.\n\n**Dosierung:** 300 g/kg Fleisch; gemehlte Schnitzel durch die Panade ziehen.\n\n**Zutaten:** Sonnenblumenöl; Wasser; SENF (Tafelessig, Wasser, SENFSAMEN, Speisesalz jodiert, Saccharose, Gewürze, Gewürzextrakt); VOLLEIPULVER 7.5 %; Reisstärke; Gewürze; Speisesalz jodiert; Zitronensaft; Glucosesirup; Maisstärke mod.; Verdickungsmittel: E 415, E 401; Gewürzextrakt.\n\n**Allergene:** Eier, Senf, E 1422, E 401, E 415",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/panade-pariser-schnitzel.png"],
+      "variants": [
+        { "title": "2.2 kg Kessel", "sku": "180722", "price": null },
+        { "title": "4.8 kg Kessel", "sku": "180748", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Coating Pariser Schnitzel",
+          "subtitle": "Liquid coating",
+          "description": "Liquid coating based on dried egg and mustard.\n\n**Dosage:** 300 g/kg meat; draw floured escalopes through the coating.\n\n**Ingredients:** sunflower oil; water; MUSTARD (table vinegar, water, MUSTARD SEED, iodised table salt, sucrose, spices, spice extract); WHOLE EGG POWDER 7.5 %; rice starch; spices; iodised table salt; lemon juice; glucose syrup; modified maize starch; thickeners: E 415, E 401; spice extract.\n\n**Allergens:** Eggs, Mustard, E 1422, E 401, E 415"
+        },
+        "it": {
+          "title": "Panatura Pariser Schnitzel",
+          "subtitle": "Panatura liquida",
+          "description": "Panatura liquida a base di uovo essiccato e senape.\n\n**Dosaggio:** 300 g/kg carne; passare le scaloppine infarinate nella panatura.\n\n**Ingredienti:** olio di girasole; acqua; SENAPE (aceto, acqua, SEMI DI SENAPE, sale da cucina iodato, saccarosio, spezie, estratto di spezie); UOVO INTERO IN POLVERE 7.5 %; amido di riso; spezie; sale da cucina iodato; succo di limone; sciroppo di glucosio; amido di mais modificato; addensanti: E 415, E 401; estratto di spezie.\n\n**Allergeni:** Uova, Senape, E 1422, E 401, E 415"
+        }
+      }
+    },
+    {
+      "title": "Pariser Eihülle",
+      "handle": "pariser-eihuelle",
+      "subtitle": "Flüssige Panade",
+      "description": "Flüssige Panade mit erhöhtem Ei-Anteil und Senf.\n\n**Dosierung:** 300 g/kg Fleisch; gemehlte Schnitzel durch die Panade ziehen.\n\n**Zutaten:** Wasser; Sonnenblumenöl; SENF (Tafelessig, Wasser, SENFSAMEN, Speisesalz jodiert, Saccharose, Gewürze, Gewürzextrakt); VOLLEIPULVER 8.5 % (Bodenhaltung); Reisstärke; Gewürze; Tafelessig; Zitronensaft; Glucosesirup; Verdickungsmittel: E 415, E 401; Konservierungsmittel: E 202; Gewürzextrakt.\n\n**Allergene:** Eier, Senf, E 202, E 401, E 415",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/pariser-eihuelle.png"],
+      "variants": [
+        { "title": "2.2 kg Kessel", "sku": "1027122", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Pariser Eihülle",
+          "subtitle": "Liquid coating",
+          "description": "Liquid coating with an increased egg content and mustard.\n\n**Dosage:** 300 g/kg meat; draw floured escalopes through the coating.\n\n**Ingredients:** water; sunflower oil; MUSTARD (table vinegar, water, MUSTARD SEED, iodised table salt, sucrose, spices, spice extract); WHOLE EGG POWDER 8.5 % (barn-raised); rice starch; spices; table vinegar; lemon juice; glucose syrup; thickeners: E 415, E 401; preservative: E 202; spice extract.\n\n**Allergens:** Eggs, Mustard, E 202, E 401, E 415"
+        },
+        "it": {
+          "title": "Pariser Eihülle",
+          "subtitle": "Panatura liquida",
+          "description": "Panatura liquida con maggiore contenuto di uova e senape.\n\n**Dosaggio:** 300 g/kg carne; passare le scaloppine infarinate nella panatura.\n\n**Ingredienti:** acqua; olio di girasole; SENAPE (aceto, acqua, SEMI DI SENAPE, sale da cucina iodato, saccarosio, spezie, estratto di spezie); UOVO INTERO IN POLVERE 8.5 % (da allevamento a terra); amido di riso; spezie; aceto; succo di limone; sciroppo di glucosio; addensanti: E 415, E 401; conservante: E 202; estratto di spezie.\n\n**Allergeni:** Uova, Senape, E 202, E 401, E 415"
+        }
+      }
+    },
+    {
+      "title": "Piccatasauce vollei CH",
+      "handle": "piccatasauce-vollei-ch",
+      "subtitle": "Flüssige Panade mit Sbrinz",
+      "description": "Flüssige Panade mit Schweizer Vollei und Sbrinz-Käse.\n\n**Dosierung:** 300 g/kg Fleisch; gemehlte Schnitzel durch die Panade ziehen.\n\n**Zutaten:** VOLLEI 42 % (past., Freiland, CH); SBRINZ 17 % (aus ROHMILCH) [47 % FIT]; Wasser; WEIZENMEHL; Speisesalz; Gewürze; SENF (Tafelessig, Wasser, SENFSAMEN, Speisesalz jodiert, Saccharose, Gewürze, Gewürzextrakte); Zitronensaftkonzentrat; Rapsöl; Dextrose; Antioxidationsmittel: E 300; Konservierungsstoff: E 202.\n\n**Allergene:** Gluten, Eier, Milch, Senf, E 202, E 300",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/piccatasauce-vollei-ch.png"],
+      "variants": [
+        { "title": "1.5 kg Kessel", "sku": "1755715", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Piccata sauce whole egg CH",
+          "subtitle": "Liquid coating with Sbrinz",
+          "description": "Liquid coating with Swiss whole egg and Sbrinz cheese.\n\n**Dosage:** 300 g/kg meat; draw floured escalopes through the coating.\n\n**Ingredients:** WHOLE EGG 42 % (pasteurised, free-range, CH); SBRINZ 17 % (from RAW MILK) [47 % FDM]; water; WHEAT FLOUR; table salt; spices; MUSTARD (table vinegar, water, MUSTARD SEED, iodised table salt, sucrose, spices, spice extracts); lemon juice concentrate; rapeseed oil; dextrose; antioxidant: E 300; preservative: E 202.\n\n**Allergens:** Gluten, Eggs, Milk, Mustard, E 202, E 300"
+        },
+        "it": {
+          "title": "Salsa piccata uovo intero CH",
+          "subtitle": "Panatura liquida con Sbrinz",
+          "description": "Panatura liquida con uovo intero svizzero e formaggio Sbrinz.\n\n**Dosaggio:** 300 g/kg carne; passare le scaloppine infarinate nella panatura.\n\n**Ingredienti:** UOVO INTERO 42 % (pastorizzato, all'aperto, CH); SBRINZ 17 % (da LATTE CRUDO) [47 % s.s.]; acqua; FARINA DI FRUMENTO; sale da cucina; spezie; SENAPE (aceto, acqua, SEMI DI SENAPE, sale da cucina iodato, saccarosio, spezie, estratti di spezie); concentrato di succo di limone; olio di colza; destrosio; antiossidante: E 300; conservante: E 202.\n\n**Allergeni:** Glutine, Uova, Latte, Senape, E 202, E 300"
+        }
+      }
+    }
+  ]
+}

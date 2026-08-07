@@ -1,0 +1,188 @@
+{
+  "defaults": {
+    "status": "published",
+    "currency_code": "eur",
+    "subtitle": "Panierfix",
+    "category_names": [
+      "Paniermehle und -systeme"
+    ],
+    "sales_channel_names": [
+      "IndustriesWebshop"
+    ],
+    "option_title": "Gebinde"
+  },
+  "products": [
+    {
+      "title": "Panierfix natur",
+      "handle": "panierfix-natur",
+      "description": "Helle Panier-Kombimischung, zum Panieren von Geflügel, Fleisch, Fisch, Käse und Gemüse.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** PANIERMEHL (WEIZENMEHL, Speisesalz, Hefe, Gewürze); VOLLEIPULVER (Bodenhaltung); Speisesalz; WEIZENSTÄRKE; Gewürze; Dextrose; Würze; Reisstärke; Gewürzextrakte.\n\n**Allergene:** Gluten, Eier",
+      "images": [
+        "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/panierfix-natur.png"
+      ],
+      "variants": [
+        {
+          "title": "1 kg Beutel",
+          "sku": "47821",
+          "price": null
+        }
+      ],
+      "translations": {
+        "en": {
+          "title": "Panierfix natural",
+          "subtitle": "Panierfix",
+          "description": "Light breading mix, for coating poultry, meat, fish, cheese and vegetables.\n\n**Dosage:** as required.\n\n**Ingredients:** BREADCRUMBS (WHEAT FLOUR, table salt, yeast, spices); WHOLE EGG POWDER (barn-raised); table salt; WHEAT STARCH; spices; dextrose; seasoning; rice starch; spice extracts.\n\n**Allergens:** Gluten, Eggs"
+        },
+        "it": {
+          "title": "Panierfix natura",
+          "subtitle": "Panierfix",
+          "description": "Miscela per impanatura chiara, per impanare pollame, carne, pesce, formaggio e verdure.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** PANGRATTATO (FARINA DI FRUMENTO, sale da cucina, lievito, spezie); UOVO INTERO IN POLVERE (da allevamento a terra); sale da cucina; AMIDO DI FRUMENTO; spezie; destrosio; condimento; amido di riso; estratti di spezie.\n\n**Allergeni:** Glutine, Uova"
+        }
+      }
+    },
+    {
+      "title": "Panierfix gelb",
+      "handle": "panierfix-gelb",
+      "description": "Gelbliche Panier-Kombimischung, zum Panieren von Geflügel, Fleisch, Fisch, Käse und Gemüse.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Paniermehl (WEIZENMEHL, Speisesalz, Hefe, Gewürze, Paprikaextrakt); VOLLEIPULVER (Bodenhaltung); Speisesalz; WEIZENSTÄRKE; Geschmacksverstärker: E 621; Gewürzextrakte; Gewürze; Reisstärke.\n\n**Allergene:** Gluten, Eier, E 621",
+      "images": [
+        "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/panierfix-gelb.png"
+      ],
+      "variants": [
+        {
+          "title": "1 kg Beutel",
+          "sku": "97551",
+          "price": null
+        }
+      ],
+      "translations": {
+        "en": {
+          "title": "Panierfix yellow",
+          "subtitle": "Panierfix",
+          "description": "Yellowish breading mix, for coating poultry, meat, fish, cheese and vegetables.\n\n**Dosage:** as required.\n\n**Ingredients:** breadcrumbs (WHEAT FLOUR, table salt, yeast, spices, paprika extract); WHOLE EGG POWDER (barn-raised); table salt; WHEAT STARCH; flavour enhancer: E 621; spice extracts; spices; rice starch.\n\n**Allergens:** Gluten, Eggs, E 621"
+        },
+        "it": {
+          "title": "Panierfix giallo",
+          "subtitle": "Panierfix",
+          "description": "Miscela per impanatura giallastra, per impanare pollame, carne, pesce, formaggio e verdure.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** pangrattato (FARINA DI FRUMENTO, sale da cucina, lievito, spezie, estratto di paprica); UOVO INTERO IN POLVERE (da allevamento a terra); sale da cucina; AMIDO DI FRUMENTO; esaltatore di sapidità: E 621; estratti di spezie; spezie; amido di riso.\n\n**Allergeni:** Glutine, Uova, E 621"
+        }
+      }
+    },
+    {
+      "title": "Panierfix rot",
+      "handle": "panierfix-rot",
+      "description": "Rötliche Panier-Kombimischung, zum Panieren von Geflügel, Fleisch, Fisch, Käse und Gemüse.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Paniermehl (WEIZENMEHL, Speisesalz, Hefe, Gewürze, Paprikaextrakt); VOLLEIPULVER (Bodenhaltung); Speisesalz; WEIZENSTÄRKE; Gewürze; Geschmacksverstärker: E 621; Gewürzextrakte; Reisstärke.\n\n**Allergene:** Gluten, Eier, E 621",
+      "images": [
+        "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/panierfix-rot.png"
+      ],
+      "variants": [
+        {
+          "title": "1 kg Beutel",
+          "sku": "97541",
+          "price": null
+        }
+      ],
+      "translations": {
+        "en": {
+          "title": "Panierfix red",
+          "subtitle": "Panierfix",
+          "description": "Reddish breading mix, for coating poultry, meat, fish, cheese and vegetables.\n\n**Dosage:** as required.\n\n**Ingredients:** breadcrumbs (WHEAT FLOUR, table salt, yeast, spices, paprika extract); WHOLE EGG POWDER (barn-raised); table salt; WHEAT STARCH; spices; flavour enhancer: E 621; spice extracts; rice starch.\n\n**Allergens:** Gluten, Eggs, E 621"
+        },
+        "it": {
+          "title": "Panierfix rosso",
+          "subtitle": "Panierfix",
+          "description": "Miscela per impanatura rossastra, per impanare pollame, carne, pesce, formaggio e verdure.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** pangrattato (FARINA DI FRUMENTO, sale da cucina, lievito, spezie, estratto di paprica); UOVO INTERO IN POLVERE (da allevamento a terra); sale da cucina; AMIDO DI FRUMENTO; spezie; esaltatore di sapidità: E 621; estratti di spezie; amido di riso.\n\n**Allergeni:** Glutine, Uova, E 621"
+        }
+      }
+    },
+    {
+      "title": "Panierfix decor",
+      "handle": "panierfix-decor",
+      "description": "Gelbliche Decor-Panier-Kombimischung, mit Zwiebeln, Paprika und Senf, zum Panieren von Geflügel, Fleisch, Fisch, Käse und Gemüse.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Paniermehl (WEIZENMEHL, Speisesalz, Hefe, Gewürze, Paprikaextrakt); Gewürze (enth. SENF); VOLLEIPULVER (Bodenhaltung); Speisesalz; WEIZENSTÄRKE; Geschmacksverstärker: E 621; Gewürzextrakte; Reisstärke.\n\n**Allergene:** Gluten, Eier, Senf, E 621",
+      "images": [
+        "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/panierfix-decor.png"
+      ],
+      "variants": [
+        {
+          "title": "1 kg Beutel",
+          "sku": "98471",
+          "price": null
+        }
+      ],
+      "translations": {
+        "en": {
+          "title": "Panierfix decor",
+          "subtitle": "Panierfix",
+          "description": "Yellowish decor breading mix with onion, paprika and mustard, for coating poultry, meat, fish, cheese and vegetables.\n\n**Dosage:** as required.\n\n**Ingredients:** breadcrumbs (WHEAT FLOUR, table salt, yeast, spices, paprika extract); spices (contain MUSTARD); WHOLE EGG POWDER (barn-raised); table salt; WHEAT STARCH; flavour enhancer: E 621; spice extracts; rice starch.\n\n**Allergens:** Gluten, Eggs, Mustard, E 621"
+        },
+        "it": {
+          "title": "Panierfix decor",
+          "subtitle": "Panierfix",
+          "description": "Miscela per impanatura decorativa giallastra con cipolla, paprica e senape, per impanare pollame, carne, pesce, formaggio e verdure.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** pangrattato (FARINA DI FRUMENTO, sale da cucina, lievito, spezie, estratto di paprica); spezie (contengono SENAPE); UOVO INTERO IN POLVERE (da allevamento a terra); sale da cucina; AMIDO DI FRUMENTO; esaltatore di sapidità: E 621; estratti di spezie; amido di riso.\n\n**Allergeni:** Glutine, Uova, Senape, E 621"
+        }
+      }
+    },
+    {
+      "title": "Panmix SG, IPS",
+      "handle": "panmix-sg-ips",
+      "description": "Gewürztes Paniermehl in Suisse-Garantie Qualität, zum Panieren von Geflügel, Fleisch, Fisch, Käse und Gemüse.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** WEIZENMEHL SG/IPS; Wasser; Speisesalz; Saccharose; Gewürze; Hefeextrakt; Hefe.\n\n**Allergene:** Gluten",
+      "images": [
+        "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/panmix-sg-ips.png"
+      ],
+      "variants": [
+        {
+          "title": "4 kg Beutel",
+          "sku": "41734",
+          "price": null
+        },
+        {
+          "title": "10 kg Sack",
+          "sku": "417310",
+          "price": null
+        },
+        {
+          "title": "25 kg Sack",
+          "sku": "417325",
+          "price": null
+        }
+      ],
+      "translations": {
+        "en": {
+          "title": "Panmix SG, IPS",
+          "subtitle": "Panierfix",
+          "description": "Seasoned breadcrumbs in Suisse-Garantie quality, for coating poultry, meat, fish, cheese and vegetables.\n\n**Dosage:** as required.\n\n**Ingredients:** WHEAT FLOUR SG/IPS; water; table salt; sucrose; spices; yeast extract; yeast.\n\n**Allergens:** Gluten"
+        },
+        "it": {
+          "title": "Panmix SG, IPS",
+          "subtitle": "Panierfix",
+          "description": "Pangrattato speziato in qualità Suisse-Garantie, per impanare pollame, carne, pesce, formaggio e verdure.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** FARINA DI FRUMENTO SG/IPS; acqua; sale da cucina; saccarosio; spezie; estratto di lievito; lievito.\n\n**Allergeni:** Glutine"
+        }
+      }
+    },
+    {
+      "title": "Panmix SG, IPS 200 g",
+      "handle": "panmix-sg-ips-200g",
+      "description": "Gewürztes Paniermehl in Suisse-Garantie Qualität, zum Panieren von Geflügel, Fleisch, Fisch, Käse und Gemüse.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** WEIZENMEHL SG/IPS; Wasser; Speisesalz; Saccharose; Gewürze; Hefeextrakt; Hefe.\n\n**Allergene:** Gluten",
+      "images": [
+        "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/panmix-sg-ips-200g.png"
+      ],
+      "variants": [
+        {
+          "title": "200 g Pack",
+          "sku": "41701",
+          "price": null
+        }
+      ],
+      "translations": {
+        "en": {
+          "title": "Panmix SG, IPS 200 g",
+          "subtitle": "Panierfix",
+          "description": "Seasoned breadcrumbs in Suisse-Garantie quality, for coating poultry, meat, fish, cheese and vegetables.\n\n**Dosage:** as required.\n\n**Ingredients:** WHEAT FLOUR SG/IPS; water; table salt; sucrose; spices; yeast extract; yeast.\n\n**Allergens:** Gluten"
+        },
+        "it": {
+          "title": "Panmix SG, IPS 200 g",
+          "subtitle": "Panierfix",
+          "description": "Pangrattato speziato in qualità Suisse-Garantie, per impanare pollame, carne, pesce, formaggio e verdure.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** FARINA DI FRUMENTO SG/IPS; acqua; sale da cucina; saccarosio; spezie; estratto di lievito; lievito.\n\n**Allergeni:** Glutine"
+        }
+      }
+    }
+  ]
+}

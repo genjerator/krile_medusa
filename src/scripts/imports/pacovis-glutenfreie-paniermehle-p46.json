@@ -1,0 +1,99 @@
+{
+  "defaults": {
+    "status": "published",
+    "currency_code": "eur",
+    "subtitle": "Glutenfreies Paniermehl",
+    "category_names": ["Paniermehle und -systeme"],
+    "sales_channel_names": ["IndustriesWebshop"],
+    "option_title": "Gebinde"
+  },
+  "products": [
+    {
+      "title": "Paniermehl glutenfrei hell",
+      "handle": "paniermehl-glutenfrei-hell",
+      "description": "Helles Paniermehl, glutenfrei, zum Panieren von Geflügel, Fleisch, Fisch, Käse und Gemüse.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Reis, Mais, Speisesalz.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/paniermehl-glutenfrei-hell.png"],
+      "variants": [
+        { "title": "2.5 kg Beutel", "sku": "1317425", "price": null },
+        { "title": "8 kg Sack", "sku": "131748", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Breadcrumbs gluten-free, light",
+          "subtitle": "Gluten-free breadcrumbs",
+          "description": "Light gluten-free breadcrumbs for coating poultry, meat, fish, cheese and vegetables.\n\n**Dosage:** as required.\n\n**Ingredients:** rice, maize, table salt."
+        },
+        "it": {
+          "title": "Pangrattato senza glutine, chiaro",
+          "subtitle": "Pangrattato senza glutine",
+          "description": "Pangrattato chiaro senza glutine per impanare pollame, carne, pesce, formaggio e verdure.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** riso, mais, sale da cucina."
+        }
+      }
+    },
+    {
+      "title": "Paniermehl glutenfrei dunkel",
+      "handle": "paniermehl-glutenfrei-dunkel",
+      "description": "Gelblich-braunes Paniermehl, glutenfrei, zum Panieren von Geflügel, Fleisch, Fisch, Käse und Gemüse.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Reis; Mais; Dextrose; Speisesalz.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/paniermehl-glutenfrei-dunkel.png"],
+      "variants": [
+        { "title": "2.5 kg Beutel", "sku": "1330225", "price": null },
+        { "title": "8 kg Sack", "sku": "133028", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Breadcrumbs gluten-free, dark",
+          "subtitle": "Gluten-free breadcrumbs",
+          "description": "Yellowish-brown gluten-free breadcrumbs for coating poultry, meat, fish, cheese and vegetables.\n\n**Dosage:** as required.\n\n**Ingredients:** rice; maize; dextrose; table salt."
+        },
+        "it": {
+          "title": "Pangrattato senza glutine, scuro",
+          "subtitle": "Pangrattato senza glutine",
+          "description": "Pangrattato bruno-giallastro senza glutine per impanare pollame, carne, pesce, formaggio e verdure.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** riso; mais; destrosio; sale da cucina."
+        }
+      }
+    },
+    {
+      "title": "Paniermehl Cornflakes",
+      "handle": "paniermehl-cornflakes",
+      "description": "Paniermehl glutenfrei auf Basis Mais.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Mais [DE]; Saccharose; Speisesalz.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/paniermehl-cornflakes.png"],
+      "variants": [
+        { "title": "2.5 kg Beutel", "sku": "107102,5", "price": null },
+        { "title": "25 kg Sack", "sku": "1071025", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Breadcrumbs Cornflakes",
+          "subtitle": "Gluten-free breadcrumbs",
+          "description": "Gluten-free breadcrumbs based on maize.\n\n**Dosage:** as required.\n\n**Ingredients:** maize [DE]; sucrose; table salt."
+        },
+        "it": {
+          "title": "Pangrattato Cornflakes",
+          "subtitle": "Pangrattato senza glutine",
+          "description": "Pangrattato senza glutine a base di mais.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** mais [DE]; saccarosio; sale da cucina."
+        }
+      }
+    },
+    {
+      "title": "Paniermehl Cornflakes fein",
+      "handle": "paniermehl-cornflakes-fein",
+      "description": "Feines, glutenfreies Paniermehl auf Basis Mais.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Mais; Saccharose; Speisesalz.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/paniermehl-cornflakes-fein.png"],
+      "variants": [
+        { "title": "1 kg Beutel", "sku": "108651", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Breadcrumbs Cornflakes fine",
+          "subtitle": "Gluten-free breadcrumbs",
+          "description": "Fine, gluten-free breadcrumbs based on maize.\n\n**Dosage:** as required.\n\n**Ingredients:** maize; sucrose; table salt."
+        },
+        "it": {
+          "title": "Pangrattato Cornflakes fine",
+          "subtitle": "Pangrattato senza glutine",
+          "description": "Pangrattato fine senza glutine a base di mais.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** mais; saccarosio; sale da cucina."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,233 @@
+{
+  "defaults": {
+    "status": "published",
+    "currency_code": "eur",
+    "subtitle": "Küchenfertiges Produkt",
+    "category_names": ["Küchen und Traiteurartikel"],
+    "sales_channel_names": ["IndustriesWebshop"],
+    "option_title": "Gebinde"
+  },
+  "products": [
+    {
+      "title": "Chili con Carne Gewürz",
+      "handle": "chili-con-carne-gewuerz",
+      "subtitle": "Würzmischung",
+      "description": "Rassige Würzung mit Paprika, Chili und Knoblauch. Eignet sich am besten für das klassische Chili con Carne und andere pikante Fleischgerichte.\n\n**Dosierung:** 90 g/kg Fleisch.\n\n**Zutaten:** Gewürze; Speisesalz jodiert; Saccharose; Hefeextrakte; Kakaopulver; Tomatenpulver; Würze; Kräuter; Säuerungsmittel: E 330.\n\n**Allergene:** E 330",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/chili-con-carne-gewuerz.png"],
+      "variants": [
+        { "title": "1 kg Beutel", "sku": "24561", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Chili con Carne Seasoning",
+          "subtitle": "Seasoning mix",
+          "description": "Full-bodied seasoning with paprika, chilli and garlic. Best suited to classic chili con carne and other spicy meat dishes.\n\n**Dosage:** 90 g/kg meat.\n\n**Ingredients:** spices; iodised table salt; sucrose; yeast extracts; cocoa powder; tomato powder; seasoning; herbs; acidifier: E 330.\n\n**Allergens:** E 330"
+        },
+        "it": {
+          "title": "Spezie per Chili con Carne",
+          "subtitle": "Miscela di spezie",
+          "description": "Condimento deciso con paprica, peperoncino e aglio. Ideale per il classico chili con carne e altri piatti di carne piccanti.\n\n**Dosaggio:** 90 g/kg carne.\n\n**Ingredienti:** spezie; sale da cucina iodato; saccarosio; estratti di lievito; cacao in polvere; pomodoro in polvere; condimento; erbe; acidificante: E 330.\n\n**Allergeni:** E 330"
+        }
+      }
+    },
+    {
+      "title": "Garam Masala",
+      "handle": "garam-masala",
+      "subtitle": "Gewürzmischung",
+      "description": "Orientalische Würzung mit Kardamom, Kreuzkümmel und Zimt. Ideale Würzbasis für indische und asiatische Gerichte.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Gewürze.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/garam-masala.png"],
+      "variants": [
+        { "title": "1 kg Beutel", "sku": "78821", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Garam Masala",
+          "subtitle": "Spice mix",
+          "description": "Oriental seasoning with cardamom, cumin and cinnamon. An ideal seasoning base for Indian and Asian dishes.\n\n**Dosage:** as required.\n\n**Ingredients:** spices."
+        },
+        "it": {
+          "title": "Garam Masala",
+          "subtitle": "Miscela di spezie",
+          "description": "Condimento orientale con cardamomo, cumino e cannella. Base di spezie ideale per piatti indiani e asiatici.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** spezie."
+        }
+      }
+    },
+    {
+      "title": "Gemüse Gewürz",
+      "handle": "gemuese-gewuerz",
+      "subtitle": "Würzmischung",
+      "description": "Würzung mit Schweizer Alpensalz, Lauch und Zwiebeln. Harmoniert am besten mit Grillgemüse oder Gemüsegerichten.\n\n**Dosierung:** 25 g/kg Gemüse.\n\n**Zutaten:** Speisesalz (Alpensalz, CH) 48 %; Gewürze (Pastinake, Petersilie, Karotte, Pfeffer, Zwiebel, Koriander, Muskat, Knoblauch, Lauch, Ingwer); Würze; Zucker.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/gemuese-gewuerz.png"],
+      "variants": [
+        { "title": "1 kg Beutel", "sku": "71591", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Vegetable Seasoning",
+          "subtitle": "Seasoning mix",
+          "description": "Seasoning with Swiss alpine salt, leek and onion. Harmonises best with grilled vegetables or vegetable dishes.\n\n**Dosage:** 25 g/kg vegetables.\n\n**Ingredients:** table salt (alpine salt, CH) 48 %; spices (parsnip, parsley, carrot, pepper, onion, coriander, nutmeg, garlic, leek, ginger); seasoning; sugar."
+        },
+        "it": {
+          "title": "Spezie per verdure",
+          "subtitle": "Miscela di spezie",
+          "description": "Condimento con sale alpino svizzero, porro e cipolla. Si abbina al meglio con verdure grigliate o piatti di verdure.\n\n**Dosaggio:** 25 g/kg verdura.\n\n**Ingredienti:** sale da cucina (sale alpino, CH) 48 %; spezie (pastinaca, prezzemolo, carota, pepe, cipolla, coriandolo, noce moscata, aglio, porro, zenzero); condimento; zucchero."
+        }
+      }
+    },
+    {
+      "title": "Nasi Goreng",
+      "handle": "nasi-goreng",
+      "subtitle": "Gewürzzubereitung",
+      "description": "Orientalische Würzung mit Kreuzkümmel, Galgant und Ingwer. Ideale Würzbasis für indische und asiatische Nudelgerichte.\n\n**Dosierung:** 50 g/kg Gesamtmasse.\n\n**Zutaten:** Gewürze; Speisesalz jodiert; Geschmacksverstärker: E 621; Saccharose; Säuerungsmittel: E 330.\n\n**Allergene:** E 330, E 621",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/nasi-goreng.png"],
+      "variants": [
+        { "title": "1 kg Beutel", "sku": "18161", "price": null },
+        { "title": "25 kg Sack", "sku": "181625", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Nasi Goreng",
+          "subtitle": "Spice preparation",
+          "description": "Oriental seasoning with cumin, galangal and ginger. An ideal seasoning base for Indian and Asian noodle dishes.\n\n**Dosage:** 50 g/kg total mass.\n\n**Ingredients:** spices; iodised table salt; flavour enhancer: E 621; sucrose; acidifier: E 330.\n\n**Allergens:** E 330, E 621"
+        },
+        "it": {
+          "title": "Nasi Goreng",
+          "subtitle": "Preparazione di spezie",
+          "description": "Condimento orientale con cumino, galanga e zenzero. Base di spezie ideale per piatti di pasta indiani e asiatici.\n\n**Dosaggio:** 50 g/kg massa totale.\n\n**Ingredienti:** spezie; sale da cucina iodato; esaltatore di sapidità: E 621; saccarosio; acidificante: E 330.\n\n**Allergeni:** E 330, E 621"
+        }
+      }
+    },
+    {
+      "title": "Paco Pomme",
+      "handle": "paco-pomme",
+      "subtitle": "Gewürzsalz",
+      "description": "Pikante Würzung mit Paprika, Bohnenkraut und Chili. Ideale Würzbasis für Pommes Frites und Kartoffelgerichte.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Speisesalz jodiert; Gewürze; Geschmacksverstärker: E 621; Dextrose; Reisstärke; Würze; Gewürzextrakt.\n\n**Allergene:** E 621",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/paco-pomme.png"],
+      "variants": [
+        { "title": "1 kg Beutel", "sku": "90651", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Paco Pomme",
+          "subtitle": "Seasoning salt",
+          "description": "Spicy seasoning with paprika, savory and chilli. An ideal seasoning base for French fries and potato dishes.\n\n**Dosage:** as required.\n\n**Ingredients:** iodised table salt; spices; flavour enhancer: E 621; dextrose; rice starch; seasoning; spice extract.\n\n**Allergens:** E 621"
+        },
+        "it": {
+          "title": "Paco Pomme",
+          "subtitle": "Sale aromatizzato",
+          "description": "Condimento piccante con paprica, santoreggia e peperoncino. Base ideale per patatine fritte e piatti di patate.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** sale da cucina iodato; spezie; esaltatore di sapidità: E 621; destrosio; amido di riso; condimento; estratto di spezie.\n\n**Allergeni:** E 621"
+        }
+      }
+    },
+    {
+      "title": "Pizza Mix",
+      "handle": "pizza-mix",
+      "subtitle": "Gewürzmischung",
+      "description": "Aromatische Würzung mit groben Gewürzbestandteilen von Oregano und Thymian. Ideale Würzbasis für Pizza und italienische Gerichte.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Gewürze.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/pizza-mix.png"],
+      "variants": [
+        { "title": "1 kg Beutel", "sku": "58401DE", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Pizza Mix",
+          "subtitle": "Spice mix",
+          "description": "Aromatic seasoning with coarse spice pieces of oregano and thyme. An ideal seasoning base for pizza and Italian dishes.\n\n**Dosage:** as required.\n\n**Ingredients:** spices."
+        },
+        "it": {
+          "title": "Pizza Mix",
+          "subtitle": "Miscela di spezie",
+          "description": "Condimento aromatico con parti grossolane di origano e timo. Base di spezie ideale per pizza e piatti italiani.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** spezie."
+        }
+      }
+    },
+    {
+      "title": "Raclette Gewürz",
+      "handle": "raclette-gewuerz",
+      "subtitle": "Gewürzzubereitung für Käse",
+      "description": "Klassische, aromatische Würzung mit Knoblauch, Kümmel und Zwiebeln. Ideale Würzbasis für Käsegerichte.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Gewürze; Speisesalz jodiert; Geschmacksverstärker: E 621; Saccharose; Steinpilzpulver.\n\n**Allergene:** E 621",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/raclette-gewuerz.png"],
+      "variants": [
+        { "title": "1 kg Beutel", "sku": "97181", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Raclette Seasoning",
+          "subtitle": "Spice preparation for cheese",
+          "description": "Classic, aromatic seasoning with garlic, caraway and onion. An ideal seasoning base for cheese dishes.\n\n**Dosage:** as required.\n\n**Ingredients:** spices; iodised table salt; flavour enhancer: E 621; sucrose; porcini powder.\n\n**Allergens:** E 621"
+        },
+        "it": {
+          "title": "Spezie per Raclette",
+          "subtitle": "Preparazione di spezie per formaggio",
+          "description": "Condimento classico e aromatico con aglio, cumino dei prati e cipolla. Base di spezie ideale per piatti a base di formaggio.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** spezie; sale da cucina iodato; esaltatore di sapidità: E 621; saccarosio; porcini in polvere.\n\n**Allergeni:** E 621"
+        }
+      }
+    },
+    {
+      "title": "Streumix Salat",
+      "handle": "streumix-salat",
+      "subtitle": "Würzmischung für Salatsaucen",
+      "description": "Herbe Würzung mit Basilikum, Oregano und Petersilie. Ideale Würzbasis für Salatdressings.\n\n**Dosierung:** 30 g/kg Gesamtmasse.\n\n**Zutaten:** Speisesalz jodiert; Gewürze; Saccharose; Würze; Dextrose; Gewürzextrakte; Hefeextrakt.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/streumix-salat.png"],
+      "variants": [
+        { "title": "1 kg Beutel", "sku": "F8211", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Streumix Salad",
+          "subtitle": "Seasoning mix for salad dressings",
+          "description": "Tangy seasoning with basil, oregano and parsley. An ideal seasoning base for salad dressings.\n\n**Dosage:** 30 g/kg total mass.\n\n**Ingredients:** iodised table salt; spices; sucrose; seasoning; dextrose; spice extracts; yeast extract."
+        },
+        "it": {
+          "title": "Streumix Insalata",
+          "subtitle": "Miscela di spezie per condimenti da insalata",
+          "description": "Condimento deciso con basilico, origano e prezzemolo. Base di spezie ideale per condimenti da insalata.\n\n**Dosaggio:** 30 g/kg massa totale.\n\n**Ingredienti:** sale da cucina iodato; spezie; saccarosio; condimento; destrosio; estratti di spezie; estratto di lievito."
+        }
+      }
+    },
+    {
+      "title": "Tandoori Masala oG",
+      "handle": "tandoori-masala-og",
+      "subtitle": "Gewürzzubereitung für Tandoori-Gerichte",
+      "description": "Pikante Würzung ohne Glutamat, mit Chili, Kreuzkümmel und Bockshornkleesamen. Ideale Würzbasis für traditionelle indische Gerichte.\n\n**Dosierung:** 40 g Mischung mit 80 g Naturjoghurt mischen. Damit 1 kg Fleisch marinieren und 4–8 h ziehen lassen.\n\n**Zutaten:** Gewürze; Speisesalz (mit gehärtetem Sonnenblumenöl ummantelt); Randenpulver; Saccharose; Sandelholz; Säuerungsmittel: E 330.\n\n**Allergene:** E 330",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/tandoori-masala-og.png"],
+      "variants": [
+        { "title": "1 kg Beutel", "sku": "F2671", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Tandoori Masala MSG-free",
+          "subtitle": "Spice preparation for tandoori dishes",
+          "description": "Spicy seasoning without glutamate, with chilli, cumin and fenugreek seeds. An ideal seasoning base for traditional Indian dishes.\n\n**Dosage:** mix 40 g of the blend with 80 g plain yoghurt. Marinate 1 kg meat with it and leave to rest 4–8 h.\n\n**Ingredients:** spices; table salt (coated with hardened sunflower oil); beetroot powder; sucrose; sandalwood; acidifier: E 330.\n\n**Allergens:** E 330"
+        },
+        "it": {
+          "title": "Tandoori Masala senza glutammato",
+          "subtitle": "Preparazione di spezie per piatti tandoori",
+          "description": "Condimento piccante senza glutammato, con peperoncino, cumino e semi di fieno greco. Base di spezie ideale per piatti tradizionali indiani.\n\n**Dosaggio:** mescolare 40 g di miscela con 80 g di yogurt naturale. Marinare 1 kg di carne e lasciar riposare 4–8 h.\n\n**Ingredienti:** spezie; sale da cucina (rivestito con olio di girasole indurito); polvere di barbabietola; saccarosio; sandalo; acidificante: E 330.\n\n**Allergeni:** E 330"
+        }
+      }
+    },
+    {
+      "title": "Thai Curry hot",
+      "handle": "thai-curry-hot",
+      "subtitle": "Gewürzzubereitung",
+      "description": "Scharfe Würzung mit Koriander, Curcuma und Chili.\n\n**Dosierung:** nach Bedarf.\n\n**Zutaten:** Gewürze; Speisesalz; Kräuter.",
+      "images": ["https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/thai-curry-hot.png"],
+      "variants": [
+        { "title": "1 kg Beutel", "sku": "78441", "price": null }
+      ],
+      "translations": {
+        "en": {
+          "title": "Thai Curry hot",
+          "subtitle": "Spice preparation",
+          "description": "Hot seasoning with coriander, turmeric and chilli.\n\n**Dosage:** as required.\n\n**Ingredients:** spices; table salt; herbs."
+        },
+        "it": {
+          "title": "Thai Curry hot",
+          "subtitle": "Preparazione di spezie",
+          "description": "Condimento piccante con coriandolo, curcuma e peperoncino.\n\n**Dosaggio:** secondo necessità.\n\n**Ingredienti:** spezie; sale da cucina; erbe."
+        }
+      }
+    }
+  ]
+}
