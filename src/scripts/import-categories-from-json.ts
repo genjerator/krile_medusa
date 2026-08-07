@@ -11,7 +11,6 @@ import path from "path"
  * JSON shape (see src/scripts/imports/pacovis-categories.json):
  *   [{ name, handle, is_active?, is_internal?, rank?, description?,
  *      category_children: [{ name, handle, ... }] }]
- *
  * Run:
  *   local — npx medusa exec ./src/scripts/import-categories-from-json.ts
  *   prod  — ssh ... "docker exec app-medusa-1 sh -c 'REDIS_URL= pnpm medusa exec ./src/scripts/import-categories-from-json.js'"
