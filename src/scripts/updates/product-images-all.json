@@ -960,6 +960,14 @@
     "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/planeta_admin/bio-grill-gewuerz-01KZBQ0NXKEM04MEEMTF413X09.jpg"
   },
   {
+    "handle": "bio-kraeutermischung-italienisch",
+    "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/bio-kraeutermischung-italienisch.jpg"
+  },
+  {
+    "handle": "bio-kraeutermischung-provence",
+    "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/bio-kraeutermischung-provence.jpg"
+  },
+  {
     "handle": "bio-panademehl-gewuerzt",
     "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/bio-panademehl-gewuerzt.jpg"
   },
@@ -1156,6 +1164,10 @@
     "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/dekor-mexican-mix.png"
   },
   {
+    "handle": "dekor-rot-mix",
+    "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/dekor-rot-mix.jpg"
+  },
+  {
     "handle": "dry-age-gewuerzmix",
     "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/planeta_admin/dry-age-gewuerzmix-01KZBQ0PQ3GT316P8033P3BE5T.jpg"
   },
@@ -1256,6 +1268,14 @@
     "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/gemuese-gewuerz.jpg"
   },
   {
+    "handle": "gemuese-mix",
+    "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/gemuese-mix.jpg"
+  },
+  {
+    "handle": "gemuese-mix-gyros",
+    "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/gemuese-mix-gyros.jpg"
+  },
+  {
     "handle": "gemuesebouillon-og",
     "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/gemuesebouillon-og.jpg"
   },
@@ -1348,6 +1368,10 @@
     "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/planeta_admin/ironing-board-cover-c-1-01KXK7MQ6WM5GQCMGK5ZKXXEN1.jpg"
   },
   {
+    "handle": "jalapaco",
+    "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/jalapaco.jpg"
+  },
+  {
     "handle": "juice_tomato(2)",
     "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/planeta_admin/juice_tomato(2)-01KXND8KK5TACZZKSJ5B9NEE25.png"
   },
@@ -1402,6 +1426,14 @@
   {
     "handle": "kraeuter-marinade-sensia",
     "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/kraeuter-marinade-sensia.png"
+  },
+  {
+    "handle": "kraeutermischung-italienisch-fein",
+    "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/kraeutermischung-italienisch-fein.jpg"
+  },
+  {
+    "handle": "kraeutermischung-provence",
+    "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/kraeutermischung-provence.jpg"
   },
   {
     "handle": "kraeutersauce-marinade-sensia",
