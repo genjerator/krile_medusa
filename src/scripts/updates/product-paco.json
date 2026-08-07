@@ -1,0 +1,88 @@
+[
+    {
+        "current_handle": "paco-dip",
+        "new_handle": "planeta-dip",
+        "title": "Dip",
+        "description": null,
+        "translations": {
+            "en-US": {
+                "title": "Dip"
+            },
+            "it-IT": {
+                "title": "Dip"
+            }
+        }
+    },
+    {
+        "current_handle": "paco-dipcombi-bbq",
+        "new_handle": "planeta-dipcombi-bbq",
+        "title": "Dipcombi BBQ",
+        "description": null,
+        "translations": {
+            "en-US": {
+                "title": "Dipcombi BBQ"
+            },
+            "it-IT": {
+                "title": "Dipcombi BBQ"
+            }
+        }
+    },
+    {
+        "current_handle": "paco-dipcombi-tomatencurry",
+        "new_handle": "planeta-dipcombi-tomatencurry",
+        "title": "Dipcombi Tomatencurry",
+        "description": null,
+        "translations": {
+            "en-US": {
+                "title": "Dipcombi Tomato Curry"
+            },
+            "it-IT": {
+                "title": "Dipcombi Pomodoro Curry"
+            }
+        }
+    },
+    {
+        "current_handle": "paco-glutamatersatz",
+        "new_handle": "planeta-glutamatersatz",
+        "title": "Glutamatersatz",
+        "description": "Geschmacksverst\u00e4rker ohne Zusatzstoffe oder Allergene.\n\n**Dosierung:** 1 g Natriumglutamat wird mit 1.63 g Glutamatersatz ersetzt.\n\n**Zutaten:** Gew\u00fcrze; Speisesalz; Dextrose.",
+        "translations": {
+            "en-US": {
+                "title": "Glutamate Substitute",
+                "description": "Flavour enhancer without additives or allergens.\n\n**Dosage:** 1 g monosodium glutamate is replaced by 1.63 g Glutamate Substitute.\n\n**Ingredients:** spices; table salt; dextrose."
+            },
+            "it-IT": {
+                "title": "Sostituto del glutammato",
+                "description": "Esaltatore di sapidit\u00e0 senza additivi o allergeni.\n\n**Dosaggio:** 1 g di glutammato monosodico viene sostituito con 1.63 g di sostituto del glutammato.\n\n**Ingredienti:** spezie; sale da cucina; destrosio."
+            }
+        }
+    },
+    {
+        "current_handle": "paco-pomme",
+        "new_handle": "planeta-pomme",
+        "title": "Pomme",
+        "description": null,
+        "translations": {
+            "en-US": {
+                "title": "Pomme"
+            },
+            "it-IT": {
+                "title": "Pomme"
+            }
+        }
+    },
+    {
+        "current_handle": "paco-weingaertner-og",
+        "new_handle": "planeta-weingaertner-og",
+        "title": "Weing\u00e4rtner oG",
+        "description": null,
+        "translations": {
+            "en-US": {
+                "title": "Weing\u00e4rtner, MSG-free"
+            },
+            "it-IT": {
+                "title": "Weing\u00e4rtner senza glutammato"
+            }
+        }
+    }
+]

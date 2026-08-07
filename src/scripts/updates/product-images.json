@@ -1,0 +1,230 @@
+[
+    {
+        "handle": "bio-panademehl-gewuerzt",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/bio-panademehl-gewuerzt.jpg"
+    },
+    {
+        "handle": "bouillon-mit-fleischaroma",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/bouillon-mit-fleischaroma.jpg"
+    },
+    {
+        "handle": "bouillon-mit-huhnaroma",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/bouillon-mit-huhnaroma.jpg"
+    },
+    {
+        "handle": "buljo-fix",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/buljo-fix.jpg"
+    },
+    {
+        "handle": "chili-con-carne-gewuerz",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/chili-con-carne-gewuerz.jpg"
+    },
+    {
+        "handle": "garam-masala",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/garam-masala.jpg"
+    },
+    {
+        "handle": "gemuesebouillon-og",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/gemuesebouillon-og.jpg"
+    },
+    {
+        "handle": "gemuesebouillon-og-ohne-sellerie",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/gemuesebouillon-og-ohne-sellerie.jpg"
+    },
+    {
+        "handle": "gemuese-gewuerz",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/gemuese-gewuerz.jpg"
+    },
+    {
+        "handle": "knusper-fix-classic",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/knusper-fix-classic.jpg"
+    },
+    {
+        "handle": "knusper-fix-sg-ips",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/knusper-fix-sg-ips.jpg"
+    },
+    {
+        "handle": "nasi-goreng",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/nasi-goreng.jpg"
+    },
+    {
+        "handle": "panademehl-gewuerzt-og-sg",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/panademehl-gewuerzt-og-sg.jpg"
+    },
+    {
+        "handle": "panademehl-gewuerzt-sg-ips",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/panademehl-gewuerzt-sg-ips.jpg"
+    },
+    {
+        "handle": "panademehl-gold",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/panademehl-gold.jpg"
+    },
+    {
+        "handle": "panademehl-industrie",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/panademehl-industrie.jpg"
+    },
+    {
+        "handle": "panademehl-ohne-weizenmehl",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/panademehl-ohne-weizenmehl.jpg"
+    },
+    {
+        "handle": "panademehl-ungewuerzt-sg-ips",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/panademehl-ungewuerzt-sg-ips.jpg"
+    },
+    {
+        "handle": "panade-pariser-schnitzel",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/panade-pariser-schnitzel.jpg"
+    },
+    {
+        "handle": "panierfix-decor",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/panierfix-decor.jpg"
+    },
+    {
+        "handle": "panierfix-gelb",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/panierfix-gelb.jpg"
+    },
+    {
+        "handle": "panierfix-natur",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/panierfix-natur.jpg"
+    },
+    {
+        "handle": "panierfix-rot",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/panierfix-rot.jpg"
+    },
+    {
+        "handle": "paniermehl-asia-glutenfrei",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/paniermehl-asia-glutenfrei.jpg"
+    },
+    {
+        "handle": "paniermehl-cornflakes",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/paniermehl-cornflakes.jpg"
+    },
+    {
+        "handle": "paniermehl-cornflakes-fein",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/paniermehl-cornflakes-fein.jpg"
+    },
+    {
+        "handle": "paniermehl-cornflakes-mandeln",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/paniermehl-cornflakes-mandeln.jpg"
+    },
+    {
+        "handle": "paniermehl-gelb-fein",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/paniermehl-gelb-fein.jpg"
+    },
+    {
+        "handle": "paniermehl-gelb-grob-sg-ips",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/paniermehl-gelb-grob-sg-ips.jpg"
+    },
+    {
+        "handle": "paniermehl-glutenfrei-dunkel",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/paniermehl-glutenfrei-dunkel.jpg"
+    },
+    {
+        "handle": "paniermehl-glutenfrei-hell",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/paniermehl-glutenfrei-hell.jpg"
+    },
+    {
+        "handle": "paniermehl-gyros-sg-ips",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/paniermehl-gyros-sg-ips.jpg"
+    },
+    {
+        "handle": "paniermehl-hawaii-glutenfrei",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/paniermehl-hawaii-glutenfrei.jpg"
+    },
+    {
+        "handle": "paniermehl-industrie",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/paniermehl-industrie.jpg"
+    },
+    {
+        "handle": "paniermehl-italienne",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/paniermehl-italienne.jpg"
+    },
+    {
+        "handle": "paniermehl-kraeuter",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/paniermehl-kraeuter.jpg"
+    },
+    {
+        "handle": "paniermehl-leicht-rosa",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/paniermehl-leicht-rosa.jpg"
+    },
+    {
+        "handle": "paniermehl-parmesan",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/paniermehl-parmesan.jpg"
+    },
+    {
+        "handle": "paniermehl-quinoa-paracas",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/paniermehl-quinoa-paracas.jpg"
+    },
+    {
+        "handle": "paniermehl-tigernuts-corn",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/paniermehl-tigernuts-corn.jpg"
+    },
+    {
+        "handle": "paniermehl-tomaten-oregano-sg-ips",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/paniermehl-tomaten-oregano-sg-ips.jpg"
+    },
+    {
+        "handle": "paniermehl-zitrone-sg-ips",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/paniermehl-zitrone-sg-ips.jpg"
+    },
+    {
+        "handle": "panmix-sg-ips",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/panmix-sg-ips.jpg"
+    },
+    {
+        "handle": "panmix-sg-ips-200g",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/panmix-sg-ips-200g.jpg"
+    },
+    {
+        "handle": "pariser-eihuelle",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/pariser-eihuelle.jpg"
+    },
+    {
+        "handle": "piccatasauce-vollei-ch",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/piccatasauce-vollei-ch.jpg"
+    },
+    {
+        "handle": "pizza-mix",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/pizza-mix.jpg"
+    },
+    {
+        "handle": "planeta-glutamatersatz",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/planeta-glutamatersatz.jpg"
+    },
+    {
+        "handle": "planeta-pomme",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/planeta-pomme.jpg"
+    },
+    {
+        "handle": "raclette-gewuerz",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/raclette-gewuerz.jpg"
+    },
+    {
+        "handle": "rusk-medium-granulat",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/rusk-medium-granulat.jpg"
+    },
+    {
+        "handle": "rusk-superfine",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/rusk-superfine.jpg"
+    },
+    {
+        "handle": "streumix-salat",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/streumix-salat.jpg"
+    },
+    {
+        "handle": "streuwuerze",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/streuwuerze.jpg"
+    },
+    {
+        "handle": "streuwuerze-naturelle",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/streuwuerze-naturelle.jpg"
+    },
+    {
+        "handle": "tandoori-masala-og",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/tandoori-masala-og.jpg"
+    },
+    {
+        "handle": "thai-curry-hot",
+        "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/thai-curry-hot.jpg"
+    }
+]
