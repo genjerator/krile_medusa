@@ -26,7 +26,9 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: medusa-v2
     ports:
-      - "5432:5432"
+      # Host 5433 → container 5432, so it doesn't collide with a native
+      # Postgres on the host's 5432. Update .env DATABASE_URL to match (5433).
+      - "5433:5432"
     volumes:
       - postgres_data:/var/lib/postgresql
     healthcheck:

@@ -18,7 +18,10 @@ FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-RUN NODE_OPTIONS="--max-old-space-size=1536" pnpm build
+# NODE_ENV=production is required: `medusa build` defaults NODE_ENV to
+# "development" otherwise, baking React dev mode + the "Error Details
+# (Development Mode)" panel into the admin bundle.
+RUN NODE_ENV=production NODE_OPTIONS="--max-old-space-size=1536" pnpm build
 
 # --- Runner ---
 FROM base AS runner
@@ -29,6 +32,12 @@ ENV NODE_ENV=production
 COPY --from=builder /app/.medusa/server .
 COPY --from=builder /app/static ./static
 COPY --from=builder /app/tsconfig.json ./tsconfig.json
+# `medusa build` compiles the TS scripts but drops loose .json data files that
+# exec scripts read at runtime (import-products-from-json, import-pacovis-batch,
+# apply-product-updates). Copy them next to the compiled scripts so __dirname
+# resolves them in the container.
+COPY --from=builder /app/src/scripts/imports ./src/scripts/imports
+COPY --from=builder /app/src/scripts/updates ./src/scripts/updates
 COPY --from=prod-deps /app/node_modules ./node_modules
 
 EXPOSE 9000
