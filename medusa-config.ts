@@ -62,6 +62,9 @@ module.exports = defineConfig({
       resolve: "./src/modules/contentBlock",
     },
     {
+      resolve: "./src/modules/article",
+    },
+    {
       resolve: "@medusajs/medusa/payment",
       options: {
         providers: [
