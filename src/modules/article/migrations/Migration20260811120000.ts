@@ -58,6 +58,9 @@ export class Migration20260811120000 extends Migration {
     this.addSql(`create unique index if not exists "UQ_article_slug" on "article" ("slug") where "deleted_at" is null;`);
     this.addSql(`create index if not exists "IDX_article_status_published_at" on "article" ("status","published_at") where "deleted_at" is null;`);
     this.addSql(`create index if not exists "IDX_article_author_id" on "article" ("author_id") where "deleted_at" is null;`);
+    // Guard the FK so re-running against an existing schema (e.g. a DB restored
+    // from a dump where the constraint is already present) is idempotent.
+    this.addSql(`alter table if exists "article" drop constraint if exists "article_author_id_foreign";`);
     this.addSql(`alter table if exists "article" add constraint "article_author_id_foreign" foreign key ("author_id") references "article_author" ("id") on update cascade on delete set null;`);
   }
 
