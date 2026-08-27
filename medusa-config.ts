@@ -65,6 +65,9 @@ module.exports = defineConfig({
       resolve: "./src/modules/article",
     },
     {
+      resolve: "./src/modules/vacuumBag",
+    },
+    {
       resolve: "@medusajs/medusa/payment",
       options: {
         providers: [
