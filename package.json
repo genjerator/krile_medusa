@@ -46,6 +46,8 @@
     "@tiptap/react": "^3.24.0",
     "@tiptap/starter-kit": "^3.24.0",
     "express-rate-limit": "^8.5.2",
+    "google-auth-library": "^11.0.2",
+    "ioredis": "^6.0.0",
     "marked": "^18.0.5",
     "multer": "^2.2.0",
     "nodemailer": "^8.0.7",

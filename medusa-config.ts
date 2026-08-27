@@ -68,6 +68,12 @@ module.exports = defineConfig({
       resolve: "./src/modules/vacuumBag",
     },
     {
+      resolve: "./src/modules/seoMetrics",
+    },
+    {
+      resolve: "./src/modules/cookieConsent",
+    },
+    {
       resolve: "@medusajs/medusa/payment",
       options: {
         providers: [

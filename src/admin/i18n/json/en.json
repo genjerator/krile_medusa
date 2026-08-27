@@ -1,0 +1,50 @@
+{
+  "seo": {
+    "title": "SEO",
+    "subtitle": "GA4 · Search Console · Bing — with revenue per product",
+    "refresh": "Refresh",
+    "refreshed": "SEO data refreshed",
+    "refreshError": "Refresh failed",
+    "brand": "Brand",
+    "loading": "Loading…",
+    "range": { "d7": "7 days", "d28": "28 days", "d90": "90 days" },
+    "section": { "gsc": "Search Console", "ga4": "Google Analytics 4", "bing": "Bing" },
+    "kpi": {
+      "clicks": "Clicks",
+      "impressions": "Impressions",
+      "ctr": "CTR",
+      "position": "Avg. position",
+      "users": "Users",
+      "newUsers": "New users",
+      "sessions": "Sessions"
+    },
+    "trend": "Trend",
+    "legend": { "gscClicks": "GSC clicks", "gscImpressions": "GSC impressions", "ga4Users": "GA4 users" },
+    "tab": { "products": "Products (revenue)", "queries": "Queries", "pages": "Pages" },
+    "source": { "google": "Google", "bing": "Bing" },
+    "products": {
+      "badge": "Differentiator",
+      "hint": "Organic performance next to orders/revenue per product · Total revenue {{revenue}}",
+      "product": "Product",
+      "orders": "Orders",
+      "revenue": "Revenue"
+    },
+    "col": {
+      "clicks": "Clicks",
+      "impressions": "Impr.",
+      "ctr": "CTR",
+      "position": "Pos.",
+      "query": "Query",
+      "page": "Page"
+    },
+    "empty": "No data for this period.",
+    "cookie": {
+      "title": "Cookie consent",
+      "shown": "Banner shown",
+      "accepted": "Accepted",
+      "declined": "Declined",
+      "noClick": "No interaction",
+      "acceptRate": "Accept rate"
+    }
+  }
+}

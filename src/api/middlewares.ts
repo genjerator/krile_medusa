@@ -15,6 +15,7 @@ import {
 } from "./admin/weekly-actions/validators"
 import { CreateReparaturSchema } from "./store/reparatur/validators"
 import { AddVacuumBagToCartSchema } from "./store/vacuum-bags/validators"
+import { PostCookieConsentSchema } from "./store/cookie-consent/validators"
 
 const stripTags = (value: string) => value.replace(/<[^>]*>/g, "").trim()
 
@@ -62,6 +63,16 @@ const reparaturRateLimit = rateLimit({
   message: { message: "Zu viele Anfragen. Bitte versuchen Sie es in einer Minute erneut." },
   standardHeaders: true,
   legacyHeaders: false,
+})
+
+// A visitor fires at most a few consent events (shown + one click); this cap
+// only blunts abuse. Best-effort tracking, so a drop here is harmless.
+const cookieConsentRateLimit = rateLimit({
+  windowMs: 60 * 1000,
+  limit: 60,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { message: "Too many requests." },
 })
 
 // In-memory upload for the admin CRM customer import (Excel/CSV, max 20 MB).
@@ -122,6 +133,11 @@ export default defineMiddlewares({
       matcher: "/store/vacuum-bags/add-to-cart",
       method: "POST",
       middlewares: [validateAndTransformBody(AddVacuumBagToCartSchema)],
+    },
+    {
+      matcher: "/store/cookie-consent",
+      method: "POST",
+      middlewares: [cookieConsentRateLimit as any, validateAndTransformBody(PostCookieConsentSchema)],
     },
     {
       matcher: "/admin/weekly-actions",
