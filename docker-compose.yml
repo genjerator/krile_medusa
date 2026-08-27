@@ -20,7 +20,14 @@ services:
     restart: unless-stopped
 
   postgres:
-    image: postgres:18
+    # Build pgvector ON TOP of the exact postgres:18 image the data volume was
+    # created with (same Debian/glibc, so NO collation-version mismatch on
+    # medusa-v2). The prebuilt pgvector/pgvector:pg18 image uses an older glibc
+    # and would fail to open the existing volume — hence this local build.
+    build:
+      context: .
+      dockerfile: Dockerfile.pgvector
+    image: krile-medusa-postgres:pg18-pgvector
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres

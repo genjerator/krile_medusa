@@ -14,6 +14,7 @@ import {
   GenerateYearSchema,
 } from "./admin/weekly-actions/validators"
 import { CreateReparaturSchema } from "./store/reparatur/validators"
+import { AddVacuumBagToCartSchema } from "./store/vacuum-bags/validators"
 
 const stripTags = (value: string) => value.replace(/<[^>]*>/g, "").trim()
 
@@ -116,6 +117,11 @@ export default defineMiddlewares({
       matcher: "/store/newsletter",
       method: "POST",
       middlewares: [validateAndTransformBody(PostNewsletterSchema)],
+    },
+    {
+      matcher: "/store/vacuum-bags/add-to-cart",
+      method: "POST",
+      middlewares: [validateAndTransformBody(AddVacuumBagToCartSchema)],
     },
     {
       matcher: "/admin/weekly-actions",

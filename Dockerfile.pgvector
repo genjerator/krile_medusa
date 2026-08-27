@@ -1,0 +1,9 @@
+# Postgres 18 + pgvector, built on the SAME base image as the data volume was
+# created with, so glibc/collation versions match and medusa-v2 opens cleanly.
+# (The prebuilt pgvector/pgvector:pg18 uses an older Debian and triggers a
+# collation-version mismatch against a volume created by the official postgres:18.)
+FROM postgres:18
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends postgresql-18-pgvector \
+    && rm -rf /var/lib/apt/lists/*

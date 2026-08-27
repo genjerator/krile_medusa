@@ -67,6 +67,7 @@ export const localizeArticleCard = (a: any, locale: Locale) => ({
 /** Full shape for the article detail page, incl. body + resolved SEO meta. */
 export const localizeArticleFull = (a: any, locale: Locale) => ({
   ...localizeArticleCard(a, locale),
+  status: a.status ?? null,
   body: pick(a, "body", locale),
   meta_title: pick(a, "meta_title", locale) || pick(a, "title", locale),
   meta_description: pick(a, "meta_description", locale) || pick(a, "excerpt", locale),
