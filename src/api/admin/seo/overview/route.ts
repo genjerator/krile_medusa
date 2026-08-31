@@ -54,6 +54,7 @@ export async function GET(req: AuthenticatedMedusaRequest, res: MedusaResponse) 
         gsc_clicks: 0,
         gsc_impressions: 0,
         bing_clicks: 0,
+        bing_impressions: 0,
       })
     }
     const d = byDate.get(r.date)
@@ -61,6 +62,7 @@ export async function GET(req: AuthenticatedMedusaRequest, res: MedusaResponse) 
     if (r.source === "gsc" && r.metric_type === "clicks") d.gsc_clicks = r.value
     if (r.source === "gsc" && r.metric_type === "impressions") d.gsc_impressions = r.value
     if (r.source === "bing" && r.metric_type === "clicks") d.bing_clicks = r.value
+    if (r.source === "bing" && r.metric_type === "impressions") d.bing_impressions = r.value
   }
   const series = [...byDate.values()].sort((a, b) => (a.date < b.date ? -1 : 1))
 

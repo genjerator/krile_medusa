@@ -19,7 +19,16 @@
       "sessions": "Sessions"
     },
     "trend": "Trend",
-    "legend": { "gscClicks": "GSC clicks", "gscImpressions": "GSC impressions", "ga4Users": "GA4 users" },
+    "axis": { "clicks": "Clicks", "impressions": "Impressions" },
+    "legend": {
+      "gscClicks": "GSC clicks",
+      "gscImpressions": "GSC impressions",
+      "bingClicks": "Bing clicks",
+      "bingImpressions": "Bing impressions",
+      "totalClicks": "Total clicks",
+      "totalImpressions": "Total impressions",
+      "ga4Users": "GA4 users"
+    },
     "tab": { "products": "Products (revenue)", "queries": "Queries", "pages": "Pages" },
     "source": { "google": "Google", "bing": "Bing" },
     "products": {

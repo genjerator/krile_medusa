@@ -3,6 +3,7 @@ import { ChartBar, ArrowPath, ArrowUpRightMini, ArrowDownRightMini } from "@medu
 import {
   Badge,
   Button,
+  Checkbox,
   Container,
   Heading,
   Select,
@@ -28,8 +29,22 @@ type Overview = {
   to: string
   kpis: Kpis
   deltas: any
-  series: { date: string; ga4_users: number; gsc_clicks: number; gsc_impressions: number; bing_clicks: number }[]
+  series: {
+    date: string
+    ga4_users: number
+    gsc_clicks: number
+    gsc_impressions: number
+    bing_clicks: number
+    bing_impressions: number
+  }[]
 }
+// Chart point: the API series plus the derived Google+Bing totals.
+type TrendPoint = Overview["series"][number] & {
+  total_clicks: number
+  total_impressions: number
+}
+// axis: "left" = clicks/users scale, "right" = impressions scale.
+type TrendLine = { key: keyof TrendPoint; color: string; label: string; axis: "left" | "right" }
 type Brand = { key: string; label: string; sources: { ga4: boolean; gsc: boolean; bing: boolean } }
 type Breakdown = { key: string; clicks: number; impressions: number; ctr: number; position: number | null }
 type ProductRow = {
@@ -75,41 +90,48 @@ const Kpi = ({ label, value, delta }: { label: string; value: string; delta?: nu
 )
 
 /**
- * Inline SVG multi-line chart. Each series is normalised to its own max (they
- * span very different magnitudes), with x-axis date ticks and a hover tooltip
- * showing the date + each series' actual value at that point.
+ * Inline SVG multi-line chart with a DUAL axis: the left axis scales clicks
+ * (and users / totals-of-clicks), the right axis scales impressions — so lines
+ * on the same axis share a scale and Total sits above its parts. Horizontal
+ * gridlines carry left + right value labels; x-axis has date ticks; hovering
+ * shows the date and each visible series' actual value.
  */
 const TrendChart = ({
   series,
-  labels,
+  lines,
   formatN,
   loc,
+  axisLabels,
 }: {
-  series: Overview["series"]
-  labels: Record<string, string>
+  series: TrendPoint[]
+  lines: TrendLine[]
   formatN: (v: number) => string
   loc: string
+  axisLabels: { left: string; right: string }
 }) => {
   const [hover, setHover] = useState<number | null>(null)
-  if (!series.length) return null
+  if (!series.length || !lines.length) return null
 
   const W = 720
-  const H = 170
-  const padL = 8
-  const padR = 8
-  const padT = 10
-  const padB = 22
-  const lines: { key: keyof Overview["series"][number]; color: string; label: string }[] = [
-    { key: "gsc_clicks", color: "#2563eb", label: labels.gscClicks },
-    { key: "gsc_impressions", color: "#9ca3af", label: labels.gscImpressions },
-    { key: "ga4_users", color: "#16a34a", label: labels.ga4Users },
-  ]
+  const H = 178
+  const padL = 46
+  const padR = 52
+  const padT = 12
+  const padB = 24
   const n = series.length
   const x = (i: number) => padL + (i * (W - padL - padR)) / Math.max(1, n - 1)
-  const maxOf = (key: keyof Overview["series"][number]) =>
-    Math.max(1, ...series.map((s) => Number(s[key] ?? 0)))
-  const y = (v: number, max: number) => H - padB - (v / max) * (H - padT - padB)
 
+  const leftLines = lines.filter((l) => l.axis === "left")
+  const rightLines = lines.filter((l) => l.axis === "right")
+  const maxOfLines = (ls: TrendLine[]) =>
+    Math.max(1, ...ls.flatMap((l) => series.map((s) => Number(s[l.key] ?? 0))))
+  const leftMax = maxOfLines(leftLines)
+  const rightMax = maxOfLines(rightLines)
+  const axisMax = (l: TrendLine) => (l.axis === "right" ? rightMax : leftMax)
+  const y = (v: number, max: number) => H - padB - (v / max) * (H - padT - padB)
+  const yLevel = (lvl: number) => H - padB - lvl * (H - padT - padB)
+
+  const levels = [0, 0.25, 0.5, 0.75, 1]
   const tickCount = Math.min(6, n)
   const tickIdx = Array.from({ length: tickCount }, (_, i) =>
     Math.round((i * (n - 1)) / Math.max(1, tickCount - 1))
@@ -126,85 +148,91 @@ const TrendChart = ({
   }
 
   return (
-    <div>
-      <div className="relative w-full" onMouseMove={onMove} onMouseLeave={() => setHover(null)}>
-        <svg viewBox={`0 0 ${W} ${H}`} className="w-full" preserveAspectRatio="none">
-          {lines.map((ln) => {
-            const max = maxOf(ln.key)
-            const pts = series.map((s, i) => `${x(i)},${y(Number(s[ln.key] ?? 0), max)}`).join(" ")
-            return <polyline key={ln.key} points={pts} fill="none" stroke={ln.color} strokeWidth={1.5} />
-          })}
-
-          {hover != null && (
-            <line
-              x1={x(hover)}
-              x2={x(hover)}
-              y1={padT}
-              y2={H - padB}
-              className="text-ui-fg-muted"
-              stroke="currentColor"
-              strokeDasharray="3 3"
-              strokeWidth={1}
-            />
-          )}
-          {hover != null &&
-            lines.map((ln) => (
-              <circle
-                key={ln.key}
-                cx={x(hover)}
-                cy={y(Number(series[hover][ln.key] ?? 0), maxOf(ln.key))}
-                r={2.5}
-                fill={ln.color}
+    <div className="relative w-full" onMouseMove={onMove} onMouseLeave={() => setHover(null)}>
+      <svg viewBox={`0 0 ${W} ${H}`} className="w-full">
+        {/* gridlines + dual axis value labels */}
+        {levels.map((lvl) => {
+          const gy = yLevel(lvl)
+          return (
+            <g key={lvl}>
+              <line
+                x1={padL}
+                x2={W - padR}
+                y1={gy}
+                y2={gy}
+                className="text-ui-border-base"
+                stroke="currentColor"
+                strokeWidth={0.5}
               />
-            ))}
+              {leftLines.length > 0 && (
+                <text x={padL - 6} y={gy + 3} fontSize={8.5} textAnchor="end" className="text-ui-fg-muted" fill="currentColor">
+                  {formatN(Math.round(lvl * leftMax))}
+                </text>
+              )}
+              {rightLines.length > 0 && (
+                <text x={W - padR + 6} y={gy + 3} fontSize={8.5} textAnchor="start" className="text-ui-fg-muted" fill="currentColor">
+                  {formatN(Math.round(lvl * rightMax))}
+                </text>
+              )}
+            </g>
+          )
+        })}
 
-          {tickIdx.map((i) => (
-            <text
-              key={i}
-              x={x(i)}
-              y={H - 6}
-              fontSize={9}
-              textAnchor="middle"
-              className="text-ui-fg-muted"
-              fill="currentColor"
-            >
-              {shortDate(series[i].date)}
-            </text>
-          ))}
-        </svg>
-
-        {hover != null && (
-          <div
-            className="absolute top-0 -translate-x-1/2 pointer-events-none z-10 rounded-md border border-ui-border-base bg-ui-bg-base shadow-elevation-tooltip px-2.5 py-1.5"
-            style={{ left: `${(x(hover) / W) * 100}%` }}
-          >
-            <Text size="xsmall" weight="plus" className="mb-1 whitespace-nowrap">
-              {longDate(series[hover].date)}
-            </Text>
-            {lines.map((ln) => (
-              <div key={ln.key} className="flex items-center gap-2 whitespace-nowrap">
-                <span className="inline-block h-2 w-2 rounded-sm" style={{ backgroundColor: ln.color }} />
-                <Text size="xsmall" className="text-ui-fg-subtle">{ln.label}</Text>
-                <Text size="xsmall" weight="plus" className="ml-auto">
-                  {formatN(Number(series[hover][ln.key] ?? 0))}
-                </Text>
-              </div>
-            ))}
-          </div>
+        {/* axis captions */}
+        {leftLines.length > 0 && (
+          <text x={padL - 6} y={padT - 4} fontSize={8.5} textAnchor="end" className="text-ui-fg-subtle" fill="currentColor">
+            {axisLabels.left}
+          </text>
         )}
-      </div>
+        {rightLines.length > 0 && (
+          <text x={W - padR + 6} y={padT - 4} fontSize={8.5} textAnchor="start" className="text-ui-fg-subtle" fill="currentColor">
+            {axisLabels.right}
+          </text>
+        )}
 
-      <div className="flex flex-wrap gap-4 mt-2">
-        {lines.map((ln) => (
-          <div key={ln.key} className="flex items-center gap-1.5">
-            <span className="inline-block h-2 w-3 rounded-sm" style={{ backgroundColor: ln.color }} />
-            <Text size="xsmall" className="text-ui-fg-subtle">
-              {ln.label}
-              <span className="text-ui-fg-muted"> · {formatN(maxOf(ln.key))} max</span>
-            </Text>
-          </div>
+        {/* series */}
+        {lines.map((ln) => {
+          const max = axisMax(ln)
+          const pts = series.map((s, i) => `${x(i)},${y(Number(s[ln.key] ?? 0), max)}`).join(" ")
+          return <polyline key={ln.key} points={pts} fill="none" stroke={ln.color} strokeWidth={1.5} />
+        })}
+
+        {/* hover guide + dots */}
+        {hover != null && (
+          <line x1={x(hover)} x2={x(hover)} y1={padT} y2={H - padB} className="text-ui-fg-muted" stroke="currentColor" strokeDasharray="3 3" strokeWidth={1} />
+        )}
+        {hover != null &&
+          lines.map((ln) => (
+            <circle key={ln.key} cx={x(hover)} cy={y(Number(series[hover][ln.key] ?? 0), axisMax(ln))} r={2.5} fill={ln.color} />
+          ))}
+
+        {/* x-axis date ticks */}
+        {tickIdx.map((i) => (
+          <text key={i} x={x(i)} y={H - 7} fontSize={9} textAnchor="middle" className="text-ui-fg-muted" fill="currentColor">
+            {shortDate(series[i].date)}
+          </text>
         ))}
-      </div>
+      </svg>
+
+      {hover != null && (
+        <div
+          className="absolute top-0 -translate-x-1/2 pointer-events-none z-10 rounded-md border border-ui-border-base bg-ui-bg-base shadow-elevation-tooltip px-2.5 py-1.5"
+          style={{ left: `${(x(hover) / W) * 100}%` }}
+        >
+          <Text size="xsmall" weight="plus" className="mb-1 whitespace-nowrap">
+            {longDate(series[hover].date)}
+          </Text>
+          {lines.map((ln) => (
+            <div key={ln.key} className="flex items-center gap-2 whitespace-nowrap">
+              <span className="inline-block h-2 w-2 rounded-sm" style={{ backgroundColor: ln.color }} />
+              <Text size="xsmall" className="text-ui-fg-subtle">{ln.label}</Text>
+              <Text size="xsmall" weight="plus" className="ml-auto">
+                {formatN(Number(series[hover][ln.key] ?? 0))}
+              </Text>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   )
 }
@@ -217,6 +245,15 @@ const SeoPage = () => {
   const [days, setDays] = useState(28)
   const [tab, setTab] = useState("products")
   const [source, setSource] = useState("gsc")
+  const [visibleLines, setVisibleLines] = useState<Record<string, boolean>>({
+    total_clicks: true,
+    total_impressions: true,
+    gsc_clicks: false,
+    gsc_impressions: false,
+    bing_clicks: false,
+    bing_impressions: false,
+    ga4_users: true,
+  })
 
   // Language-aware number/currency formatting.
   const loc = (i18n.language || "en").startsWith("de") ? "de-DE" : "en-US"
@@ -282,6 +319,27 @@ const SeoPage = () => {
     () => productRows.reduce((a, r) => a + r.revenue, 0),
     [productRows]
   )
+
+  // Chart series with derived Google+Bing totals.
+  const chartSeries: TrendPoint[] = useMemo(
+    () =>
+      (overview?.series ?? []).map((s) => ({
+        ...s,
+        total_clicks: (s.gsc_clicks ?? 0) + (s.bing_clicks ?? 0),
+        total_impressions: (s.gsc_impressions ?? 0) + (s.bing_impressions ?? 0),
+      })),
+    [overview]
+  )
+  const allLines: TrendLine[] = [
+    { key: "total_clicks", color: "#2563eb", label: t("seo.legend.totalClicks"), axis: "left" },
+    { key: "total_impressions", color: "#7c3aed", label: t("seo.legend.totalImpressions"), axis: "right" },
+    { key: "gsc_clicks", color: "#0ea5e9", label: t("seo.legend.gscClicks"), axis: "left" },
+    { key: "gsc_impressions", color: "#94a3b8", label: t("seo.legend.gscImpressions"), axis: "right" },
+    { key: "bing_clicks", color: "#16a34a", label: t("seo.legend.bingClicks"), axis: "left" },
+    { key: "bing_impressions", color: "#22c55e", label: t("seo.legend.bingImpressions"), axis: "right" },
+    { key: "ga4_users", color: "#f59e0b", label: t("seo.legend.ga4Users"), axis: "left" },
+  ]
+  const shownLines = allLines.filter((l) => visibleLines[l.key as string])
 
   return (
     <Container className="flex flex-col gap-y-4 p-0">
@@ -375,15 +433,26 @@ const SeoPage = () => {
           {/* trend */}
           <div className="rounded-lg border border-ui-border-base p-4">
             <Text size="small" weight="plus" className="mb-3">{t("seo.trend")}</Text>
+            <div className="flex flex-wrap gap-x-4 gap-y-2 mb-3">
+              {allLines.map((ln) => (
+                <label key={ln.key as string} className="flex items-center gap-1.5 cursor-pointer select-none">
+                  <Checkbox
+                    checked={!!visibleLines[ln.key as string]}
+                    onCheckedChange={(v) =>
+                      setVisibleLines((s) => ({ ...s, [ln.key as string]: Boolean(v) }))
+                    }
+                  />
+                  <span className="inline-block h-2 w-3 rounded-sm" style={{ backgroundColor: ln.color }} />
+                  <Text size="xsmall" className="text-ui-fg-subtle">{ln.label}</Text>
+                </label>
+              ))}
+            </div>
             <TrendChart
-              series={overview?.series ?? []}
+              series={chartSeries}
+              lines={shownLines}
               formatN={fmt.n}
               loc={loc}
-              labels={{
-                gscClicks: t("seo.legend.gscClicks"),
-                gscImpressions: t("seo.legend.gscImpressions"),
-                ga4Users: t("seo.legend.ga4Users"),
-              }}
+              axisLabels={{ left: t("seo.axis.clicks"), right: t("seo.axis.impressions") }}
             />
           </div>
 
