@@ -27,7 +27,8 @@
       "bingImpressions": "Bing impressions",
       "totalClicks": "Total clicks",
       "totalImpressions": "Total impressions",
-      "ga4Users": "GA4 users"
+      "ga4Users": "GA4 users",
+      "bannerShown": "Banner shown"
     },
     "tab": { "products": "Products (revenue)", "queries": "Queries", "pages": "Pages" },
     "source": { "google": "Google", "bing": "Bing" },

@@ -38,10 +38,12 @@ type Overview = {
     bing_impressions: number
   }[]
 }
-// Chart point: the API series plus the derived Google+Bing totals.
+// Chart point: the API series plus derived Google+Bing totals and the cookie
+// "banner shown" count (merged in from /admin/cookie-consent).
 type TrendPoint = Overview["series"][number] & {
   total_clicks: number
   total_impressions: number
+  cookie_shown: number
 }
 // axis: "left" = clicks/users scale, "right" = impressions scale.
 type TrendLine = { key: keyof TrendPoint; color: string; label: string; axis: "left" | "right" }
@@ -253,6 +255,7 @@ const SeoPage = () => {
     bing_clicks: false,
     bing_impressions: false,
     ga4_users: true,
+    cookie_shown: true,
   })
 
   // Language-aware number/currency formatting.
@@ -293,9 +296,10 @@ const SeoPage = () => {
   const { data: cookie } = useQuery({
     queryKey: ["seo", "cookie", brand, from, to],
     queryFn: () =>
-      sdk.client.fetch<{ totals: { shown: number; accepted: number; declined: number; no_click: number } }>(
-        `/admin/cookie-consent?${rangeQ}`
-      ),
+      sdk.client.fetch<{
+        totals: { shown: number; accepted: number; declined: number; no_click: number }
+        rows: { date: string; shown: number; accepted: number; declined: number; no_click: number }[]
+      }>(`/admin/cookie-consent?${rangeQ}`),
   })
 
   const refresh = useMutation({
@@ -320,16 +324,44 @@ const SeoPage = () => {
     [productRows]
   )
 
-  // Chart series with derived Google+Bing totals.
-  const chartSeries: TrendPoint[] = useMemo(
-    () =>
-      (overview?.series ?? []).map((s) => ({
-        ...s,
-        total_clicks: (s.gsc_clicks ?? 0) + (s.bing_clicks ?? 0),
-        total_impressions: (s.gsc_impressions ?? 0) + (s.bing_impressions ?? 0),
-      })),
-    [overview]
-  )
+  // Chart series: union of the SEO daily series and the cookie "banner shown"
+  // per-day rows (so the banner line shows even when SEO data is sparse), with
+  // the derived Google+Bing totals.
+  const chartSeries: TrendPoint[] = useMemo(() => {
+    const byDate = new Map<string, TrendPoint>()
+    const ensure = (date: string): TrendPoint => {
+      let p = byDate.get(date)
+      if (!p) {
+        p = {
+          date,
+          ga4_users: 0,
+          gsc_clicks: 0,
+          gsc_impressions: 0,
+          bing_clicks: 0,
+          bing_impressions: 0,
+          total_clicks: 0,
+          total_impressions: 0,
+          cookie_shown: 0,
+        }
+        byDate.set(date, p)
+      }
+      return p
+    }
+    for (const s of overview?.series ?? []) {
+      const p = ensure(s.date)
+      p.ga4_users = s.ga4_users
+      p.gsc_clicks = s.gsc_clicks
+      p.gsc_impressions = s.gsc_impressions
+      p.bing_clicks = s.bing_clicks
+      p.bing_impressions = s.bing_impressions
+      p.total_clicks = (s.gsc_clicks ?? 0) + (s.bing_clicks ?? 0)
+      p.total_impressions = (s.gsc_impressions ?? 0) + (s.bing_impressions ?? 0)
+    }
+    for (const r of cookie?.rows ?? []) {
+      ensure(r.date).cookie_shown = r.shown
+    }
+    return [...byDate.values()].sort((a, b) => (a.date < b.date ? -1 : 1))
+  }, [overview, cookie])
   const allLines: TrendLine[] = [
     { key: "total_clicks", color: "#2563eb", label: t("seo.legend.totalClicks"), axis: "left" },
     { key: "total_impressions", color: "#7c3aed", label: t("seo.legend.totalImpressions"), axis: "right" },
@@ -338,6 +370,7 @@ const SeoPage = () => {
     { key: "bing_clicks", color: "#16a34a", label: t("seo.legend.bingClicks"), axis: "left" },
     { key: "bing_impressions", color: "#22c55e", label: t("seo.legend.bingImpressions"), axis: "right" },
     { key: "ga4_users", color: "#f59e0b", label: t("seo.legend.ga4Users"), axis: "left" },
+    { key: "cookie_shown", color: "#db2777", label: t("seo.legend.bannerShown"), axis: "left" },
   ]
   const shownLines = allLines.filter((l) => visibleLines[l.key as string])
 
