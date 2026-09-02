@@ -44,14 +44,17 @@ services:
 
   # ─── POSTGRES ─────────────────────────────────────────────────────────────
   postgres:
-    image: postgres:17-alpine
+    image: postgres:18-alpine
     # Reads POSTGRES_USER/PASSWORD/DB from .env.strato (same file as the app),
     # so the container password always matches DATABASE_URL. (Using ${...} here
     # would pull from a root .env/shell instead and silently init blank.)
     env_file:
       - .env.strato
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      # PG18's official image moved PGDATA under /var/lib/postgresql/18/docker,
+      # so the persistent volume must mount at /var/lib/postgresql (NOT the old
+      # .../data path) or the data won't persist. See docs/RDS_RESTORE_LOCAL.md.
+      - postgres_data:/var/lib/postgresql
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-medusa}"]
       interval: 5s
