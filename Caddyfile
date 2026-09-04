@@ -7,8 +7,26 @@
 	email e.medjesi@gmail.com
 }
 
+# Reusable access-log block. Writes one JSON line per request to a file that is
+# bind-mounted to ./logs/caddy on the host (see docker-compose.strato.yml).
+# `import access_log` into a site to log every request it serves.
+(access_log) {
+	log {
+		output file /var/log/caddy/access.log {
+			roll_size 20MB
+			roll_keep 10
+		}
+		format json
+	}
+}
+
+# ══════════════════════════════════════════════════════════════════════════════
+# PRODUCTION — real domains
+# ══════════════════════════════════════════════════════════════════════════════
+
 # ─── Admin + Medusa backend ──────────────────────────────────────────────────
-admin.alcoccodrillo.de {
+admin.planetaindustries.de {
+	import access_log
 	# Browsers without an "lng" cookie get a permanent German one, so the
 	# admin language survives cleared site data / closed browsers.
 	@noLng not header Cookie *lng=*
@@ -16,17 +34,54 @@ admin.alcoccodrillo.de {
 	reverse_proxy medusa:9000
 }
 
+# ─── Krile / Planeta Industries storefront (canonical: www) ──────────────────
+www.planetaindustries.de {
+	import access_log
+	reverse_proxy storefront-planeta-industries:8000
+}
+# apex → www
+planetaindustries.de {
+	import access_log
+	redir https://www.planetaindustries.de{uri} permanent
+}
+
+# ─── Planeta GmbH storefront (canonical: www.planeta.de) ─────────────────────
+www.planeta.de {
+	import access_log
+	reverse_proxy storefront-planeta:8000
+}
+# apex + legacy planeta-shop.de (and its www) → www.planeta.de
+planeta.de, planeta-shop.de, www.planeta-shop.de {
+	import access_log
+	redir https://www.planeta.de{uri} permanent
+}
+
+# ══════════════════════════════════════════════════════════════════════════════
+# STAGING — alcoccodrillo.de (kept during migration / for pre-DNS-switch testing)
+# ══════════════════════════════════════════════════════════════════════════════
+
+# ─── Admin + Medusa backend ──────────────────────────────────────────────────
+admin.alcoccodrillo.de {
+	import access_log
+	@noLng not header Cookie *lng=*
+	header @noLng Set-Cookie "lng=de; Path=/; Max-Age=31536000; SameSite=Lax"
+	reverse_proxy medusa:9000
+}
+
 # ─── Krile storefront (krile_medusa-storefront) ──────────────────────────────
 industries.alcoccodrillo.de {
+	import access_log
 	reverse_proxy storefront-planeta-industries:8000
 }
 
 # ─── Planeta storefront (planetagmbh_medusa-storefront) ──────────────────────
 planeta.alcoccodrillo.de {
+	import access_log
 	reverse_proxy storefront-planeta:8000
 }
 
 # ─── Uptime Kuma (uptime monitoring + status page) ───────────────────────────
 status.alcoccodrillo.de {
+	import access_log
 	reverse_proxy uptime-kuma:3001
 }
