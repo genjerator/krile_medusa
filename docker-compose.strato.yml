@@ -44,17 +44,21 @@ services:
 
   # ─── POSTGRES ─────────────────────────────────────────────────────────────
   postgres:
-    image: postgres:18-alpine
+    # NOTE: the on-disk data in the postgres_data volume is PostgreSQL 17.
+    # PG18 binaries cannot open a v17 data directory, so we stay on 17 here.
+    # To move to 18: dump from this 17 instance, then restore into a fresh 18
+    # volume (see docs/RDS_RESTORE_LOCAL.md) — never just bump the image tag.
+    image: postgres:17-alpine
     # Reads POSTGRES_USER/PASSWORD/DB from .env.strato (same file as the app),
     # so the container password always matches DATABASE_URL. (Using ${...} here
     # would pull from a root .env/shell instead and silently init blank.)
     env_file:
       - .env.strato
     volumes:
-      # PG18's official image moved PGDATA under /var/lib/postgresql/18/docker,
-      # so the persistent volume must mount at /var/lib/postgresql (NOT the old
-      # .../data path) or the data won't persist. See docs/RDS_RESTORE_LOCAL.md.
-      - postgres_data:/var/lib/postgresql
+      # v17 data lives at the volume root, so PG17's PGDATA (/var/lib/postgresql/data)
+      # must map to it. Mounting at /var/lib/postgresql instead makes PG look in an
+      # empty data/ subdir and try to init a BLANK cluster. See docs/RDS_RESTORE_LOCAL.md.
+      - postgres_data:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-medusa}"]
       interval: 5s
@@ -100,6 +104,7 @@ services:
       - "443:443/udp"   # HTTP/3 (QUIC)
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./logs/caddy:/var/log/caddy
       - caddy_data:/data
       - caddy_config:/config
     depends_on:
