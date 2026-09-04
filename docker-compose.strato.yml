@@ -44,21 +44,24 @@ services:
 
   # ─── POSTGRES ─────────────────────────────────────────────────────────────
   postgres:
-    # NOTE: the on-disk data in the postgres_data volume is PostgreSQL 17.
-    # PG18 binaries cannot open a v17 data directory, so we stay on 17 here.
-    # To move to 18: dump from this 17 instance, then restore into a fresh 18
-    # volume (see docs/RDS_RESTORE_LOCAL.md) — never just bump the image tag.
-    image: postgres:17-alpine
+    # PG18 + pgvector — same image as local dev, built on the VPS from
+    # Dockerfile.pgvector (FROM postgres:18 + postgresql-18-pgvector).
+    # Uses a FRESH 18 volume (postgres_data_18); the old postgres_data holds the
+    # disposable v17 test data and can be removed once you're happy:
+    #   docker volume rm app_postgres_data
+    build:
+      context: .
+      dockerfile: Dockerfile.pgvector
+    image: krile-medusa-postgres:pg18-pgvector
     # Reads POSTGRES_USER/PASSWORD/DB from .env.strato (same file as the app),
     # so the container password always matches DATABASE_URL. (Using ${...} here
     # would pull from a root .env/shell instead and silently init blank.)
     env_file:
       - .env.strato
     volumes:
-      # v17 data lives at the volume root, so PG17's PGDATA (/var/lib/postgresql/data)
-      # must map to it. Mounting at /var/lib/postgresql instead makes PG look in an
-      # empty data/ subdir and try to init a BLANK cluster. See docs/RDS_RESTORE_LOCAL.md.
-      - postgres_data:/var/lib/postgresql/data
+      # PG18 stores data under /var/lib/postgresql/18/docker, so the volume mounts
+      # at /var/lib/postgresql (the 18 layout — same as local dev).
+      - postgres_data_18:/var/lib/postgresql
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-medusa}"]
       interval: 5s
@@ -115,7 +118,8 @@ services:
     restart: unless-stopped
 
 volumes:
-  postgres_data:
+  postgres_data:      # old v17 test data — kept for now, safe to `docker volume rm app_postgres_data` later
+  postgres_data_18:   # fresh PG18 + pgvector data
   redis_data:
   uptime_kuma_data:
   caddy_data:
