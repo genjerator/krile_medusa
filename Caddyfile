@@ -20,6 +20,15 @@
 	}
 }
 
+# Discreet migration marker. Adds a response header proving the request was
+# answered by THIS (Strato) Caddy and not the old AWS stack. Invisible to normal
+# visitors — visible only in devtools/curl. Check (even before the DNS switch):
+#   curl -sI --resolve www.planeta.de:443:217.154.144.21 https://www.planeta.de | grep -i x-served-by
+# Remove this snippet and its `import marker` lines once the migration is verified.
+(marker) {
+	header +X-Served-By "strato-vps"
+}
+
 # ══════════════════════════════════════════════════════════════════════════════
 # PRODUCTION — real domains
 # ══════════════════════════════════════════════════════════════════════════════
@@ -27,6 +36,7 @@
 # ─── Admin + Medusa backend ──────────────────────────────────────────────────
 admin.planetaindustries.de {
 	import access_log
+	import marker
 	# Browsers without an "lng" cookie get a permanent German one, so the
 	# admin language survives cleared site data / closed browsers.
 	@noLng not header Cookie *lng=*
@@ -37,6 +47,7 @@ admin.planetaindustries.de {
 # ─── Krile / Planeta Industries storefront (canonical: www) ──────────────────
 www.planetaindustries.de {
 	import access_log
+	import marker
 	reverse_proxy storefront-planeta-industries:8000
 }
 # apex → www
@@ -48,6 +59,7 @@ planetaindustries.de {
 # ─── Planeta GmbH storefront (canonical: www.planeta.de) ─────────────────────
 www.planeta.de {
 	import access_log
+	import marker
 	reverse_proxy storefront-planeta:8000
 }
 # apex + legacy planeta-shop.de (and its www) → www.planeta.de
