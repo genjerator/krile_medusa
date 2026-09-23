@@ -1,0 +1,162 @@
+{
+  "version": "1.23.0",
+  "notificationList": [
+    {
+      "id": 1,
+      "name": "Email (Planeta Industries SMTP)",
+      "config": "{\"name\":\"Email (Planeta Industries SMTP)\",\"type\":\"smtp\",\"isDefault\":true,\"applyExisting\":true,\"smtpHost\":\"smtp.strato.de\",\"smtpPort\":587,\"smtpSecure\":false,\"smtpIgnoreTLSError\":false,\"smtpUsername\":\"info@planetaindustries.de\",\"smtpPassword\":\"CHANGE_ME\",\"smtpFrom\":\"Planeta Industries <info@planetaindustries.de>\",\"smtpTo\":\"e.medjesi@gmail.com\"}"
+    }
+  ],
+  "monitorList": [
+    {
+      "id": 1,
+      "name": "Medusa backend (internal health)",
+      "type": "http",
+      "url": "http://medusa:9000/health",
+      "method": "GET",
+      "interval": 60,
+      "retryInterval": 30,
+      "resendInterval": 0,
+      "maxretries": 3,
+      "timeout": 30,
+      "active": true,
+      "expiryNotification": false,
+      "ignoreTls": false,
+      "upsideDown": false,
+      "maxredirects": 10,
+      "accepted_statuscodes": [
+        "200-299"
+      ],
+      "notificationIDList": {
+        "1": true
+      },
+      "tags": [],
+      "invertKeyword": false
+    },
+    {
+      "id": 2,
+      "name": "Admin (public, via Caddy)",
+      "type": "http",
+      "url": "https://admin.alcoccodrillo.de/health",
+      "method": "GET",
+      "interval": 60,
+      "retryInterval": 30,
+      "resendInterval": 0,
+      "maxretries": 3,
+      "timeout": 30,
+      "active": true,
+      "expiryNotification": true,
+      "ignoreTls": false,
+      "upsideDown": false,
+      "maxredirects": 10,
+      "accepted_statuscodes": [
+        "200-299"
+      ],
+      "notificationIDList": {
+        "1": true
+      },
+      "tags": [],
+      "invertKeyword": false
+    },
+    {
+      "id": 3,
+      "name": "Krile storefront",
+      "type": "http",
+      "url": "https://industries.alcoccodrillo.de",
+      "method": "GET",
+      "interval": 60,
+      "retryInterval": 30,
+      "resendInterval": 0,
+      "maxretries": 3,
+      "timeout": 30,
+      "active": true,
+      "expiryNotification": true,
+      "ignoreTls": false,
+      "upsideDown": false,
+      "maxredirects": 10,
+      "accepted_statuscodes": [
+        "200-299"
+      ],
+      "notificationIDList": {
+        "1": true
+      },
+      "tags": [],
+      "invertKeyword": false
+    },
+    {
+      "id": 4,
+      "name": "Planeta storefront",
+      "type": "http",
+      "url": "https://planeta.alcoccodrillo.de",
+      "method": "GET",
+      "interval": 60,
+      "retryInterval": 30,
+      "resendInterval": 0,
+      "maxretries": 3,
+      "timeout": 30,
+      "active": true,
+      "expiryNotification": true,
+      "ignoreTls": false,
+      "upsideDown": false,
+      "maxredirects": 10,
+      "accepted_statuscodes": [
+        "200-299"
+      ],
+      "notificationIDList": {
+        "1": true
+      },
+      "tags": [],
+      "invertKeyword": false
+    },
+    {
+      "id": 5,
+      "name": "Postgres",
+      "type": "port",
+      "hostname": "postgres",
+      "port": 5432,
+      "interval": 60,
+      "retryInterval": 30,
+      "resendInterval": 0,
+      "maxretries": 3,
+      "timeout": 30,
+      "active": true,
+      "upsideDown": false,
+      "accepted_statuscodes": [
+        "200-299"
+      ],
+      "notificationIDList": {
+        "1": true
+      },
+      "tags": [],
+      "invertKeyword": false,
+      "ignoreTls": false,
+      "expiryNotification": false,
+      "maxredirects": 10
+    },
+    {
+      "id": 6,
+      "name": "Redis",
+      "type": "port",
+      "hostname": "redis",
+      "port": 6379,
+      "interval": 60,
+      "retryInterval": 30,
+      "resendInterval": 0,
+      "maxretries": 3,
+      "timeout": 30,
+      "active": true,
+      "upsideDown": false,
+      "accepted_statuscodes": [
+        "200-299"
+      ],
+      "notificationIDList": {
+        "1": true
+      },
+      "tags": [],
+      "invertKeyword": false,
+      "ignoreTls": false,
+      "expiryNotification": false,
+      "maxredirects": 10
+    }
+  ]
+}

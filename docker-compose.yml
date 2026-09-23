@@ -12,6 +12,11 @@ services:
       DATABASE_URL: postgres://postgres:postgres@postgres:5432/medusa-v2?sslmode=disable
       REDIS_URL: redis://redis:6379
       NODE_ENV: production
+    volumes:
+      # Lets the Access Logs admin page read Caddy's access log. Locally this is
+      # the sample file in the repo; on the VPS the same mount points at the real
+      # Caddy log (see docker-compose.strato.yml).
+      - ./logs/caddy:/var/log/caddy:ro
     depends_on:
       postgres:
         condition: service_healthy
