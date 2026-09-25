@@ -5,9 +5,9 @@ name: Deploy to Strato VPS
 # disable deploy-aws.yml), so a push to main deploys the backend to the VPS.
 on:
   workflow_dispatch:
-  # push:
-  #   branches:
-  #     - main
+  push:
+    branches:
+      - main
 
 env:
   REGISTRY: ghcr.io
