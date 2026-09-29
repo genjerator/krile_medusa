@@ -803,4 +803,70 @@ export const PAYLOADS: ImproveProductPayload[] = [
   },
   tags: ["Marinierbehälter", "Vakuumbehälter", "BPA-frei", "Lebensmittelaufbewahrung"],
 },
+{
+  productId: "prod_01KSMD69E8K7VR5WQDF2JJ7NBW",
+  handle: "vakuumierer-planeta-home",
+  base: {
+    title: "Planeta Home – Kammer-Vakuumierer für zu Hause",
+    description: `<p>Profi-Vakuumieren für zu Hause: Mit dem Planeta Home (früher Multivac Home) holen Sie sich einen Kammer-Vakuumierer in die Küche – das einzige Prinzip, mit dem sich auch Flüssigkeiten wie Suppen, Saucen und Marinaden sicher vakuumieren lassen, im Beutel wie im Schraubglas. Einfach, sicher und vielseitig.</p>
+<ul>
+<li><p><strong>Vakuumiert auch Flüssigkeiten:</strong> im Beutel, in Gläsern und in externen Behältern oder Flaschen.</p>
+</li>
+<li><p><strong>Extra starkes Vakuum:</strong> bis unter 15 mbar.</p>
+</li>
+<li><p><strong>Marinierfunktion:</strong> mariniert Fleisch, Fisch und Gemüse in maximal 30 Minuten durch pulsierendes Vakuum.</p>
+</li>
+<li><p><strong>Einfache Bedienung:</strong> Drehknopf, praktische Voreinstellungen, individuell regelbares Vakuum (in %) und speicherbare Favoriten – optimal für Sous-vide.</p>
+</li>
+<li><p><strong>Doppelnaht-Trennsiegelung:</strong> Beutelüberstand ohne Schere abtrennen – hygienisch.</p>
+</li>
+<li><p><strong>Wartungsfreie Vakuumpumpe – Made in Germany.</strong></p>
+</li>
+</ul>
+<p><strong>Lieferumfang</strong></p>
+<p>1× Beutelauflage mit Positionierwinkel, 1× Vakuumschlauch für externe Behälter, 2× Flaschenvakuumverschlüsse, 1× Beutel-Starterset (15× Vakuumbeutel 150 × 200 mm, 15× Vakuumbeutel 200 × 300 mm, 15× Kochbeutel 150 × 200 mm, 15× Kochbeutel 200 × 300 mm).</p>
+<p><strong>Technische Daten</strong></p>
+<ul>
+<li><p>Pumpe: Doppelpumpen, 2,5 m³/h</p>
+</li>
+<li><p>Vakuumierleistung: bis unter 15 mbar</p>
+</li>
+<li><p>Steuerung: elektronisch</p>
+</li>
+<li><p>Maße: 480 × 310 × 225 mm</p>
+</li>
+<li><p>Gewicht: 12,2 kg</p>
+</li>
+<li><p>Herstellung: Made in Germany</p>
+</li>
+<li><p>Artikelnummer: 573301</p>
+</li>
+</ul>`,
+  },
+  metadata: {
+    set: {
+      meta_title: "Planeta Home – Kammer-Vakuumierer fürs Zuhause | Planeta",
+      meta_description:
+        "Planeta Home Kammer-Vakuumierer (früher Multivac Home): vakuumiert auch Flüssigkeiten, Vakuum bis unter 15 mbar, Marinierfunktion < 30 Min., Made in Germany. Sous-vide-ready.",
+      meta_title_en: "Planeta Home – Chamber Vacuum Sealer for Home | Planeta",
+      meta_description_en:
+        "Planeta Home chamber vacuum sealer (formerly Multivac Home): vacuums liquids too, vacuum down to under 15 mbar, marinating function < 30 min, Made in Germany. Sous-vide ready.",
+      meta_title_it: "Planeta Home – macchina sottovuoto a campana per casa | Planeta",
+      meta_description_it:
+        "Planeta Home macchina sottovuoto a campana (già Multivac Home): mette sottovuoto anche i liquidi, vuoto fino a meno di 15 mbar, marinatura < 30 min, Made in Germany. Pronta sous-vide.",
+    },
+  },
+  translations: {
+    "en-US": {
+      title: "Planeta Home – Chamber Vacuum Sealer for Home",
+      subtitle: `Chamber vacuum sealer for the kitchen – vacuums liquids too (soups, sauces, marinades) and marinates in under 30 minutes`,
+      description: `<p class="mb-3 leading-relaxed">Professional vacuum sealing at home: the Planeta Home (formerly Multivac Home) brings a chamber vacuum sealer into your kitchen – the only method that can safely vacuum liquids such as soups, sauces and marinades, in bags as well as screw-top jars. Simple, safe and versatile.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Vacuums liquids too:</strong> in bags, jars and external containers or bottles.</li><li class="ml-1"><strong class="font-semibold">Extra-strong vacuum:</strong> down to under 15 mbar.</li><li class="ml-1"><strong class="font-semibold">Marinating function:</strong> marinates meat, fish and vegetables in a maximum of 30 minutes via pulsing vacuum.</li><li class="ml-1"><strong class="font-semibold">Easy to use:</strong> rotary knob, handy presets, individually adjustable vacuum (in %) and saved favourites – ideal for sous-vide.</li><li class="ml-1"><strong class="font-semibold">Double-seam cut sealing:</strong> remove the bag overhang without scissors – hygienic.</li><li class="ml-1"><strong class="font-semibold">Maintenance-free vacuum pump – Made in Germany.</strong></li></ul><p class="mb-3 leading-relaxed"><strong class="font-semibold">In the box</strong></p><p class="mb-3 leading-relaxed">1× bag support with positioning angle, 1× vacuum hose for external containers, 2× bottle vacuum stoppers, 1× bag starter set (15× vacuum bags 150 × 200 mm, 15× vacuum bags 200 × 300 mm, 15× cooking bags 150 × 200 mm, 15× cooking bags 200 × 300 mm).</p><p class="mb-3 leading-relaxed"><strong class="font-semibold">Specifications</strong></p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1">Pump: twin pumps, 2.5 m³/h</li><li class="ml-1">Vacuum: down to under 15 mbar</li><li class="ml-1">Control: electronic</li><li class="ml-1">Dimensions: 480 × 310 × 225 mm</li><li class="ml-1">Weight: 12.2 kg</li><li class="ml-1">Manufacture: Made in Germany</li><li class="ml-1">Article number: 573301</li></ul>`,
+    },
+    "it-IT": {
+      title: "Planeta Home – macchina sottovuoto a campana per la casa",
+      subtitle: `Macchina sottovuoto a campana per la cucina – mette sottovuoto anche i liquidi (zuppe, salse, marinate) e marina in meno di 30 minuti`,
+      description: `<p class="mb-3 leading-relaxed">Sottovuoto professionale a casa: con la Planeta Home (già Multivac Home) porti in cucina una macchina sottovuoto a campana – l'unico principio che permette di mettere sottovuoto in sicurezza anche i liquidi come zuppe, salse e marinate, sia in busta sia in vasetti a vite. Semplice, sicura e versatile.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Mette sottovuoto anche i liquidi:</strong> in busta, in vasetti e in contenitori o bottiglie esterni.</li><li class="ml-1"><strong class="font-semibold">Vuoto extra potente:</strong> fino a meno di 15 mbar.</li><li class="ml-1"><strong class="font-semibold">Funzione marinatura:</strong> marina carne, pesce e verdura in massimo 30 minuti grazie al vuoto pulsante.</li><li class="ml-1"><strong class="font-semibold">Facile da usare:</strong> manopola, comode preimpostazioni, vuoto regolabile individualmente (in %) e preferiti memorizzabili – ideale per il sous-vide.</li><li class="ml-1"><strong class="font-semibold">Saldatura a doppia cucitura con taglio:</strong> rimuovi l'eccesso di busta senza forbici – igienico.</li><li class="ml-1"><strong class="font-semibold">Pompa sottovuoto senza manutenzione – Made in Germany.</strong></li></ul><p class="mb-3 leading-relaxed"><strong class="font-semibold">In dotazione</strong></p><p class="mb-3 leading-relaxed">1× supporto busta con squadra di posizionamento, 1× tubo sottovuoto per contenitori esterni, 2× tappi sottovuoto per bottiglie, 1× set starter di buste (15× buste sottovuoto 150 × 200 mm, 15× buste sottovuoto 200 × 300 mm, 15× buste da cottura 150 × 200 mm, 15× buste da cottura 200 × 300 mm).</p><p class="mb-3 leading-relaxed"><strong class="font-semibold">Dati tecnici</strong></p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1">Pompa: doppie pompe, 2,5 m³/h</li><li class="ml-1">Vuoto: fino a meno di 15 mbar</li><li class="ml-1">Controllo: elettronico</li><li class="ml-1">Dimensioni: 480 × 310 × 225 mm</li><li class="ml-1">Peso: 12,2 kg</li><li class="ml-1">Produzione: Made in Germany</li><li class="ml-1">Codice articolo: 573301</li></ul>`,
+    },
+  },
+},
 ]

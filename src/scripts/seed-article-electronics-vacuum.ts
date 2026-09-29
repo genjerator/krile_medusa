@@ -115,15 +115,12 @@ export default async function seedArticleElectronicsVacuum({ container }: ExecAr
   const service: any = container.resolve(ARTICLE_MODULE)
   const salesChannelModule: any = container.resolve(Modules.SALES_CHANNEL)
 
-  let [author] = await service.listArticleAuthors({ slug: "evgenije" }, { take: 1 })
+  // Use the existing "Evgenije Medjesi" author — never create a new one.
+  const [author] = await service.listArticleAuthors({ slug: "evgenije-medjesi" }, { take: 1 })
   if (!author) {
-    author = await service.createArticleAuthors({
-      name: "Evgenije",
-      slug: "evgenije",
-      role: "Author",
-      active: true,
-    })
-    logger.info(`Created author Evgenije (${author.id})`)
+    throw new Error(
+      'Author "evgenije-medjesi" (Evgenije Medjesi) not found — add it once via admin. Seed scripts never create authors.'
+    )
   }
 
   const [industries] = await salesChannelModule.listSalesChannels(
