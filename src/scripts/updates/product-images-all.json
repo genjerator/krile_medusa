@@ -1720,6 +1720,14 @@
     "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/paco-dipcombi-tomatencurry.png"
   },
   {
+    "handle": "pacovario",
+    "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/pacovario.jpg"
+  },
+  {
+    "handle": "pacovario-fin",
+    "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/pacovario-fin.jpg"
+  },
+  {
     "handle": "panade-pariser-schnitzel",
     "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/panade-pariser-schnitzel.jpg"
   },
@@ -1872,6 +1880,10 @@
     "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/planeta_admin/pfeffer-gewuerzmix-01KZBQ0TF5288JKZ4MNB7KHA4D.jpg"
   },
   {
+    "handle": "pfeffer-gewuerzmix-og-oa",
+    "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/pfeffer-gewuerzmix-og-oa.jpg"
+  },
+  {
     "handle": "pfeffer-marinade-sensia",
     "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/pacovis/pfeffer-marinade-sensia.png"
   },
@@ -1890,6 +1902,10 @@
   {
     "handle": "planeta-pomme",
     "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/planeta-pomme.jpg"
+  },
+  {
+    "handle": "planeta-weingaertner-og",
+    "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/planeta-weingaertner-og.jpg"
   },
   {
     "handle": "planeta_admin_PV9000",
@@ -2110,6 +2126,10 @@
   {
     "handle": "vakuumbeutel-450x650",
     "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/planeta_admin/vakuumbeutel-450x650-01KY72QXRRS8MCJ84SVCYEX508.png"
+  },
+  {
+    "handle": "vier-pfeffer-mischung",
+    "url": "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/products/planeta/vier-pfeffer-mischung.jpg"
   },
   {
     "handle": "waldpilz-maricreme",

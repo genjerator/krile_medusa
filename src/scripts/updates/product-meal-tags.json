@@ -1,0 +1,12 @@
+[
+  { "handle": "dekor-rot-mix", "tags": ["Wurst & Charcuterie", "Schwein", "Rind", "Grill & BBQ"] },
+  { "handle": "gemuese-mix", "tags": ["Suppen", "Saucen & Dips", "Gemüse"] },
+  { "handle": "gemuese-mix-gyros", "tags": ["Schwein", "Geflügel", "Grill & BBQ"] },
+  { "handle": "jalapaco", "tags": ["Wurst & Charcuterie"] },
+  { "handle": "kraeutermischung-italienisch-fein", "tags": ["Geflügel", "Schwein", "Saucen & Dips", "Gemüse"] },
+  { "handle": "bio-kraeutermischung-italienisch", "tags": ["Geflügel", "Schwein", "Saucen & Dips", "Gemüse"] },
+  { "handle": "kraeutermischung-provence", "tags": ["Lamm", "Geflügel", "Fisch", "Grill & BBQ", "Gemüse"] },
+  { "handle": "bio-kraeutermischung-provence", "tags": ["Lamm", "Geflügel", "Fisch", "Grill & BBQ", "Gemüse"] },
+  { "handle": "pacovario", "tags": ["Wurst & Charcuterie", "Schwein", "Rind", "Grill & BBQ"] },
+  { "handle": "pacovario-fin", "tags": ["Wurst & Charcuterie", "Schwein", "Rind", "Grill & BBQ"] }
+]
