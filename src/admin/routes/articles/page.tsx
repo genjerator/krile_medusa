@@ -27,6 +27,23 @@ type Article = {
 // base field name + locale → column (German = base column)
 const col = (base: string, l: string) => (l === DEFAULT_LOCALE ? base : `${base}_${l}`)
 
+// Map a sales-channel name to a friendly storefront label for the list column.
+const CHANNEL_LABELS: Record<string, string> = {
+  PlanetaWebshop: "planeta.de",
+  IndustriesWebshop: "Industries",
+}
+const ChannelBadge = ({ salesChannelId, names }: {
+  salesChannelId: string | null; names: Map<string, string>
+}) => {
+  // No channel = global = shown on both storefronts.
+  if (!salesChannelId) return <Badge size="2xsmall" color="blue">Both</Badge>
+  const name = names.get(salesChannelId)
+  if (!name) return <span className="text-ui-fg-muted">—</span>
+  const label = CHANNEL_LABELS[name] ?? name
+  const color = name === "PlanetaWebshop" ? "green" : name === "IndustriesWebshop" ? "orange" : "grey"
+  return <Badge size="2xsmall" color={color}>{label}</Badge>
+}
+
 const ArticlesPage = () => {
   const qc = useQueryClient()
   const [editingId, setEditingId] = useState<string | null>(null)
@@ -37,6 +54,17 @@ const ArticlesPage = () => {
     queryFn: async () => sdk.client.fetch<{ articles: Article[] }>("/admin/articles"),
   })
   const articles = listQuery.data?.articles ?? []
+
+  const channelsQuery = useQuery({
+    queryKey: ["sales-channels"],
+    queryFn: async () =>
+      sdk.client.fetch<{ sales_channels: { id: string; name: string }[] }>(
+        "/admin/sales-channels?limit=100"
+      ),
+  })
+  const channelNames = new Map<string, string>(
+    (channelsQuery.data?.sales_channels ?? []).map((c) => [c.id, c.name] as [string, string])
+  )
 
   const deleteMutation = useMutation({
     mutationFn: (id: string) => sdk.client.fetch(`/admin/articles/${id}`, { method: "DELETE" }),
@@ -67,6 +95,7 @@ const ArticlesPage = () => {
                 <Table.HeaderCell>Status</Table.HeaderCell>
                 <Table.HeaderCell>Published</Table.HeaderCell>
                 <Table.HeaderCell>Author</Table.HeaderCell>
+                <Table.HeaderCell>Channel</Table.HeaderCell>
                 <Table.HeaderCell className="text-right">Actions</Table.HeaderCell>
               </Table.Row>
             </Table.Header>
@@ -81,6 +110,9 @@ const ArticlesPage = () => {
                     {a.published_at ? new Date(a.published_at).toLocaleDateString() : <span className="text-ui-fg-muted">—</span>}
                   </Table.Cell>
                   <Table.Cell>{a.author?.name ?? <span className="text-ui-fg-muted">—</span>}</Table.Cell>
+                  <Table.Cell>
+                    <ChannelBadge salesChannelId={a.sales_channel_id} names={channelNames} />
+                  </Table.Cell>
                   <Table.Cell>
                     <div className="flex items-center justify-end gap-2">
                       <IconButton size="small" variant="transparent" onClick={() => setEditingId(a.id)}><PencilSquare /></IconButton>
