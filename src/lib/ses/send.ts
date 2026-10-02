@@ -28,15 +28,12 @@ function getTransport(): Transporter {
   return cached
 }
 
-function unsubscribeHeaders(customerId: string, campaignId: string): Record<string, string> {
+/** Per-recipient signed unsubscribe URL, or null if unsubscribe isn't configured. */
+function unsubscribeUrl(customerId: string, campaignId: string): string | null {
   const base = process.env.UNSUBSCRIBE_BASE_URL
-  if (!base || !process.env.MARKETING_UNSUBSCRIBE_SECRET) return {}
+  if (!base || !process.env.MARKETING_UNSUBSCRIBE_SECRET) return null
   const token = signUnsubscribeToken(customerId, campaignId)
-  const url = `${base.replace(/\/$/, "")}/unsubscribe?token=${encodeURIComponent(token)}`
-  return {
-    "List-Unsubscribe": `<${url}>`,
-    "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
-  }
+  return `${base.replace(/\/$/, "")}/unsubscribe?token=${encodeURIComponent(token)}`
 }
 
 /** Core send: one email to one recipient, tracked under `campaignId`. */
@@ -51,16 +48,26 @@ export async function sendCampaignEmail(opts: {
   if (!from) throw new Error("SES_SMTP_FROM is not configured")
   const fromName = process.env.SES_SMTP_FROM_NAME || "Planeta Industries"
 
+  const unsubUrl = unsubscribeUrl(opts.customerId, opts.campaignId)
+  // Fill the visible {{unsubscribe_url}} placeholder in the template body with the
+  // per-recipient signed link (no-op for templates without the placeholder).
+  const html = opts.html.split("{{unsubscribe_url}}").join(unsubUrl ?? "#")
+
+  const headers: Record<string, string> = {
+    "X-SES-CONFIGURATION-SET": "campaign-tracking",
+    "X-SES-MESSAGE-TAGS": `campaign_id=${opts.campaignId}`,
+  }
+  if (unsubUrl) {
+    headers["List-Unsubscribe"] = `<${unsubUrl}>`
+    headers["List-Unsubscribe-Post"] = "List-Unsubscribe=One-Click"
+  }
+
   const info = await getTransport().sendMail({
     from: `"${fromName}" <${from}>`,
     to: opts.to,
     subject: opts.subject,
-    html: opts.html,
-    headers: {
-      "X-SES-CONFIGURATION-SET": "campaign-tracking",
-      "X-SES-MESSAGE-TAGS": `campaign_id=${opts.campaignId}`,
-      ...unsubscribeHeaders(opts.customerId, opts.campaignId),
-    },
+    html,
+    headers,
   })
   return { messageId: info.messageId }
 }
