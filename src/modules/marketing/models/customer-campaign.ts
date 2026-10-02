@@ -11,12 +11,17 @@ import { model } from "@medusajs/framework/utils"
 const CustomerCampaign = model.define("customer_campaign", {
   id: model.id().primaryKey(),
   customer_id: model.text(),
-  source: model.text(), // brevo, mailgun, ...
-  campaign_id: model.text(), // external provider campaign id
+  source: model.text(), // brevo, ses, ...
+  campaign_id: model.text(), // external provider campaign id, or internal campaign id for SES
+  // SES message id (set by the sender). Precise match key for incoming SES events.
+  ses_message_id: model.text().nullable(),
   sent_at: model.dateTime().nullable(),
+  delivered_at: model.dateTime().nullable(),
   opened_at: model.dateTime().nullable(),
   clicked_at: model.dateTime().nullable(),
   bounced_at: model.dateTime().nullable(),
+  complained_at: model.dateTime().nullable(),
+  unsubscribed_at: model.dateTime().nullable(),
 })
 
 export default CustomerCampaign

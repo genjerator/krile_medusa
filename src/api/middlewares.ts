@@ -102,6 +102,27 @@ const brevoWebhookAuth = (
   return next()
 }
 
+/**
+ * Guards the public SES/SNS webhook. SNS signs its payloads (verified in the
+ * handler), but the shared secret in the URL (?token=…) is the first gate.
+ * Not rate-limited — a campaign blast is thousands of events and must not drop.
+ */
+const sesWebhookAuth = (
+  req: MedusaRequest,
+  res: MedusaResponse,
+  next: MedusaNextFunction
+) => {
+  const expected = process.env.SES_WEBHOOK_TOKEN
+  if (!expected) {
+    return res.status(503).json({ message: "Webhook not configured." })
+  }
+  const provided = typeof req.query.token === "string" ? req.query.token : ""
+  if (provided !== expected) {
+    return res.status(401).json({ message: "Unauthorized." })
+  }
+  return next()
+}
+
 export default defineMiddlewares({
   routes: [
     {
@@ -113,6 +134,11 @@ export default defineMiddlewares({
       matcher: "/webhooks/brevo",
       method: "POST",
       middlewares: [brevoWebhookAuth as any],
+    },
+    {
+      matcher: "/webhooks/ses",
+      method: "POST",
+      middlewares: [sesWebhookAuth as any],
     },
     {
       matcher: "/store/inquiries",

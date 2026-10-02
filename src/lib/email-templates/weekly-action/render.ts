@@ -40,6 +40,27 @@ export type WeeklyEmailData = {
   locale: string
   country: string
   logoUrl: string
+  /**
+   * UTM tagging for product links (Google Analytics). `utm_content` is set
+   * per-product to the product handle, so you can see which link was clicked.
+   */
+  utm?: {
+    source?: string // default "newsletter"
+    medium?: string // default "email"
+    campaign?: string // readable campaign name, e.g. "wochenaktion-kw40-2026"
+    id?: string // GA4 campaign id (the weekly action id)
+  }
+}
+
+/** Append UTM query params to a product URL. */
+function withUtm(url: string, d: WeeklyEmailData, handle: string): string {
+  const q = new URLSearchParams()
+  q.set("utm_source", d.utm?.source || "newsletter")
+  q.set("utm_medium", d.utm?.medium || "email")
+  if (d.utm?.campaign) q.set("utm_campaign", d.utm.campaign)
+  if (d.utm?.id) q.set("utm_id", d.utm.id)
+  if (handle) q.set("utm_content", handle)
+  return `${url}?${q.toString()}`
 }
 
 const TEMPLATE_DIR = join(
@@ -99,7 +120,7 @@ function renderCard(p: WeeklyEmailProduct, d: WeeklyEmailData): string {
       : `<span style="color:#1e3a5f;font-weight:bold;font-size:16px;">${money(p.now, p.currency, d.locale, d.country)}</span>`
 
   return fill(template("product-card.html"), {
-    link: `${d.storefrontUrl}/${d.locale}/product/${encodeURIComponent(p.handle)}`,
+    link: withUtm(`${d.storefrontUrl}/${d.locale}/product/${encodeURIComponent(p.handle)}`, d, p.handle),
     image: escapeHtml(p.image),
     title: escapeHtml(p.title),
     badge,

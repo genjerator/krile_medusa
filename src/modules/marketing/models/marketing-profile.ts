@@ -13,6 +13,10 @@ import { model } from "@medusajs/framework/utils"
 const MarketingProfile = model.define("marketing_profile", {
   id: model.id().primaryKey(),
   customer_id: model.text(),
+  // Free-text classification of the customer for campaign targeting/testing, e.g.
+  // "test" (seed/QA recipient), "bought_once", "bought_multiple", "opened_brevo",
+  // "opened_ses". Plain string for now — may become an enum/derived later.
+  user_type: model.text().nullable(),
   unsubscribed: model.boolean().default(false),
   unsubscribed_at: model.dateTime().nullable(),
   // purchased | newsletter | reparatur | angebot | clicked | opened | none

@@ -53,6 +53,12 @@ module.exports = defineConfig({
       resolve: "./src/modules/brevoWebhookLog",
     },
     {
+      resolve: "./src/modules/sesEventLog",
+    },
+    {
+      resolve: "./src/modules/sesEmails",
+    },
+    {
       resolve: "./src/modules/marketing",
     },
     {
