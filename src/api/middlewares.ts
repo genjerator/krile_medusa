@@ -42,6 +42,10 @@ export const CreateInquirySchema = z.object({
   locale: z.string().trim().optional(),
   // The storefront page URL the inquiry was submitted from (shown in the emails).
   source_url: z.string().trim().max(500).optional(),
+  // Honeypot — a hidden field real users never see/fill. Bots that auto-fill
+  // every input will populate it; the route then silently no-ops (see route).
+  // Must stay in the schema (otherwise Zod strips it before the route sees it).
+  website: z.string().optional(),
 })
 
 export type CreateInquirySchema = z.infer<typeof CreateInquirySchema>
