@@ -357,7 +357,13 @@ const SeoPage = () => {
       p.total_clicks = (s.gsc_clicks ?? 0) + (s.bing_clicks ?? 0)
       p.total_impressions = (s.gsc_impressions ?? 0) + (s.bing_impressions ?? 0)
     }
+    // Only merge cookie rows that fall inside the (data-clamped) SEO window the
+    // overview returned — otherwise trailing not-yet-ingested days re-appear on
+    // the chart with the SEO lines dropping to 0.
+    const lo = overview?.from
+    const hi = overview?.to
     for (const r of cookie?.rows ?? []) {
+      if (lo && hi && (r.date < lo || r.date > hi)) continue
       ensure(r.date).cookie_shown = r.shown
     }
     return [...byDate.values()].sort((a, b) => (a.date < b.date ? -1 : 1))

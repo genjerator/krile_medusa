@@ -1,7 +1,7 @@
 import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework/http"
 import { SEO_METRICS_MODULE } from "../../../../modules/seoMetrics"
 import { SEO_BRANDS } from "../../../../lib/seo/brands"
-import { parseRange, aggregateKpis, pctDelta } from "../../../../lib/seo/range"
+import { parseRange, clampRangeToData, aggregateKpis, pctDelta } from "../../../../lib/seo/range"
 
 /**
  * KPI overview for a brand over a date range, with period-over-period deltas and
@@ -12,7 +12,15 @@ export async function GET(req: AuthenticatedMedusaRequest, res: MedusaResponse) 
   const svc: any = req.scope.resolve(SEO_METRICS_MODULE)
 
   const brand = String(req.query.brand ?? SEO_BRANDS[0]?.key)
-  const { from, to, prevFrom, prevTo } = parseRange(req.query)
+
+  // Anchor the window to the latest day that actually has data for this brand,
+  // so trailing not-yet-ingested days (GSC/Bing lag ~2–3 days) don't dilute the
+  // current period or skew the period-over-period delta.
+  const [latestRow]: any[] = await svc.listSeoMetricDailies(
+    { brand },
+    { take: 1, order: { date: "DESC" } }
+  )
+  const { from, to, prevFrom, prevTo } = clampRangeToData(parseRange(req.query), latestRow?.date)
 
   const rows: any[] = await svc.listSeoMetricDailies(
     { brand, date: { $gte: prevFrom, $lte: to } },

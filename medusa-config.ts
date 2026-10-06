@@ -59,6 +59,9 @@ module.exports = defineConfig({
       resolve: "./src/modules/sesEmails",
     },
     {
+      resolve: "./src/modules/sesBatch",
+    },
+    {
       resolve: "./src/modules/marketing",
     },
     {

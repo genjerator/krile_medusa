@@ -26,6 +26,27 @@ export function parseRange(q: Record<string, any>): DateRange {
 
 export const inRange = (date: string, from: string, to: string) => date >= from && date <= to
 
+/**
+ * SEO sources (GSC/Bing especially) lag ~2–3 days, so "last 7 days" anchored on
+ * today includes trailing days with no data yet — which understates the current
+ * period and skews the period-over-period delta. This shifts the whole window
+ * (current + previous) to END at the latest day that actually has data, keeping
+ * the same span. No-op when the data is already current (latestDate >= to).
+ */
+export function clampRangeToData(r: DateRange, latestDate: string | null | undefined): DateRange {
+  if (!latestDate || latestDate >= r.to) return r
+  const dayMs = 86_400_000
+  const span = Math.max(0, Date.parse(r.to) - Date.parse(r.from))
+  const toMs = Date.parse(latestDate)
+  const fromMs = toMs - span
+  return {
+    from: isoDay(new Date(fromMs)),
+    to: isoDay(new Date(toMs)),
+    prevTo: isoDay(new Date(fromMs - dayMs)),
+    prevFrom: isoDay(new Date(fromMs - dayMs - span)),
+  }
+}
+
 /** % change old→new; null when there's no baseline. */
 export const pctDelta = (curr: number, prev: number): number | null =>
   prev > 0 ? Math.round(((curr - prev) / prev) * 1000) / 10 : null
