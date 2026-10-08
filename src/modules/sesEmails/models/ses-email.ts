@@ -14,9 +14,12 @@ const SesEmail = model.define("ses_emails", {
   id: model.id().primaryKey(),
   // Groups one generation run (e.g. "test customers · weekly action X").
   batch_id: model.text().nullable(),
-  // Template reference — rendered at send time. `source_id` doubles as the SES campaign_id tag.
-  source_type: model.text(), // e.g. "weekly_action"
-  source_id: model.text(),
+  // Template reference — rendered at send time. `source_id` doubles as the SES
+  // campaign_id tag. NULLABLE: an outbox row can be generated as a bare audience
+  // member (batch segment) before a campaign is assigned; the sender refuses to
+  // send until both are set.
+  source_type: model.text().nullable(), // e.g. "weekly_action"
+  source_id: model.text().nullable(),
   customer_id: model.text(),
   to_email: model.text(), // denormalized recipient
   // Optional per-row render data (future personalization); unsubscribe link is

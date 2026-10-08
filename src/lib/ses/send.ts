@@ -36,6 +36,25 @@ function unsubscribeUrl(customerId: string, campaignId: string): string | null {
   return `${base.replace(/\/$/, "")}/unsubscribe?token=${encodeURIComponent(token)}`
 }
 
+/**
+ * Resolves the From address/name by brand account:
+ *   - "planeta"    → planeta.de campaigns, sent from `email.planeta.de` (SES_SMTP_FROM_PLANETA)
+ *   - "industries" → default (SES_SMTP_FROM, currently planetex.de)
+ * Falls back to the industries sender if the planeta one isn't configured.
+ */
+function resolveFrom(account?: "industries" | "planeta"): { from: string; name: string } {
+  if (account === "planeta" && process.env.SES_SMTP_FROM_PLANETA) {
+    return {
+      from: process.env.SES_SMTP_FROM_PLANETA,
+      name: process.env.SES_SMTP_FROM_NAME_PLANETA || "Planeta",
+    }
+  }
+  return {
+    from: process.env.SES_SMTP_FROM || "",
+    name: process.env.SES_SMTP_FROM_NAME || "Planeta Industries",
+  }
+}
+
 /** Core send: one email to one recipient, tracked under `campaignId`. */
 export async function sendCampaignEmail(opts: {
   to: string
@@ -43,10 +62,10 @@ export async function sendCampaignEmail(opts: {
   subject: string
   html: string
   campaignId: string
+  account?: "industries" | "planeta"
 }): Promise<{ messageId: string }> {
-  const from = process.env.SES_SMTP_FROM
-  if (!from) throw new Error("SES_SMTP_FROM is not configured")
-  const fromName = process.env.SES_SMTP_FROM_NAME || "Planeta Industries"
+  const { from, name: fromName } = resolveFrom(opts.account)
+  if (!from) throw new Error("No SES From configured (SES_SMTP_FROM / SES_SMTP_FROM_PLANETA)")
 
   const unsubUrl = unsubscribeUrl(opts.customerId, opts.campaignId)
   // Fill the visible {{unsubscribe_url}} placeholder in the template body with the

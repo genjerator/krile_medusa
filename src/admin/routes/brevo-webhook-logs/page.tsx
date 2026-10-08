@@ -1,39 +1,55 @@
 import { defineRouteConfig } from "@medusajs/admin-sdk"
 import { DocumentText } from "@medusajs/icons"
-import { Badge, Container, Heading, Input, Table, Text } from "@medusajs/ui"
+import { Badge, Container, Heading, Input, Select, Table, Text } from "@medusajs/ui"
 import { useQuery } from "@tanstack/react-query"
 import { useState } from "react"
 import { sdk } from "../../lib/client"
 
 const PAGE_SIZE = 20
 
-type BrevoWebhookLog = {
+type Source = "brevo" | "ses"
+
+type WebhookLog = {
   id: string
   event: string | null
   email: string | null
-  campaign_id: number | null
+  campaign_id: number | string | null
   matched: boolean
   created_at: string
 }
 
 type LogsResponse = {
-  logs: BrevoWebhookLog[]
+  logs: WebhookLog[]
   count: number
   limit: number
   offset: number
+}
+
+const SOURCES: Record<Source, { label: string; endpoint: string; note: string }> = {
+  brevo: {
+    label: "Brevo",
+    endpoint: "/admin/brevo-webhook-logs",
+    note: "empfangene Brevo-Ereignisse (30 Tage Aufbewahrung) — neueste zuerst",
+  },
+  ses: {
+    label: "SES (Kampagnen)",
+    endpoint: "/admin/ses-event-logs",
+    note: "empfangene SES-Ereignisse (Öffnen/Klick/Zustellung/Bounce) — neueste zuerst",
+  },
 }
 
 const formatDateTime = (iso: string | null | undefined) =>
   iso ? new Date(iso).toLocaleString("de-DE") : "—"
 
 const BrevoWebhookLogsPage = () => {
+  const [source, setSource] = useState<Source>("brevo")
   const [search, setSearch] = useState("")
   const [page, setPage] = useState(0)
 
   const { data, isLoading } = useQuery({
-    queryKey: ["brevo-webhook-logs", search, page],
+    queryKey: ["webhook-logs", source, search, page],
     queryFn: () =>
-      sdk.client.fetch<LogsResponse>("/admin/brevo-webhook-logs", {
+      sdk.client.fetch<LogsResponse>(SOURCES[source].endpoint, {
         query: { q: search, limit: PAGE_SIZE, offset: page * PAGE_SIZE },
       }),
   })
@@ -46,22 +62,42 @@ const BrevoWebhookLogsPage = () => {
     <Container className="divide-y p-0">
       <div className="flex items-center justify-between px-6 py-4">
         <div>
-          <Heading level="h2">Brevo Webhook Logs</Heading>
+          <Heading level="h2">Webhook Logs</Heading>
           <Text size="small" leading="compact" className="text-ui-fg-subtle">
-            {count} empfangene Brevo-Ereignisse (30 Tage Aufbewahrung) — neueste zuerst
+            {count} {SOURCES[source].note}
           </Text>
         </div>
-        <Input
-          size="small"
-          type="search"
-          placeholder="E-Mail suchen…"
-          value={search}
-          onChange={(e) => {
-            setSearch(e.target.value)
-            setPage(0)
-          }}
-          className="max-w-60"
-        />
+        <div className="flex items-center gap-x-2">
+          <Select
+            value={source}
+            onValueChange={(v) => {
+              setSource(v as Source)
+              setPage(0)
+            }}
+          >
+            <Select.Trigger className="w-44">
+              <Select.Value />
+            </Select.Trigger>
+            <Select.Content>
+              {(Object.keys(SOURCES) as Source[]).map((s) => (
+                <Select.Item key={s} value={s}>
+                  {SOURCES[s].label}
+                </Select.Item>
+              ))}
+            </Select.Content>
+          </Select>
+          <Input
+            size="small"
+            type="search"
+            placeholder="E-Mail suchen…"
+            value={search}
+            onChange={(e) => {
+              setSearch(e.target.value)
+              setPage(0)
+            }}
+            className="max-w-60"
+          />
+        </div>
       </div>
 
       {isLoading ? (
@@ -132,7 +168,7 @@ const BrevoWebhookLogsPage = () => {
 }
 
 export const config = defineRouteConfig({
-  label: "Brevo Webhook Logs",
+  label: "Webhook Logs (Brevo/SES)",
   icon: DocumentText,
 })
 

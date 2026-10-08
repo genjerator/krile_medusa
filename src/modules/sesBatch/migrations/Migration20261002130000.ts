@@ -10,8 +10,8 @@ export class Migration20261002130000 extends Migration {
     this.addSql(`
       create table if not exists "ses_batch" (
         "id" text not null,
-        "source_type" text not null,
-        "source_id" text not null,
+        "source_type" text null,
+        "source_id" text null,
         "audience" text not null default 'test',
         "scheduled_at" timestamptz null,
         "status" text not null default 'draft',

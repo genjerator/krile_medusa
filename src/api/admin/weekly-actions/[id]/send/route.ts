@@ -40,6 +40,7 @@ export async function POST(req: AuthenticatedMedusaRequest<Body>, res: MedusaRes
       subject,
       html,
       campaignId: weeklyActionId,
+      account: "planeta", // weekly action = planeta.de campaign → email.planeta.de
     })
 
     // Record the send (source "ses"); opens/clicks will fill the same row.

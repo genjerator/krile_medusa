@@ -24,7 +24,8 @@ export type SendOutboxResult =
 
 export async function sendOutboxEmail(
   container: MedusaContainer,
-  id: string
+  id: string,
+  opts?: { overrideTo?: string }
 ): Promise<SendOutboxResult> {
   const sesEmails: any = container.resolve(SES_EMAILS_MODULE)
   const marketing: any = container.resolve(MARKETING_MODULE)
@@ -32,6 +33,13 @@ export async function sendOutboxEmail(
   const row = await sesEmails.retrieveSesEmail(id).catch(() => null)
   if (!row) throw new Error(`Outbox email ${id} not found`)
   if (row.status === "sent") return { status: "already_sent" }
+
+  // A campaign-agnostic (unassigned) row can't render — refuse to send it.
+  if (!row.source_type || !row.source_id) {
+    const error = "No campaign assigned to this batch (source_type/source_id empty)"
+    await sesEmails.updateSesEmails({ id, status: "failed", error })
+    return { status: "failed", error }
+  }
 
   // Claim: flip to sending so a double-click can't double-send.
   await sesEmails.updateSesEmails({ id, status: "sending" })
@@ -59,12 +67,19 @@ export async function sendOutboxEmail(
       throw new Error(`Unsupported source_type: ${row.source_type}`)
     }
 
+    // Test override: when set, deliver to this inbox instead of the real
+    // recipient (the row still records the intended customer). Suppression above
+    // still applies so this can't bypass an unsubscribe.
+    const to = opts?.overrideTo?.trim() || row.to_email
+
     const { messageId } = await sendCampaignEmail({
-      to: row.to_email,
+      to,
       customerId: row.customer_id,
       subject,
       html,
       campaignId: row.source_id,
+      // Weekly actions are a planeta.de campaign → send from email.planeta.de.
+      account: row.source_type === "weekly_action" ? "planeta" : "industries",
     })
 
     await sesEmails.updateSesEmails({

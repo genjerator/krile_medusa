@@ -10,8 +10,11 @@ import { model } from "@medusajs/framework/utils"
  */
 const SesBatch = model.define("ses_batch", {
   id: model.id().primaryKey(),
-  source_type: model.text(), // "weekly_action"
-  source_id: model.text(),
+  // Campaign ref — NULLABLE: a batch can be built as a campaign-agnostic audience
+  // segment first, then have a campaign assigned later (stamped onto the batch and
+  // all its ses_emails rows). null = unassigned (not sendable yet).
+  source_type: model.text().nullable(), // "weekly_action"
+  source_id: model.text().nullable(),
   audience: model.text().default("test"), // "test" now; a customer-group id later
   // null = not scheduled (draft / send-now); a timestamp = fire at/after it.
   scheduled_at: model.dateTime().nullable(),
