@@ -4,11 +4,11 @@ import { createProductVariantsWorkflow } from "@medusajs/core-flows"
 import { VACUUM_BAG_MODULE } from "../../modules/vacuumBag"
 import {
   OPTION_FARBE,
-  OPTION_STAERKE,
+  OPTION_TYP,
   OPTION_BREITE,
   OPTION_HOEHE,
   colorOptionValue,
-  thicknessOptionValue,
+  typeOptionValue,
   widthOptionValue,
   heightOptionValue,
   skuFor,
@@ -19,7 +19,7 @@ const PRODUCT_HANDLE = "vakuumiertueten"
 
 type Input = {
   color: string // colour slug
-  thickness_um: number
+  type: string // type (product line) slug
   width_mm: number
   height_mm: number
 }
@@ -46,16 +46,17 @@ export const resolveVacuumBagVariantStep = createStep(
     const productModule: any = container.resolve(Modules.PRODUCT)
     const vacuumBag: any = container.resolve(VACUUM_BAG_MODULE)
 
-    // 1) Matrix lookup — defines both price and availability.
+    // 1) Matrix lookup — defines both price and availability. Colour is cosmetic,
+    //    so the price is keyed by (type, width, height) only; every colour is
+    //    priced like the Transparent row.
     const { data: rows } = await query.graph({
       entity: "vacuum_bag_price",
-      fields: ["price", "currency_code", "color.slug", "color.name"],
+      fields: ["price", "currency_code", "type.name"],
       filters: {
-        thickness_um: input.thickness_um,
         width_mm: input.width_mm,
         height_mm: input.height_mm,
         active: true,
-        color: { slug: input.color },
+        type: { slug: input.type },
       } as any,
     })
     const row: any = rows[0]
@@ -66,7 +67,22 @@ export const resolveVacuumBagVariantStep = createStep(
       )
     }
 
-    const colorName: string = row.color?.name ?? input.color
+    // The chosen colour (for the variant option value + title). It drives no
+    // price, only the SKU/variant and the displayed name.
+    const { data: colorRows } = await query.graph({
+      entity: "vacuum_bag_color",
+      fields: ["name"],
+      filters: { slug: input.color, active: true } as any,
+    })
+    if (!colorRows[0]) {
+      throw new MedusaError(
+        MedusaError.Types.INVALID_DATA,
+        "Diese Farbe ist nicht verfügbar."
+      )
+    }
+
+    const colorName: string = colorRows[0]?.name ?? input.color
+    const typeName: string = row.type?.name ?? input.type
     const unit_price: number = row.price
     const currency_code: string = row.currency_code ?? "eur"
 
@@ -85,7 +101,7 @@ export const resolveVacuumBagVariantStep = createStep(
     const packSize = config?.pack_size ?? 1000
 
     // 3) Find-or-create the variant by its deterministic SKU.
-    const sku = skuFor(input.color, input.thickness_um, input.width_mm, input.height_mm)
+    const sku = skuFor(input.color, input.type, input.width_mm, input.height_mm)
     const existing = await productModule.listProductVariants({ sku }, { take: 1 })
     if (existing[0]) {
       return new StepResponse<ResolvedVariant, string | null>(
@@ -103,7 +119,7 @@ export const resolveVacuumBagVariantStep = createStep(
               product_id: product.id,
               title: variantTitle(
                 colorName,
-                input.thickness_um,
+                typeName,
                 input.width_mm,
                 input.height_mm,
                 packSize
@@ -112,7 +128,7 @@ export const resolveVacuumBagVariantStep = createStep(
               manage_inventory: false,
               options: {
                 [OPTION_FARBE]: colorOptionValue(colorName),
-                [OPTION_STAERKE]: thicknessOptionValue(input.thickness_um),
+                [OPTION_TYP]: typeOptionValue(typeName),
                 [OPTION_BREITE]: widthOptionValue(input.width_mm),
                 [OPTION_HOEHE]: heightOptionValue(input.height_mm),
               },

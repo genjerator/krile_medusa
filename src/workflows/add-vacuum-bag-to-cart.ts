@@ -5,7 +5,7 @@ import { resolveVacuumBagVariantStep } from "./steps/resolve-vacuum-bag-variant"
 type Input = {
   cart_id: string
   color: string
-  thickness_um: number
+  type: string // type (product line) slug
   width_mm: number
   height_mm: number
   quantity: number // number of packs
@@ -23,7 +23,7 @@ const addVacuumBagToCartWorkflow = createWorkflow(
     const resolved = resolveVacuumBagVariantStep(
       transform({ input }, ({ input }) => ({
         color: input.color,
-        thickness_um: input.thickness_um,
+        type: input.type,
         width_mm: input.width_mm,
         height_mm: input.height_mm,
       }))
