@@ -4,12 +4,13 @@ import { ContainerRegistrationKeys } from "@medusajs/framework/utils"
 /**
  * Dropdown data for the `/vakuumiertuten-rollen` configurator.
  *
- * Returns the colours (with hover-preview image + hex chip), the pack size, the
- * default colour, and the **full active price matrix** as `combinations`. The
- * storefront drives everything from `combinations`: the thickness/width/height
- * dropdowns offer only values that appear there (cascading availability), and the
- * live price is a client-side lookup — no per-keystroke round-trip. `/price`
- * exists for an authoritative server check; add-to-cart re-validates anyway.
+ * Returns the colours (hover-preview image + hex chip), the product-line types
+ * (with their fixed µm + preview image), the pack size, the defaults, and the
+ * **full active price matrix** as `combinations`. The storefront drives
+ * everything from `combinations`: the type/width/height dropdowns offer only
+ * values that appear there (cascading availability), and the live price is a
+ * client-side lookup — no per-keystroke round-trip. `/price` exists for an
+ * authoritative server check; add-to-cart re-validates anyway.
  */
 export async function GET(req: MedusaRequest, res: MedusaResponse) {
   const query = req.scope.resolve(ContainerRegistrationKeys.QUERY)
@@ -27,6 +28,22 @@ export async function GET(req: MedusaRequest, res: MedusaResponse) {
     filters: { active: true } as any,
   })
 
+  const { data: types } = await query.graph({
+    entity: "vacuum_bag_type",
+    fields: [
+      "id",
+      "name",
+      "slug",
+      "thickness_um",
+      "description",
+      "image_url",
+      "rank",
+      "is_default",
+      "active",
+    ],
+    filters: { active: true } as any,
+  })
+
   const { data: prices } = await query.graph({
     entity: "vacuum_bag_price",
     fields: [
@@ -36,19 +53,24 @@ export async function GET(req: MedusaRequest, res: MedusaResponse) {
       "price",
       "currency_code",
       "active",
-      "color.slug",
+      "type.slug",
     ],
     filters: { active: true } as any,
   })
 
-  const combinations = prices.map((p: any) => ({
-    color: p.color?.slug,
-    thickness_um: p.thickness_um,
-    width_mm: p.width_mm,
-    height_mm: p.height_mm,
-    price: p.price,
-    currency_code: p.currency_code,
-  }))
+  // Colour is cosmetic — price depends only on (type, width, height). So the
+  // matrix (Transparent rows) drives availability + price; the chosen colour just
+  // swaps the image and the variant/SKU.
+  const combinations = prices
+    .filter((p: any) => p.type?.slug)
+    .map((p: any) => ({
+      type: p.type?.slug,
+      thickness_um: p.thickness_um,
+      width_mm: p.width_mm,
+      height_mm: p.height_mm,
+      price: p.price,
+      currency_code: p.currency_code,
+    }))
 
   const sortedColors = [...colors].sort(
     (a: any, b: any) => (a.rank ?? 0) - (b.rank ?? 0)
@@ -59,12 +81,21 @@ export async function GET(req: MedusaRequest, res: MedusaResponse) {
     sortedColors[0]?.slug ??
     null
 
-  const distinct = (key: "thickness_um" | "width_mm" | "height_mm") =>
+  const sortedTypes = [...types].sort(
+    (a: any, b: any) => (a.rank ?? 0) - (b.rank ?? 0)
+  )
+  const defaultType =
+    sortedTypes.find((t: any) => t.is_default)?.slug ??
+    sortedTypes[0]?.slug ??
+    null
+
+  const distinct = (key: "width_mm" | "height_mm") =>
     [...new Set(combinations.map((c) => c[key] as number))].sort((a, b) => a - b)
 
   return res.json({
     pack_size: config?.pack_size ?? 1000,
     default_color: defaultColor,
+    default_type: defaultType,
     colors: sortedColors.map((c: any) => ({
       slug: c.slug,
       name: c.name,
@@ -72,7 +103,14 @@ export async function GET(req: MedusaRequest, res: MedusaResponse) {
       image_url: c.image_url,
       is_default: c.is_default,
     })),
-    thicknesses: distinct("thickness_um"),
+    types: sortedTypes.map((t: any) => ({
+      slug: t.slug,
+      name: t.name,
+      thickness_um: t.thickness_um,
+      description: t.description,
+      image_url: t.image_url,
+      is_default: t.is_default,
+    })),
     widths: distinct("width_mm"),
     heights: distinct("height_mm"),
     combinations,
