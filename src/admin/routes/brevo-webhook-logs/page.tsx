@@ -16,6 +16,9 @@ type WebhookLog = {
   campaign_id: number | string | null
   matched: boolean
   created_at: string
+  // SES only: the clicked URL and the product handle parsed from it (Click events).
+  link?: string | null
+  product?: string | null
 }
 
 type LogsResponse = {
@@ -26,15 +29,15 @@ type LogsResponse = {
 }
 
 const SOURCES: Record<Source, { label: string; endpoint: string; note: string }> = {
-  brevo: {
-    label: "Brevo",
-    endpoint: "/admin/brevo-webhook-logs",
-    note: "empfangene Brevo-Ereignisse (30 Tage Aufbewahrung) — neueste zuerst",
-  },
   ses: {
     label: "SES (Kampagnen)",
     endpoint: "/admin/ses-event-logs",
     note: "empfangene SES-Ereignisse (Öffnen/Klick/Zustellung/Bounce) — neueste zuerst",
+  },
+  brevo: {
+    label: "Brevo",
+    endpoint: "/admin/brevo-webhook-logs",
+    note: "empfangene Brevo-Ereignisse (30 Tage Aufbewahrung) — neueste zuerst",
   },
 }
 
@@ -42,7 +45,7 @@ const formatDateTime = (iso: string | null | undefined) =>
   iso ? new Date(iso).toLocaleString("de-DE") : "—"
 
 const BrevoWebhookLogsPage = () => {
-  const [source, setSource] = useState<Source>("brevo")
+  const [source, setSource] = useState<Source>("ses")
   const [search, setSearch] = useState("")
   const [page, setPage] = useState(0)
 
@@ -120,6 +123,7 @@ const BrevoWebhookLogsPage = () => {
               <Table.HeaderCell>Ereignis</Table.HeaderCell>
               <Table.HeaderCell>E-Mail</Table.HeaderCell>
               <Table.HeaderCell className="text-right">Kampagne</Table.HeaderCell>
+              {source === "ses" && <Table.HeaderCell>Ziel / Produkt</Table.HeaderCell>}
               <Table.HeaderCell>Kunde zugeordnet</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
@@ -134,6 +138,23 @@ const BrevoWebhookLogsPage = () => {
                 <Table.Cell className="text-right">
                   {row.campaign_id ?? "—"}
                 </Table.Cell>
+                {source === "ses" && (
+                  <Table.Cell>
+                    {row.link ? (
+                      <a
+                        href={row.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-ui-fg-interactive hover:underline"
+                        title={row.link}
+                      >
+                        {row.product ?? row.link}
+                      </a>
+                    ) : (
+                      "—"
+                    )}
+                  </Table.Cell>
+                )}
                 <Table.Cell>
                   {row.matched ? (
                     <Badge size="2xsmall" color="green">

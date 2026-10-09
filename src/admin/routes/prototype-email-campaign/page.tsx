@@ -94,6 +94,7 @@ const BatchOutbox = ({
       else toast.success(`Gesendet an ${dest}`)
       queryClient.invalidateQueries({ queryKey: ["ec-batch-outbox", batchId] })
       queryClient.invalidateQueries({ queryKey: ["ec-batches"] })
+      queryClient.invalidateQueries({ queryKey: ["ec-test-batch"] })
     },
     onError: (err: any, row) => {
       toast.error(`Senden an ${row?.to_email} fehlgeschlagen: ${err?.message ?? "Fehler"}`)
@@ -187,14 +188,12 @@ const EmailCampaignPage = () => {
     return a ? `${a.title} (KW${a.iso_week}/${a.year})` : id
   }
 
-  // Outbox (ses_emails) for the selected weekly action's test batch.
-  const batchId = selectedId ? `test:weekly_action:${selectedId}` : ""
-  const { data: outboxData, isLoading: outboxLoading } = useQuery({
-    queryKey: ["ec-outbox", batchId],
-    queryFn: () =>
-      sdk.client.fetch<OutboxResponse>("/admin/ses-emails", { query: { batch_id: batchId } }),
-    enabled: !!batchId,
+  // Test batch (a real ses_batch, audience "test") for the selected weekly action.
+  const { data: testBatchesData } = useQuery({
+    queryKey: ["ec-test-batch"],
+    queryFn: () => sdk.client.fetch<BatchesResponse>("/admin/ses-batches", { query: { audience: "test" } }),
   })
+  const testBatch = testBatchesData?.batches?.[0] ?? null
 
   const generate = useMutation({
     mutationFn: () =>
@@ -203,28 +202,10 @@ const EmailCampaignPage = () => {
         { method: "POST", body: { source_id: selectedId, source_type: "weekly_action" } }
       ),
     onSuccess: (res) => {
-      toast.success(`Generiert: ${res.pending} offen, ${res.skipped} übersprungen (${res.total} gesamt)`)
-      queryClient.invalidateQueries({ queryKey: ["ec-outbox", batchId] })
+      toast.success(`Test-Batch generiert: ${res.pending} offen, ${res.skipped} übersprungen (${res.total} gesamt)`)
+      queryClient.invalidateQueries({ queryKey: ["ec-test-batch"] })
     },
     onError: (err: any) => toast.error(`Generieren fehlgeschlagen: ${err?.message ?? "Fehler"}`),
-  })
-
-  const sendOutbox = useMutation({
-    mutationFn: (row: OutboxEmail) =>
-      sdk.client.fetch<{ status: string }>(`/admin/ses-emails/${row.id}/send`, {
-        method: "POST",
-        body: redirectTest && testEmail.trim() ? { override_to: testEmail.trim() } : {},
-      }),
-    onSuccess: (res, row) => {
-      const dest = redirectTest && testEmail.trim() ? testEmail.trim() : row.to_email
-      if (res.status === "skipped") toast.warning(`${row.to_email}: übersprungen (abgemeldet)`)
-      else toast.success(`Gesendet an ${dest}`)
-      queryClient.invalidateQueries({ queryKey: ["ec-outbox", batchId] })
-    },
-    onError: (err: any, row) => {
-      toast.error(`Senden an ${row?.to_email} fehlgeschlagen: ${err?.message ?? "Fehler"}`)
-      queryClient.invalidateQueries({ queryKey: ["ec-outbox", batchId] })
-    },
   })
 
   // Campaign batches (the "ramp" segment built by seed-campaign-batches).
@@ -257,11 +238,13 @@ const EmailCampaignPage = () => {
     onSuccess: (res, b) => {
       toast.success(`${b.audience}: ${res.sent} gesendet, ${res.skipped} übersprungen, ${res.failed} Fehler`)
       queryClient.invalidateQueries({ queryKey: ["ec-batches"] })
+      queryClient.invalidateQueries({ queryKey: ["ec-test-batch"] })
       queryClient.invalidateQueries({ queryKey: ["ec-batch-outbox", b.id] })
     },
     onError: (err: any, b) => {
       toast.error(`${b.audience}: Senden fehlgeschlagen: ${err?.message ?? "Fehler"}`)
       queryClient.invalidateQueries({ queryKey: ["ec-batches"] })
+      queryClient.invalidateQueries({ queryKey: ["ec-test-batch"] })
     },
   })
 
@@ -274,7 +257,6 @@ const EmailCampaignPage = () => {
   }
 
   const users = data?.test_users ?? []
-  const outbox = outboxData?.emails ?? []
 
   return (
     <Container className="divide-y p-0">
@@ -354,21 +336,16 @@ const EmailCampaignPage = () => {
         )}
       </div>
 
-      {/* Outbox (ses_emails) for the selected weekly action */}
+      {/* Global test redirect — applies to every send on this page (test + ramp). */}
       <div className="px-6 py-4">
-        <Text size="small" weight="plus" className="mb-3">
-          Generierte E-Mails <span className="text-ui-fg-subtle">(Outbox — ses_emails)</span>
-        </Text>
-
-        {/* Test override: force every "Senden" to one inbox (for testing). */}
-        <div className="mb-3 flex items-center gap-x-2">
+        <div className="flex items-center gap-x-2">
           <Checkbox
             id="redirect-test"
             checked={redirectTest}
             onCheckedChange={(v) => setRedirectTest(v === true)}
           />
           <label htmlFor="redirect-test" className="text-ui-fg-subtle text-sm">
-            Test: alle E-Mails an diese Adresse senden
+            Testmodus: alle Sendungen (Test- und Kampagnen-Batches) an diese Adresse umleiten
           </label>
           <Input
             size="small"
@@ -380,47 +357,91 @@ const EmailCampaignPage = () => {
             className="w-64"
           />
         </div>
-        {!selectedId ? (
-          <Text className="text-ui-fg-subtle">Wochenaktion wählen.</Text>
-        ) : outboxLoading ? (
-          <Text className="text-ui-fg-subtle">Lädt…</Text>
-        ) : outbox.length === 0 ? (
-          <Text className="text-ui-fg-subtle">Noch nichts generiert — oben auf „E-Mails für Testkunden generieren“ klicken.</Text>
+      </div>
+
+      {/* Test batch (a real ses_batch, audience "test") */}
+      <div className="px-6 py-4">
+        <Text size="small" weight="plus" className="mb-1">
+          Test-Batch <span className="text-ui-fg-subtle">(Audience „test“ — ses_batch)</span>
+        </Text>
+        <Text size="small" leading="compact" className="text-ui-fg-subtle mb-3">
+          Eigener Batch für die Testempfänger — wie ein Kampagnen-Batch. „Test-E-Mails … generieren“ (oben)
+          erstellt bzw. ersetzt ihn für die gewählte Wochenaktion.
+        </Text>
+
+        {!testBatch ? (
+          <Text className="text-ui-fg-subtle">
+            Noch nichts generiert — oben auf „Test-E-Mails für diese Wochenaktion generieren“ klicken.
+          </Text>
         ) : (
           <Table>
             <Table.Header>
               <Table.Row>
-                <Table.HeaderCell>Wochenaktion</Table.HeaderCell>
-                <Table.HeaderCell>E-Mail</Table.HeaderCell>
+                <Table.HeaderCell>Batch</Table.HeaderCell>
+                <Table.HeaderCell>Kampagne</Table.HeaderCell>
                 <Table.HeaderCell>Status</Table.HeaderCell>
-                <Table.HeaderCell>Generiert</Table.HeaderCell>
-                <Table.HeaderCell>Gesendet</Table.HeaderCell>
+                <Table.HeaderCell className="text-right">Empfänger</Table.HeaderCell>
+                <Table.HeaderCell className="text-right">Offen</Table.HeaderCell>
+                <Table.HeaderCell className="text-right">Gesendet</Table.HeaderCell>
+                <Table.HeaderCell className="text-right">Fehler</Table.HeaderCell>
+                <Table.HeaderCell className="text-right">Überspr.</Table.HeaderCell>
                 <Table.HeaderCell />
               </Table.Row>
             </Table.Header>
             <Table.Body>
-              {outbox.map((e) => (
-                <Table.Row key={e.id}>
-                  <Table.Cell>{waLabel(e.source_id)}</Table.Cell>
-                  <Table.Cell>{e.to_email}</Table.Cell>
-                  <Table.Cell>
-                    <Badge color={statusColor(e.status)} size="2xsmall">{e.status}</Badge>
-                  </Table.Cell>
-                  <Table.Cell>{fmt(e.generated_at)}</Table.Cell>
-                  <Table.Cell>{fmt(e.sent_at)}</Table.Cell>
-                  <Table.Cell className="text-right">
-                    <Button
-                      size="small"
-                      variant="secondary"
-                      disabled={e.status === "sent" || e.status === "sending" || sendOutbox.isPending}
-                      isLoading={sendOutbox.isPending && sendOutbox.variables?.id === e.id}
-                      onClick={() => sendOutbox.mutate(e)}
-                    >
-                      Senden
-                    </Button>
-                  </Table.Cell>
-                </Table.Row>
-              ))}
+              {(() => {
+                const b = testBatch
+                const pending = b.counts.pending ?? 0
+                const isExpanded = expanded === b.id
+                return (
+                  <Fragment key={b.id}>
+                    <Table.Row>
+                      <Table.Cell>{b.audience}</Table.Cell>
+                      <Table.Cell>
+                        {b.source_id ? (
+                          waLabel(b.source_id)
+                        ) : (
+                          <Badge color="orange" size="2xsmall">nicht zugewiesen</Badge>
+                        )}
+                      </Table.Cell>
+                      <Table.Cell>
+                        <Badge color={statusColor(b.status)} size="2xsmall">{b.status}</Badge>
+                      </Table.Cell>
+                      <Table.Cell className="text-right">{b.total}</Table.Cell>
+                      <Table.Cell className="text-right">{pending}</Table.Cell>
+                      <Table.Cell className="text-right">{b.counts.sent ?? 0}</Table.Cell>
+                      <Table.Cell className="text-right">{b.counts.failed ?? 0}</Table.Cell>
+                      <Table.Cell className="text-right">{b.counts.skipped ?? 0}</Table.Cell>
+                      <Table.Cell className="text-right">
+                        <div className="flex items-center justify-end gap-x-2">
+                          <Button
+                            size="small"
+                            disabled={pending === 0 || (sendBatch.isPending && sendBatch.variables?.id === b.id)}
+                            isLoading={sendBatch.isPending && sendBatch.variables?.id === b.id}
+                            onClick={() => confirmSendBatch(b)}
+                          >
+                            Ganzen Batch senden
+                          </Button>
+                          <Button
+                            size="small"
+                            variant="transparent"
+                            onClick={() => setExpanded(isExpanded ? null : b.id)}
+                          >
+                            {isExpanded ? "Verbergen" : "Anzeigen"}
+                          </Button>
+                        </div>
+                      </Table.Cell>
+                    </Table.Row>
+                    {isExpanded && (
+                      <Table.Row key={`${b.id}-rows`}>
+                        <Table.Cell colSpan={9} className="p-0">
+                          <BatchOutbox batchId={b.id} redirectTest={redirectTest} testEmail={testEmail} />
+                        </Table.Cell>
+                      </Table.Row>
+                    )}
+                  </Fragment>
+                )
+              })()}
             </Table.Body>
           </Table>
         )}

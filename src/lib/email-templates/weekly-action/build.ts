@@ -45,7 +45,7 @@ export async function buildWeeklyActionEmail(
   const { data: actions } = await query.graph({
     entity: "weekly_action",
     filters: { id: opts.weeklyActionId },
-    fields: ["id", "title", "ends_at", "iso_week", "year", "items.product_id", "items.rank"],
+    fields: ["id", "title", "email_subject", "ends_at", "iso_week", "year", "items.product_id", "items.rank"],
   })
   const wa: any = actions[0]
   if (!wa) throw new Error(`Weekly action ${opts.weeklyActionId} not found`)
@@ -108,5 +108,6 @@ export async function buildWeeklyActionEmail(
     },
   })
 
-  return { subject: wa.title || "Wochenaktion", html, productCount: emailProducts.length }
+  const subject = (wa.email_subject && String(wa.email_subject).trim()) || wa.title || "Wochenaktion"
+  return { subject, html, productCount: emailProducts.length }
 }

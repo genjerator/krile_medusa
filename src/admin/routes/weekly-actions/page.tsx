@@ -29,6 +29,7 @@ type WeeklyActionItem = {
 type WeeklyAction = {
   id: string
   title: string
+  email_subject: string | null
   year: number
   iso_week: number
   starts_at: string
@@ -148,6 +149,7 @@ const EditDrawer = ({
   const open = !!action
 
   const [title, setTitle] = useState("")
+  const [emailSubject, setEmailSubject] = useState("")
   const [startsAt, setStartsAt] = useState("")
   const [endsAt, setEndsAt] = useState("")
   const [defaultType, setDefaultType] = useState<DiscountType>("percentage")
@@ -211,6 +213,7 @@ const EditDrawer = ({
     if (!action) return
     setEmailReady(!!action.email_generated)
     setTitle(action.title)
+    setEmailSubject(action.email_subject ?? "")
     setStartsAt(toLocalInput(action.starts_at))
     setEndsAt(toLocalInput(action.ends_at))
     setDefaultType(action.default_discount_type)
@@ -318,6 +321,7 @@ const EditDrawer = ({
     }
     save.mutate({
       title,
+      email_subject: emailSubject,
       starts_at: new Date(startsAt).toISOString(),
       ends_at: new Date(endsAt).toISOString(),
       default_discount_type: defaultType,
@@ -343,6 +347,18 @@ const EditDrawer = ({
               <div className="flex flex-col gap-y-1">
                 <Label size="small">Title</Label>
                 <Input value={title} onChange={(e) => setTitle(e.target.value)} />
+              </div>
+
+              <div className="flex flex-col gap-y-1">
+                <Label size="small">E-Mail-Betreff (Kampagne)</Label>
+                <Input
+                  value={emailSubject}
+                  onChange={(e) => setEmailSubject(e.target.value)}
+                  placeholder={title || "Betreffzeile für die E-Mail"}
+                />
+                <Text size="xsmall" className="text-ui-fg-subtle">
+                  Betreffzeile der E-Mail. Leer = Titel wird verwendet.
+                </Text>
               </div>
 
               <div className="grid grid-cols-2 gap-3">

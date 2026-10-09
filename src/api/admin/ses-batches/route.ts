@@ -11,9 +11,10 @@ export async function GET(req: AuthenticatedMedusaRequest, res: MedusaResponse) 
   const pg = req.scope.resolve(ContainerRegistrationKeys.PG_CONNECTION)
   const audience = typeof req.query.audience === "string" && req.query.audience ? req.query.audience : "ramp"
 
+  // Match a segment: "ramp" → ramp#01…, "test" → the single "test" batch.
   const batches = await pg("ses_batch")
     .whereNull("deleted_at")
-    .where("audience", "like", `${audience}#%`)
+    .where((b: any) => b.where("audience", audience).orWhere("audience", "like", `${audience}#%`))
     .select(
       "id",
       "audience",

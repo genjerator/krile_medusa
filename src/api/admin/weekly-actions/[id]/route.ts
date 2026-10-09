@@ -16,6 +16,7 @@ import { revalidateStorefronts } from "../../../../lib/revalidate"
 const FIELDS = [
   "id",
   "title",
+  "email_subject",
   "year",
   "iso_week",
   "starts_at",

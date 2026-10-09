@@ -23,6 +23,7 @@ export type CreateWeeklyActionInput = {
 export type UpdateWeeklyActionInput = {
   id: string
   title?: string
+  email_subject?: string | null
   starts_at?: string | Date
   ends_at?: string | Date
   default_discount_type?: "percentage" | "fixed"
@@ -95,6 +96,8 @@ export const updateWeeklyActionStep = createStep(
 
     const data: any = { id: input.id }
     if (input.title !== undefined) data.title = input.title
+    if (input.email_subject !== undefined)
+      data.email_subject = input.email_subject?.trim() ? input.email_subject.trim() : null
     if (input.starts_at !== undefined) data.starts_at = new Date(input.starts_at)
     if (input.ends_at !== undefined) data.ends_at = new Date(input.ends_at)
     if (input.default_discount_type !== undefined)

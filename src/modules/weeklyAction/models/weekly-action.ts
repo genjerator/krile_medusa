@@ -15,6 +15,10 @@ import WeeklyActionItem from "./weekly-action-item"
 const WeeklyAction = model.define("weekly_action", {
   id: model.id().primaryKey(),
   title: model.text(),
+  // Subject line used when this campaign is sent as an email. Nullable: falls back
+  // to `title` when empty (see buildWeeklyActionEmail). The internal `title` is the
+  // admin-facing name; this is the customer-facing subject.
+  email_subject: model.text().nullable(),
   // Calendar slot (ISO week). Uniqueness of year+week enforced in the workflow.
   year: model.number(),
   iso_week: model.number(),

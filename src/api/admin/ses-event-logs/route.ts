@@ -27,5 +27,27 @@ export const GET = async (req: AuthenticatedMedusaRequest, res: MedusaResponse) 
     order: { created_at: "DESC" },
   })
 
-  res.json({ logs, count, limit, offset })
+  // For Click events, surface the clicked URL + the product it points at. The
+  // weekly-action links carry the product handle in the path (/product/<handle>)
+  // and in utm_content, so the product is recoverable from the link. Drop the bulky
+  // raw payload from the response.
+  const shaped = (logs as any[]).map((l) => {
+    const link: string | null = l?.payload?.click?.link ?? null
+    let product: string | null = null
+    if (link) {
+      try {
+        const u = new URL(link)
+        product =
+          u.searchParams.get("utm_content") ||
+          u.pathname.match(/\/product\/([^/?#]+)/)?.[1] ||
+          null
+      } catch {
+        /* non-URL link — leave product null */
+      }
+    }
+    const { payload, ...rest } = l
+    return { ...rest, link, product }
+  })
+
+  res.json({ logs: shaped, count, limit, offset })
 }

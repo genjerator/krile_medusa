@@ -21,6 +21,8 @@ export type CreateWeeklyActionSchema = z.infer<typeof CreateWeeklyActionSchema>
 
 export const UpdateWeeklyActionSchema = z.object({
   title: z.string().min(1).optional(),
+  // Empty string clears it (→ falls back to title at send time).
+  email_subject: z.string().nullable().optional(),
   starts_at: z.coerce.date().optional(),
   ends_at: z.coerce.date().optional(),
   default_discount_type: z.enum(["percentage", "fixed"]).optional(),
