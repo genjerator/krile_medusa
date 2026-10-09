@@ -13,6 +13,9 @@ import {
   heightOptionValue,
   skuFor,
   variantTitle,
+  priceForPack,
+  DEFAULT_PACK_SIZE,
+  PACK_SIZES,
 } from "../../lib/vacuum-bag"
 
 const PRODUCT_HANDLE = "vakuumiertueten"
@@ -22,6 +25,7 @@ type Input = {
   type: string // type (product line) slug
   width_mm: number
   height_mm: number
+  pack_size?: number // Stück per pack (1000 base | 100 small); default 1000
 }
 
 export type ResolvedVariant = {
@@ -83,10 +87,17 @@ export const resolveVacuumBagVariantStep = createStep(
 
     const colorName: string = colorRows[0]?.name ?? input.color
     const typeName: string = row.type?.name ?? input.type
-    const unit_price: number = row.price
     const currency_code: string = row.currency_code ?? "eur"
 
-    // 2) The single configurable product + its pack size (for the variant title).
+    // Pack size: 1000 (matrix base) or the derived 100-Stück pack. The matrix
+    // price is per 1000; the 100-pack price is computed from it (single source in
+    // lib/vacuum-bag). Guard against an unexpected value.
+    const packSize = PACK_SIZES.includes(input.pack_size as any)
+      ? (input.pack_size as number)
+      : DEFAULT_PACK_SIZE
+    const unit_price: number = priceForPack(row.price, packSize)
+
+    // 2) The single configurable product.
     const [product] = await productModule.listProducts(
       { handle: PRODUCT_HANDLE },
       { take: 1 }
@@ -97,11 +108,9 @@ export const resolveVacuumBagVariantStep = createStep(
         `Configurable product "${PRODUCT_HANDLE}" not found — run seed-vacuum-bags.`
       )
     }
-    const [config] = await vacuumBag.listVacuumBagConfigs({ active: true })
-    const packSize = config?.pack_size ?? 1000
 
-    // 3) Find-or-create the variant by its deterministic SKU.
-    const sku = skuFor(input.color, input.type, input.width_mm, input.height_mm)
+    // 3) Find-or-create the variant by its deterministic SKU (pack-size aware).
+    const sku = skuFor(input.color, input.type, input.width_mm, input.height_mm, packSize)
     const existing = await productModule.listProductVariants({ sku }, { take: 1 })
     if (existing[0]) {
       return new StepResponse<ResolvedVariant, string | null>(

@@ -9,6 +9,7 @@ type Input = {
   width_mm: number
   height_mm: number
   quantity: number // number of packs
+  pack_size?: number // Stück per pack (1000 base | 100 small); default 1000
 }
 
 /**
@@ -26,6 +27,7 @@ const addVacuumBagToCartWorkflow = createWorkflow(
         type: input.type,
         width_mm: input.width_mm,
         height_mm: input.height_mm,
+        pack_size: input.pack_size,
       }))
     )
 

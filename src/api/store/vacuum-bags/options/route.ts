@@ -1,5 +1,10 @@
 import { MedusaRequest, MedusaResponse } from "@medusajs/framework/http"
 import { ContainerRegistrationKeys } from "@medusajs/framework/utils"
+import {
+  DEFAULT_PACK_SIZE,
+  SMALL_PACK_SIZE,
+  SMALL_PACK_SURCHARGE,
+} from "../../../../lib/vacuum-bag"
 
 /**
  * Dropdown data for the `/vakuumiertuten-rollen` configurator.
@@ -92,8 +97,20 @@ export async function GET(req: MedusaRequest, res: MedusaResponse) {
   const distinct = (key: "width_mm" | "height_mm") =>
     [...new Set(combinations.map((c) => c[key] as number))].sort((a, b) => a - b)
 
+  // The matrix `price` is per base pack (1000 Stück). The small 100-Stück pack is
+  // derived from it: base / (1000/100) × surcharge. Exposed so the storefront shows
+  // the exact price the backend charges (single source: lib/vacuum-bag).
+  const base_pack_size = config?.pack_size ?? DEFAULT_PACK_SIZE
+  const small_pack = {
+    size: SMALL_PACK_SIZE,
+    divisor: base_pack_size / SMALL_PACK_SIZE, // 10
+    surcharge: SMALL_PACK_SURCHARGE, // 1.7325 (+5% then +65%)
+  }
+
   return res.json({
-    pack_size: config?.pack_size ?? 1000,
+    pack_size: base_pack_size,
+    pack_sizes: [base_pack_size, SMALL_PACK_SIZE],
+    small_pack,
     default_color: defaultColor,
     default_type: defaultType,
     colors: sortedColors.map((c: any) => ({
