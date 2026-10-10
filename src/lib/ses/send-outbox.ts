@@ -1,6 +1,7 @@
 import { MedusaContainer } from "@medusajs/framework/types"
 import { ContainerRegistrationKeys } from "@medusajs/framework/utils"
 import { SES_EMAILS_MODULE } from "../../modules/sesEmails"
+import { SES_BATCH_MODULE } from "../../modules/sesBatch"
 import { MARKETING_MODULE } from "../../modules/marketing"
 import { sendCampaignEmail } from "./send"
 import { buildWeeklyActionEmail } from "../email-templates/weekly-action/build"
@@ -28,7 +29,9 @@ export async function sendOutboxEmail(
   opts?: { overrideTo?: string }
 ): Promise<SendOutboxResult> {
   const sesEmails: any = container.resolve(SES_EMAILS_MODULE)
+  const sesBatch: any = container.resolve(SES_BATCH_MODULE)
   const marketing: any = container.resolve(MARKETING_MODULE)
+  const pg: any = container.resolve(ContainerRegistrationKeys.PG_CONNECTION)
 
   const row = await sesEmails.retrieveSesEmail(id).catch(() => null)
   if (!row) throw new Error(`Outbox email ${id} not found`)
@@ -54,6 +57,45 @@ export async function sendOutboxEmail(
     return { status: "skipped" }
   }
 
+  // Tracking id + subject override. A campaign group-send (batch has a campaign_id)
+  // tracks per-group: the SES tag + unsubscribe token use the BATCH id, so opens /
+  // clicks / unsubscribes land on that group's customer_campaign rows. A prototype /
+  // ad-hoc batch keeps the old scheme (tracking id = the weekly-action source_id).
+  // A campaign may also override the email subject.
+  let trackingId = row.source_id as string
+  let subjectOverride: string | null = null
+  let campaignId: string | null = null
+  if (row.batch_id) {
+    const batch = await sesBatch.retrieveSesBatch(row.batch_id).catch(() => null)
+    if (batch?.campaign_id) {
+      trackingId = row.batch_id
+      campaignId = batch.campaign_id
+      const campaign = await marketing.retrieveEmailCampaign(batch.campaign_id).catch(() => null)
+      subjectOverride = (campaign?.subject ?? "").trim() || null
+    }
+  }
+
+  // 🔒 One-email-per-customer-per-campaign (authoritative). A campaign may assign a
+  // customer to several groups; they must still receive the email ONCE. If this
+  // customer already has a `sent` row in another group-send of the same campaign,
+  // skip. TEST customers (user_type="test") are exempt — they may be mailed
+  // repeatedly for QA.
+  if (campaignId && profile?.user_type !== "test") {
+    const dupe = await pg("ses_emails as e")
+      .join("ses_batch as b", "b.id", "e.batch_id")
+      .where("b.campaign_id", campaignId)
+      .whereNull("b.deleted_at")
+      .whereNot("e.batch_id", row.batch_id)
+      .where("e.customer_id", row.customer_id)
+      .where("e.status", "sent")
+      .select("e.id")
+      .first()
+    if (dupe) {
+      await sesEmails.updateSesEmails({ id, status: "skipped", error: "duplicate: already sent in this campaign" })
+      return { status: "skipped" }
+    }
+  }
+
   const attempts = (row.attempts ?? 0) + 1
   try {
     // Render the template (ref-based outbox → render at send time).
@@ -61,7 +103,7 @@ export async function sendOutboxEmail(
     let html: string
     if (row.source_type === "weekly_action") {
       const built = await buildWeeklyActionEmail(container, { weeklyActionId: row.source_id })
-      subject = built.subject
+      subject = subjectOverride || built.subject
       html = built.html
     } else {
       throw new Error(`Unsupported source_type: ${row.source_type}`)
@@ -77,7 +119,7 @@ export async function sendOutboxEmail(
       customerId: row.customer_id,
       subject,
       html,
-      campaignId: row.source_id,
+      campaignId: trackingId,
       // Weekly actions are a planeta.de campaign → send from email.planeta.de.
       account: row.source_type === "weekly_action" ? "planeta" : "industries",
     })
@@ -92,7 +134,7 @@ export async function sendOutboxEmail(
     })
     // Tracking: opens/clicks/bounces will attach via the webhook.
     await upsertCustomerCampaign(marketing, row.customer_id, "ses", {
-      campaign_id: row.source_id,
+      campaign_id: trackingId,
       sent_at: new Date().toISOString(),
     }).catch(() => {})
 
