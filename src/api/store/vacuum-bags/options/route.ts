@@ -59,16 +59,25 @@ export async function GET(req: MedusaRequest, res: MedusaResponse) {
       "currency_code",
       "active",
       "type.slug",
+      "color_id",
     ],
     filters: { active: true } as any,
   })
 
-  // Colour is cosmetic — price depends only on (type, width, height). So the
-  // matrix (Transparent rows) drives availability + price; the chosen colour just
-  // swaps the image and the variant/SKU.
+  // Map colour id → slug from the colours we already fetched (scalar color_id is
+  // always present on a price row; this avoids a relation traversal).
+  const colorSlugById = new Map<string, string>(
+    (colors as any[]).map((c: any) => [c.id, c.slug])
+  )
+
+  // Each row is a full (colour, type, width, height) → price. Transparent is priced
+  // across the whole matrix; other colours only in their specific rows. The
+  // storefront filters by the chosen colour to drive availability + price; a colour
+  // with no rows is shown as "coming soon".
   const combinations = prices
-    .filter((p: any) => p.type?.slug)
+    .filter((p: any) => p.type?.slug && p.color_id && colorSlugById.has(p.color_id))
     .map((p: any) => ({
+      color: colorSlugById.get(p.color_id),
       type: p.type?.slug,
       thickness_um: p.thickness_um,
       width_mm: p.width_mm,
