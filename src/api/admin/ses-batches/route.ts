@@ -6,15 +6,20 @@ import { ContainerRegistrationKeys } from "@medusajs/framework/utils"
  * Lists the send-run batches of a segment (default "ramp") for the prototype page,
  * each with LIVE per-status counts of its ses_emails rows (computed here so the
  * page is always accurate even before the sender maintains the ses_batch counters).
+ *
+ * Audience modes:
+ *   - "ramp" / "test"        → the ramp family (ramp#01…) / the single test batch
+ *   - "groups"               → every customer-list batch (audience "group:*")
+ *   - "group:<id>"           → the one batch for that customer list
+ * For group batches the customer-list NAME is resolved and returned as `group_name`.
  */
 export async function GET(req: AuthenticatedMedusaRequest, res: MedusaResponse) {
   const pg = req.scope.resolve(ContainerRegistrationKeys.PG_CONNECTION)
   const audience = typeof req.query.audience === "string" && req.query.audience ? req.query.audience : "ramp"
+  const isGroupMode = audience === "groups" || audience.startsWith("group:")
 
-  // Match a segment: "ramp" → ramp#01…, "test" → the single "test" batch.
-  const batches = await pg("ses_batch")
+  const q = pg("ses_batch")
     .whereNull("deleted_at")
-    .where((b: any) => b.where("audience", audience).orWhere("audience", "like", `${audience}#%`))
     .select(
       "id",
       "audience",
@@ -26,6 +31,32 @@ export async function GET(req: AuthenticatedMedusaRequest, res: MedusaResponse) 
       "created_at"
     )
     .orderBy("audience", "asc")
+
+  if (audience === "groups") {
+    q.where("audience", "like", "group:%")
+  } else if (audience.startsWith("group:")) {
+    q.where("audience", audience)
+  } else {
+    // Match a segment: "ramp" → ramp#01…, "test" → the single "test" batch.
+    q.where((b: any) => b.where("audience", audience).orWhere("audience", "like", `${audience}#%`))
+  }
+  const batches = await q
+
+  // Resolve customer-list names for group batches (audience "group:<id>").
+  if (isGroupMode && batches.length) {
+    const groupIds = batches
+      .map((b: any) => (b.audience.startsWith("group:") ? b.audience.slice("group:".length) : null))
+      .filter(Boolean)
+    if (groupIds.length) {
+      const groups = await pg("customer_group").whereIn("id", groupIds).select("id", "name")
+      const nameById: Record<string, string> = {}
+      for (const g of groups as any[]) nameById[g.id] = g.name
+      for (const b of batches as any[]) {
+        const gid = b.audience.startsWith("group:") ? b.audience.slice("group:".length) : null
+        b.group_name = gid ? nameById[gid] ?? null : null
+      }
+    }
+  }
 
   const ids = batches.map((b: any) => b.id)
   const counts: Record<string, Record<string, number>> = {}

@@ -46,6 +46,7 @@ export async function recordSesEvent(
   let when = new Date(mail?.timestamp ?? Date.now())
   let column: string | null = COLUMN_BY_TYPE[type] ?? null
   let suppress = false
+  let link: string | null = null // Click events only — the clicked URL
 
   switch (type) {
     case "Delivery":
@@ -56,6 +57,7 @@ export async function recordSesEvent(
       break
     case "Click":
       when = new Date(event?.click?.timestamp ?? Date.now())
+      link = event?.click?.link ?? null
       break
     case "Complaint":
       email = event?.complaint?.complainedRecipients?.[0]?.emailAddress ?? email
@@ -82,6 +84,7 @@ export async function recordSesEvent(
     email,
     message_id: messageId,
     campaign_id: campaignId,
+    link,
     matched: false,
     payload: event,
   }).catch(() => null)

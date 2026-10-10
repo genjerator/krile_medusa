@@ -54,8 +54,29 @@ type Batch = {
   scheduled_at: string | null
   total: number
   counts: Record<string, number>
+  group_name?: string | null
 }
 type BatchesResponse = { batches: Batch[]; count: number }
+
+type CustomerList = {
+  id: string
+  name: string
+  members: number
+  eligible: number
+  unsubscribed: number
+  no_email: number
+  created_at: string
+}
+type CustomerListsResponse = { lists: CustomerList[]; count: number }
+
+const SEGMENT_RULE_OPTIONS = [
+  { value: "all", label: "Alle (berechtigten) Kunden" },
+  { value: "clicked", label: "Hat (Brevo) geklickt" },
+  { value: "opened", label: "Hat (Brevo) geöffnet" },
+  { value: "buyer", label: "Hat bestellt" },
+  { value: "rest", label: "Rest (keine Aktivität)" },
+  { value: "user_type:test", label: "Testempfänger (user_type=test)" },
+]
 
 const fmt = (iso: string | null) => (iso ? new Date(iso).toLocaleString("de-DE") : "—")
 
@@ -140,6 +161,325 @@ const BatchOutbox = ({
           ))}
         </Table.Body>
       </Table>
+    </div>
+  )
+}
+
+/**
+ * Customer lists = native customer groups used as email audiences. For the selected
+ * weekly action you generate a send batch per list (POST /admin/ses-emails/generate
+ * with group_id) and send it (POST /admin/ses-batches/:id/send). Membership is
+ * managed in the native admin (Customers → Groups) or built by rule via
+ * POST /admin/customer-lists/from-segment.
+ */
+const CustomerListsSection = ({
+  selectedId,
+  waLabel,
+  redirectTest,
+  testEmail,
+}: {
+  selectedId: string
+  waLabel: (id: string) => string
+  redirectTest: boolean
+  testEmail: string
+}) => {
+  const queryClient = useQueryClient()
+  const [expanded, setExpanded] = useState<string | null>(null)
+  const [newName, setNewName] = useState("")
+  const [newRule, setNewRule] = useState("all")
+
+  const { data: listsData, isLoading } = useQuery({
+    queryKey: ["ec-customer-lists"],
+    queryFn: () => sdk.client.fetch<CustomerListsResponse>("/admin/customer-lists"),
+  })
+  const lists = listsData?.lists ?? []
+
+  const { data: groupBatchesData } = useQuery({
+    queryKey: ["ec-group-batches"],
+    queryFn: () => sdk.client.fetch<BatchesResponse>("/admin/ses-batches", { query: { audience: "groups" } }),
+  })
+  // audience "group:<id>" → batch, so each list row can show its generated batch.
+  const batchByGroup = useMemo(() => {
+    const m = new Map<string, Batch>()
+    for (const b of groupBatchesData?.batches ?? []) {
+      if (b.audience.startsWith("group:")) m.set(b.audience.slice("group:".length), b)
+    }
+    return m
+  }, [groupBatchesData])
+
+  const invalidate = () => {
+    queryClient.invalidateQueries({ queryKey: ["ec-customer-lists"] })
+    queryClient.invalidateQueries({ queryKey: ["ec-group-batches"] })
+  }
+
+  const createList = useMutation({
+    mutationFn: () =>
+      sdk.client.fetch<{ name: string; added: number; total: number }>(
+        "/admin/customer-lists/from-segment",
+        { method: "POST", body: { name: newName.trim(), rule: newRule } }
+      ),
+    onSuccess: (res) => {
+      toast.success(`Liste „${res.name}“: ${res.added} hinzugefügt (${res.total} gesamt)`)
+      setNewName("")
+      invalidate()
+    },
+    onError: (err: any) => toast.error(`Liste erstellen fehlgeschlagen: ${err?.message ?? "Fehler"}`),
+  })
+
+  const generate = useMutation({
+    mutationFn: (list: CustomerList) =>
+      sdk.client.fetch<{ pending: number; skipped: number; total: number }>(
+        "/admin/ses-emails/generate",
+        { method: "POST", body: { source_id: selectedId, source_type: "weekly_action", group_id: list.id } }
+      ),
+    onSuccess: (res, list) => {
+      toast.success(`${list.name}: ${res.pending} offen, ${res.skipped} übersprungen (${res.total} gesamt)`)
+      invalidate()
+    },
+    onError: (err: any, list) => toast.error(`${list.name}: Generieren fehlgeschlagen: ${err?.message ?? "Fehler"}`),
+  })
+
+  const sendBatch = useMutation({
+    mutationFn: (batch: Batch) =>
+      sdk.client.fetch<{ sent: number; skipped: number; failed: number }>(
+        `/admin/ses-batches/${batch.id}/send`,
+        { method: "POST", body: redirectTest && testEmail.trim() ? { override_to: testEmail.trim() } : {} }
+      ),
+    onSuccess: (res, batch) => {
+      toast.success(`Liste gesendet: ${res.sent} gesendet, ${res.skipped} übersprungen, ${res.failed} Fehler`)
+      invalidate()
+      queryClient.invalidateQueries({ queryKey: ["ec-batch-outbox", batch.id] })
+    },
+    onError: (err: any) => toast.error(`Senden fehlgeschlagen: ${err?.message ?? "Fehler"}`),
+  })
+
+  const confirmGenerate = (list: CustomerList) => {
+    if (!selectedId) {
+      toast.error("Zuerst eine Wochenaktion wählen.")
+      return
+    }
+    generate.mutate(list)
+  }
+
+  const confirmSend = (list: CustomerList, batch: Batch) => {
+    const pending = batch.counts.pending ?? 0
+    const dest = redirectTest && testEmail.trim() ? `Testadresse ${testEmail.trim()}` : "die echten Empfänger"
+    if (window.confirm(`Liste „${list.name}“ senden?\n\n${pending} offene E-Mail(s) → ${dest}.`)) {
+      sendBatch.mutate(batch)
+    }
+  }
+
+  return (
+    <div className="px-6 py-4">
+      <Text size="small" weight="plus" className="mb-1">
+        Kundenlisten <span className="text-ui-fg-subtle">(Kundengruppen als Verteiler)</span>
+      </Text>
+      <Text size="small" leading="compact" className="text-ui-fg-subtle mb-3">
+        Eine Liste ist eine Kundengruppe. Wähle oben eine Wochenaktion, „Generieren“ erzeugt die Sendung
+        für eine Liste, „Senden“ verschickt sie. Mitglieder pflegst du im normalen Admin unter
+        Kunden → Gruppen, oder du baust eine Liste per Regel unten. Der Test-Umleitungsschalter oben gilt auch hier.
+      </Text>
+
+      {/* Build a list by rule */}
+      <div className="flex flex-wrap items-end gap-2 mb-4">
+        <div className="flex flex-col gap-1">
+          <Text size="xsmall" className="text-ui-fg-subtle">Neue Liste (Name)</Text>
+          <Input
+            size="small"
+            value={newName}
+            onChange={(e) => setNewName(e.target.value)}
+            placeholder="z. B. Segment: Klicker"
+            className="w-64"
+          />
+        </div>
+        <div className="flex flex-col gap-1">
+          <Text size="xsmall" className="text-ui-fg-subtle">Regel</Text>
+          <Select value={newRule} onValueChange={setNewRule}>
+            <Select.Trigger className="w-64">
+              <Select.Value />
+            </Select.Trigger>
+            <Select.Content>
+              {SEGMENT_RULE_OPTIONS.map((o) => (
+                <Select.Item key={o.value} value={o.value}>{o.label}</Select.Item>
+              ))}
+            </Select.Content>
+          </Select>
+        </div>
+        <Button
+          size="small"
+          variant="secondary"
+          disabled={!newName.trim() || createList.isPending}
+          isLoading={createList.isPending}
+          onClick={() => createList.mutate()}
+        >
+          Liste aus Regel erstellen
+        </Button>
+      </div>
+
+      {isLoading ? (
+        <Text className="text-ui-fg-subtle">Lädt…</Text>
+      ) : lists.length === 0 ? (
+        <Text className="text-ui-fg-subtle">
+          Keine Kundengruppen — eine Liste oben per Regel erstellen oder im Admin unter Kunden → Gruppen anlegen.
+        </Text>
+      ) : (
+        <Table>
+          <Table.Header>
+            <Table.Row>
+              <Table.HeaderCell>Liste</Table.HeaderCell>
+              <Table.HeaderCell>Kampagne</Table.HeaderCell>
+              <Table.HeaderCell className="text-right">Mitglieder</Table.HeaderCell>
+              <Table.HeaderCell className="text-right">Berechtigt</Table.HeaderCell>
+              <Table.HeaderCell className="text-right">Abgemeldet</Table.HeaderCell>
+              <Table.HeaderCell className="text-right">Offen</Table.HeaderCell>
+              <Table.HeaderCell className="text-right">Gesendet</Table.HeaderCell>
+              <Table.HeaderCell />
+            </Table.Row>
+          </Table.Header>
+          <Table.Body>
+            {lists.map((list) => {
+              const batch = batchByGroup.get(list.id)
+              const pending = batch?.counts.pending ?? 0
+              const isExpanded = batch ? expanded === batch.id : false
+              return (
+                <Fragment key={list.id}>
+                  <Table.Row>
+                    <Table.Cell>{list.name}</Table.Cell>
+                    <Table.Cell>
+                      {batch?.source_id ? (
+                        waLabel(batch.source_id)
+                      ) : (
+                        <Badge color="grey" size="2xsmall">nicht generiert</Badge>
+                      )}
+                    </Table.Cell>
+                    <Table.Cell className="text-right">{list.members}</Table.Cell>
+                    <Table.Cell className="text-right">{list.eligible}</Table.Cell>
+                    <Table.Cell className="text-right">{list.unsubscribed}</Table.Cell>
+                    <Table.Cell className="text-right">{batch ? pending : "—"}</Table.Cell>
+                    <Table.Cell className="text-right">{batch?.counts.sent ?? "—"}</Table.Cell>
+                    <Table.Cell className="text-right">
+                      <div className="flex items-center justify-end gap-x-2">
+                        <Button
+                          size="small"
+                          variant="secondary"
+                          disabled={!selectedId || list.eligible === 0 || (generate.isPending && generate.variables?.id === list.id)}
+                          isLoading={generate.isPending && generate.variables?.id === list.id}
+                          onClick={() => confirmGenerate(list)}
+                        >
+                          {batch ? "Neu generieren" : "Generieren"}
+                        </Button>
+                        <Button
+                          size="small"
+                          disabled={!batch || pending === 0 || (sendBatch.isPending && sendBatch.variables?.id === batch?.id)}
+                          isLoading={!!batch && sendBatch.isPending && sendBatch.variables?.id === batch.id}
+                          onClick={() => batch && confirmSend(list, batch)}
+                        >
+                          Senden
+                        </Button>
+                        <Button
+                          size="small"
+                          variant="transparent"
+                          disabled={!batch}
+                          onClick={() => batch && setExpanded(isExpanded ? null : batch.id)}
+                        >
+                          {isExpanded ? "Verbergen" : "Anzeigen"}
+                        </Button>
+                      </div>
+                    </Table.Cell>
+                  </Table.Row>
+                  {batch && isExpanded && (
+                    <Table.Row key={`${batch.id}-rows`}>
+                      <Table.Cell colSpan={8} className="p-0">
+                        <BatchOutbox batchId={batch.id} redirectTest={redirectTest} testEmail={testEmail} />
+                      </Table.Cell>
+                    </Table.Row>
+                  )}
+                </Fragment>
+              )
+            })}
+          </Table.Body>
+        </Table>
+      )}
+    </div>
+  )
+}
+
+type LinkClick = { link: string; clicks: number; unique_recipients: number }
+type LinkClicksResponse = {
+  campaign_id: string | null
+  links: LinkClick[]
+  total_clicks: number
+  unique_clickers: number
+}
+
+/**
+ * Per-link click report for the selected weekly action (campaign). Reads
+ * GET /admin/ses-link-clicks?campaign_id=<id>, which aggregates SES Click events
+ * from ses_event_log by URL. "unique" = distinct recipients (the honest signal;
+ * raw clicks can be inflated by scanners / Apple MPP).
+ */
+const LinkClicksSection = ({
+  campaignId,
+  campaignLabel,
+}: {
+  campaignId: string
+  campaignLabel: string
+}) => {
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["ec-link-clicks", campaignId],
+    queryFn: () =>
+      sdk.client.fetch<LinkClicksResponse>("/admin/ses-link-clicks", { query: { campaign_id: campaignId } }),
+    enabled: !!campaignId,
+  })
+  const links = data?.links ?? []
+
+  return (
+    <div className="px-6 py-4">
+      <Text size="small" weight="plus" className="mb-1">
+        Link-Klicks <span className="text-ui-fg-subtle">(welche Links in der E-Mail geklickt wurden)</span>
+      </Text>
+      <Text size="small" leading="compact" className="text-ui-fg-subtle mb-3">
+        Für die gewählte Wochenaktion{campaignId ? ` „${campaignLabel}“` : ""}. „Eindeutig“ = verschiedene
+        Empfänger (verlässlicher als Klicks gesamt, da Scanner/Apple-Mail Klicks künstlich erhöhen können).
+      </Text>
+
+      {!campaignId ? (
+        <Text className="text-ui-fg-subtle">Zuerst oben eine Wochenaktion wählen.</Text>
+      ) : isLoading ? (
+        <Text className="text-ui-fg-subtle">Lädt…</Text>
+      ) : isError ? (
+        <Text className="text-ui-fg-subtle">Klicks konnten nicht geladen werden.</Text>
+      ) : links.length === 0 ? (
+        <Text className="text-ui-fg-subtle">Noch keine Klicks erfasst.</Text>
+      ) : (
+        <>
+          <Text size="small" className="text-ui-fg-subtle mb-2">
+            {data?.total_clicks ?? 0} Klicks gesamt · {data?.unique_clickers ?? 0} eindeutige Klicker
+          </Text>
+          <Table>
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell>Link</Table.HeaderCell>
+                <Table.HeaderCell className="text-right">Klicks</Table.HeaderCell>
+                <Table.HeaderCell className="text-right">Eindeutig</Table.HeaderCell>
+              </Table.Row>
+            </Table.Header>
+            <Table.Body>
+              {links.map((l) => (
+                <Table.Row key={l.link}>
+                  <Table.Cell>
+                    <a href={l.link} target="_blank" rel="noreferrer" className="text-ui-fg-interactive break-all">
+                      {l.link}
+                    </a>
+                  </Table.Cell>
+                  <Table.Cell className="text-right">{l.clicks}</Table.Cell>
+                  <Table.Cell className="text-right">{l.unique_recipients}</Table.Cell>
+                </Table.Row>
+              ))}
+            </Table.Body>
+          </Table>
+        </>
+      )}
     </div>
   )
 }
@@ -358,6 +698,17 @@ const EmailCampaignPage = () => {
           />
         </div>
       </div>
+
+      {/* Customer lists (native customer groups as audiences) — the primary flow. */}
+      <CustomerListsSection
+        selectedId={selectedId}
+        waLabel={waLabel}
+        redirectTest={redirectTest}
+        testEmail={testEmail}
+      />
+
+      {/* Per-link click report for the selected campaign. */}
+      <LinkClicksSection campaignId={selectedId} campaignLabel={selectedId ? waLabel(selectedId) : ""} />
 
       {/* Test batch (a real ses_batch, audience "test") */}
       <div className="px-6 py-4">

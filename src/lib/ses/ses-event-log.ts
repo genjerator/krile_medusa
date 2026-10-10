@@ -13,6 +13,7 @@ export type SesEventLogEntry = {
   email: string | null
   message_id: string | null
   campaign_id: string | null
+  link?: string | null // clicked URL, for Click events
   matched: boolean
   payload: unknown
 }
@@ -28,6 +29,7 @@ export async function logSesEvent(
     email: entry.email,
     message_id: entry.message_id,
     campaign_id: entry.campaign_id,
+    link: entry.link ?? null,
     matched: entry.matched,
     payload: entry.payload ?? {},
   })
