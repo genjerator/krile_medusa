@@ -98,6 +98,9 @@ type StatsResponse = {
   groups: Array<Metrics & { batch_id: string; group_id: string | null; group_name: string | null }>
 }
 
+type LinkClick = { link: string; clicks: number; unique_recipients: number }
+type LinkClicksResponse = { links: LinkClick[]; total_clicks: number; unique_clickers: number }
+
 /* ──────────────────────────── small helpers ────────────────────────── */
 
 const STATUS_COLOR: Record<string, "grey" | "blue" | "orange" | "green" | "red"> = {
@@ -437,6 +440,12 @@ function GroupsSection({ campaignId }: { campaignId: string }) {
     queryFn: () => sdk.client.fetch<OutboxResponse>("/admin/ses-emails", { query: { batch_id: viewBatch!.id } }),
     enabled: !!viewBatch,
   })
+  // Per-group link clicks: the SES tag for a campaign group-send is its batch id.
+  const { data: groupLinks } = useQuery({
+    queryKey: ["campaign-group-links", viewBatch?.id],
+    queryFn: () => sdk.client.fetch<LinkClicksResponse>("/admin/ses-link-clicks", { query: { campaign_id: viewBatch!.id } }),
+    enabled: !!viewBatch,
+  })
 
   return (
     <Container className="divide-y p-0">
@@ -515,6 +524,35 @@ function GroupsSection({ campaignId }: { campaignId: string }) {
             <Drawer.Title>Recipients — {viewBatch?.name}</Drawer.Title>
           </Drawer.Header>
           <Drawer.Body className="overflow-y-auto">
+            {groupLinks?.links.length ? (
+              <div className="mb-6">
+                <Text size="small" weight="plus" className="mb-2 block">Clicked links</Text>
+                <Table>
+                  <Table.Header>
+                    <Table.Row>
+                      <Table.HeaderCell>Link</Table.HeaderCell>
+                      <Table.HeaderCell className="text-right">Clicks</Table.HeaderCell>
+                      <Table.HeaderCell className="text-right">Unique</Table.HeaderCell>
+                    </Table.Row>
+                  </Table.Header>
+                  <Table.Body>
+                    {groupLinks.links.map((l) => (
+                      <Table.Row key={l.link}>
+                        <Table.Cell>
+                          <a href={l.link} target="_blank" rel="noreferrer" className="text-ui-fg-interactive hover:underline">
+                            <Text size="small" className="break-all">{l.link}</Text>
+                          </a>
+                        </Table.Cell>
+                        <Table.Cell className="text-right"><Text size="small">{fmt(l.clicks)}</Text></Table.Cell>
+                        <Table.Cell className="text-right"><Text size="small">{fmt(l.unique_recipients)}</Text></Table.Cell>
+                      </Table.Row>
+                    ))}
+                  </Table.Body>
+                </Table>
+              </div>
+            ) : null}
+
+            {groupLinks?.links.length ? <Text size="small" weight="plus" className="mb-2 block">Recipients</Text> : null}
             {outboxLoading ? (
               <div className="flex justify-center py-10"><Spinner className="animate-spin" /></div>
             ) : !outbox?.emails.length ? (
@@ -570,6 +608,11 @@ function StatsSection({ campaignId }: { campaignId: string }) {
     queryKey: ["campaign-stats", campaignId],
     queryFn: () => sdk.client.fetch<StatsResponse>(`/admin/email-campaigns/${campaignId}/stats`),
     refetchInterval: (q) => ((q.state.data as StatsResponse | undefined)?.campaign.status === "sending" ? 4000 : false),
+  })
+
+  const { data: linkData } = useQuery({
+    queryKey: ["campaign-links", campaignId],
+    queryFn: () => sdk.client.fetch<LinkClicksResponse>(`/admin/email-campaigns/${campaignId}/link-clicks`),
   })
 
   const t = data?.totals
@@ -631,6 +674,39 @@ function StatsSection({ campaignId }: { campaignId: string }) {
               </Table>
             </div>
           ) : null}
+
+          <div className="px-6 py-4">
+            <Text size="small" weight="plus" className="mb-1 block">Clicked links</Text>
+            <Text size="xsmall" className="mb-3 block text-ui-fg-subtle">
+              Which URLs were clicked (unique recipients is the honest signal — scanners can auto-click).
+            </Text>
+            {!linkData?.links.length ? (
+              <Text size="small" className="text-ui-fg-subtle">No link clicks recorded yet.</Text>
+            ) : (
+              <Table>
+                <Table.Header>
+                  <Table.Row>
+                    <Table.HeaderCell>Link</Table.HeaderCell>
+                    <Table.HeaderCell className="text-right">Clicks</Table.HeaderCell>
+                    <Table.HeaderCell className="text-right">Unique</Table.HeaderCell>
+                  </Table.Row>
+                </Table.Header>
+                <Table.Body>
+                  {linkData.links.map((l) => (
+                    <Table.Row key={l.link}>
+                      <Table.Cell>
+                        <a href={l.link} target="_blank" rel="noreferrer" className="text-ui-fg-interactive hover:underline">
+                          <Text size="small" className="break-all">{l.link}</Text>
+                        </a>
+                      </Table.Cell>
+                      <Table.Cell className="text-right"><Text size="small">{fmt(l.clicks)}</Text></Table.Cell>
+                      <Table.Cell className="text-right"><Text size="small">{fmt(l.unique_recipients)}</Text></Table.Cell>
+                    </Table.Row>
+                  ))}
+                </Table.Body>
+              </Table>
+            )}
+          </div>
         </>
       )}
     </Container>
