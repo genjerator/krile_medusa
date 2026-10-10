@@ -49,15 +49,21 @@ type CampaignDetailResponse = {
   group_sends: GroupSend[]
 }
 
-type OutboxEmail = {
+type Recipient = {
   id: string
   to_email: string
   status: string
-  ses_message_id: string | null
   error: string | null
   sent_at: string | null
+  first_name: string | null
+  last_name: string | null
+  delivered_at: string | null
+  opened_at: string | null
+  clicked_at: string | null
+  bounced_at: string | null
+  unsubscribed_at: string | null
 }
-type OutboxResponse = { emails: OutboxEmail[]; count: number }
+type RecipientsResponse = { recipients: Recipient[]; count: number }
 
 type CustomerList = {
   id: string
@@ -414,7 +420,7 @@ function GroupsSection({ campaignId }: { campaignId: string }) {
       else if (res.status === "skipped") toast.warning("Skipped (unsubscribed or duplicate)")
       else if (res.status === "already_sent") toast.warning("Already sent")
       else toast.error("Send failed")
-      queryClient.invalidateQueries({ queryKey: ["campaign-outbox", viewBatch?.id] })
+      queryClient.invalidateQueries({ queryKey: ["campaign-recipients", viewBatch?.id] })
       queryClient.invalidateQueries({ queryKey: ["campaign", campaignId] })
       queryClient.invalidateQueries({ queryKey: ["campaign-stats", campaignId] })
     },
@@ -435,9 +441,13 @@ function GroupsSection({ campaignId }: { campaignId: string }) {
 
   // Drill-in: the recipient list (outbox) for one group-send.
   const [viewBatch, setViewBatch] = useState<{ id: string; name: string } | null>(null)
-  const { data: outbox, isLoading: outboxLoading } = useQuery({
-    queryKey: ["campaign-outbox", viewBatch?.id],
-    queryFn: () => sdk.client.fetch<OutboxResponse>("/admin/ses-emails", { query: { batch_id: viewBatch!.id } }),
+  const [recFilter, setRecFilter] = useState<"all" | "opened" | "clicked" | "bounced" | "unsubscribed">("all")
+  const { data: recData, isLoading: recLoading } = useQuery({
+    queryKey: ["campaign-recipients", viewBatch?.id, recFilter],
+    queryFn: () =>
+      sdk.client.fetch<RecipientsResponse>(`/admin/email-campaigns/${campaignId}/recipients`, {
+        query: { batch_id: viewBatch!.id, filter: recFilter },
+      }),
     enabled: !!viewBatch,
   })
   // Per-group link clicks: the SES tag for a campaign group-send is its batch id.
@@ -552,47 +562,69 @@ function GroupsSection({ campaignId }: { campaignId: string }) {
               </div>
             ) : null}
 
-            {groupLinks?.links.length ? <Text size="small" weight="plus" className="mb-2 block">Recipients</Text> : null}
-            {outboxLoading ? (
+            <div className="mb-2 flex items-center justify-between">
+              <Text size="small" weight="plus">Recipients</Text>
+              <div className="flex gap-1">
+                {(["all", "opened", "clicked", "bounced", "unsubscribed"] as const).map((f) => (
+                  <Button key={f} size="small" variant={recFilter === f ? "primary" : "transparent"} onClick={() => setRecFilter(f)}>
+                    {f === "all" ? "All" : f.charAt(0).toUpperCase() + f.slice(1)}
+                  </Button>
+                ))}
+              </div>
+            </div>
+            {recLoading ? (
               <div className="flex justify-center py-10"><Spinner className="animate-spin" /></div>
-            ) : !outbox?.emails.length ? (
-              <Text size="small" className="text-ui-fg-subtle">No emails generated for this group yet.</Text>
+            ) : !recData?.recipients.length ? (
+              <Text size="small" className="text-ui-fg-subtle">
+                {recFilter === "all" ? "No emails generated for this group yet." : `No ${recFilter} recipients.`}
+              </Text>
             ) : (
               <Table>
                 <Table.Header>
                   <Table.Row>
-                    <Table.HeaderCell>Email</Table.HeaderCell>
+                    <Table.HeaderCell>Recipient</Table.HeaderCell>
                     <Table.HeaderCell>Status</Table.HeaderCell>
-                    <Table.HeaderCell>Sent</Table.HeaderCell>
+                    <Table.HeaderCell className="text-center">Opened</Table.HeaderCell>
+                    <Table.HeaderCell className="text-center">Clicked</Table.HeaderCell>
+                    <Table.HeaderCell className="text-center">Bounced</Table.HeaderCell>
                     <Table.HeaderCell />
                   </Table.Row>
                 </Table.Header>
                 <Table.Body>
-                  {outbox.emails.map((e) => (
-                    <Table.Row key={e.id}>
-                      <Table.Cell>
-                        <Text size="small">{e.to_email}</Text>
-                        {e.error ? <Text size="xsmall" className="text-ui-tag-red-text">{e.error}</Text> : null}
-                      </Table.Cell>
-                      <Table.Cell><StatusBadge status={e.status} /></Table.Cell>
-                      <Table.Cell>
-                        <Text size="small" className="text-ui-fg-subtle">
-                          {e.sent_at ? new Date(e.sent_at).toLocaleString("en-US") : "—"}
-                        </Text>
-                      </Table.Cell>
-                      <Table.Cell className="text-right">
-                        <Button
-                          size="small"
-                          variant="secondary"
-                          disabled={sendOne.isPending || ["sent", "sending"].includes(e.status)}
-                          isLoading={sendOne.isPending && sendOne.variables === e.id}
-                          onClick={() => sendOne.mutate(e.id)}
-                        >
-                          Send
-                        </Button>
-                      </Table.Cell>
-                    </Table.Row>
-                  ))}
+                  {recData.recipients.map((r) => {
+                    const name = [r.first_name, r.last_name].filter(Boolean).join(" ")
+                    return (
+                      <Table.Row key={r.id}>
+                        <Table.Cell>
+                          <Text size="small">{r.to_email}</Text>
+                          {name ? <Text size="xsmall" className="text-ui-fg-subtle">{name}</Text> : null}
+                          {r.error ? <Text size="xsmall" className="text-ui-tag-red-text">{r.error}</Text> : null}
+                          {r.unsubscribed_at ? <Text size="xsmall" className="text-ui-tag-orange-text">unsubscribed</Text> : null}
+                        </Table.Cell>
+                        <Table.Cell><StatusBadge status={r.status} /></Table.Cell>
+                        <Table.Cell className="text-center">
+                          {r.opened_at ? <span title={new Date(r.opened_at).toLocaleString("en-US")} className="text-ui-tag-purple-text">✓</span> : <span className="text-ui-fg-muted">—</span>}
+                        </Table.Cell>
+                        <Table.Cell className="text-center">
+                          {r.clicked_at ? <span title={new Date(r.clicked_at).toLocaleString("en-US")} className="text-ui-tag-green-text">✓</span> : <span className="text-ui-fg-muted">—</span>}
+                        </Table.Cell>
+                        <Table.Cell className="text-center">
+                          {r.bounced_at ? <span title={new Date(r.bounced_at).toLocaleString("en-US")} className="text-ui-tag-red-text">✓</span> : <span className="text-ui-fg-muted">—</span>}
+                        </Table.Cell>
+                        <Table.Cell className="text-right">
+                          <Button
+                            size="small"
+                            variant="secondary"
+                            disabled={sendOne.isPending || ["sent", "sending"].includes(r.status)}
+                            isLoading={sendOne.isPending && sendOne.variables === r.id}
+                            onClick={() => sendOne.mutate(r.id)}
+                          >
+                            Send
+                          </Button>
+                        </Table.Cell>
+                      </Table.Row>
+                    )
+                  })}
                 </Table.Body>
               </Table>
             )}

@@ -34,16 +34,6 @@ export async function POST(req: AuthenticatedMedusaRequest<Body>, res: MedusaRes
     new Set((Array.isArray(req.body?.group_ids) ? req.body!.group_ids! : []).map((g) => String(g).trim()).filter(Boolean))
   )
 
-  // Validate the requested groups exist.
-  if (desired.length) {
-    const found = await pg("customer_group").whereIn("id", desired).whereNull("deleted_at").select("id")
-    const foundIds = new Set((found as any[]).map((g) => g.id))
-    const missing = desired.filter((g) => !foundIds.has(g))
-    if (missing.length) {
-      return res.status(404).json({ message: `Customer group(s) not found: ${missing.join(", ")}` })
-    }
-  }
-
   // Current group-sends for this campaign.
   const existing = await pg("ses_batch").where({ campaign_id: id }).whereNull("deleted_at").select("id", "audience")
   const currentByGroup = new Map<string, string>() // groupId → batchId
@@ -54,7 +44,31 @@ export async function POST(req: AuthenticatedMedusaRequest<Body>, res: MedusaRes
 
   const desiredSet = new Set(desired)
   const toAdd = desired.filter((g) => !currentByGroup.has(g))
-  const toRemove = [...currentByGroup.keys()].filter((g) => !desiredSet.has(g))
+
+  // Validate only the NEWLY-added groups exist. Already-assigned groups are NOT
+  // re-validated: one may have been deleted since (e.g. by re-running "Generate
+  // send groups", which recreates groups with new ids) — such an orphaned
+  // assignment must be cleaned up, not block the save with a 404.
+  if (toAdd.length) {
+    const found = await pg("customer_group").whereIn("id", toAdd).whereNull("deleted_at").select("id")
+    const foundIds = new Set((found as any[]).map((g) => g.id))
+    const missing = toAdd.filter((g) => !foundIds.has(g))
+    if (missing.length) {
+      return res.status(404).json({ message: `Customer group(s) not found: ${missing.join(", ")}` })
+    }
+  }
+
+  // Which currently-assigned groups still exist? Orphaned ones (underlying group
+  // deleted) are always removed — even if still in the desired set — since a dead
+  // group can't stay assigned.
+  const currentIds = [...currentByGroup.keys()]
+  const aliveSet = new Set<string>()
+  if (currentIds.length) {
+    const rows = await pg("customer_group").whereIn("id", currentIds).whereNull("deleted_at").select("id")
+    for (const r of rows as any[]) aliveSet.add(r.id)
+  }
+
+  const toRemove = currentIds.filter((g) => !desiredSet.has(g) || !aliveSet.has(g))
 
   // Add batches for new groups.
   const added: Array<{ group_id: string; batch_id: string }> = []
