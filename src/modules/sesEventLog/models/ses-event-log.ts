@@ -14,6 +14,9 @@ const SesEventLog = model.define("ses_event_log", {
   email: model.text().nullable(),
   message_id: model.text().nullable(), // SES mail.messageId
   campaign_id: model.text().nullable(), // from the SES message tag, when present
+  // For Click events: the clicked URL (`event.click.link`), so we can report which
+  // link in an email was clicked. Null for non-click events.
+  link: model.text().nullable(),
   // Did the event map to a customer / campaign row we updated?
   matched: model.boolean().default(false),
   payload: model.json().nullable(), // raw SES event, for debugging / reprocessing
