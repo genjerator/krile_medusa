@@ -83,6 +83,9 @@ module.exports = defineConfig({
       resolve: "./src/modules/cookieConsent",
     },
     {
+      resolve: "./src/modules/outreach",
+    },
+    {
       resolve: "@medusajs/medusa/payment",
       options: {
         providers: [
