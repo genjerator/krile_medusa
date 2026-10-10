@@ -50,9 +50,25 @@ export const resolveVacuumBagVariantStep = createStep(
     const productModule: any = container.resolve(Modules.PRODUCT)
     const vacuumBag: any = container.resolve(VACUUM_BAG_MODULE)
 
-    // 1) Matrix lookup — defines both price and availability. Colour is cosmetic,
-    //    so the price is keyed by (type, width, height) only; every colour is
-    //    priced like the Transparent row.
+    // 1) Resolve the chosen colour (id + name) first. Used to key the price lookup
+    //    by scalar color_id (robust) and for the variant option value + title.
+    const { data: colorRows } = await query.graph({
+      entity: "vacuum_bag_color",
+      fields: ["id", "name"],
+      filters: { slug: input.color, active: true } as any,
+    })
+    if (!colorRows[0]) {
+      throw new MedusaError(
+        MedusaError.Types.INVALID_DATA,
+        "Diese Farbe ist nicht verfügbar."
+      )
+    }
+    const colorId: string = colorRows[0].id
+
+    // 2) Matrix lookup — defines both price and availability, keyed by the FULL
+    //    combination (colour, type, width, height). Transparent is priced across the
+    //    whole matrix; other colours only in their specific rows — a colour/size with
+    //    no active row is "not available" (the storefront shows it as "coming soon").
     const { data: rows } = await query.graph({
       entity: "vacuum_bag_price",
       fields: ["price", "currency_code", "type.name"],
@@ -61,6 +77,7 @@ export const resolveVacuumBagVariantStep = createStep(
         height_mm: input.height_mm,
         active: true,
         type: { slug: input.type },
+        color_id: colorId,
       } as any,
     })
     const row: any = rows[0]
@@ -68,20 +85,6 @@ export const resolveVacuumBagVariantStep = createStep(
       throw new MedusaError(
         MedusaError.Types.INVALID_DATA,
         "Diese Kombination ist nicht verfügbar."
-      )
-    }
-
-    // The chosen colour (for the variant option value + title). It drives no
-    // price, only the SKU/variant and the displayed name.
-    const { data: colorRows } = await query.graph({
-      entity: "vacuum_bag_color",
-      fields: ["name"],
-      filters: { slug: input.color, active: true } as any,
-    })
-    if (!colorRows[0]) {
-      throw new MedusaError(
-        MedusaError.Types.INVALID_DATA,
-        "Diese Farbe ist nicht verfügbar."
       )
     }
 

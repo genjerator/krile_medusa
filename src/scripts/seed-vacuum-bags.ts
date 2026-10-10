@@ -73,6 +73,23 @@ const COLORS = [
   { slug: "holz", name: "Holz", hex: "#b45309", rank: 4, is_default: false, active: true, image_url: `${S3_BASE}/vacuum-bag-colors/holz.jpg` },
   { slug: "gold", name: "Gold", hex: "#ca8a04", rank: 5, is_default: false, active: true, image_url: `${S3_BASE}/vacuum-bag-colors/gold.jpg` },
   { slug: "schwarz", name: "Schwarz", hex: "#111827", rank: 6, is_default: false, active: true, image_url: `${S3_BASE}/vacuum-bag-colors/schwarz.jpg` },
+  // Priced colours from the Niederwieser "Farbige Beutel" offer (09.10.2026).
+  { slug: "weiss", name: "Weiß", hex: "#f3f4f6", rank: 7, is_default: false, active: true, image_url: null as string | null },
+  { slug: "papierlook", name: "Papierlook", hex: "#d6c7a1", rank: 8, is_default: false, active: true, image_url: null as string | null },
+  { slug: "rot-kariert", name: "Rot kariert", hex: "#b91c1c", rank: 9, is_default: false, active: true, image_url: null as string | null },
+]
+
+// ─── Coloured price rows (Niederwieser "Vakuum Siegelrand-Farbige Beutel" +
+//     "Combivac Special", offer 09.10.2026). Unlike Transparent — priced across the
+//     whole matrix — these colours are sold only in these specific sizes. Each row
+//     is [width_mm, height_mm, cost_per_1000]; shop price = cost × MARKUP, round2.
+const COLORED_PRICES: { color: string; type: string; rows: [number, number, number][] }[] = [
+  { color: "blau", type: "std-90", rows: [[200, 300, 48.76], [250, 300, 60.95], [380, 550, 169.85]] },
+  { color: "weiss", type: "koch", rows: [[200, 300, 48.76]] },
+  { color: "schwarz", type: "koch", rows: [[200, 300, 48.76]] },
+  { color: "holz", type: "std-90", rows: [[200, 300, 101.90]] },
+  { color: "papierlook", type: "std-90", rows: [[200, 300, 93.53]] },
+  { color: "rot-kariert", type: "std-90", rows: [[200, 300, 62.83]] },
 ]
 
 // ─── Types (product lines) + their sizes/costs from the PDF ─────────────────────
@@ -275,8 +292,36 @@ export default async function run({ container }: ExecArgs) {
       })
     }
   }
+  // Colour-specific rows (limited sizes per colour — see COLORED_PRICES).
+  let coloredCount = 0
+  for (const cp of COLORED_PRICES) {
+    const color = colorBySlug.get(cp.color)
+    const type = typeBySlug.get(cp.type)
+    if (!color || !type) {
+      logger.warn(
+        `[vacuum-bags] skip coloured rows — missing ${!color ? `colour "${cp.color}"` : `type "${cp.type}"`}`
+      )
+      continue
+    }
+    for (const [w, h, cost] of cp.rows) {
+      toCreate.push({
+        color_id: color.id,
+        type_id: type.id,
+        thickness_um: type.thickness_um,
+        width_mm: w,
+        height_mm: h,
+        price: round2(cost * MARKUP),
+        currency_code: "eur",
+        active: true,
+      })
+      coloredCount++
+    }
+  }
+
   await vacuumBag.createVacuumBagPrices(toCreate)
-  logger.info(`[vacuum-bags] price rows created: ${toCreate.length} (markup ×${MARKUP})`)
+  logger.info(
+    `[vacuum-bags] price rows created: ${toCreate.length} (transparent ${toCreate.length - coloredCount} + coloured ${coloredCount}, markup ×${MARKUP})`
+  )
 
   // ─── Config row (one active) ────────────────────────────────────────────────
   let [config] = await vacuumBag.listVacuumBagConfigs({ active: true })
@@ -299,8 +344,20 @@ export default async function run({ container }: ExecArgs) {
   // names. Breite/Höhe = union of every size across all types.
   const activeColorNames = COLORS.filter((c) => c.active).map((c) => colorOptionValue(c.name))
   const typeNames = LINES.map((l) => typeOptionValue(l.name))
-  const allWidths = [...new Set(LINES.flatMap((l) => l.rows.map((r) => r[0])))].sort((a, b) => a - b)
-  const allHeights = [...new Set(LINES.flatMap((l) => l.rows.map((r) => r[1])))].sort((a, b) => a - b)
+  // Union of every size across transparent lines AND the coloured rows, so a
+  // colour-only size (e.g. 380×550) exists as a product option value.
+  const allWidths = [
+    ...new Set([
+      ...LINES.flatMap((l) => l.rows.map((r) => r[0])),
+      ...COLORED_PRICES.flatMap((cp) => cp.rows.map((r) => r[0])),
+    ]),
+  ].sort((a, b) => a - b)
+  const allHeights = [
+    ...new Set([
+      ...LINES.flatMap((l) => l.rows.map((r) => r[1])),
+      ...COLORED_PRICES.flatMap((cp) => cp.rows.map((r) => r[1])),
+    ]),
+  ].sort((a, b) => a - b)
   const desiredOptionValues: Record<string, string[]> = {
     [OPTION_FARBE]: activeColorNames,
     [OPTION_TYP]: typeNames,
