@@ -1,0 +1,15 @@
+# Copy to terraform.tfvars (gitignored) and fill in. Only the TODO values are
+# strictly required; the rest already default from docs/AWS_FULL_SETUP.md.
+
+# --- required ---
+rds_password = "CHANGE_ME"        # or export TF_VAR_rds_password=...
+ec2_key_name = "krile-medusa-kp"  # an EC2 key pair that exists in the region
+
+# --- confirm these match what you actually ran ---
+rds_instance_class    = "db.t4g.micro"
+rds_allocated_storage = 20
+rds_engine_version    = "18.3"
+
+# --- optional ---
+enable_cloudfront    = false   # your images use S3 direct; leave off
+s3_enable_versioning = true
