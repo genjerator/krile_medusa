@@ -640,6 +640,7 @@ function StatsSection({ campaignId }: { campaignId: string }) {
             <FunnelBar label="Delivered" value={t.delivered} base={t.sent} color="bg-ui-tag-blue-icon" />
             <FunnelBar label="Opened" value={t.opened} base={t.sent} color="bg-ui-tag-purple-icon" />
             <FunnelBar label="Clicked" value={t.clicked} base={t.sent} color="bg-ui-tag-green-icon" />
+            <FunnelBar label="Bounced" value={t.bounced} base={t.sent} color="bg-ui-tag-orange-icon" />
             <FunnelBar label="Unsubscribed" value={t.unsubscribed} base={t.sent} color="bg-ui-tag-red-icon" />
           </div>
 
