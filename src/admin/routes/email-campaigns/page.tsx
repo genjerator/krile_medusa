@@ -450,12 +450,6 @@ function GroupsSection({ campaignId }: { campaignId: string }) {
       }),
     enabled: !!viewBatch,
   })
-  // Per-group link clicks: the SES tag for a campaign group-send is its batch id.
-  const { data: groupLinks } = useQuery({
-    queryKey: ["campaign-group-links", viewBatch?.id],
-    queryFn: () => sdk.client.fetch<LinkClicksResponse>("/admin/ses-link-clicks", { query: { campaign_id: viewBatch!.id } }),
-    enabled: !!viewBatch,
-  })
 
   return (
     <Container className="divide-y p-0">
@@ -534,34 +528,6 @@ function GroupsSection({ campaignId }: { campaignId: string }) {
             <Drawer.Title>Recipients — {viewBatch?.name}</Drawer.Title>
           </Drawer.Header>
           <Drawer.Body className="overflow-y-auto">
-            {groupLinks?.links.length ? (
-              <div className="mb-6">
-                <Text size="small" weight="plus" className="mb-2 block">Clicked links</Text>
-                <Table>
-                  <Table.Header>
-                    <Table.Row>
-                      <Table.HeaderCell>Link</Table.HeaderCell>
-                      <Table.HeaderCell className="text-right">Clicks</Table.HeaderCell>
-                      <Table.HeaderCell className="text-right">Unique</Table.HeaderCell>
-                    </Table.Row>
-                  </Table.Header>
-                  <Table.Body>
-                    {groupLinks.links.map((l) => (
-                      <Table.Row key={l.link}>
-                        <Table.Cell>
-                          <a href={l.link} target="_blank" rel="noreferrer" className="text-ui-fg-interactive hover:underline">
-                            <Text size="small" className="break-all">{l.link}</Text>
-                          </a>
-                        </Table.Cell>
-                        <Table.Cell className="text-right"><Text size="small">{fmt(l.clicks)}</Text></Table.Cell>
-                        <Table.Cell className="text-right"><Text size="small">{fmt(l.unique_recipients)}</Text></Table.Cell>
-                      </Table.Row>
-                    ))}
-                  </Table.Body>
-                </Table>
-              </div>
-            ) : null}
-
             <div className="mb-2 flex items-center justify-between">
               <Text size="small" weight="plus">Recipients</Text>
               <div className="flex gap-1">
