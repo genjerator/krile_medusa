@@ -245,7 +245,11 @@ read-only in v1).
       EXISTS` + indexes on city/email/name). Registered in `medusa-config.ts`.
 - [x] `src/scripts/import-outreach-companies.ts` (idempotent, batched, email-only,
       `limit=N`). **All 52,741 companies imported locally.**
-- [ ] `outreach_email` model + migration + import of `company_emails`.
+- [x] `outreach_email` model + migration (`Migration20261011120000`) + import
+      (`src/scripts/import-outreach-emails.ts`). All 16 crafted emails imported
+      locally, each linked to its company with a recipient. Stored as plain
+      `company_id`/`company_external_id` refs (no formal module link), mirroring
+      `ses_emails.customer_id`.
 - [x] `GET /admin/outreach/companies` list route — paged + filters (`q` over
       name/email/website, `city` ILIKE, `has_website` yes/no).
 - [x] Admin page `src/admin/routes/companies/` — read-only DataTable, server-side
