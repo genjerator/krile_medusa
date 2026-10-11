@@ -17,6 +17,7 @@ import {
 } from "@medusajs/ui"
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 import { useMemo, useState } from "react"
+import { useSearchParams } from "react-router-dom"
 import { sdk } from "../../lib/client"
 
 /* ─────────────────────────────── types ─────────────────────────────── */
@@ -602,7 +603,8 @@ function GroupsSection({ campaignId }: { campaignId: string }) {
 }
 
 function StatsSection({ campaignId }: { campaignId: string }) {
-  const { data, isLoading } = useQuery({
+  const queryClient = useQueryClient()
+  const { data, isLoading, isFetching, refetch } = useQuery({
     queryKey: ["campaign-stats", campaignId],
     queryFn: () => sdk.client.fetch<StatsResponse>(`/admin/email-campaigns/${campaignId}/stats`),
     refetchInterval: (q) => ((q.state.data as StatsResponse | undefined)?.campaign.status === "sending" ? 4000 : false),
@@ -616,11 +618,24 @@ function StatsSection({ campaignId }: { campaignId: string }) {
   const t = data?.totals
   return (
     <Container className="divide-y p-0">
-      <div className="px-6 py-4">
-        <Heading level="h2">Statistics</Heading>
-        <Text size="small" className="text-ui-fg-subtle">
-          Opens are inflated by Apple Mail Privacy Protection — clicks and unsubscribes are the reliable signals.
-        </Text>
+      <div className="flex items-start justify-between gap-3 px-6 py-4">
+        <div>
+          <Heading level="h2">Statistics</Heading>
+          <Text size="small" className="text-ui-fg-subtle">
+            Opens are inflated by Apple Mail Privacy Protection — clicks and unsubscribes are the reliable signals.
+          </Text>
+        </div>
+        <Button
+          size="small"
+          variant="secondary"
+          isLoading={isFetching}
+          onClick={() => {
+            refetch()
+            queryClient.invalidateQueries({ queryKey: ["campaign-links", campaignId] })
+          }}
+        >
+          Refresh
+        </Button>
       </div>
 
       {isLoading || !t ? (
@@ -742,9 +757,28 @@ function CampaignDetail({ campaignId, onBack }: { campaignId: string; onBack: ()
               {c ? <StatusBadge status={c.status} /> : null}
             </div>
             {c ? (
-              <Text size="small" className="text-ui-fg-subtle">
-                {c.weekly_action_title ?? "—"} · Subject: {c.resolved_subject ?? "—"}
-              </Text>
+              <>
+                <Text size="small" className="text-ui-fg-subtle">
+                  {c.weekly_action_title ?? "—"} · Subject: {c.resolved_subject ?? "—"}
+                </Text>
+                <div className="mt-1 flex items-center gap-2">
+                  <Text size="xsmall" leading="compact" className="text-ui-fg-muted" style={{ fontFamily: "monospace" }}>
+                    {c.id}
+                  </Text>
+                  <Button
+                    size="small"
+                    variant="transparent"
+                    onClick={() =>
+                      navigator.clipboard?.writeText(c.id).then(
+                        () => toast.success("Campaign ID copied"),
+                        () => toast.error("Copy failed")
+                      )
+                    }
+                  >
+                    Copy ID
+                  </Button>
+                </div>
+              </>
             ) : null}
           </div>
         </div>
@@ -770,7 +804,20 @@ function CampaignDetail({ campaignId, onBack }: { campaignId: string; onBack: ()
 /* ─────────────────────────────── page ──────────────────────────────── */
 
 const CampaignsPage = () => {
-  const [selected, setSelected] = useState<string | null>(null)
+  // Keep the selected campaign in the URL (`?id=…`) so a refresh or bookmark
+  // stays on the campaign instead of bouncing back to the list.
+  const [searchParams, setSearchParams] = useSearchParams()
+  const selected = searchParams.get("id")
+  const setSelected = (id: string | null) =>
+    setSearchParams(
+      (prev) => {
+        const next = new URLSearchParams(prev)
+        if (id) next.set("id", id)
+        else next.delete("id")
+        return next
+      },
+      { replace: false }
+    )
   return selected ? (
     <CampaignDetail campaignId={selected} onBack={() => setSelected(null)} />
   ) : (
