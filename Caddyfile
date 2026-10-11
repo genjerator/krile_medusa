@@ -97,3 +97,18 @@ status.alcoccodrillo.de {
 	import access_log
 	reverse_proxy uptime-kuma:3001
 }
+
+# ─── Netdata (real-time metrics dashboard) ───────────────────────────────────
+# Loopback-only Netdata (netdata:19999) exposed here behind HTTP basic auth, so
+# the metrics dashboard is never public without a password. Generate/replace the
+# hash below with (run on the VPS):
+#   docker compose -f docker-compose.strato.yml exec caddy caddy hash-password --plaintext 'YOURPASSWORD'
+# then paste the printed $2a$… string in place of REPLACE_WITH_BCRYPT_HASH and
+# redeploy. The username here is "admin".
+monitor.planetaindustries.de {
+	import access_log
+	basic_auth {
+		admin $2a$14$DU5rfc18tnsVSsbHaNeaSOcVMLxyqZ.uCyQjboPIBtvANJHgJVUre
+	}
+	reverse_proxy netdata:19999
+}

@@ -94,6 +94,64 @@ services:
       - uptime_kuma_data:/app/data
     restart: unless-stopped
 
+  # ─── DOCKER SOCKET PROXY (read-only gateway to the Docker API) ────────────
+  # Netdata never touches /var/run/docker.sock directly. This proxy exposes ONLY
+  # the read endpoints Netdata needs (containers/images/networks/info) on an
+  # internal-only tcp port 2375 — no host port, not reachable off the docker
+  # network. Everything mutating (exec/POST/secrets/…) defaults to 0 = blocked.
+  docker-socket-proxy:
+    image: tecnativa/docker-socket-proxy:latest
+    environment:
+      CONTAINERS: 1
+      IMAGES: 1
+      NETWORKS: 1
+      INFO: 1
+      VERSION: 1
+      PING: 1
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    restart: unless-stopped
+
+  # ─── NETDATA (real-time metrics: host, docker, postgres, redis) ───────────
+  # Per-second CPU/RAM/disk/net for the whole VPS, per-container Docker stats,
+  # and Postgres/Redis internals. Dashboard on 127.0.0.1:19999 (loopback only) —
+  # reached publicly via Caddy at monitor.planetaindustries.de behind basic_auth.
+  # Talks to Docker ONLY through docker-socket-proxy (DOCKER_HOST), never the raw
+  # socket. Collector configs are bind-mounted from ./netdata/go.d (postgres.conf
+  # is created on the VPS and gitignored so the DB password never enters the repo).
+  netdata:
+    image: netdata/netdata:stable
+    hostname: monitor.planetaindustries.de
+    pid: host
+    ports:
+      # Loopback only — Caddy reaches it internally as netdata:19999.
+      - "127.0.0.1:19999:19999"
+    environment:
+      DOCKER_HOST: "tcp://docker-socket-proxy:2375"
+    cap_add:
+      - SYS_PTRACE
+      - SYS_ADMIN
+    security_opt:
+      - apparmor:unconfined
+    volumes:
+      - netdata_config:/etc/netdata
+      - netdata_lib:/var/lib/netdata
+      - netdata_cache:/var/cache/netdata
+      - ./netdata/go.d/redis.conf:/etc/netdata/go.d/redis.conf:ro
+      - ./netdata/go.d/postgres.conf:/etc/netdata/go.d/postgres.conf:ro
+      - ./netdata/go.d/docker.conf:/etc/netdata/go.d/docker.conf:ro
+      - /etc/passwd:/host/etc/passwd:ro
+      - /etc/group:/host/etc/group:ro
+      - /etc/localtime:/etc/localtime:ro
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /etc/os-release:/host/etc/os-release:ro
+      - /var/log:/host/var/log:ro
+      - /run/dbus:/run/dbus:ro
+    depends_on:
+      - docker-socket-proxy
+    restart: unless-stopped
+
   # ─── CADDY REVERSE PROXY (:80/:443) — automatic HTTPS ─────────────────────
   # Routes by hostname to the backend + both storefronts over the internal
   # docker network (upstreams = service names: medusa:9000, storefront-*:3000).
@@ -115,6 +173,7 @@ services:
       - storefront-planeta-industries
       - storefront-planeta
       - uptime-kuma
+      - netdata
     restart: unless-stopped
 
 volumes:
@@ -124,3 +183,6 @@ volumes:
   uptime_kuma_data:
   caddy_data:
   caddy_config:
+  netdata_config:    # netdata's own /etc/netdata (persists edits + registry)
+  netdata_lib:       # historical metrics DB (dbengine)
+  netdata_cache:

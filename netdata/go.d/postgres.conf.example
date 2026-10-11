@@ -1,0 +1,11 @@
+# Netdata go.d PostgreSQL collector — EXAMPLE / TEMPLATE.
+#
+# The REAL file `postgres.conf` is gitignored (it holds a DB password) and is
+# created directly on the VPS — see the deploy steps. Netdata connects with a
+# dedicated read-only role `netdata` (GRANT pg_monitor), NOT the app/superuser.
+#
+# Reports connections, commits/rollbacks, cache hit ratio, locks, deadlocks,
+# temp files, replication, per-table/index stats, etc. DB name is `medusa`.
+jobs:
+  - name: postgres
+    dsn: 'postgres://netdata:REPLACE_WITH_DB_PASSWORD@postgres:5432/medusa?sslmode=disable'

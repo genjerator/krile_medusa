@@ -31,3 +31,12 @@ build
 # Generated weekly-action email previews (per-instance cache)
 static/weekly-action-emails/
 .env.awsec2
+
+# Medusa MikroORM schema snapshots (only used by db:generate, which this project never runs)
+.snapshot-*.json
+
+# Local log output
+logs/
+
+# Netdata Postgres collector config holds a DB password — created on the VPS, never committed
+netdata/go.d/postgres.conf
