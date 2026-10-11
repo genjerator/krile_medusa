@@ -1,0 +1,29 @@
+-- Correct customer emails with typo'd / dead provider domains (matched by id).
+-- Keeps the local part; fixes only the domain. Three were best-guesses:
+-- gmax.net→gmx.net, hmx.de→gmx.de, mx.de→gmx.de. Already applied on prod.
+UPDATE customer SET email = CASE id
+  WHEN 'cus_01KXRVBCHT928P1MJ9GDVC60E0' THEN 'anelise.ogi@bluewin.ch'
+  WHEN 'cus_01KXRVBCJB2T9DW066T0SD07C6' THEN 'bernhard.huettmann@vodafone.de'
+  WHEN 'cus_01KXRVBCJ3KXS4M23JWWRRJ85J' THEN 'b.hengstler@t-online.de'
+  WHEN 'cus_01KTP3QA80S23ZVN3NYT71JJ2K' THEN 'christinefrey.mail@t-online.de'
+  WHEN 'cus_01KY23MY10WZM53GQ5YRZKG8QR' THEN 'elektro-baur@t-online.de'
+  WHEN 'cus_01KXRVBDB34DGC17NZJ0Y33794' THEN 'hildegard-arnold@gmx.net'
+  WHEN 'cus_01KXRVBE9B5W0JVNKNK89VZPZ9' THEN 'juliamoehle@outlook.com'
+  WHEN 'cus_01KXRVBE9AHGZ1T1MVPRXZ519Q' THEN 'julia-sn@outlook.de'
+  WHEN 'cus_01KXRVBE9B7KDSBB6SAKFRCEHC' THEN 'juttabremer@yahoo.de'
+  WHEN 'cus_01KXRVBE9ZKKDC7WMWQHEDAEBA' THEN 'luitgard.wagner.ebs@t-online.de'
+  WHEN 'cus_01KTP3QAH7GFE8GSF4D4NR7FA5' THEN 'marlene.pirk@t-online.de'
+  WHEN 'cus_01KXRVBEJ2G28KQFWXK5T73MWV' THEN 'mir100@gmx.net'
+  WHEN 'cus_01KXRVBEJC0HHK43H6NMCPGP2A' THEN 'oliverhor@gmx.de'
+  WHEN 'cus_01KXRVBESV5P4AJ5H32RK53JG7' THEN 'renatebetz@icloud.com'
+  WHEN 'cus_01KXRVBF23VWFMBRBEKEMR50NR' THEN 'waltraud.udo@t-online.de'
+  WHEN 'cus_01KXRVBF2FHME4WKS2VHAFXFS0' THEN 'zettler4sn@gmx.de'
+END, updated_at = now()
+WHERE id IN (
+  'cus_01KXRVBCHT928P1MJ9GDVC60E0','cus_01KXRVBCJB2T9DW066T0SD07C6','cus_01KXRVBCJ3KXS4M23JWWRRJ85J',
+  'cus_01KTP3QA80S23ZVN3NYT71JJ2K','cus_01KY23MY10WZM53GQ5YRZKG8QR','cus_01KXRVBDB34DGC17NZJ0Y33794',
+  'cus_01KXRVBE9B5W0JVNKNK89VZPZ9','cus_01KXRVBE9AHGZ1T1MVPRXZ519Q','cus_01KXRVBE9B7KDSBB6SAKFRCEHC',
+  'cus_01KXRVBE9ZKKDC7WMWQHEDAEBA','cus_01KTP3QAH7GFE8GSF4D4NR7FA5','cus_01KXRVBEJ2G28KQFWXK5T73MWV',
+  'cus_01KXRVBEJC0HHK43H6NMCPGP2A','cus_01KXRVBESV5P4AJ5H32RK53JG7','cus_01KXRVBF23VWFMBRBEKEMR50NR',
+  'cus_01KXRVBF2FHME4WKS2VHAFXFS0'
+);
