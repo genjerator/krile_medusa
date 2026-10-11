@@ -50,6 +50,12 @@ export type WeeklyEmailData = {
     campaign?: string // readable campaign name, e.g. "wochenaktion-kw40-2026"
     id?: string // GA4 campaign id (the weekly action id)
   }
+  /**
+   * First-party click tracking. When set, every link gets `&cmp=<cmp>&rcp=<rcp>`
+   * so the storefront can record the click itself (no awstrack.me wrapping).
+   * cmp = the campaign/tracking id (= customer_campaign.campaign_id), rcp = customer id.
+   */
+  track?: { cmp: string; rcp: string }
 }
 
 /** Append UTM query params to a product URL. */
@@ -60,6 +66,8 @@ function withUtm(url: string, d: WeeklyEmailData, handle: string): string {
   if (d.utm?.campaign) q.set("utm_campaign", d.utm.campaign)
   if (d.utm?.id) q.set("utm_id", d.utm.id)
   if (handle) q.set("utm_content", handle)
+  if (d.track?.cmp) q.set("cmp", d.track.cmp)
+  if (d.track?.rcp) q.set("rcp", d.track.rcp)
   return `${url}?${q.toString()}`
 }
 
@@ -158,6 +166,12 @@ export function renderWeeklyActionEmail(d: WeeklyEmailData): string {
     : "Unsere Angebote der Woche – nur solange der Vorrat reicht."
   const preheader = `${heading} – ${maxPct ? `bis zu ${maxPct}&nbsp;% sparen. ` : ""}Nur diese Woche.`
 
+  // First-party click tracking suffix appended to the static links in email.html
+  // (the product-card links get it via withUtm). HTML-escaped `&amp;` to match.
+  const trk = d.track
+    ? `&amp;cmp=${encodeURIComponent(d.track.cmp)}&amp;rcp=${encodeURIComponent(d.track.rcp)}`
+    : ""
+
   return fill(template("email.html"), {
     lang: escapeHtml(d.locale),
     title: heading,
@@ -170,5 +184,6 @@ export function renderWeeklyActionEmail(d: WeeklyEmailData): string {
     locale: d.locale,
     logoUrl: escapeHtml(d.logoUrl),
     rows: renderRows(d),
+    trk,
   })
 }

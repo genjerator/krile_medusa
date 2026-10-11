@@ -57,6 +57,20 @@ export async function sendOutboxEmail(
     return { status: "skipped" }
   }
 
+  // 🔒 Hard-bounce suppression (authoritative). Never send to an address with a
+  // recorded PERMANENT bounce (customer_campaign.bounced_at — set only for hard
+  // bounces, see lib/ses/ses-events.ts). Matched by EMAIL so a re-signup under a
+  // new customer id is still suppressed.
+  const bounced = await pg("customer_campaign as cc")
+    .join("customer as c", "c.id", "cc.customer_id")
+    .whereRaw("lower(c.email) = lower(?)", [row.to_email])
+    .whereNotNull("cc.bounced_at")
+    .first("cc.id")
+  if (bounced) {
+    await sesEmails.updateSesEmails({ id, status: "skipped", error: "suppressed: hard bounce" })
+    return { status: "skipped" }
+  }
+
   // Tracking id + subject override. A campaign group-send (batch has a campaign_id)
   // tracks per-group: the SES tag + unsubscribe token use the BATCH id, so opens /
   // clicks / unsubscribes land on that group's customer_campaign rows. A prototype /
@@ -102,7 +116,12 @@ export async function sendOutboxEmail(
     let subject: string
     let html: string
     if (row.source_type === "weekly_action") {
-      const built = await buildWeeklyActionEmail(container, { weeklyActionId: row.source_id })
+      const built = await buildWeeklyActionEmail(container, {
+        weeklyActionId: row.source_id,
+        // First-party click tracking: cmp = the tracking id used for customer_campaign
+        // (batch id for group-sends, else source id), rcp = this customer.
+        track: { cmp: trackingId, rcp: row.customer_id },
+      })
       subject = subjectOverride || built.subject
       html = built.html
     } else {

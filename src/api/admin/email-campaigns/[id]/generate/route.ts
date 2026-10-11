@@ -72,13 +72,22 @@ export async function POST(req: AuthenticatedMedusaRequest<Body>, res: MedusaRes
     const siblingSet = new Set(siblingIds)
     const deduped = recipients.filter((r) => isTestRecipient(r) || !siblingSet.has(r.customer_id))
 
+    // Hard-bounce suppression: addresses with a recorded PERMANENT bounce
+    // (customer_campaign.bounced_at) are marked `skipped`, never queued. Matched
+    // by email. The send path re-checks this authoritatively too.
+    const bouncedRows = await pg("customer_campaign as cc")
+      .join("customer as c", "c.id", "cc.customer_id")
+      .whereNotNull("cc.bounced_at")
+      .distinct(pg.raw("lower(c.email) as e"))
+    const bouncedSet = new Set<string>(bouncedRows.map((x: any) => x.e))
+
     const toCreate = deduped.map((r) => ({
       batch_id: t.batch_id,
       source_type: "weekly_action",
       source_id: campaign.weekly_action_id,
       customer_id: r.customer_id,
       to_email: r.to_email,
-      status: r.unsubscribed ? "skipped" : "pending",
+      status: (r.unsubscribed || bouncedSet.has(r.to_email.toLowerCase())) ? "skipped" : "pending",
       generated_at: now,
     }))
     if (toCreate.length) await sesEmails.createSesEmails(toCreate)

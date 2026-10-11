@@ -36,7 +36,7 @@ function toEmailProduct(product: any): WeeklyEmailProduct | null {
 
 export async function buildWeeklyActionEmail(
   container: MedusaContainer,
-  opts: { weeklyActionId: string; country?: string }
+  opts: { weeklyActionId: string; country?: string; track?: { cmp: string; rcp: string } }
 ): Promise<{ subject: string; html: string; productCount: number }> {
   const query = container.resolve(ContainerRegistrationKeys.QUERY)
   const country = (opts.country ?? "de").toLowerCase()
@@ -106,6 +106,7 @@ export async function buildWeeklyActionEmail(
       campaign: utmCampaign,
       id: wa.id, // GA4 campaign id — matches the SES campaign_id tag
     },
+    track: opts.track, // first-party click tracking (&cmp=&rcp= on every link)
   })
 
   const subject = (wa.email_subject && String(wa.email_subject).trim()) || wa.title || "Wochenaktion"
