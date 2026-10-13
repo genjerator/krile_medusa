@@ -29,6 +29,23 @@
 	header +X-Served-By "strato-vps"
 }
 
+# Baseline security response headers, added to every site via `import
+# security_headers`. No performance cost.
+# - HSTS: tell browsers to always use HTTPS for a year, incl. subdomains (every
+#   host here is served over HTTPS by Caddy). `preload` is intentionally omitted
+#   (it's a hard, hard-to-undo commitment that requires list submission).
+# - X-Content-Type-Options: stop browsers MIME-sniffing responses.
+# - Referrer-Policy: only send the origin (not the full URL) on cross-site requests.
+# - X-Frame-Options: block other origins from framing our pages (clickjacking).
+(security_headers) {
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		X-Frame-Options "SAMEORIGIN"
+	}
+}
+
 # ══════════════════════════════════════════════════════════════════════════════
 # PRODUCTION — real domains
 # ══════════════════════════════════════════════════════════════════════════════
@@ -36,6 +53,7 @@
 # ─── Admin + Medusa backend ──────────────────────────────────────────────────
 admin.planetaindustries.de {
 	import access_log
+	import security_headers
 	import marker
 	# Browsers without an "lng" cookie get a permanent German one, so the
 	# admin language survives cleared site data / closed browsers.
@@ -47,24 +65,28 @@ admin.planetaindustries.de {
 # ─── Krile / Planeta Industries storefront (canonical: www) ──────────────────
 www.planetaindustries.de {
 	import access_log
+	import security_headers
 	import marker
 	reverse_proxy storefront-planeta-industries:8000
 }
 # apex → www
 planetaindustries.de {
 	import access_log
+	import security_headers
 	redir https://www.planetaindustries.de{uri} permanent
 }
 
 # ─── Planeta GmbH storefront (canonical: www.planeta.de) ─────────────────────
 www.planeta.de {
 	import access_log
+	import security_headers
 	import marker
 	reverse_proxy storefront-planeta:8000
 }
 # apex + legacy planeta-shop.de (and its www) → www.planeta.de
 planeta.de, planeta-shop.de, www.planeta-shop.de {
 	import access_log
+	import security_headers
 	redir https://www.planeta.de{uri} permanent
 }
 
@@ -75,6 +97,7 @@ planeta.de, planeta-shop.de, www.planeta-shop.de {
 # ─── Admin + Medusa backend ──────────────────────────────────────────────────
 admin.alcoccodrillo.de {
 	import access_log
+	import security_headers
 	@noLng not header Cookie *lng=*
 	header @noLng Set-Cookie "lng=de; Path=/; Max-Age=31536000; SameSite=Lax"
 	reverse_proxy medusa:9000
@@ -83,18 +106,21 @@ admin.alcoccodrillo.de {
 # ─── Krile storefront (krile_medusa-storefront) ──────────────────────────────
 industries.alcoccodrillo.de {
 	import access_log
+	import security_headers
 	reverse_proxy storefront-planeta-industries:8000
 }
 
 # ─── Planeta storefront (planetagmbh_medusa-storefront) ──────────────────────
 planeta.alcoccodrillo.de {
 	import access_log
+	import security_headers
 	reverse_proxy storefront-planeta:8000
 }
 
 # ─── Uptime Kuma (uptime monitoring + status page) ───────────────────────────
 status.alcoccodrillo.de {
 	import access_log
+	import security_headers
 	reverse_proxy uptime-kuma:3001
 }
 
@@ -107,6 +133,7 @@ status.alcoccodrillo.de {
 # redeploy. The username here is "admin".
 monitor.planetaindustries.de {
 	import access_log
+	import security_headers
 	basic_auth {
 		admin $2a$14$DU5rfc18tnsVSsbHaNeaSOcVMLxyqZ.uCyQjboPIBtvANJHgJVUre
 	}
