@@ -1,5 +1,5 @@
 import { MedusaContainer } from "@medusajs/framework/types"
-import { ContainerRegistrationKeys } from "@medusajs/framework/utils"
+import { ContainerRegistrationKeys, Modules } from "@medusajs/framework/utils"
 import { MARKETING_MODULE } from "../../modules/marketing"
 
 /**
@@ -44,8 +44,17 @@ export async function upsertMarketingProfile(
 }
 
 /**
- * Mark a customer unsubscribed (idempotent). Used by the unsubscribe route and by
- * the SES webhook on hard bounce / complaint. Forces the suppressed priority rank.
+ * Mark a customer unsubscribed AND soft-delete them immediately (idempotent).
+ * Used by the unsubscribe route and by the SES webhook on hard bounce / complaint
+ * — so every SES suppression event (complaint / hard bounce / unsubscribe click)
+ * takes the customer out of the active base right away, not only at the nightly
+ * cleanup. Soft delete (reversible) also removes them from the nightly priority
+ * recompute's scope (`where c.deleted_at is null`), which is what previously
+ * un-suppressed SES-only events (they have no Brevo metadata to re-derive from).
+ *
+ * `priority` is set to 'unsubscribed' (not 'none') so the nightly
+ * `softDeleteUnsubscribedCustomers` is a correct fallback if the immediate soft
+ * delete below ever fails.
  */
 export async function setUnsubscribed(
   container: MedusaContainer,
@@ -55,7 +64,12 @@ export async function setUnsubscribed(
   await upsertMarketingProfile(container, customerId, {
     unsubscribed: true,
     unsubscribed_at: when,
-    priority: "none",
+    priority: "unsubscribed",
     priority_rank: SUPPRESSED_RANK,
   })
+
+  // Remove from the active base immediately (soft delete — reversible via the
+  // customer module's restore). No-op if already soft-deleted.
+  const customerModule: any = container.resolve(Modules.CUSTOMER)
+  await customerModule.softDeleteCustomers([customerId])
 }
