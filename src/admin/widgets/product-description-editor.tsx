@@ -76,7 +76,14 @@ const ProductDescriptionWidget = ({ data: product }: DetailWidgetProps<HttpTypes
     if (!raw) return
     const rendered = toEditorHtml(raw)
 
+    let observer: MutationObserver
     const apply = () => {
+      // Pause observation around our own writes. `rendered` is e.g. `<p>raw</p>`,
+      // whose inner node has childElementCount 0 and textContent === raw, so a
+      // single-paragraph description would otherwise match the node we just
+      // created, nest another `<p>` inside it, and loop forever — freezing the
+      // whole admin. Only genuine React re-renders should re-trigger apply().
+      observer.disconnect()
       for (const el of Array.from(
         document.querySelectorAll<HTMLElement>("p, span, div")
       )) {
@@ -89,10 +96,10 @@ const ProductDescriptionWidget = ({ data: product }: DetailWidgetProps<HttpTypes
           el.innerHTML = rendered
         }
       }
+      observer.observe(document.body, { childList: true, subtree: true })
     }
+    observer = new MutationObserver(() => apply())
     apply()
-    const observer = new MutationObserver(() => apply())
-    observer.observe(document.body, { childList: true, subtree: true })
     return () => observer.disconnect()
   }, [product.description])
 
