@@ -869,4 +869,82 @@ export const PAYLOADS: ImproveProductPayload[] = [
     },
   },
 },
+{
+  productId: "prod_01KSMD67554B1K1K6CR0AK67X9",
+  handle: "dampfschlauch-2m-tulipano",
+  base: {
+    title: "Dampfschlauch 2 m für Bügeleisen Tulipano",
+    subtitle:
+      "Konfektionierter Ersatz-Dampfschlauch, 2,00 m, mit Anschluss für das Bügeleisen Tulipano",
+    description: `<p class="mb-3 leading-relaxed">Der konfektionierte Dampfschlauch verbindet Ihren Dampferzeuger zuverlässig mit dem Bügeleisen Tulipano – für konstanten Dampfdruck und ein gleichmäßiges Bügelergebnis. Als passgenaues Ersatzteil bringen Sie Ihre Bügelstation schnell wieder in Betrieb.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Länge:</strong> 2,00 m (Standard)</li><li class="ml-1"><strong class="font-semibold">Konfektioniert</strong> – anschlussfertig montiert</li><li class="ml-1"><strong class="font-semibold">Passender Anschluss</strong> für das Bügeleisen Tulipano</li><li class="ml-1">Hochwertiges Ersatzteil für den professionellen Dauereinsatz</li></ul><p class="mb-3 leading-relaxed">Ideal als Ersatz bei Verschleiß oder Beschädigung des Original-Dampfschlauchs.</p>`,
+  },
+  metadata: {
+    stripPrefixes: ["woo_"],
+    set: {
+      meta_title: "Dampfschlauch 2 m für Bügeleisen Tulipano | Planeta",
+      meta_description:
+        "Konfektionierter Ersatz-Dampfschlauch, 2,00 m, mit Anschluss für das Bügeleisen Tulipano. Hochwertiges Ersatzteil für Ihre Bügelstation.",
+      meta_title_en: "Steam Hose 2 m for Tulipano Iron | Planeta",
+      meta_description_en:
+        "Pre-assembled 2.00 m replacement steam hose with connector for the Tulipano iron. High-quality spare part for professional ironing stations.",
+      meta_title_it: "Tubo vapore 2 m per ferro da stiro Tulipano | Planeta",
+      meta_description_it:
+        "Tubo vapore di ricambio preassemblato da 2,00 m con attacco per il ferro da stiro Tulipano. Ricambio di qualità per la tua stazione stirante.",
+    },
+  },
+  translations: {
+    "en-US": {
+      title: "Steam Hose 2 m for Tulipano Iron",
+      subtitle:
+        "Pre-assembled replacement steam hose, 2.00 m, with connector for the Tulipano iron",
+      description: `<p class="mb-3 leading-relaxed">This pre-assembled steam hose reliably connects your steam generator to the Tulipano iron – for consistent steam pressure and smooth, even ironing results. A perfect-fit spare part that gets your ironing station back up and running fast.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Length:</strong> 2.00 m (standard)</li><li class="ml-1"><strong class="font-semibold">Pre-assembled</strong> – ready to connect</li><li class="ml-1"><strong class="font-semibold">Correct connector</strong> for the Tulipano iron</li><li class="ml-1">High-quality replacement part for continuous professional use</li></ul><p class="mb-3 leading-relaxed">Ideal as a replacement when the original steam hose is worn or damaged.</p>`,
+    },
+    "it-IT": {
+      title: "Tubo vapore 2 m per ferro da stiro Tulipano",
+      subtitle:
+        "Tubo vapore di ricambio preassemblato, 2,00 m, con attacco per il ferro da stiro Tulipano",
+      description: `<p class="mb-3 leading-relaxed">Il tubo vapore preassemblato collega in modo affidabile il generatore di vapore al ferro da stiro Tulipano – per una pressione del vapore costante e un risultato di stiratura uniforme. Un ricambio su misura che rimette rapidamente in funzione la tua stazione stirante.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Lunghezza:</strong> 2,00 m (standard)</li><li class="ml-1"><strong class="font-semibold">Preassemblato</strong> – pronto al collegamento</li><li class="ml-1"><strong class="font-semibold">Attacco corretto</strong> per il ferro da stiro Tulipano</li><li class="ml-1">Ricambio di qualità per l'uso professionale continuo</li></ul><p class="mb-3 leading-relaxed">Ideale come ricambio in caso di usura o danneggiamento del tubo vapore originale.</p>`,
+    },
+  },
+  tags: ["Dampfschlauch", "Ersatzteil", "Tulipano", "Bügelstation", "Steam hose"],
+},
+{
+  productId: "prod_01KSMD6970C33DVT77CVYB2X4G",
+  handle: "messinghuelse-buegeleisen-monoschlauch",
+  base: {
+    title: "Messinghülse für Bügeleisen und Monoschlauch",
+    subtitle:
+      "Langlebige Messing-Verbindungshülse für Bügeleisen und Monoschlauch – passgenau",
+    description: `<p class="mb-3 leading-relaxed">Die Messinghülse verbindet Ihr Bügeleisen zuverlässig mit dem Monoschlauch – für eine dichte, stabile Verbindung im Dauerbetrieb Ihrer Bügelstation. Als passgenaues Ersatzteil aus langlebigem Messing bringen Sie Ihre Anlage schnell wieder in Betrieb.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Material:</strong> Messing</li><li class="ml-1"><strong class="font-semibold">Verbindungshülse</strong> zwischen Bügeleisen und Monoschlauch</li><li class="ml-1">Passgenaues Ersatzteil für den professionellen Einsatz</li><li class="ml-1">Korrosionsbeständig und langlebig</li></ul><p class="mb-3 leading-relaxed">Ideal als Ersatz bei Verschleiß oder Beschädigung der Original-Verbindungshülse.</p>`,
+  },
+  metadata: {
+    stripPrefixes: ["woo_"],
+    set: {
+      meta_title: "Messinghülse für Bügeleisen und Monoschlauch | Planeta",
+      meta_description:
+        "Verbindungshülse aus Messing für die Verbindung zwischen Bügeleisen und Monoschlauch. Korrosionsbeständiges Ersatzteil für Ihre Bügelstation.",
+      meta_title_en: "Brass Connecting Sleeve for Iron & Mono Hose | Planeta",
+      meta_description_en:
+        "Brass connecting sleeve joining the iron to the mono hose. Corrosion-resistant, perfect-fit spare part for professional ironing stations.",
+      meta_title_it: "Boccola di ottone per ferro da stiro e monotubo | Planeta",
+      meta_description_it:
+        "Boccola di collegamento in ottone per unire il ferro da stiro al monotubo. Ricambio resistente alla corrosione per stazioni stiranti professionali.",
+    },
+  },
+  translations: {
+    "en-US": {
+      title: "Brass Connecting Sleeve for Iron & Mono Hose",
+      subtitle:
+        "Durable brass connecting sleeve for joining the iron to the mono hose",
+      description: `<p class="mb-3 leading-relaxed">This brass sleeve reliably connects your iron to the mono hose – for a tight, stable joint during continuous use of your ironing station. A perfect-fit spare part in durable brass that gets your system running again fast.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Material:</strong> brass</li><li class="ml-1"><strong class="font-semibold">Connecting sleeve</strong> between the iron and the mono hose</li><li class="ml-1">Perfect-fit spare part for professional use</li><li class="ml-1">Corrosion-resistant and durable</li></ul><p class="mb-3 leading-relaxed">Ideal as a replacement when the original connecting sleeve is worn or damaged.</p>`,
+    },
+    "it-IT": {
+      title: "Boccola di ottone per ferro da stiro e monotubo",
+      subtitle:
+        "Boccola di collegamento in ottone durevole per unire il ferro da stiro al monotubo",
+      description: `<p class="mb-3 leading-relaxed">La boccola di ottone collega in modo affidabile il ferro da stiro al monotubo – per un giunto saldo e a tenuta durante l'uso continuo della stazione stirante. Un ricambio su misura in ottone durevole che rimette rapidamente in funzione il tuo impianto.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Materiale:</strong> ottone</li><li class="ml-1"><strong class="font-semibold">Boccola di collegamento</strong> tra ferro da stiro e monotubo</li><li class="ml-1">Ricambio su misura per l'uso professionale</li><li class="ml-1">Resistente alla corrosione e durevole</li></ul><p class="mb-3 leading-relaxed">Ideale come ricambio in caso di usura o danneggiamento della boccola di collegamento originale.</p>`,
+    },
+  },
+  tags: ["Messinghülse", "Verbindungshülse", "Ersatzteil", "Monoschlauch", "Bügeleisen"],
+},
 ]
