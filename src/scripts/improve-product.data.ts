@@ -947,4 +947,628 @@ export const PAYLOADS: ImproveProductPayload[] = [
   },
   tags: ["Messinghülse", "Verbindungshülse", "Ersatzteil", "Monoschlauch", "Bügeleisen"],
 },
+{
+  productId: "prod_01KSMD695AYYWDY8A40XENH0Z0",
+  handle: "ueberdruckventil",
+  base: {
+    title: "Überdruckventil – Sicherheitsventil für Dampfkessel",
+    subtitle: "Sicherheitsregelventil für die zuverlässige Druckabsicherung Ihres Dampfkessels",
+    description: `<p class="mb-3 leading-relaxed">Das Überdruckventil sichert Ihren Dampfkessel zuverlässig ab: Es lässt überschüssigen Druck kontrolliert ab und schützt so Gerät und Anwender. Als passgenaues Ersatzteil hält es Ihre Dampfstation sicher im Betrieb.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Funktion:</strong> Sicherheitsregelventil für die Druckabsicherung</li><li class="ml-1">Schützt den Dampfkessel vor Überdruck</li><li class="ml-1">Passgenaues Ersatzteil für den professionellen Einsatz</li></ul><p class="mb-3 leading-relaxed">Ideal als Ersatz bei Verschleiß oder Defekt des Original-Ventils.</p>`,
+  },
+  metadata: {
+    stripPrefixes: ["woo_"],
+    set: {
+      meta_title: "Überdruckventil für Dampfkessel | Planeta",
+      meta_description: "Überdruckventil (Sicherheitsregelventil) für die Druckabsicherung des Dampfkessels. Passgenaues Ersatzteil für Ihre Dampfstation.",
+      meta_title_en: "Pressure Relief Valve for Steam Boiler | Planeta",
+      meta_description_en: "Pressure relief valve (safety control valve) for pressure protection of the steam boiler. Perfect-fit spare part for your steam station.",
+    },
+  },
+  translations: {
+    "en-US": {
+      title: "Pressure Relief Valve for Steam Boiler",
+      subtitle: "Safety control valve for reliable pressure protection of your steam boiler",
+      description: `<p class="mb-3 leading-relaxed">The pressure relief valve safely protects your steam boiler: it releases excess pressure in a controlled way, protecting both the appliance and the user. A perfect-fit spare part that keeps your steam station running safely.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Function:</strong> safety control valve for pressure protection</li><li class="ml-1">Protects the steam boiler from overpressure</li><li class="ml-1">Perfect-fit spare part for professional use</li></ul><p class="mb-3 leading-relaxed">Ideal as a replacement when the original valve is worn or faulty.</p>`,
+    },
+  },
+  tags: ["Überdruckventil", "Sicherheitsventil", "Dampfkessel", "Ersatzteil"],
+},
+{
+  productId: "prod_01KSMD693A09CJR21GV9CWHN74",
+  handle: "wasserstandsonde",
+  base: {
+    title: "Wasserstandsonde für Dampfkessel",
+    subtitle: "Sonde zur Überwachung des Wasserstands im Dampfkessel",
+    description: `<p class="mb-3 leading-relaxed">Die Wasserstandsonde misst den Wasserstand im Dampfkessel und sorgt so für einen sicheren, konstanten Betrieb Ihrer Dampfstation. Als passgenaues Ersatzteil ist sie schnell wieder einsatzbereit.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Funktion:</strong> misst den Wasserstand im Kessel</li><li class="ml-1">Für einen sicheren, gleichmäßigen Dampfbetrieb</li><li class="ml-1">Passgenaues Ersatzteil für den professionellen Einsatz</li></ul><p class="mb-3 leading-relaxed">Ideal als Ersatz bei Verschleiß oder Defekt der Original-Sonde.</p>`,
+  },
+  metadata: {
+    stripPrefixes: ["woo_"],
+    set: {
+      meta_title: "Wasserstandsonde für Dampfkessel | Planeta",
+      meta_description: "Wasserstandsonde zur Messung des Wasserstands im Dampfkessel. Passgenaues Ersatzteil für Ihre Dampfstation.",
+      meta_title_en: "Water Level Probe for Steam Boiler | Planeta",
+      meta_description_en: "Water level probe that measures the water level in the steam boiler. Perfect-fit spare part for your steam station.",
+    },
+  },
+  translations: {
+    "en-US": {
+      title: "Water Level Probe for Steam Boiler",
+      subtitle: "Probe for monitoring the water level in the steam boiler",
+      description: `<p class="mb-3 leading-relaxed">The water level probe measures the water level in the steam boiler, ensuring safe, consistent operation of your steam station. A perfect-fit spare part that is quickly ready for use again.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Function:</strong> measures the water level in the boiler</li><li class="ml-1">For safe, even steam operation</li><li class="ml-1">Perfect-fit spare part for professional use</li></ul><p class="mb-3 leading-relaxed">Ideal as a replacement when the original probe is worn or faulty.</p>`,
+    },
+  },
+  tags: ["Wasserstandsonde", "Dampfkessel", "Ersatzteil", "Sensor"],
+},
+{
+  productId: "prod_01KSMD691J463MXEAN9MRYDNXK",
+  handle: "stb-kessel",
+  base: {
+    title: "Sicherheitstemperaturbegrenzer (STB) für Dampfkessel",
+    subtitle: "STB zur Temperaturabsicherung des Dampfkessels",
+    description: `<p class="mb-3 leading-relaxed">Der Sicherheitstemperaturbegrenzer (STB) schützt Ihren Dampfkessel vor Überhitzung: Er unterbricht bei zu hoher Temperatur die Heizung und erhöht so die Betriebssicherheit. Ein passgenaues Sicherheits-Ersatzteil.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Funktion:</strong> Sicherheits-Temperatur-Begrenzer (STB)</li><li class="ml-1">Schützt den Dampfkessel vor Überhitzung</li><li class="ml-1">Passgenaues Ersatzteil für den professionellen Einsatz</li></ul><p class="mb-3 leading-relaxed">Ideal als Ersatz bei Verschleiß oder Auslösen des Original-STB.</p>`,
+  },
+  metadata: {
+    stripPrefixes: ["woo_"],
+    set: {
+      meta_title: "Sicherheitstemperaturbegrenzer (STB) für Dampfkessel | Planeta",
+      meta_description: "Sicherheitstemperaturbegrenzer (STB) schützt den Dampfkessel vor Überhitzung. Passgenaues Sicherheits-Ersatzteil für Ihre Dampfstation.",
+      meta_title_en: "Safety Temperature Limiter (STB) for Steam Boiler | Planeta",
+      meta_description_en: "Safety temperature limiter (STB) protects the steam boiler from overheating. Perfect-fit safety spare part for your steam station.",
+    },
+  },
+  translations: {
+    "en-US": {
+      title: "Safety Temperature Limiter (STB) for Steam Boiler",
+      subtitle: "STB for temperature protection of the steam boiler",
+      description: `<p class="mb-3 leading-relaxed">The safety temperature limiter (STB) protects your steam boiler from overheating: if the temperature gets too high, it cuts the heating and increases operating safety. A perfect-fit safety spare part.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Function:</strong> safety temperature limiter (STB)</li><li class="ml-1">Protects the steam boiler from overheating</li><li class="ml-1">Perfect-fit spare part for professional use</li></ul><p class="mb-3 leading-relaxed">Ideal as a replacement when the original STB is worn or has tripped.</p>`,
+    },
+  },
+  tags: ["Sicherheitstemperaturbegrenzer", "STB", "Dampfkessel", "Ersatzteil"],
+},
+{
+  productId: "prod_01KSMD68ZDQG0C7RRYG2DHKBSP",
+  handle: "dampfregler-z",
+  base: {
+    title: "Dampfregler Z – Ventil für die Dampfregulierung",
+    subtitle: "Regelventil zur präzisen Dampfregulierung an der Dampfstation",
+    description: `<p class="mb-3 leading-relaxed">Der Dampfregler Z regelt die Dampfzufuhr Ihrer Dampfstation präzise und sorgt für ein gleichmäßiges Bügelergebnis. Als passgenaues Ersatzteil hält er Ihre Anlage zuverlässig im Betrieb.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Funktion:</strong> Ventil für die Dampfregulierung</li><li class="ml-1">Für eine gleichmäßige Dampfabgabe</li><li class="ml-1">Passgenaues Ersatzteil für den professionellen Einsatz</li></ul><p class="mb-3 leading-relaxed">Ideal als Ersatz bei Verschleiß oder Defekt des Original-Reglers.</p>`,
+  },
+  metadata: {
+    stripPrefixes: ["woo_"],
+    set: {
+      meta_title: "Dampfregler Z für Dampfregulierung | Planeta",
+      meta_description: "Dampfregler Z – Ventil für die präzise Dampfregulierung der Dampfstation. Passgenaues Ersatzteil für Ihre Anlage.",
+      meta_title_en: "Steam Regulator Z for Steam Control | Planeta",
+      meta_description_en: "Steam regulator Z – valve for precise steam control of the steam station. Perfect-fit spare part for your system.",
+    },
+  },
+  translations: {
+    "en-US": {
+      title: "Steam Regulator Z – Steam Control Valve",
+      subtitle: "Control valve for precise steam regulation of the steam station",
+      description: `<p class="mb-3 leading-relaxed">The steam regulator Z precisely controls the steam supply of your steam station, ensuring an even ironing result. A perfect-fit spare part that keeps your system running reliably.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Function:</strong> valve for steam regulation</li><li class="ml-1">For an even steam output</li><li class="ml-1">Perfect-fit spare part for professional use</li></ul><p class="mb-3 leading-relaxed">Ideal as a replacement when the original regulator is worn or faulty.</p>`,
+    },
+  },
+  tags: ["Dampfregler", "Ventil", "Dampfstation", "Ersatzteil"],
+},
+{
+  productId: "prod_01KSMD68XKWMMYW6XQV5X4STBK",
+  handle: "dampfsteckdose-z",
+  base: {
+    title: "Dampfsteckdose Z für das Bügeleisen",
+    subtitle: "Steckdose der Dampfstation für den Anschluss des Bügeleisens",
+    description: `<p class="mb-3 leading-relaxed">Die Dampfsteckdose Z verbindet das Bügeleisen mit Ihrer Dampfstation – für eine sichere Strom- und Dampfverbindung im Dauerbetrieb. Ein passgenaues Ersatzteil für Ihre Anlage.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Funktion:</strong> Steckdose der Dampfstation für das Bügeleisen</li><li class="ml-1">Sichere Verbindung im professionellen Dauereinsatz</li><li class="ml-1">Passgenaues Ersatzteil</li></ul><p class="mb-3 leading-relaxed">Ideal als Ersatz bei Verschleiß oder Defekt der Original-Steckdose.</p>`,
+  },
+  metadata: {
+    stripPrefixes: ["woo_"],
+    set: {
+      meta_title: "Dampfsteckdose Z für Bügeleisen | Planeta",
+      meta_description: "Dampfsteckdose Z der Dampfstation für den Anschluss des Bügeleisens. Passgenaues Ersatzteil für Ihre Anlage.",
+      meta_title_en: "Steam Socket Z for the Iron | Planeta",
+      meta_description_en: "Steam socket Z of the steam station for connecting the iron. Perfect-fit spare part for your system.",
+    },
+  },
+  translations: {
+    "en-US": {
+      title: "Steam Socket Z for the Iron",
+      subtitle: "Steam-station socket for connecting the iron",
+      description: `<p class="mb-3 leading-relaxed">The steam socket Z connects the iron to your steam station – for a secure power and steam connection in continuous use. A perfect-fit spare part for your system.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Function:</strong> steam-station socket for the iron</li><li class="ml-1">Secure connection in continuous professional use</li><li class="ml-1">Perfect-fit spare part</li></ul><p class="mb-3 leading-relaxed">Ideal as a replacement when the original socket is worn or faulty.</p>`,
+    },
+  },
+  tags: ["Dampfsteckdose", "Dampfstation", "Bügeleisen", "Ersatzteil"],
+},
+{
+  productId: "prod_01KSMD68VSD5SFHZRFB15GTMEW",
+  handle: "stecker-z",
+  base: {
+    title: "Stecker Z für Bügeleisen an der Dampfeinheit",
+    subtitle: "Stecker am Bügeleisen zum Anschluss an die Dampfeinheit",
+    description: `<p class="mb-3 leading-relaxed">Der Stecker Z verbindet das Bügeleisen mit der Dampfeinheit – für eine zuverlässige Verbindung im professionellen Bügelbetrieb. Ein passgenaues Ersatzteil, das Ihre Anlage schnell wieder einsatzbereit macht.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Funktion:</strong> Stecker am Bügeleisen zum Anstecken an die Dampfeinheit</li><li class="ml-1">Zuverlässige Verbindung im Dauerbetrieb</li><li class="ml-1">Passgenaues Ersatzteil</li></ul><p class="mb-3 leading-relaxed">Ideal als Ersatz bei Verschleiß oder Defekt des Original-Steckers.</p>`,
+  },
+  metadata: {
+    stripPrefixes: ["woo_"],
+    set: {
+      meta_title: "Stecker Z für Bügeleisen an der Dampfeinheit | Planeta",
+      meta_description: "Stecker Z am Bügeleisen zum Anschluss an die Dampfeinheit. Passgenaues Ersatzteil für Ihre Dampfstation.",
+      meta_title_en: "Plug Z for Iron to Steam Unit | Planeta",
+      meta_description_en: "Plug Z on the iron for connecting to the steam unit. Perfect-fit spare part for your steam station.",
+    },
+  },
+  translations: {
+    "en-US": {
+      title: "Plug Z for Iron to Steam Unit",
+      subtitle: "Plug on the iron for connecting to the steam unit",
+      description: `<p class="mb-3 leading-relaxed">The plug Z connects the iron to the steam unit – for a reliable connection in professional ironing. A perfect-fit spare part that gets your system ready for use again fast.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Function:</strong> plug on the iron for connecting to the steam unit</li><li class="ml-1">Reliable connection in continuous use</li><li class="ml-1">Perfect-fit spare part</li></ul><p class="mb-3 leading-relaxed">Ideal as a replacement when the original plug is worn or faulty.</p>`,
+    },
+  },
+  tags: ["Stecker", "Bügeleisen", "Dampfeinheit", "Ersatzteil"],
+},
+{
+  productId: "prod_01KSMD68SZWJXDVW2XQH6C083M",
+  handle: "druckschalter",
+  base: {
+    title: "Druckschalter für die Druckregulierung im Dampfkessel",
+    subtitle: "Schalter zur Regelung des Drucks im Dampfkessel",
+    description: `<p class="mb-3 leading-relaxed">Der Druckschalter regelt den Druck im Dampfkessel und schaltet die Heizung bedarfsgerecht – für konstanten Dampf und einen sicheren Betrieb. Ein passgenaues Ersatzteil für Ihre Dampfstation.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Funktion:</strong> Schalter für die Druckregulierung im Dampfkessel</li><li class="ml-1">Für konstanten Druck und sicheren Betrieb</li><li class="ml-1">Passgenaues Ersatzteil</li></ul><p class="mb-3 leading-relaxed">Ideal als Ersatz bei Verschleiß oder Defekt des Original-Druckschalters.</p>`,
+  },
+  metadata: {
+    stripPrefixes: ["woo_"],
+    set: {
+      meta_title: "Druckschalter für Dampfkessel | Planeta",
+      meta_description: "Druckschalter für die Druckregulierung im Dampfkessel. Passgenaues Ersatzteil für Ihre Dampfstation.",
+      meta_title_en: "Pressure Switch for Steam Boiler | Planeta",
+      meta_description_en: "Pressure switch for pressure regulation in the steam boiler. Perfect-fit spare part for your steam station.",
+    },
+  },
+  translations: {
+    "en-US": {
+      title: "Pressure Switch for Steam Boiler",
+      subtitle: "Switch for regulating the pressure in the steam boiler",
+      description: `<p class="mb-3 leading-relaxed">The pressure switch regulates the pressure in the steam boiler and switches the heating as needed – for constant steam and safe operation. A perfect-fit spare part for your steam station.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Function:</strong> switch for pressure regulation in the steam boiler</li><li class="ml-1">For constant pressure and safe operation</li><li class="ml-1">Perfect-fit spare part</li></ul><p class="mb-3 leading-relaxed">Ideal as a replacement when the original pressure switch is worn or faulty.</p>`,
+    },
+  },
+  tags: ["Druckschalter", "Dampfkessel", "Druckregelung", "Ersatzteil"],
+},
+{
+  productId: "prod_01KSMD68QQ5BZTXBMRTT1Q9500",
+  handle: "wasserfilter",
+  base: {
+    title: "Wasserfilter für den Wassereintritt in den Dampfkessel",
+    subtitle: "Filtereinheit für sauberes Wasser am Kesseleintritt",
+    description: `<p class="mb-3 leading-relaxed">Der Wasserfilter reinigt das Wasser am Eintritt in den Dampfkessel und schützt so vor Ablagerungen und Verschmutzungen – für eine längere Lebensdauer Ihrer Dampfstation. Ein passgenaues Ersatzteil.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Funktion:</strong> Filtereinheit für den Wassereintritt in den Kessel</li><li class="ml-1">Schützt den Kessel vor Verschmutzung</li><li class="ml-1">Passgenaues Ersatzteil</li></ul><p class="mb-3 leading-relaxed">Ideal als regelmäßiger Austausch oder Ersatz bei Verschleiß.</p>`,
+  },
+  metadata: {
+    stripPrefixes: ["woo_"],
+    set: {
+      meta_title: "Wasserfilter für Dampfkessel | Planeta",
+      meta_description: "Wasserfilter (Filtereinheit) für den Wassereintritt in den Dampfkessel. Passgenaues Ersatzteil für Ihre Dampfstation.",
+      meta_title_en: "Water Filter for Steam Boiler | Planeta",
+      meta_description_en: "Water filter (filter unit) for the water inlet to the steam boiler. Perfect-fit spare part for your steam station.",
+    },
+  },
+  translations: {
+    "en-US": {
+      title: "Water Filter for the Steam Boiler Inlet",
+      subtitle: "Filter unit for clean water at the boiler inlet",
+      description: `<p class="mb-3 leading-relaxed">The water filter cleans the water as it enters the steam boiler, protecting it from deposits and contamination – for a longer service life of your steam station. A perfect-fit spare part.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Function:</strong> filter unit for the water inlet to the boiler</li><li class="ml-1">Protects the boiler from contamination</li><li class="ml-1">Perfect-fit spare part</li></ul><p class="mb-3 leading-relaxed">Ideal as a regular replacement or when worn.</p>`,
+    },
+  },
+  tags: ["Wasserfilter", "Dampfkessel", "Filter", "Ersatzteil"],
+},
+{
+  productId: "prod_01KSMD68FGVYKDDWRGQAVPVTQP",
+  handle: "gehaeuse-professional-rot",
+  base: {
+    title: "Gehäuse Professional Rot – für Planeta Dampfeinheiten",
+    subtitle: "Rotes Ersatzgehäuse für die Dampfeinheiten Elegance, Baronesse, Comtesse, Premium, Vario, Rapid und Rapid 2000",
+    description: `<p class="mb-3 leading-relaxed">Das rote Professional-Gehäuse ist das passende Ersatzgehäuse für Ihre Planeta Dampfeinheit. Es bringt Ihr Gerät optisch und technisch wieder in Form – robust und passgenau.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Passend für:</strong> Elegance, Baronesse, Comtesse, Premium, Vario, Rapid, Rapid 2000</li><li class="ml-1">Farbe: Rot</li><li class="ml-1">Passgenaues Ersatzteil für den professionellen Einsatz</li></ul><p class="mb-3 leading-relaxed">Ideal als Ersatz bei Beschädigung oder Verschleiß des Original-Gehäuses.</p>`,
+  },
+  metadata: {
+    stripPrefixes: ["woo_"],
+    set: {
+      meta_title: "Gehäuse Professional Rot für Planeta Dampfeinheiten | Planeta",
+      meta_description: "Rotes Professional-Ersatzgehäuse für die Planeta Dampfeinheiten Elegance, Baronesse, Comtesse, Premium, Vario, Rapid und Rapid 2000.",
+      meta_title_en: "Professional Housing, Red, for Planeta Steam Units | Planeta",
+      meta_description_en: "Red Professional replacement housing for the Planeta steam units Elegance, Baronesse, Comtesse, Premium, Vario, Rapid and Rapid 2000.",
+    },
+  },
+  translations: {
+    "en-US": {
+      title: "Professional Housing, Red – for Planeta Steam Units",
+      subtitle: "Red replacement housing for the steam units Elegance, Baronesse, Comtesse, Premium, Vario, Rapid and Rapid 2000",
+      description: `<p class="mb-3 leading-relaxed">The red Professional housing is the matching replacement housing for your Planeta steam unit. It restores your appliance's look and fit – robust and precisely fitting.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Fits:</strong> Elegance, Baronesse, Comtesse, Premium, Vario, Rapid, Rapid 2000</li><li class="ml-1">Colour: red</li><li class="ml-1">Perfect-fit spare part for professional use</li></ul><p class="mb-3 leading-relaxed">Ideal as a replacement when the original housing is damaged or worn.</p>`,
+    },
+  },
+  tags: ["Gehäuse", "Professional", "Dampfeinheit", "Ersatzteil"],
+},
+{
+  productId: "prod_01KSMD68DB8980XH0E2BG7AJSS",
+  handle: "dampfkessel-gebogen",
+  base: {
+    title: "Dampfkessel gebogen – für Planeta Dampfeinheiten (bis Bj. 2004)",
+    subtitle: "Gebogenes Dampfkesselsystem für Planeta Dampfeinheiten bis Baujahr 2004",
+    description: `<p class="mb-3 leading-relaxed">Der gebogene Dampfkessel ist das passende Kesselsystem für Planeta Dampfeinheiten bis Baujahr 2004. Als zentrales Ersatzteil bringt er Ihre Dampfstation wieder zuverlässig in Betrieb.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Passend für:</strong> Planeta Dampfeinheiten bis Bj. 2004</li><li class="ml-1">Gebogene Bauform (Dampfkesselsystem)</li><li class="ml-1">Passgenaues Ersatzteil für den professionellen Einsatz</li></ul><p class="mb-3 leading-relaxed">Ideal als Ersatz bei Defekt oder Verschleiß des Original-Kessels.</p>`,
+  },
+  metadata: {
+    stripPrefixes: ["woo_"],
+    set: {
+      meta_title: "Dampfkessel gebogen für Planeta Dampfeinheiten | Planeta",
+      meta_description: "Gebogenes Dampfkesselsystem für Planeta Dampfeinheiten bis Baujahr 2004. Passgenaues Ersatzteil für Ihre Dampfstation.",
+      meta_title_en: "Curved Steam Boiler for Planeta Steam Units | Planeta",
+      meta_description_en: "Curved steam boiler system for Planeta steam units up to 2004. Perfect-fit spare part for your steam station.",
+    },
+  },
+  translations: {
+    "en-US": {
+      title: "Curved Steam Boiler – for Planeta Steam Units (to 2004)",
+      subtitle: "Curved steam boiler system for Planeta steam units up to year 2004",
+      description: `<p class="mb-3 leading-relaxed">The curved steam boiler is the matching boiler system for Planeta steam units built up to 2004. As a central spare part, it gets your steam station running reliably again.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Fits:</strong> Planeta steam units up to 2004</li><li class="ml-1">Curved design (steam boiler system)</li><li class="ml-1">Perfect-fit spare part for professional use</li></ul><p class="mb-3 leading-relaxed">Ideal as a replacement when the original boiler is faulty or worn.</p>`,
+    },
+  },
+  tags: ["Dampfkessel", "Dampfeinheit", "Kesselsystem", "Ersatzteil"],
+},
+{
+  productId: "prod_01KSMD67KQ5JQMJ2J4BR4XZYC3",
+  handle: "verbindungsschlauch-dublo",
+  base: {
+    title: "Verbindungsschlauch für Bügeleisensohle Dublo",
+    subtitle: "Verbindungsschlauch für die Bügeleisensohle Dublo – Einzelverkauf, Preis je Stück",
+    description: `<p class="mb-3 leading-relaxed">Der Verbindungsschlauch für die Bügeleisensohle Dublo sorgt für eine zuverlässige Verbindung im Bügelbetrieb. Als passgenaues Ersatzteil hält er Ihre Anlage einsatzbereit.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Passend für:</strong> Bügeleisensohle Dublo</li><li class="ml-1">Einzelverkauf, Preisangabe je Stück</li><li class="ml-1">Passgenaues Ersatzteil</li></ul><p class="mb-3 leading-relaxed">Ideal als Ersatz bei Verschleiß oder Beschädigung.</p>`,
+  },
+  metadata: {
+    stripPrefixes: ["woo_"],
+    set: {
+      meta_title: "Verbindungsschlauch für Bügeleisensohle Dublo | Planeta",
+      meta_description: "Verbindungsschlauch für die Bügeleisensohle Dublo. Einzelverkauf, Preis je Stück – passgenaues Ersatzteil.",
+      meta_title_en: "Connecting Hose for Dublo Soleplate | Planeta",
+      meta_description_en: "Connecting hose for the Dublo iron soleplate. Sold individually, price per piece – perfect-fit spare part.",
+    },
+  },
+  translations: {
+    "en-US": {
+      title: "Connecting Hose for Dublo Soleplate",
+      subtitle: "Connecting hose for the Dublo iron soleplate – sold individually, price per piece",
+      description: `<p class="mb-3 leading-relaxed">The connecting hose for the Dublo iron soleplate ensures a reliable connection during ironing. A perfect-fit spare part that keeps your system ready for use.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Fits:</strong> Dublo iron soleplate</li><li class="ml-1">Sold individually, price per piece</li><li class="ml-1">Perfect-fit spare part</li></ul><p class="mb-3 leading-relaxed">Ideal as a replacement when worn or damaged.</p>`,
+    },
+  },
+  tags: ["Verbindungsschlauch", "Dublo", "Bügeleisen", "Ersatzteil"],
+},
+{
+  productId: "prod_01KSMD67HYD8G9XXNY14XVX7TR",
+  handle: "netzkabel-schwarz",
+  base: {
+    title: "Netzkabel schwarz 2,5 m für Bügelsysteme (16 A)",
+    subtitle: "Schwarzes Netzkabel, 2,50 m, mit Kaltgerätestecker für Bügelsysteme (16 A)",
+    description: `<p class="mb-3 leading-relaxed">Das schwarze Netzkabel versorgt Ihr Bügelsystem zuverlässig mit Strom – 2,50 m lang, mit Kaltgerätestecker und für 16 A ausgelegt. Ein passgenaues Ersatzteil für den professionellen Einsatz.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Länge:</strong> 2,50 m (Standard)</li><li class="ml-1">Mit Kaltgerätestecker, 16 A, für Bügelsysteme</li><li class="ml-1">Farbe: Schwarz</li></ul><p class="mb-3 leading-relaxed">Ideal als Ersatz bei Verschleiß oder Beschädigung des Original-Kabels.</p>`,
+  },
+  metadata: {
+    stripPrefixes: ["woo_"],
+    set: {
+      meta_title: "Netzkabel schwarz 2,5 m für Bügelsysteme (16 A) | Planeta",
+      meta_description: "Schwarzes Netzkabel, 2,50 m, mit Kaltgerätestecker für Bügelsysteme, 16 A. Passgenaues Ersatzteil.",
+      meta_title_en: "Black Power Cable 2.5 m for Ironing Systems (16 A) | Planeta",
+      meta_description_en: "Black power cable, 2.50 m, with IEC connector for ironing systems, 16 A. Perfect-fit spare part.",
+    },
+  },
+  translations: {
+    "en-US": {
+      title: "Black Power Cable 2.5 m for Ironing Systems (16 A)",
+      subtitle: "Black power cable, 2.50 m, with IEC connector for ironing systems (16 A)",
+      description: `<p class="mb-3 leading-relaxed">The black power cable reliably supplies your ironing system with power – 2.50 m long, with an IEC connector and rated for 16 A. A perfect-fit spare part for professional use.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Length:</strong> 2.50 m (standard)</li><li class="ml-1">With IEC connector, 16 A, for ironing systems</li><li class="ml-1">Colour: black</li></ul><p class="mb-3 leading-relaxed">Ideal as a replacement when the original cable is worn or damaged.</p>`,
+    },
+  },
+  tags: ["Netzkabel", "Bügelsystem", "Kaltgerätestecker", "Ersatzteil"],
+},
+{
+  productId: "prod_01KSMD67G4XBN4M9YHP81FWH82",
+  handle: "sicherheitstemperaturbegrenzer-lang",
+  base: {
+    title: "Sicherheitstemperaturbegrenzer lang (STB)",
+    subtitle: "Langer Sicherheitstemperaturbegrenzer (STB) als Überhitzungsschutz",
+    description: `<p class="mb-3 leading-relaxed">Der lange Sicherheitstemperaturbegrenzer (STB) schützt Ihr Gerät vor Überhitzung und erhöht die Betriebssicherheit. Ein passgenaues Sicherheits-Ersatzteil in der langen Bauform.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Funktion:</strong> Sicherheitstemperaturbegrenzer (STB), lange Ausführung</li><li class="ml-1">Schützt vor Überhitzung</li><li class="ml-1">Passgenaues Ersatzteil</li></ul><p class="mb-3 leading-relaxed">Ideal als Ersatz bei Verschleiß oder Auslösen des Original-STB.</p>`,
+  },
+  metadata: {
+    stripPrefixes: ["woo_"],
+    set: {
+      meta_title: "Sicherheitstemperaturbegrenzer lang (STB) | Planeta",
+      meta_description: "Langer Sicherheitstemperaturbegrenzer (STB) als Überhitzungsschutz. Passgenaues Sicherheits-Ersatzteil.",
+      meta_title_en: "Safety Temperature Limiter, Long (STB) | Planeta",
+      meta_description_en: "Long safety temperature limiter (STB) as overheating protection. Perfect-fit safety spare part.",
+    },
+  },
+  translations: {
+    "en-US": {
+      title: "Safety Temperature Limiter, Long (STB)",
+      subtitle: "Long safety temperature limiter (STB) as overheating protection",
+      description: `<p class="mb-3 leading-relaxed">The long safety temperature limiter (STB) protects your appliance from overheating and increases operating safety. A perfect-fit safety spare part in the long version.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Function:</strong> safety temperature limiter (STB), long version</li><li class="ml-1">Protects against overheating</li><li class="ml-1">Perfect-fit spare part</li></ul><p class="mb-3 leading-relaxed">Ideal as a replacement when the original STB is worn or has tripped.</p>`,
+    },
+  },
+  tags: ["Sicherheitstemperaturbegrenzer", "STB", "Überhitzungsschutz", "Ersatzteil"],
+},
+{
+  productId: "prod_01KSMD67EB9T5EYX9K95RBXABS",
+  handle: "sicherheitstemperaturbegrenzer-kurz",
+  base: {
+    title: "Sicherheitstemperaturbegrenzer kurz (STB)",
+    subtitle: "Kurzer Sicherheitstemperaturbegrenzer (STB) als Überhitzungsschutz",
+    description: `<p class="mb-3 leading-relaxed">Der kurze Sicherheitstemperaturbegrenzer (STB) schützt Ihr Gerät vor Überhitzung und erhöht die Betriebssicherheit. Ein passgenaues Sicherheits-Ersatzteil in der kurzen Bauform.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Funktion:</strong> Sicherheitstemperaturbegrenzer (STB), kurze Ausführung</li><li class="ml-1">Schützt vor Überhitzung</li><li class="ml-1">Passgenaues Ersatzteil</li></ul><p class="mb-3 leading-relaxed">Ideal als Ersatz bei Verschleiß oder Auslösen des Original-STB.</p>`,
+  },
+  metadata: {
+    stripPrefixes: ["woo_"],
+    set: {
+      meta_title: "Sicherheitstemperaturbegrenzer kurz (STB) | Planeta",
+      meta_description: "Kurzer Sicherheitstemperaturbegrenzer (STB) als Überhitzungsschutz. Passgenaues Sicherheits-Ersatzteil.",
+      meta_title_en: "Safety Temperature Limiter, Short (STB) | Planeta",
+      meta_description_en: "Short safety temperature limiter (STB) as overheating protection. Perfect-fit safety spare part.",
+    },
+  },
+  translations: {
+    "en-US": {
+      title: "Safety Temperature Limiter, Short (STB)",
+      subtitle: "Short safety temperature limiter (STB) as overheating protection",
+      description: `<p class="mb-3 leading-relaxed">The short safety temperature limiter (STB) protects your appliance from overheating and increases operating safety. A perfect-fit safety spare part in the short version.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Function:</strong> safety temperature limiter (STB), short version</li><li class="ml-1">Protects against overheating</li><li class="ml-1">Perfect-fit spare part</li></ul><p class="mb-3 leading-relaxed">Ideal as a replacement when the original STB is worn or has tripped.</p>`,
+    },
+  },
+  tags: ["Sicherheitstemperaturbegrenzer", "STB", "Überhitzungsschutz", "Ersatzteil"],
+},
+{
+  productId: "prod_01KSMD67CHGCEM19EKZBGRPX85",
+  handle: "gummilippe-tasterabdeckung",
+  base: {
+    title: "Gummilippe / Tasterabdeckung für Bügeleisen Tulipano",
+    subtitle: "Gummilippe als Tasterabdeckung für das Bügeleisen Tulipano",
+    description: `<p class="mb-3 leading-relaxed">Die Gummilippe dient als Tasterabdeckung am Bügeleisen Tulipano und schützt den Taster zuverlässig vor Verschmutzung und Feuchtigkeit. Ein kleines, passgenaues Ersatzteil mit großer Wirkung.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Passend für:</strong> Bügeleisen Tulipano</li><li class="ml-1">Funktion: Tasterabdeckung / Schutz des Tasters</li><li class="ml-1">Passgenaues Ersatzteil</li></ul><p class="mb-3 leading-relaxed">Ideal als Ersatz bei Verschleiß oder Beschädigung.</p>`,
+  },
+  metadata: {
+    stripPrefixes: ["woo_"],
+    set: {
+      meta_title: "Gummilippe / Tasterabdeckung für Bügeleisen Tulipano | Planeta",
+      meta_description: "Gummilippe als Tasterabdeckung für das Bügeleisen Tulipano. Passgenaues Ersatzteil zum Schutz des Tasters.",
+      meta_title_en: "Rubber Lip / Button Cover for Tulipano Iron | Planeta",
+      meta_description_en: "Rubber lip as button cover for the Tulipano iron. Perfect-fit spare part protecting the button.",
+    },
+  },
+  translations: {
+    "en-US": {
+      title: "Rubber Lip / Button Cover for Tulipano Iron",
+      subtitle: "Rubber lip as button cover for the Tulipano iron",
+      description: `<p class="mb-3 leading-relaxed">The rubber lip serves as a button cover on the Tulipano iron, reliably protecting the button from dirt and moisture. A small, perfect-fit spare part with a big effect.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Fits:</strong> Tulipano iron</li><li class="ml-1">Function: button cover / button protection</li><li class="ml-1">Perfect-fit spare part</li></ul><p class="mb-3 leading-relaxed">Ideal as a replacement when worn or damaged.</p>`,
+    },
+  },
+  tags: ["Gummilippe", "Tasterabdeckung", "Tulipano", "Ersatzteil"],
+},
+{
+  productId: "prod_01KSMD67173KMAG09895TGMQ1E",
+  handle: "magnetventil-olab",
+  base: {
+    title: "Magnetventil Olab (15 VA) für Dampfkessel",
+    subtitle: "Olab-Magnetventil, 15 VA, für die Dampf-/Wassersteuerung am Dampfkessel",
+    description: `<p class="mb-3 leading-relaxed">Das Olab-Magnetventil steuert zuverlässig den Durchfluss am Dampfkessel und sorgt für einen sicheren, konstanten Betrieb Ihrer Dampfstation. Ein passgenaues Ersatzteil für den professionellen Einsatz.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Hersteller/Typ:</strong> Olab, 15 VA</li><li class="ml-1">Temperatur: TF 150 °C, TA 120 °C</li><li class="ml-1">Passgenaues Ersatzteil</li></ul><p class="mb-3 leading-relaxed">Ideal als Ersatz bei Verschleiß oder Defekt des Original-Ventils.</p>`,
+  },
+  metadata: {
+    stripPrefixes: ["woo_"],
+    set: {
+      meta_title: "Magnetventil Olab (15 VA) für Dampfkessel | Planeta",
+      meta_description: "Olab-Magnetventil, 15 VA (TF 150 °C / TA 120 °C), für den Dampfkessel. Passgenaues Ersatzteil für Ihre Dampfstation.",
+      meta_title_en: "Olab Solenoid Valve (15 VA) for Steam Boiler | Planeta",
+      meta_description_en: "Olab solenoid valve, 15 VA (TF 150 °C / TA 120 °C), for the steam boiler. Perfect-fit spare part for your steam station.",
+    },
+  },
+  translations: {
+    "en-US": {
+      title: "Olab Solenoid Valve (15 VA) for Steam Boiler",
+      subtitle: "Olab solenoid valve, 15 VA, for steam/water control on the steam boiler",
+      description: `<p class="mb-3 leading-relaxed">The Olab solenoid valve reliably controls the flow on the steam boiler, ensuring safe, constant operation of your steam station. A perfect-fit spare part for professional use.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Make/type:</strong> Olab, 15 VA</li><li class="ml-1">Temperature: TF 150 °C, TA 120 °C</li><li class="ml-1">Perfect-fit spare part</li></ul><p class="mb-3 leading-relaxed">Ideal as a replacement when the original valve is worn or faulty.</p>`,
+    },
+  },
+  tags: ["Magnetventil", "Olab", "Dampfkessel", "Ersatzteil"],
+},
+{
+  productId: "prod_01KSMD6739J08P0F8NV68HHP9Q",
+  handle: "thermostat-kapillarrohrfuehler-190c",
+  base: {
+    title: "Thermostat mit Kapillarrohrfühler 190 °C für Dampfkessel",
+    subtitle: "Thermostat mit Kapillarrohrfühler (190 °C) zur Temperaturregelung des Dampfkessels",
+    description: `<p class="mb-3 leading-relaxed">Das Thermostat mit Kapillarrohrfühler regelt die Temperatur Ihres Dampfkessels zuverlässig bei 190 °C – für einen sicheren, konstanten Betrieb. Ein passgenaues Ersatzteil für den professionellen Einsatz.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Funktion:</strong> Thermostat mit Kapillarrohrfühler für den Dampfkessel</li><li class="ml-1">Schalttemperatur: 190 °C</li><li class="ml-1">Passgenaues Ersatzteil</li></ul><p class="mb-3 leading-relaxed">Ideal als Ersatz bei Verschleiß oder Defekt des Original-Thermostats.</p>`,
+  },
+  metadata: {
+    stripPrefixes: ["woo_"],
+    set: {
+      meta_title: "Thermostat mit Kapillarrohrfühler 190 °C für Dampfkessel | Planeta",
+      meta_description: "Thermostat mit Kapillarrohrfühler (190 °C) zur Temperaturregelung des Dampfkessels. Passgenaues Ersatzteil.",
+      meta_title_en: "Capillary Thermostat 190 °C for Steam Boiler | Planeta",
+      meta_description_en: "Thermostat with capillary sensor (190 °C) for temperature control of the steam boiler. Perfect-fit spare part.",
+    },
+  },
+  translations: {
+    "en-US": {
+      title: "Capillary Thermostat 190 °C for Steam Boiler",
+      subtitle: "Thermostat with capillary sensor (190 °C) for temperature control of the steam boiler",
+      description: `<p class="mb-3 leading-relaxed">The thermostat with capillary sensor reliably controls your steam boiler temperature at 190 °C – for safe, constant operation. A perfect-fit spare part for professional use.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Function:</strong> thermostat with capillary sensor for the steam boiler</li><li class="ml-1">Switching temperature: 190 °C</li><li class="ml-1">Perfect-fit spare part</li></ul><p class="mb-3 leading-relaxed">Ideal as a replacement when the original thermostat is worn or faulty.</p>`,
+    },
+  },
+  tags: ["Thermostat", "Kapillarrohrfühler", "Dampfkessel", "Ersatzteil"],
+},
+{
+  productId: "prod_01KSMD66ZBAKHD3CFZHWAZTR0X",
+  handle: "monoschlauch",
+  base: {
+    title: "Monoschlauch komplett für Bügeleisen Dublo",
+    subtitle: "Kompletter Monoschlauch mit Befestigungsschellen für das Bügeleisen Dublo (ohne Abdeckkappe)",
+    description: `<p class="mb-3 leading-relaxed">Der komplette Monoschlauch verbindet das Bügeleisen Dublo mit der Dampfeinheit und führt Dampf und Strom in einem Schlauch zusammen. Inklusive Befestigungsschellen – ein passgenaues Ersatzteil für den professionellen Einsatz.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Passend für:</strong> Bügeleisen Dublo</li><li class="ml-1">Komplett mit Befestigungsschellen (ohne Abdeckkappe)</li><li class="ml-1">Passgenaues Ersatzteil</li></ul><p class="mb-3 leading-relaxed">Ideal als Ersatz bei Verschleiß oder Beschädigung des Original-Schlauchs.</p>`,
+  },
+  metadata: {
+    stripPrefixes: ["woo_"],
+    set: {
+      meta_title: "Monoschlauch komplett für Bügeleisen Dublo | Planeta",
+      meta_description: "Kompletter Monoschlauch mit Befestigungsschellen für das Bügeleisen Dublo (ohne Abdeckkappe). Passgenaues Ersatzteil.",
+      meta_title_en: "Mono Hose, Complete, for Dublo Iron | Planeta",
+      meta_description_en: "Complete mono hose with mounting clamps for the Dublo iron (without cover cap). Perfect-fit spare part.",
+    },
+  },
+  translations: {
+    "en-US": {
+      title: "Mono Hose, Complete, for Dublo Iron",
+      subtitle: "Complete mono hose with mounting clamps for the Dublo iron (without cover cap)",
+      description: `<p class="mb-3 leading-relaxed">The complete mono hose connects the Dublo iron to the steam unit, combining steam and power in a single hose. Supplied with mounting clamps – a perfect-fit spare part for professional use.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Fits:</strong> Dublo iron</li><li class="ml-1">Complete with mounting clamps (without cover cap)</li><li class="ml-1">Perfect-fit spare part</li></ul><p class="mb-3 leading-relaxed">Ideal as a replacement when the original hose is worn or damaged.</p>`,
+    },
+  },
+  tags: ["Monoschlauch", "Dublo", "Bügeleisen", "Ersatzteil"],
+},
+{
+  productId: "prod_01KSMD6773D5AJQ0D6TVHZ7BNJ",
+  handle: "imbusschrauben-dublo",
+  base: {
+    title: "Imbusschrauben für Bügeleisensohle Dublo",
+    subtitle: "Imbusschrauben für die Bügeleisensohle Dublo – Einzelverkauf, Preis je Stück",
+    description: `<p class="mb-3 leading-relaxed">Die Imbusschrauben befestigen die Bügeleisensohle Dublo sicher und zuverlässig. Als passgenaues Ersatzteil sorgen sie für festen Halt im Dauerbetrieb.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Passend für:</strong> Bügeleisensohle Dublo</li><li class="ml-1">Einzelverkauf, Preisangabe je Stück</li><li class="ml-1">Passgenaues Ersatzteil</li></ul><p class="mb-3 leading-relaxed">Ideal als Ersatz bei Verschleiß oder Verlust.</p>`,
+  },
+  metadata: {
+    stripPrefixes: ["woo_"],
+    set: {
+      meta_title: "Imbusschrauben für Bügeleisensohle Dublo | Planeta",
+      meta_description: "Imbusschrauben für die Bügeleisensohle Dublo. Einzelverkauf, Preis je Stück – passgenaues Ersatzteil.",
+      meta_title_en: "Allen Screws for Dublo Soleplate | Planeta",
+      meta_description_en: "Allen screws for the Dublo iron soleplate. Sold individually, price per piece – perfect-fit spare part.",
+    },
+  },
+  translations: {
+    "en-US": {
+      title: "Allen Screws for Dublo Soleplate",
+      subtitle: "Allen screws for the Dublo iron soleplate – sold individually, price per piece",
+      description: `<p class="mb-3 leading-relaxed">The Allen screws fasten the Dublo iron soleplate securely and reliably. A perfect-fit spare part that ensures a firm hold in continuous use.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Fits:</strong> Dublo iron soleplate</li><li class="ml-1">Sold individually, price per piece</li><li class="ml-1">Perfect-fit spare part</li></ul><p class="mb-3 leading-relaxed">Ideal as a replacement when worn or lost.</p>`,
+    },
+  },
+  tags: ["Imbusschrauben", "Dublo", "Bügeleisensohle", "Ersatzteil"],
+},
+{
+  productId: "prod_01KSMD65AGV9RHW4F2HKDW7ZGT",
+  handle: "buegeleisen-filter",
+  base: {
+    title: "Bügeleisen-Filter (Labyrinthpatrone) für die Bügeleisensohle",
+    subtitle: "Labyrinthpatrone für die Bügeleisensohle – Einzelverkauf, Preis je Stück",
+    description: `<p class="mb-3 leading-relaxed">Der Bügeleisen-Filter (Labyrinthpatrone) hält Rückstände von der Bügeleisensohle fern und sorgt so für saubere, fleckenfreie Bügelergebnisse. Ein passgenaues Verschleißteil für den regelmäßigen Austausch.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Funktion:</strong> Labyrinthpatrone für die Bügeleisensohle</li><li class="ml-1">Einzelverkauf, Preisangabe je Stück</li><li class="ml-1">Passgenaues Ersatz-/Verschleißteil</li></ul><p class="mb-3 leading-relaxed">Ideal zum regelmäßigen Austausch für gleichbleibende Bügelqualität.</p>`,
+  },
+  metadata: {
+    stripPrefixes: ["woo_"],
+    set: {
+      meta_title: "Bügeleisen-Filter (Labyrinthpatrone) für die Bügeleisensohle | Planeta",
+      meta_description: "Labyrinthpatrone / Bügeleisen-Filter für die Bügeleisensohle. Einzelverkauf, Preis je Stück – passgenaues Verschleißteil.",
+      meta_title_en: "Iron Filter (Labyrinth Cartridge) for Soleplate | Planeta",
+      meta_description_en: "Labyrinth cartridge / iron filter for the iron soleplate. Sold individually, price per piece – perfect-fit wear part.",
+    },
+  },
+  translations: {
+    "en-US": {
+      title: "Iron Filter (Labyrinth Cartridge) for the Soleplate",
+      subtitle: "Labyrinth cartridge for the iron soleplate – sold individually, price per piece",
+      description: `<p class="mb-3 leading-relaxed">The iron filter (labyrinth cartridge) keeps residue away from the iron soleplate, ensuring clean, stain-free ironing results. A perfect-fit wear part for regular replacement.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Function:</strong> labyrinth cartridge for the iron soleplate</li><li class="ml-1">Sold individually, price per piece</li><li class="ml-1">Perfect-fit wear part</li></ul><p class="mb-3 leading-relaxed">Ideal for regular replacement to keep consistent ironing quality.</p>`,
+    },
+  },
+  tags: ["Bügeleisen-Filter", "Labyrinthpatrone", "Bügeleisensohle", "Ersatzteil"],
+},
+{
+  productId: "prod_01KSMD658G8QJYZNABC1SEHRTM",
+  handle: "o-ringe-satz",
+  base: {
+    title: "Satz O-Ringe (3 Stück)",
+    subtitle: "Dichtungssatz mit 3 O-Ringen für Ihre Dampf-/Bügelanlage",
+    description: `<p class="mb-3 leading-relaxed">Der O-Ring-Satz enthält 3 Dichtungsringe und sorgt für zuverlässige, dichte Verbindungen in Ihrer Anlage. Ein praktisches, passgenaues Set für Wartung und Reparatur.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Inhalt:</strong> 1 Satz O-Ringe (3 Stück)</li><li class="ml-1">Für dichte, zuverlässige Verbindungen</li><li class="ml-1">Passgenaues Ersatzteil-Set</li></ul><p class="mb-3 leading-relaxed">Ideal als Ersatz bei Verschleiß oder Undichtigkeit.</p>`,
+  },
+  metadata: {
+    stripPrefixes: ["woo_"],
+    set: {
+      meta_title: "Satz O-Ringe (3 Stück) | Planeta",
+      meta_description: "Dichtungssatz mit 3 O-Ringen für dichte, zuverlässige Verbindungen. Passgenaues Ersatzteil-Set.",
+      meta_title_en: "O-Ring Set (3 pcs) | Planeta",
+      meta_description_en: "Sealing set with 3 O-rings for tight, reliable connections. Perfect-fit spare-part set.",
+    },
+  },
+  translations: {
+    "en-US": {
+      title: "O-Ring Set (3 pcs)",
+      subtitle: "Sealing set with 3 O-rings for your steam/ironing system",
+      description: `<p class="mb-3 leading-relaxed">The O-ring set contains 3 sealing rings and ensures reliable, tight connections in your system. A practical, perfect-fit set for maintenance and repair.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Contents:</strong> 1 set of O-rings (3 pcs)</li><li class="ml-1">For tight, reliable connections</li><li class="ml-1">Perfect-fit spare-part set</li></ul><p class="mb-3 leading-relaxed">Ideal as a replacement when worn or leaking.</p>`,
+    },
+  },
+  tags: ["O-Ringe", "Dichtung", "Set", "Ersatzteil"],
+},
+{
+  productId: "prod_01KSMD62N703MTC4YQJ4SZZZPP",
+  handle: "kesselverschluss",
+  base: {
+    title: "Kesselverschluss 3/8″ für Dampfkessel",
+    subtitle: "Verschluss für den Dampfkessel mit 3/8″-Standardanschluss",
+    description: `<p class="mb-3 leading-relaxed">Der Kesselverschluss dichtet Ihren Dampfkessel sicher ab – mit 3/8″-Standardanschluss. Als passgenaues Ersatzteil sorgt er für einen dichten, sicheren Betrieb Ihrer Dampfstation.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Anschluss:</strong> 3/8″ (Standard)</li><li class="ml-1">Dichter Verschluss für den Dampfkessel</li><li class="ml-1">Passgenaues Ersatzteil</li></ul><p class="mb-3 leading-relaxed">Ideal als Ersatz bei Verschleiß oder Undichtigkeit des Original-Verschlusses.</p>`,
+  },
+  metadata: {
+    stripPrefixes: ["woo_"],
+    set: {
+      meta_title: "Kesselverschluss 3/8″ für Dampfkessel | Planeta",
+      meta_description: "Kesselverschluss mit 3/8″-Standardanschluss für den Dampfkessel. Passgenaues Ersatzteil für Ihre Dampfstation.",
+      meta_title_en: "Boiler Cap 3/8″ for Steam Boiler | Planeta",
+      meta_description_en: "Boiler cap with 3/8″ standard connection for the steam boiler. Perfect-fit spare part for your steam station.",
+    },
+  },
+  translations: {
+    "en-US": {
+      title: "Boiler Cap 3/8″ for Steam Boiler",
+      subtitle: "Cap for the steam boiler with 3/8″ standard connection",
+      description: `<p class="mb-3 leading-relaxed">The boiler cap safely seals your steam boiler – with a 3/8″ standard connection. A perfect-fit spare part that ensures tight, safe operation of your steam station.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Connection:</strong> 3/8″ (standard)</li><li class="ml-1">Tight cap for the steam boiler</li><li class="ml-1">Perfect-fit spare part</li></ul><p class="mb-3 leading-relaxed">Ideal as a replacement when the original cap is worn or leaking.</p>`,
+    },
+  },
+  tags: ["Kesselverschluss", "Dampfkessel", "Verschluss", "Ersatzteil"],
+},
+{
+  productId: "prod_01KSMD6790W8W9NWMDF7EETXYX",
+  handle: "kontrolllampe-gruen",
+  base: {
+    title: "Kontrolllampe grün für Dampfstation",
+    subtitle: "Grüne Kontrolllampe zur Anzeige des Betriebszustands",
+    description: `<p class="mb-3 leading-relaxed">Die grüne Kontrolllampe zeigt den Betriebszustand Ihrer Dampfstation zuverlässig an. Als passgenaues Ersatzteil sorgt sie dafür, dass Sie den Status Ihres Geräts jederzeit im Blick haben.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Farbe:</strong> grün</li><li class="ml-1">Zeigt den Betriebszustand an</li><li class="ml-1">Passgenaues Ersatzteil</li></ul><p class="mb-3 leading-relaxed">Ideal als Ersatz bei Ausfall oder Defekt der Original-Lampe.</p>`,
+  },
+  metadata: {
+    stripPrefixes: ["woo_"],
+    set: {
+      meta_title: "Kontrolllampe grün für Dampfstation | Planeta",
+      meta_description: "Grüne Kontrolllampe zur Anzeige des Betriebszustands der Dampfstation. Passgenaues Ersatzteil.",
+      meta_title_en: "Green Indicator Lamp for Steam Station | Planeta",
+      meta_description_en: "Green indicator lamp showing the operating status of the steam station. Perfect-fit spare part.",
+    },
+  },
+  translations: {
+    "en-US": {
+      title: "Green Indicator Lamp for Steam Station",
+      subtitle: "Green indicator lamp showing the operating status",
+      description: `<p class="mb-3 leading-relaxed">The green indicator lamp reliably shows the operating status of your steam station. A perfect-fit spare part that keeps the status of your appliance in view at all times.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Colour:</strong> green</li><li class="ml-1">Shows the operating status</li><li class="ml-1">Perfect-fit spare part</li></ul><p class="mb-3 leading-relaxed">Ideal as a replacement when the original lamp fails or is faulty.</p>`,
+    },
+  },
+  tags: ["Kontrolllampe", "grün", "Dampfstation", "Ersatzteil"],
+},
+{
+  productId: "prod_01KSMD67ARV0587NW27AXQWTKV",
+  handle: "kontrolllampe-rot",
+  base: {
+    title: "Kontrolllampe rot für Dampfstation",
+    subtitle: "Rote Kontrolllampe zur Anzeige des Betriebszustands",
+    description: `<p class="mb-3 leading-relaxed">Die rote Kontrolllampe zeigt den Betriebszustand Ihrer Dampfstation zuverlässig an. Als passgenaues Ersatzteil sorgt sie dafür, dass Sie den Status Ihres Geräts jederzeit im Blick haben.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Farbe:</strong> rot</li><li class="ml-1">Zeigt den Betriebszustand an</li><li class="ml-1">Passgenaues Ersatzteil</li></ul><p class="mb-3 leading-relaxed">Ideal als Ersatz bei Ausfall oder Defekt der Original-Lampe.</p>`,
+  },
+  metadata: {
+    stripPrefixes: ["woo_"],
+    set: {
+      meta_title: "Kontrolllampe rot für Dampfstation | Planeta",
+      meta_description: "Rote Kontrolllampe zur Anzeige des Betriebszustands der Dampfstation. Passgenaues Ersatzteil.",
+      meta_title_en: "Red Indicator Lamp for Steam Station | Planeta",
+      meta_description_en: "Red indicator lamp showing the operating status of the steam station. Perfect-fit spare part.",
+    },
+  },
+  translations: {
+    "en-US": {
+      title: "Red Indicator Lamp for Steam Station",
+      subtitle: "Red indicator lamp showing the operating status",
+      description: `<p class="mb-3 leading-relaxed">The red indicator lamp reliably shows the operating status of your steam station. A perfect-fit spare part that keeps the status of your appliance in view at all times.</p><ul class="list-disc pl-5 mb-3 space-y-1"><li class="ml-1"><strong class="font-semibold">Colour:</strong> red</li><li class="ml-1">Shows the operating status</li><li class="ml-1">Perfect-fit spare part</li></ul><p class="mb-3 leading-relaxed">Ideal as a replacement when the original lamp fails or is faulty.</p>`,
+    },
+  },
+  tags: ["Kontrolllampe", "rot", "Dampfstation", "Ersatzteil"],
+},
 ]
