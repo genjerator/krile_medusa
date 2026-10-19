@@ -86,6 +86,32 @@ module.exports = defineConfig({
       resolve: "./src/modules/outreach",
     },
     {
+      resolve: "./src/modules/betterAuth",
+    },
+    // Auth module. Registering providers explicitly REPLACES the framework
+    // default, so `emailpass` must stay listed to keep existing admin and
+    // customer email/password login working. The `better-auth` provider bridges
+    // the Better Auth engine (email + Google + Facebook) mounted at
+    // `/better-auth/*`; the storefront exchanges a Better Auth session for a
+    // Medusa customer token via `POST /auth/customer/better-auth`.
+    {
+      resolve: "@medusajs/medusa/auth",
+      options: {
+        providers: [
+          {
+            resolve: "@medusajs/auth-emailpass",
+            id: "emailpass",
+            options: {},
+          },
+          {
+            resolve: "./src/modules/better-auth-provider",
+            id: "better-auth",
+            options: {},
+          },
+        ],
+      },
+    },
+    {
       resolve: "@medusajs/medusa/payment",
       options: {
         providers: [
