@@ -54,3 +54,24 @@ export function renderInquiryDetails(data: InquiryEmailData, labels: DetailLabel
       )}
     </table>`
 }
+
+/**
+ * Renders the branded-bag logo + preview (when present) for both the customer
+ * and admin emails: a preview thumbnail plus a direct link to the uploaded logo.
+ * Returns an empty string for ordinary inquiries (no logo).
+ */
+export function renderLogoBlock(
+  data: InquiryEmailData,
+  labels: { heading: string; download: string; preview: string }
+): string {
+  if (!data.logoUrl) return ""
+  const img = data.previewUrl || data.logoUrl
+  return `
+    <div style="margin:16px 0;">
+      <p style="font-weight:600;color:#111;margin:0 0 8px;">${labels.heading}</p>
+      <a href="${escapeHtml(img)}"><img src="${escapeHtml(img)}" alt="${labels.preview}" style="max-width:320px;width:100%;height:auto;border:1px solid #e5e7eb;border-radius:6px;" /></a>
+      <p style="margin:8px 0 0;font-size:13px;">
+        <a href="${escapeHtml(data.logoUrl)}">${labels.download}</a>
+      </p>
+    </div>`
+}

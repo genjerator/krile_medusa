@@ -15,6 +15,10 @@ type Inquiry = {
   created_at: string
   sales_channel_id: string | null
   sales_channel_name: string | null
+  logo_url?: string | null
+  logo_name?: string | null
+  preview_url?: string | null
+  details?: { placement?: Record<string, number>; bag?: unknown } | null
 }
 
 const DEFAULT_STOREFRONT_URL = "https://www.planetaindustries.de"
@@ -265,6 +269,42 @@ const InquiriesPage = () => {
                     </Text>
                   </div>
                 </div>
+
+                {selected.logo_url && (
+                  <div className="flex flex-col gap-y-2">
+                    <Text size="small" leading="compact" weight="plus" className="text-ui-fg-subtle">
+                      Branded bag — Logo &amp; Vorschau
+                    </Text>
+                    <div className="flex gap-4 flex-wrap">
+                      <div className="flex flex-col gap-y-1">
+                        <a href={selected.logo_url} target="_blank" rel="noopener noreferrer"
+                          className="block w-32 h-32 rounded-lg border border-ui-border-base bg-[repeating-conic-gradient(#eee_0_25%,#fff_0_50%)] bg-[length:16px_16px] overflow-hidden">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img src={selected.logo_url} alt="Logo" className="w-full h-full object-contain" />
+                        </a>
+                        <a href={selected.logo_url} target="_blank" rel="noopener noreferrer"
+                          className="text-xs text-ui-fg-interactive underline break-all">
+                          Logo herunterladen{selected.logo_name ? ` (${selected.logo_name})` : ""}
+                        </a>
+                      </div>
+                      {selected.preview_url && (
+                        <div className="flex flex-col gap-y-1">
+                          <a href={selected.preview_url} target="_blank" rel="noopener noreferrer"
+                            className="block w-48 h-32 rounded-lg border border-ui-border-base overflow-hidden">
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img src={selected.preview_url} alt="Vorschau" className="w-full h-full object-contain" />
+                          </a>
+                          <span className="text-xs text-ui-fg-muted">Vorschau</span>
+                        </div>
+                      )}
+                    </div>
+                    {selected.details?.bag ? (
+                      <Text size="small" className="text-ui-fg-subtle">
+                        Beutel: {JSON.stringify(selected.details.bag)}
+                      </Text>
+                    ) : null}
+                  </div>
+                )}
               </div>
             )}
           </Drawer.Body>

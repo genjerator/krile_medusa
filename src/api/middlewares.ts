@@ -16,6 +16,7 @@ import {
 import { CreateReparaturSchema } from "./store/reparatur/validators"
 import { AddVacuumBagToCartSchema } from "./store/vacuum-bags/validators"
 import { PostCookieConsentSchema } from "./store/cookie-consent/validators"
+import { getBetterAuthNodeHandler } from "../lib/better-auth/auth"
 
 const stripTags = (value: string) => value.replace(/<[^>]*>/g, "").trim()
 
@@ -42,6 +43,13 @@ export const CreateInquirySchema = z.object({
   locale: z.string().trim().optional(),
   // The storefront page URL the inquiry was submitted from (shown in the emails).
   source_url: z.string().trim().max(500).optional(),
+  // Branded-bag configurator: the customer's uploaded logo artwork + a flattened
+  // preview (both already uploaded to our S3 via /store/uploads), the logo's
+  // original filename, and the chosen placement + bag options (type/color/size).
+  logo_url: z.string().trim().url().max(1000).optional(),
+  preview_url: z.string().trim().url().max(1000).optional(),
+  logo_name: z.string().trim().max(255).optional(),
+  details: z.record(z.string(), z.any()).optional(),
   // Honeypot — a hidden field real users never see/fill. Bots that auto-fill
   // every input will populate it; the route then silently no-ops (see route).
   // Must stay in the schema (otherwise Zod strips it before the route sees it).
@@ -83,6 +91,17 @@ const cookieConsentRateLimit = rateLimit({
 const crmImportUpload = multer({
   storage: multer.memoryStorage(),
   limits: { fileSize: 20 * 1024 * 1024 },
+})
+
+// In-memory upload for customer logo artwork on the "branded bag" configurator
+// (PNG/SVG/JPEG/WebP, max 3 MB). Used by the public /store/uploads route.
+const logoUpload = multer({
+  storage: multer.memoryStorage(),
+  limits: { fileSize: 3 * 1024 * 1024 },
+  fileFilter: (_req: any, file: any, cb: any) => {
+    const ok = ["image/png", "image/svg+xml", "image/jpeg", "image/webp"].includes(file.mimetype)
+    cb(ok ? null : new Error("Only PNG, SVG, JPEG or WebP images are allowed"), ok)
+  },
 })
 
 /**
@@ -127,8 +146,36 @@ const sesWebhookAuth = (
   return next()
 }
 
+/**
+ * Serves the Better Auth engine at /better-auth/* as a terminating middleware.
+ * Medusa's file-router has no catch-all route support, so Better Auth's many
+ * sub-paths (sign-in, sign-up, OAuth callbacks, session) are handled here. The
+ * Node handler writes and ends the response itself, so `next()` is never called
+ * on success; errors are forwarded.
+ */
+const betterAuthHandler = async (
+  req: MedusaRequest,
+  res: MedusaResponse,
+  next: MedusaNextFunction
+) => {
+  try {
+    const handler = await getBetterAuthNodeHandler()
+    await handler(req, res)
+  } catch (err) {
+    next(err)
+  }
+}
+
 export default defineMiddlewares({
   routes: [
+    // Better Auth owns /better-auth/* end to end. Body parsing is disabled so
+    // Better Auth receives the raw request stream (Medusa's JSON parser would
+    // otherwise consume it first).
+    {
+      matcher: "/better-auth/*",
+      bodyParser: false,
+      middlewares: [betterAuthHandler as any],
+    },
     {
       matcher: "/admin/crm-import",
       method: "POST",
@@ -148,6 +195,13 @@ export default defineMiddlewares({
       matcher: "/store/inquiries",
       method: "POST",
       middlewares: [inquiryRateLimit as any, validateAndTransformBody(CreateInquirySchema)],
+    },
+    {
+      // Public logo-artwork upload for the branded-bag configurator. Rate-limited
+      // and type/size-restricted (see logoUpload). Returns the stored S3 url.
+      matcher: "/store/uploads",
+      method: "POST",
+      middlewares: [inquiryRateLimit as any, logoUpload.single("file") as any],
     },
     {
       matcher: "/store/reparatur",

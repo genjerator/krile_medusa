@@ -1,5 +1,5 @@
 import type { InquiryEmailData, EmailContent } from "./types"
-import { renderInquiryDetails, escapeHtml } from "./shared"
+import { renderInquiryDetails, renderLogoBlock, escapeHtml } from "./shared"
 
 /** German customer email: confirmation + a copy of everything they submitted. */
 export function inquiryCustomerDe(data: InquiryEmailData): EmailContent {
@@ -29,6 +29,8 @@ export function inquiryCustomerDe(data: InquiryEmailData): EmailContent {
           date: "Datum",
           message: "Nachricht",
         })}
+
+        ${renderLogoBlock(data, { heading: "Ihr Logo", download: "Logo ansehen", preview: "Vorschau" })}
 
         <hr style="border:none;border-top:1px solid #e5e7eb;margin:24px 0;" />
         <p style="color:#6b7280;font-size:13px;">

@@ -1,5 +1,5 @@
 import type { InquiryEmailData, EmailContent } from "./types"
-import { renderInquiryDetails, escapeHtml } from "./shared"
+import { renderInquiryDetails, renderLogoBlock, escapeHtml } from "./shared"
 
 /**
  * Admin/staff notification: a new inquiry came in via a contact / request form.
@@ -22,6 +22,8 @@ export function inquiryAdminDe(data: InquiryEmailData): EmailContent {
           date: "Datum",
           message: "Nachricht",
         })}
+
+        ${renderLogoBlock(data, { heading: "Logo & Vorschau", download: "Logo herunterladen", preview: "Vorschau" })}
 
         ${
           data.adminProductUrl

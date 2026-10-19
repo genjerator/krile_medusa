@@ -8,6 +8,10 @@ type Input = {
   message: string
   phone?: string
   sales_channel_id?: string
+  logo_url?: string
+  logo_name?: string
+  preview_url?: string
+  details?: Record<string, unknown>
 }
 
 export const createProductInquiryStep = createStep(

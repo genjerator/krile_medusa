@@ -19,6 +19,9 @@ export type InquiryEmailData = {
   dateStr: string
   /** Store contact email used in the customer footer (may be empty). */
   storeEmail: string
+  /** Branded-bag configurator: uploaded logo (S3 url) and a flattened preview. */
+  logoUrl?: string | null
+  previewUrl?: string | null
 }
 
 export type EmailContent = {

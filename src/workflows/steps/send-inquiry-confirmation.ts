@@ -16,6 +16,8 @@ type Input = {
   product_id?: string
   source_url?: string
   sales_channel_ids?: string[]
+  logo_url?: string
+  preview_url?: string
 }
 
 /** Storefront base URL per sales channel (for the customer product link). */
@@ -106,6 +108,8 @@ export const sendInquiryConfirmationStep = createStep(
       sourceUrl: input.source_url || null,
       dateStr,
       storeEmail,
+      logoUrl: input.logo_url || null,
+      previewUrl: input.preview_url || null,
     }
 
     // 1) Customer confirmation.
