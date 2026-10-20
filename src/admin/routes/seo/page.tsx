@@ -272,8 +272,11 @@ const SeoPage = () => {
     }
   }, [loc])
 
-  const to = isoDay(new Date())
-  const from = isoDay(new Date(Date.now() - (days - 1) * 86_400_000))
+  // The three most-recent days (today, yesterday, the day before) have no data
+  // yet, so end the window 3 days back to avoid plotting/calculating empty days.
+  const LAG_DAYS = 3
+  const to = isoDay(new Date(Date.now() - LAG_DAYS * 86_400_000))
+  const from = isoDay(new Date(Date.now() - (LAG_DAYS + days - 1) * 86_400_000))
   const rangeQ = `brand=${brand}&from=${from}&to=${to}`
 
   const { data: brandsData } = useQuery({
