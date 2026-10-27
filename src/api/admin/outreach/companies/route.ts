@@ -9,6 +9,8 @@ import { OUTREACH_MODULE } from "../../../../modules/outreach"
  * Query params:
  *   q            free-text, matches name OR email OR website (ILIKE)
  *   city         matches city (ILIKE)
+ *   category     exact category match (values come from the companies/categories
+ *                endpoint that feeds the dropdown) — e.g. "Hotels", "Fleischereien"
  *   has_website  "yes" → only rows with a website; "no" → only rows without
  *   limit/offset pagination (default 20 / 0)
  */
@@ -19,6 +21,7 @@ export async function GET(req: MedusaRequest, res: MedusaResponse) {
   const offset = Number(req.query.offset) || 0
   const q = (req.query.q as string | undefined)?.trim()
   const city = (req.query.city as string | undefined)?.trim()
+  const category = (req.query.category as string | undefined)?.trim()
   const hasWebsite = req.query.has_website as string | undefined
 
   const filters: Record<string, any> = {}
@@ -29,6 +32,7 @@ export async function GET(req: MedusaRequest, res: MedusaResponse) {
       { website: { $ilike: `%${q}%` } },
     ]
   }
+  if (category) filters.category = category
   if (city) filters.city = { $ilike: `%${city}%` }
   if (hasWebsite === "yes") filters.website = { $ne: null }
   else if (hasWebsite === "no") filters.website = null

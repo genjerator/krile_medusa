@@ -99,10 +99,19 @@ type Metrics = {
   total: number
   rates: Rates
 }
+type Conversion = {
+  recipients: number
+  ordered: number
+  orders: number
+  revenue: number
+  currency_code: string
+  rate: number
+}
 type StatsResponse = {
   campaign: { id: string; name: string; status: string }
   totals: Metrics
   groups: Array<Metrics & { batch_id: string; group_id: string | null; group_name: string | null }>
+  conversion: Conversion
 }
 
 type LinkClick = { link: string; clicks: number; unique_recipients: number }
@@ -126,6 +135,8 @@ function StatusBadge({ status }: { status: string }) {
 
 const fmt = (n: number) => n.toLocaleString("en-US")
 const pct = (n: number) => `${n.toLocaleString("en-US", { maximumFractionDigits: 1 })}%`
+const money = (n: number, currency: string) =>
+  n.toLocaleString("de-DE", { style: "currency", currency: (currency || "eur").toUpperCase() })
 
 /** A KPI tile: big number + label + optional percentage sub-line. */
 function StatTile({ label, value, sub, tone }: { label: string; value: number; sub?: string; tone?: string }) {
@@ -615,7 +626,15 @@ function StatsSection({ campaignId }: { campaignId: string }) {
     queryFn: () => sdk.client.fetch<LinkClicksResponse>(`/admin/email-campaigns/${campaignId}/link-clicks`),
   })
 
+  // Order conversion across ALL campaigns (campaign-independent) — shown as a
+  // context line above this campaign's own numbers.
+  const { data: overall } = useQuery({
+    queryKey: ["marketing-conversion-overall"],
+    queryFn: () => sdk.client.fetch<Conversion>("/admin/marketing-conversion"),
+  })
+
   const t = data?.totals
+  const conv = data?.conversion
   return (
     <Container className="divide-y p-0">
       <div className="flex items-start justify-between gap-3 px-6 py-4">
@@ -642,13 +661,34 @@ function StatsSection({ campaignId }: { campaignId: string }) {
         <div className="flex justify-center py-10"><Spinner className="animate-spin" /></div>
       ) : (
         <>
-          <div className="grid grid-cols-2 gap-3 px-6 py-4 md:grid-cols-5">
+          <div className="grid grid-cols-2 gap-3 px-6 py-4 md:grid-cols-6">
             <StatTile label="Sent" value={t.sent} sub={t.skipped ? `${fmt(t.skipped)} skipped` : undefined} />
             <StatTile label="Delivered" value={t.delivered} sub={pct(t.rates.delivered)} />
             <StatTile label="Opened" value={t.opened} sub={pct(t.rates.opened)} tone="text-ui-tag-purple-text" />
             <StatTile label="Clicked" value={t.clicked} sub={pct(t.rates.clicked)} tone="text-ui-tag-green-text" />
             <StatTile label="Unsubscribed" value={t.unsubscribed} sub={pct(t.rates.unsubscribed)} tone="text-ui-tag-red-text" />
+            {conv ? (
+              <StatTile
+                label="Ordered"
+                value={conv.ordered}
+                sub={`${pct(conv.rate)} · ${money(conv.revenue, conv.currency_code)}`}
+                tone="text-ui-tag-blue-text"
+              />
+            ) : null}
           </div>
+
+          {conv ? (
+            <div className="px-6 py-2">
+              <Text size="xsmall" className="text-ui-fg-muted">
+                {fmt(conv.ordered)} of {fmt(conv.recipients)} recipients placed an order after receiving
+                this campaign ({pct(conv.rate)}) — {fmt(conv.orders)} order(s), {money(conv.revenue, conv.currency_code)} revenue.
+                {overall
+                  ? ` Across all campaigns: ${fmt(overall.ordered)} of ${fmt(overall.recipients)} recipients (${pct(overall.rate)}), ${money(overall.revenue, overall.currency_code)}.`
+                  : ""}
+                {" "}Attribution is "ordered after being emailed", not proof the email caused the sale.
+              </Text>
+            </div>
+          ) : null}
 
           <div className="flex flex-col gap-3 px-6 py-4">
             <Text size="small" weight="plus">Overall funnel</Text>
@@ -657,6 +697,9 @@ function StatsSection({ campaignId }: { campaignId: string }) {
             <FunnelBar label="Clicked" value={t.clicked} base={t.sent} color="bg-ui-tag-green-icon" />
             <FunnelBar label="Bounced" value={t.bounced} base={t.sent} color="bg-ui-tag-orange-icon" />
             <FunnelBar label="Unsubscribed" value={t.unsubscribed} base={t.sent} color="bg-ui-tag-red-icon" />
+            {conv ? (
+              <FunnelBar label="Ordered" value={conv.ordered} base={t.sent} color="bg-ui-tag-green-icon" />
+            ) : null}
           </div>
 
           {data.groups.length > 1 ? (

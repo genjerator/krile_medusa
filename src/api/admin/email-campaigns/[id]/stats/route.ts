@@ -2,6 +2,7 @@ import { AuthenticatedMedusaRequest, MedusaResponse } from "@medusajs/framework/
 import { ContainerRegistrationKeys } from "@medusajs/framework/utils"
 import { MARKETING_MODULE } from "../../../../../modules/marketing"
 import { parseGroupSendAudience } from "../../../../../lib/ses/campaign-groups"
+import { computeCampaignConversion } from "../../../../../lib/campaign-conversion"
 
 type Metrics = {
   sent: number
@@ -141,9 +142,39 @@ export async function GET(req: AuthenticatedMedusaRequest, res: MedusaResponse) 
     total: sum("total"),
   }
 
+  // Order conversion: of this campaign's delivered recipients, how many ordered
+  // after receiving, and the revenue those orders represent. Recipients are the
+  // customer_campaign rows for this campaign's batches with a delivery stamp
+  // (soft-deleted customers are kept — they still received, and may have bought).
+  let conversion = {
+    recipients: 0,
+    ordered: 0,
+    orders: 0,
+    revenue: 0,
+    currency_code: "eur",
+    rate: 0,
+  }
+  if (batchIds.length) {
+    const recRows = (await pg("customer_campaign as cc")
+      .join("customer as c", "c.id", "cc.customer_id")
+      .where("cc.source", "ses")
+      .whereIn("cc.campaign_id", batchIds)
+      .whereNull("cc.deleted_at")
+      .whereNotNull("cc.delivered_at")
+      .whereNotNull("c.email")
+      .groupBy("c.email")
+      .select("c.email as email")
+      .min("cc.delivered_at as first_delivered")) as {
+      email: string
+      first_delivered: string
+    }[]
+    conversion = await computeCampaignConversion(req.scope, recRows)
+  }
+
   res.json({
     campaign: { id: campaign.id, name: campaign.name, status: campaign.status },
     totals: withRates(totals),
     groups,
+    conversion,
   })
 }

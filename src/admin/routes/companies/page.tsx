@@ -7,6 +7,7 @@ import {
   Container,
   Heading,
   Input,
+  Select,
   Text,
 } from "@medusajs/ui"
 import { ArrowUpRightOnBox, Buildings } from "@medusajs/icons"
@@ -125,6 +126,12 @@ const WEBSITE_FILTERS: Array<{ label: string; value: string }> = [
   { label: "No site", value: "no" },
 ]
 
+type CategoryOption = { category: string; count: number }
+
+// Radix Select forbids an empty-string item value, so the "All" option uses a
+// sentinel that we map back to an empty `category` param.
+const ALL_CATEGORIES = "__all__"
+
 const CompaniesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams()
 
@@ -142,6 +149,7 @@ const CompaniesPage = () => {
 
   const search = searchParams.get("q") ?? ""
   const city = searchParams.get("city") ?? ""
+  const category = searchParams.get("category") ?? ""
   const hasWebsite = searchParams.get("has_website") ?? ""
 
   const [pageIndex, setPageIndex] = useState(0)
@@ -165,10 +173,11 @@ const CompaniesPage = () => {
   }
   if (search) queryParams.q = search
   if (city) queryParams.city = city
+  if (category) queryParams.category = category
   if (hasWebsite) queryParams.has_website = hasWebsite
 
   const { data, isLoading } = useQuery({
-    queryKey: ["outreach-companies", pageIndex, search, city, hasWebsite],
+    queryKey: ["outreach-companies", pageIndex, search, city, category, hasWebsite],
     queryFn: () =>
       sdk.client.fetch<{ companies: Company[]; count: number }>(
         "/admin/outreach/companies",
@@ -179,6 +188,17 @@ const CompaniesPage = () => {
 
   const companies: Company[] = data?.companies ?? []
   const count: number = data?.count ?? 0
+
+  // All distinct categories for the dropdown filter (loaded once, on mount).
+  const { data: categoryData } = useQuery({
+    queryKey: ["outreach-company-categories"],
+    queryFn: () =>
+      sdk.client.fetch<{ categories: CategoryOption[] }>(
+        "/admin/outreach/companies/categories"
+      ),
+    staleTime: 5 * 60 * 1000,
+  })
+  const categoryOptions: CategoryOption[] = categoryData?.categories ?? []
 
   const table = useDataTable<Company>({
     data: companies,
@@ -211,6 +231,31 @@ const CompaniesPage = () => {
 
       <Container className="p-0 overflow-hidden">
         <div className="flex flex-wrap items-center gap-2 px-6 py-3 border-b border-ui-border-base">
+          <div className="flex items-center gap-1">
+            <Text size="small" weight="plus" className="text-ui-fg-subtle mr-1">
+              Category:
+            </Text>
+            <Select
+              size="small"
+              value={category || ALL_CATEGORIES}
+              onValueChange={(v) => {
+                setParam("category", v === ALL_CATEGORIES ? "" : v)
+                setPageIndex(0)
+              }}
+            >
+              <Select.Trigger className="w-64">
+                <Select.Value placeholder="All categories" />
+              </Select.Trigger>
+              <Select.Content>
+                <Select.Item value={ALL_CATEGORIES}>All categories</Select.Item>
+                {categoryOptions.map((c) => (
+                  <Select.Item key={c.category} value={c.category}>
+                    {c.category} ({c.count.toLocaleString()})
+                  </Select.Item>
+                ))}
+              </Select.Content>
+            </Select>
+          </div>
           <Input
             size="small"
             placeholder="Filter by city…"
