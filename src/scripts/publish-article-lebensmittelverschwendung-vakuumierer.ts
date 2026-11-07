@@ -23,7 +23,8 @@ import {
 // Geld sparen kann" banner, served from each storefront's public/magazin/ (and
 // mirrored to S3 by repoint-magazin-covers-to-s3.ts for cross-storefront
 // rendering on prod).
-const COVER = "/magazin/lebensmittelverschwendung-reduzieren-vakuumierer.jpg"
+const COVER =
+  "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/magazin/lebensmittelverschwendung-reduzieren-vakuumierer.jpg"
 
 const ALT_DE = "Lebensmittelverschwendung reduzieren – wie ein Vakuumierer Geld sparen kann"
 const ALT_EN = "Reduce food waste – how a vacuum sealer can save money"

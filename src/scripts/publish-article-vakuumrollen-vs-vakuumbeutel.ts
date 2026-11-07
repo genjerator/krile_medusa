@@ -23,7 +23,8 @@ import {
 // served from each storefront's public/magazin/ (and mirrored to S3 by
 // repoint-magazin-covers-to-s3.ts for cross-storefront rendering on prod). The
 // article page does NOT render the cover inside the body, so no inline injection.
-const COVER = "/magazin/vakuumrollen-oder-vakuumbeutel-kosten.jpg"
+const COVER =
+  "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/magazin/vakuumrollen-oder-vakuumbeutel-kosten.jpg"
 
 const ALT_DE = "Vakuumrollen und Vakuumbeutel im Preisvergleich – was ist günstiger?"
 const ALT_EN = "Vacuum rolls vs. pre-made vacuum bags – cost comparison"

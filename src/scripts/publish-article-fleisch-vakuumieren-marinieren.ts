@@ -23,7 +23,8 @@ import {
 // storefront's public/magazin/ (and mirrored to S3 by
 // repoint-magazin-covers-to-s3.ts for cross-storefront rendering on prod). The
 // article page does NOT render the cover inside the body, so no inline injection.
-const COVER = "/magazin/fleisch-vakuumieren-und-marinieren.jpg"
+const COVER =
+  "https://krile-medusa-313003894447-eu-central-1-an.s3.eu-central-1.amazonaws.com/magazin/fleisch-vakuumieren-und-marinieren.jpg"
 
 const ALT_DE = "Fleisch im Vakuumbeutel marinieren – So gelingt die perfekte Marinade"
 const ALT_EN = "Vacuum marinating meat – how to get the perfect marinade"
